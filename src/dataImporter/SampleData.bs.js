@@ -5,21 +5,31 @@ var Belt_List = require("bs-platform/lib/js/belt_List.js");
 function sampleDataToRaw(rowFormat, sampleParticipants) {
   if (rowFormat) {
     return Belt_List.toArray(Belt_List.flatten(Belt_List.map(sampleParticipants, (function (p) {
-                          return Belt_List.map(p[/* selectedNames */2], (function (param) {
-                                        return Belt_List.toArray(/* :: */[
-                                                    p[/* name */0],
-                                                    /* :: */[
-                                                      String(p[/* canMatchWith */1]),
+                          if (Belt_List.length(p[/* selectedNames */2]) > 0) {
+                            return Belt_List.map(p[/* selectedNames */2], (function (param) {
+                                          return Belt_List.toArray(/* :: */[
+                                                      p[/* name */0],
                                                       /* :: */[
-                                                        param[0],
+                                                        String(p[/* canMatchWith */1]),
                                                         /* :: */[
-                                                          String(param[1]),
-                                                          /* [] */0
+                                                          param[0],
+                                                          /* :: */[
+                                                            String(param[1]),
+                                                            /* [] */0
+                                                          ]
                                                         ]
                                                       ]
-                                                    ]
-                                                  ]);
-                                      }));
+                                                    ]);
+                                        }));
+                          } else {
+                            return /* :: */[
+                                    /* array */[
+                                      p[/* name */0],
+                                      String(p[/* canMatchWith */1])
+                                    ],
+                                    /* [] */0
+                                  ];
+                          }
                         }))));
   } else {
     return Belt_List.toArray(Belt_List.map(sampleParticipants, (function (p) {

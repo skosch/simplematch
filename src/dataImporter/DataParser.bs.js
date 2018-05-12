@@ -18,13 +18,13 @@ function parseData(rawData, rowFormat) {
                       var previouslyFoundSelectedNames = match ? match[0][/* selectedNames */2] : /* [] */0;
                       var entry_000 = /* name */$$String.trim(name);
                       var entry_001 = /* canMatchWith */Caml_format.caml_int_of_string(canMatchWith);
-                      var entry_002 = /* selectedNames : :: */[
-                        /* tuple */[
-                          selectedName,
-                          Caml_format.caml_int_of_string(rank)
-                        ],
-                        previouslyFoundSelectedNames
-                      ];
+                      var entry_002 = /* selectedNames */selectedName !== "" ? /* :: */[
+                          /* tuple */[
+                            selectedName,
+                            Caml_format.caml_int_of_string(rank)
+                          ],
+                          previouslyFoundSelectedNames
+                        ] : previouslyFoundSelectedNames;
                       var entry = /* record */[
                         entry_000,
                         entry_001,

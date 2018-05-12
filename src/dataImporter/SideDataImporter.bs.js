@@ -12,7 +12,7 @@ var Caml_builtin_exceptions = require("bs-platform/lib/js/caml_builtin_exception
 
 var component = ReasonReact.statelessComponent("SideDataImporter");
 
-function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, _, includeSelectees, _$1) {
+function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, updateRawData, includeSelectees, _) {
   var tmp;
   if (includeSelectees) {
     var match = rowFormat === /* SelectedInMultipleRows */1;
@@ -70,42 +70,47 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                                       copyPaste: true,
                                       width: "100%",
                                       minSpareRows: 1,
-                                      startRows: 10,
+                                      startRows: 30,
                                       maxCols: maxCols,
                                       startColumns: match ? 30 : maxCols,
                                       stretchH: match$1 ? "none" : "all",
                                       data: match$2 ? rawData : null
-                                    }, /* array */[]))), includeSelectees ? React.createElement("div", {
-                                className: "rowformat-selector"
-                              }, "Format: ", React.createElement("select", {
-                                    onChange: (function (_event) {
-                                        var value = _event.target.value;
-                                        var tmp;
-                                        switch (value) {
-                                          case "" : 
-                                          case "columns" : 
-                                              tmp = /* SelectedInColumns */0;
-                                              break;
-                                          case "multiple-rows" : 
-                                              tmp = /* SelectedInMultipleRows */1;
-                                              break;
-                                          default:
-                                            throw [
-                                                  Caml_builtin_exceptions.match_failure,
-                                                  [
-                                                    "SideDataImporter.re",
-                                                    81,
-                                                    20
-                                                  ]
-                                                ];
-                                        }
-                                        return Curry._1(updateRowFormat, tmp);
-                                      })
-                                  }, React.createElement("option", {
-                                        value: "multiple-rows"
-                                      }, "One " + (Pluralize.singular(selectedName) + " per row")), React.createElement("option", {
-                                        value: "columns"
-                                      }, selectedName + " in columns"))) : null);
+                                    }, /* array */[]))), React.createElement("div", {
+                              className: "rowformat-selector"
+                            }, includeSelectees ? React.createElement("span", undefined, "Format: ", React.createElement("select", {
+                                        onChange: (function (_event) {
+                                            var value = _event.target.value;
+                                            var tmp;
+                                            switch (value) {
+                                              case "" : 
+                                              case "columns" : 
+                                                  tmp = /* SelectedInColumns */0;
+                                                  break;
+                                              case "multiple-rows" : 
+                                                  tmp = /* SelectedInMultipleRows */1;
+                                                  break;
+                                              default:
+                                                throw [
+                                                      Caml_builtin_exceptions.match_failure,
+                                                      [
+                                                        "SideDataImporter.re",
+                                                        82,
+                                                        24
+                                                      ]
+                                                    ];
+                                            }
+                                            return Curry._1(updateRowFormat, tmp);
+                                          })
+                                      }, React.createElement("option", {
+                                            value: "multiple-rows"
+                                          }, "One " + (Pluralize.singular(selectedName) + " per row")), React.createElement("option", {
+                                            value: "columns"
+                                          }, selectedName + " in columns"))) : null, React.createElement("button", {
+                                  className: "mdc-button clear-button",
+                                  onClick: (function () {
+                                      return Curry._1(updateRawData, /* array */[]);
+                                    })
+                                }, "Clear")));
             }),
           /* initialState */component[/* initialState */10],
           /* retainedProps */component[/* retainedProps */11],

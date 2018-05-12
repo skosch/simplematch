@@ -79,7 +79,7 @@ body {
     .table-wrapper {
       border-bottom: 1px solid lightgray;
       font-size: 80%;
-      flex: 1 0;
+      flex: 1 1;
       
       th {
         vertical-align: middle;
@@ -89,6 +89,10 @@ body {
       font-size: 90%;
       margin-top: 0.3rem;
       flex: 0 0;
+      .clear-button {
+        float: right;
+        color: #333;
+      }
     }
   }
 

@@ -45,10 +45,15 @@ let parseData = (rawData, rowFormat: SharedTypes.rowFormat) => {
           let entry: SharedTypes.sideDataEntry = {
             name: String.trim(name),
             canMatchWith: int_of_string(canMatchWith),
-            selectedNames: [
-              (selectedName, int_of_string(rank)),
-              ...previouslyFoundSelectedNames,
-            ],
+            selectedNames:
+              if (selectedName !== "") {
+                [
+                  (selectedName, int_of_string(rank)),
+                  ...previouslyFoundSelectedNames,
+                ];
+              } else {
+                previouslyFoundSelectedNames;
+              },
           };
           HashMap.String.set(nameMap, name, entry);
           nameMap;
@@ -59,7 +64,6 @@ let parseData = (rawData, rowFormat: SharedTypes.rowFormat) => {
       |> HashMap.String.valuesToArray
       |> List.fromArray
     };
-
   let selectedNamesEntries =
     sideDataEntries
     |. List.reduce([], (selectedNameList, entry) =>
@@ -78,6 +82,5 @@ let parseData = (rawData, rowFormat: SharedTypes.rowFormat) => {
          };
          entry;
        });
-
   (sideDataEntries, selectedNamesEntries);
 };

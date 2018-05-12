@@ -24,7 +24,11 @@ var component = ReasonReact.reducerComponent("App");
 function make() {
   var loadSampleData = function (_, self) {
     Curry._1(self[/* send */3], /* UpdateSelectingRawData */Block.__(5, [SampleData.sampleDataToRaw(self[/* state */1][/* selectingRowFormat */3], SampleData.candidates)]));
-    return Curry._1(self[/* send */3], /* UpdateSelectedRawData */Block.__(6, [SampleData.sampleDataToRaw(self[/* state */1][/* selectedRowFormat */4], SampleData.positions)]));
+    if (self[/* state */1][/* mutualMatch */2]) {
+      return Curry._1(self[/* send */3], /* UpdateSelectedRawData */Block.__(6, [SampleData.sampleDataToRaw(self[/* state */1][/* selectedRowFormat */4], SampleData.positions)]));
+    } else {
+      return 0;
+    }
   };
   return /* record */[
           /* debugName */component[/* debugName */0],
@@ -205,6 +209,7 @@ function make() {
                       var rawData = action[0];
                       var match = DataParser.parseData(rawData, state[/* selectingRowFormat */3]);
                       var selectedNamesEntries = match[1];
+                      console.log(SampleData.sampleDataToRaw(state[/* selectedRowFormat */4], selectedNamesEntries));
                       var match$1 = !state[/* mutualMatch */2] && List.length(state[/* selectedParsedData */8]) === 0;
                       var match$2 = !state[/* mutualMatch */2] && List.length(state[/* selectedParsedData */8]) === 0;
                       return /* Update */Block.__(0, [/* record */[

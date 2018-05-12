@@ -33,7 +33,9 @@ let component = ReasonReact.reducerComponent("App");
 let make = _children => {
   let loadSampleData = (_, self) => {
     self.ReasonReact.send(UpdateSelectingRawData(sampleDataToRaw(self.state.selectingRowFormat, candidates)));
-    self.ReasonReact.send(UpdateSelectedRawData(sampleDataToRaw(self.state.selectedRowFormat, positions)));
+    if (self.state.mutualMatch) {
+      self.ReasonReact.send(UpdateSelectedRawData(sampleDataToRaw(self.state.selectedRowFormat, positions)));
+    }
   };
 
   {
@@ -88,6 +90,8 @@ let make = _children => {
       let (parsedData, selectedNamesEntries) =
         parseData(rawData, state.selectingRowFormat);
 
+      Js.log(sampleDataToRaw(state.selectedRowFormat, selectedNamesEntries));
+      
       ReasonReact.Update({
         ...state,
         selectingRawData: rawData,
