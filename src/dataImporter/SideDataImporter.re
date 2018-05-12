@@ -26,7 +26,7 @@ let make =
     if (rowFormat == SelectedInMultipleRows) {
       index == 0 ? selectedName : "Rank";
     } else {
-      selectedName ++ " ranked #" ++ string_of_int(index + 1);
+      singular(selectedName) ++ " ranked #" ++ string_of_int(index + 1);
     };
   let columnHeader = index =>
     switch (index) {
@@ -47,13 +47,13 @@ let make =
             )
           )
         </div>
+        <div className="table-wrapper">
         <HotTable
           settings={
             "colHeaders": columnHeader,
             "rowHeaders": true,
             "copyPaste": true,
             "width": "100%",
-            "height": rows => (rows < 30 ? rows : 30) * 8 + 20,
             "minSpareRows": 1,
             "startRows": 10,
             "maxCols": maxCols,
@@ -67,8 +67,10 @@ let make =
                 Js.Nullable.return(rawData) : Js.Nullable.null,
           }
         />
+  </div>
         (includeSelectees ? (
             <div className="rowformat-selector">
+              (ReasonReact.string("Format: "))
             <select
                 onChange=(
                 _event => {

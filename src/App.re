@@ -11,6 +11,7 @@ include RunMatch;
 [%bs.raw {|require('./styles.scss')|}];
 
 [%bs.raw {|require('../node_modules/@material/switch/mdc-switch.scss')|}];
+[%bs.raw {|require('../node_modules/@material/button/mdc-button.scss')|}];
 
 /* Action declaration */
 type action =
@@ -50,6 +51,11 @@ let make = _children => {
     selectedParsedData: [],
     matchResult: [],
   },
+    
+  didMount: (self) => {
+    loadSampleData(0, self);
+  },
+
   /* State transitions */
   reducer: (action, state) =>
     switch (action) {
@@ -58,14 +64,30 @@ let make = _children => {
     | UpdateSelectedName(selectedName) =>
       ReasonReact.Update({...state, selectedName})
     | UpdateMutualMatch(mutualMatch) =>
-      ReasonReact.Update({...state, mutualMatch})
+      ReasonReact.Update({...state,
+                          mutualMatch,
+                          selectedRawData: [||],
+                          selectedParsedData: [],
+                          matchResult: [],
+    })
     | UpdateSelectingRowFormat(rowFormat) =>
-      ReasonReact.Update({...state, selectingRowFormat: rowFormat})
+      ReasonReact.Update({...state,
+                          selectingRowFormat: rowFormat,
+                          selectingRawData: [||],
+                          selectingParsedData: [],
+                          matchResult: [],
+    })
     | UpdateSelectedRowFormat(rowFormat) =>
-      ReasonReact.Update({...state, selectedRowFormat: rowFormat})
+      ReasonReact.Update({...state,
+                          selectedRowFormat: rowFormat,
+                          selectingRawData: [||],
+                          selectingParsedData: [],
+                          matchResult: [],
+    })
     | UpdateSelectingRawData(rawData) =>
       let (parsedData, selectedNamesEntries) =
         parseData(rawData, state.selectingRowFormat);
+
       ReasonReact.Update({
         ...state,
         selectingRawData: rawData,
@@ -73,6 +95,9 @@ let make = _children => {
         selectedParsedData:
           ! state.mutualMatch && List.length(state.selectedParsedData) == 0 ?
             selectedNamesEntries : state.selectedParsedData,
+        selectedRawData:
+          ! state.mutualMatch && List.length(state.selectedParsedData) == 0 ?
+            sampleDataToRaw(state.selectedRowFormat, selectedNamesEntries) : state.selectedRawData,
       });
     | UpdateSelectedRawData(rawData) =>
       let (parsedData, selectedNamesEntries) =
@@ -87,6 +112,7 @@ let make = _children => {
     | MatchNow =>
       ReasonReact.Update({...state, matchResult: RunMatch.runMatch(state)})
     },
+
   render: self => {
     let state = self.state;
     let resultData =
@@ -179,19 +205,19 @@ let make = _children => {
           )
         />
 
-        <button onClick=(self.handle(loadSampleData))>
+        <div className="bottom-buttons">
+        <button onClick=(self.handle(loadSampleData)) className="mdc-button">
           (ReasonReact.string("Load Sample Data"))
         </button>
         (
           List.length(self.state.selectingParsedData) > 0
           || List.length(self.state.selectedParsedData) > 0 ?
-            <div className="match-now">
-              <button onClick=((_) => self.send(MatchNow))>
+              <button onClick=((_) => self.send(MatchNow)) className="mdc-button mdc-button--raised">
                 (ReasonReact.string("Match now"))
-              </button>
-            </div> :
+              </button> :
             ReasonReact.null
         )
+      </div>
       </div>
       <div className="graph-pane">
         <Graph

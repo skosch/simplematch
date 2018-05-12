@@ -3,19 +3,27 @@ body {
   padding: 0;
   margin: 0;
   background: #f5f5f5;
+  --mdc-theme-primary: #3367d6;
   --mdc-theme-secondary: white;
+  color: #333;
 }
 
 .page-split {
   display: flex;
-  height: calc(100vh - 0.5rem);
+  height: 100vh;
   width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 .input-pane {
   flex: 0 0 38%;
   box-shadow: 4px 0 4px -2px rgba(0, 0, 0, 0.2);
   background: white;
+  display: flex;
+  flex-direction: column; 
+  
   .names-question {
     padding: 1.5rem;
     padding: 1.5rem;
@@ -23,6 +31,7 @@ body {
     color: white;
     display: flex;
     align-items: center;
+    flex: 0 0;
     
     span {
       padding: 0 0.5rem;
@@ -57,11 +66,36 @@ body {
   }
 
   .data-importer {
-    margin: 1rem 0;
     padding: 1.5rem;
+    border-bottom: 1px solid lightgray;   
+    display: flex;
+    flex-direction: column;
+    flex: 1 0;
+
     .question-statement {
       margin-bottom: 1rem;
+      flex: 0 0;
     }
+    .table-wrapper {
+      border-bottom: 1px solid lightgray;
+      font-size: 80%;
+      flex: 1 0;
+      
+      th {
+        vertical-align: middle;
+      }
+    }
+    .rowformat-selector {
+      font-size: 90%;
+      margin-top: 0.3rem;
+      flex: 0 0;
+    }
+  }
+
+  .bottom-buttons {
+    text-align: right;
+    padding: 1.5rem;
+    flex: 0 0;
   }
 }
 
@@ -79,3 +113,52 @@ body {
   }
 }
 
+button.mdc-button {
+  letter-spacing: 0 !important; 
+  margin-left: 1rem;
+}
+
+select {
+  line-height: 28px;
+  display: inline-block;
+  position: relative;
+  font-family: Roboto;
+  background-color: transparent;
+  border-width: 0 0 2px 0;
+  border-color: #E5E5E5;
+  border-style: solid;
+  margin-top: 4px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23666'><polygon points='0,30 70,30 35,65'/></svg>") right/0.8rem no-repeat #fff;
+  padding: 3px 1.1rem 2px 0rem;
+
+  &:focus {
+    outline: none;
+  }
+
+  option {
+    line-height: 2rem;
+    background: #F5F5F5;
+    color: #343434;
+  }
+  option:checked, option:hover {
+    box-shadow: 0 0 10px 100px #eee inset;
+  }
+  option:disabled {
+    color: gray;
+    background: lightgray;
+    font-style: italic;
+  }
+  option[disabled].select-header {
+    color: gray;
+    background: lightgray;
+    font-style: italic;
+  }
+}
+
+select::-ms-expand { 
+  display: none; /* remove default arrow in IE 10 and 11 */
+}

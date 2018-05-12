@@ -6,6 +6,7 @@ var Belt_List = require("bs-platform/lib/js/belt_List.js");
 var Cytoscape = require("./Cytoscape.bs.js");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 var Caml_int32 = require("bs-platform/lib/js/caml_int32.js");
+var Pervasives = require("bs-platform/lib/js/pervasives.js");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
 var Caml_primitive = require("bs-platform/lib/js/caml_primitive.js");
 var CamlinternalOO = require("bs-platform/lib/js/camlinternalOO.js");
@@ -21,14 +22,18 @@ var class_tables = [
 ];
 
 function make(selectingParsedData, selectedParsedData, resultData, _) {
+  var existingNodeNamesMap = Belt_List.reduce(Pervasives.$at(selectingParsedData, selectedParsedData), Belt_HashMapString.make(Belt_List.length(selectingParsedData) + Belt_List.length(selectedParsedData) | 0), (function (p, c) {
+          Belt_HashMapString.set(p, c[/* name */0], true);
+          return p;
+        }));
   var acceptedEdgesMap = Belt_Array.reduce(resultData, Belt_HashMapString.make(resultData.length), (function (p, c) {
           if (c.length !== 2) {
             throw [
                   Caml_builtin_exceptions.match_failure,
                   [
                     "Graph.re",
-                    22,
-                    8
+                    44,
+                    12
                   ]
                 ];
           } else {
@@ -54,22 +59,30 @@ function make(selectingParsedData, selectedParsedData, resultData, _) {
         x: x
       }
     };
-    var selectedNodes = Belt_List.toArray(Belt_List.map(entry[/* selectedNames */2], (function (param) {
+    var edgesFromSelectedNodes = Belt_List.toArray(Belt_List.reduce(entry[/* selectedNames */2], /* [] */0, (function (p, param) {
                 var sn = param[0];
-                return {
-                        data: {
-                          group: "edges",
-                          id: entry[/* name */0] + ("_to_" + sn),
-                          source: entry[/* name */0],
-                          target: sn,
-                          side: undefined,
-                          rank: param[1],
-                          inResult: Belt_HashMapString.has(acceptedEdgesMap, entry[/* name */0] + ("_to_" + sn))
-                        },
-                        position: undefined
-                      };
+                if (Belt_HashMapString.has(existingNodeNamesMap, sn)) {
+                  var edgeName = entry[/* name */0] + ("_to_" + sn);
+                  return /* :: */[
+                          {
+                            data: {
+                              group: "edges",
+                              id: edgeName,
+                              source: entry[/* name */0],
+                              target: sn,
+                              side: undefined,
+                              rank: param[1],
+                              inResult: Belt_HashMapString.has(acceptedEdgesMap, edgeName)
+                            },
+                            position: undefined
+                          },
+                          p
+                        ];
+                } else {
+                  return p;
+                }
               })));
-    return Belt_Array.concat(/* array */[node], selectedNodes);
+    return Belt_Array.concat(/* array */[node], edgesFromSelectedNodes);
   };
   var selectingElements = Belt_List.toArray(Belt_List.map(Belt_List.mapWithIndex(selectingParsedData, (function (i, x) {
                   return /* tuple */[

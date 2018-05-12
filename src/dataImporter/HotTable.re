@@ -1,8 +1,8 @@
-[@bs.module] external hotTable : ReasonReact.reactClass = "react-handsontable";
+[@bs.module "./AutosizeHotTable"] external autosizeHotTable : ReasonReact.reactClass = "default";
 
 let make = (~settings, children) => {
   ReasonReact.wrapJsForReason(
-  ~reactClass=hotTable,
+  ~reactClass=autosizeHotTable,
   ~props={"settings": settings},
   children);
 };

@@ -28,3 +28,4 @@ node_modules/
 .bsb.lock
 opt/
 dist/
+.awcache/

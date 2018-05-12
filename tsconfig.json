@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "outDir": "./ts-out/",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "module": "es6",
+    "target": "es6",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true,
+    "lib": ["es6", "es2015", "es2017", "dom", "esnext.asynciterable", "es2017.object"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useBabel": true,
+    "useCache": true
+  },
+  "include": [
+    "./src/**/*"
+  ],
+	"exclude": [
+    "**/*.test.ts"
+  ]
+}

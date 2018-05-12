@@ -14,16 +14,38 @@ type cytoscapeElement = {
     "rank": Js.Nullable.t(int),
     "inResult": Js.Nullable.t(bool),
   },
-  "position": Js.Nullable.t({. "y": int, "x": int}),
+  "position":
+    Js.Nullable.t(
+      {
+        .
+        "y": int,
+        "x": int,
+      },
+    ),
 };
 
 let make = (~selectingParsedData, ~selectedParsedData, ~resultData, _children) => {
-  let acceptedEdgesMap = Array.reduce(resultData, HashMap.String.make(Array.length(resultData)), (p, c) => {
-    let [|selecting, selected|] = c;
-    HashMap.String.set(p, selecting ++ "_to_" ++ selected, true);
-    p;
-  });
-
+  let existingNodeNamesMap =
+    List.reduce(
+      selectingParsedData @ selectedParsedData,
+      HashMap.String.make(
+        List.length(selectingParsedData) + List.length(selectedParsedData),
+      ),
+      (p, c: SharedTypes.sideDataEntry) => {
+        HashMap.String.set(p, c.name, true);
+        p;
+      },
+    );
+  let acceptedEdgesMap =
+    Array.reduce(
+      resultData,
+      HashMap.String.make(Array.length(resultData)),
+      (p, c) => {
+        let [|selecting, selected|] = c;
+        HashMap.String.set(p, selecting ++ "_to_" ++ selected, true);
+        p;
+      },
+    );
   let sideDataEntryToElementArray =
       (entry: SharedTypes.sideDataEntry, x: int, y: int, side: string)
       : array(cytoscapeElement) => {
@@ -40,34 +62,56 @@ let make = (~selectingParsedData, ~selectedParsedData, ~resultData, _children) =
       },
       "position": Js.Nullable.return({"y": y * 7, "x": x}),
     };
-    let selectedNodes =
+    let edgesFromSelectedNodes =
       entry.selectedNames
-      |. List.map(((sn, rank)) =>
-           {
-             "data": {
-               "group": "edges",
-               "id": entry.name ++ "_to_" ++ sn,
-               "source": Js.Nullable.return(entry.name),
-               "target": Js.Nullable.return(sn),
-               "side": Js.Nullable.undefined,
-               "rank": Js.Nullable.return(rank),
-               "inResult": Js.Nullable.return(HashMap.String.has(acceptedEdgesMap, entry.name ++ "_to_" ++ sn))
-             },
-             "position": Js.Nullable.undefined,
+      |. List.reduce([], (p, (sn, rank)) =>
+           if (HashMap.String.has(existingNodeNamesMap, sn)) {
+             let edgeName = entry.name ++ "_to_" ++ sn;
+             [{
+               "data": {
+                 "group": "edges",
+                 "id": edgeName,
+                 "source": Js.Nullable.return(entry.name),
+                 "target": Js.Nullable.return(sn),
+                 "side": Js.Nullable.undefined,
+                 "rank": Js.Nullable.return(rank),
+                 "inResult":
+                   Js.Nullable.return(
+                     HashMap.String.has(acceptedEdgesMap, edgeName),
+                   ),
+               },
+               "position": Js.Nullable.undefined,
+             }, ...p];
+           } else {
+             p;
            }
          )
       |. List.toArray;
-    Array.concat([|node|], selectedNodes);
+    Array.concat([|node|], edgesFromSelectedNodes);
   };
   let selectingElements =
     selectingParsedData
-    |. List.mapWithIndex((i, x) => ((i, x)))
-    |. List.map(((i, e)) => sideDataEntryToElementArray(e, 0, 2 * i - List.length(selectingParsedData), "selecting"))
+    |. List.mapWithIndex((i, x) => (i, x))
+    |. List.map(((i, e)) =>
+         sideDataEntryToElementArray(
+           e,
+           0,
+           2 * i - List.length(selectingParsedData),
+           "selecting",
+         )
+       )
     |. List.toArray;
   let selectedElements =
     selectedParsedData
-    |. List.mapWithIndex((i, x) => ((i, x)))
-    |. List.map(((i, e)) => sideDataEntryToElementArray(e, 100, 2 * i - List.length(selectedParsedData), "selected"))
+    |. List.mapWithIndex((i, x) => (i, x))
+    |. List.map(((i, e)) =>
+         sideDataEntryToElementArray(
+           e,
+           100,
+           2 * i - List.length(selectedParsedData),
+           "selected",
+         )
+       )
     |. List.toArray;
   let elements =
     [|selectingElements, selectedElements|]
@@ -80,7 +124,6 @@ let make = (~selectingParsedData, ~selectedParsedData, ~resultData, _children) =
              e2##data##source == Js.Nullable.undefined,
            )
        );
-  
   {
     ...component,
     render: (_) =>

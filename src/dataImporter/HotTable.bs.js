@@ -1,10 +1,10 @@
 'use strict';
 
 var ReasonReact = require("reason-react/src/ReasonReact.js");
-var ReactHandsontable = require("react-handsontable");
+var AutosizeHotTable = require("./AutosizeHotTable");
 
 function make(settings, children) {
-  return ReasonReact.wrapJsForReason(ReactHandsontable, {
+  return ReasonReact.wrapJsForReason(AutosizeHotTable.default, {
               settings: settings
             }, children);
 }

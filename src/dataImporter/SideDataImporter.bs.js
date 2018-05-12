@@ -30,7 +30,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
         return "Rank";
       }
     } else {
-      return selectedName + (" ranked #" + String(index + 1 | 0));
+      return Pluralize.singular(selectedName) + (" ranked #" + String(index + 1 | 0));
     }
   };
   var columnHeader = function (index) {
@@ -62,26 +62,22 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                           className: "data-importer"
                         }, React.createElement("div", {
                               className: "question-statement"
-                            }, "Paste your " + (selectingName + " into the spreadsheet below:")), ReasonReact.element(/* None */0, /* None */0, HotTable.make({
-                                  colHeaders: columnHeader,
-                                  rowHeaders: true,
-                                  copyPaste: true,
-                                  width: "100%",
-                                  height: (function (rows) {
-                                      var match = rows < 30;
-                                      return ((
-                                                match ? rows : 30
-                                              ) << 3) + 20 | 0;
-                                    }),
-                                  minSpareRows: 1,
-                                  startRows: 10,
-                                  maxCols: maxCols,
-                                  startColumns: match ? 30 : maxCols,
-                                  stretchH: match$1 ? "none" : "all",
-                                  data: match$2 ? rawData : null
-                                }, /* array */[])), includeSelectees ? React.createElement("div", {
+                            }, "Paste your " + (selectingName + " into the spreadsheet below:")), React.createElement("div", {
+                              className: "table-wrapper"
+                            }, ReasonReact.element(/* None */0, /* None */0, HotTable.make({
+                                      colHeaders: columnHeader,
+                                      rowHeaders: true,
+                                      copyPaste: true,
+                                      width: "100%",
+                                      minSpareRows: 1,
+                                      startRows: 10,
+                                      maxCols: maxCols,
+                                      startColumns: match ? 30 : maxCols,
+                                      stretchH: match$1 ? "none" : "all",
+                                      data: match$2 ? rawData : null
+                                    }, /* array */[]))), includeSelectees ? React.createElement("div", {
                                 className: "rowformat-selector"
-                              }, React.createElement("select", {
+                              }, "Format: ", React.createElement("select", {
                                     onChange: (function (_event) {
                                         var value = _event.target.value;
                                         var tmp;
@@ -98,7 +94,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                                                   Caml_builtin_exceptions.match_failure,
                                                   [
                                                     "SideDataImporter.re",
-                                                    79,
+                                                    81,
                                                     20
                                                   ]
                                                 ];

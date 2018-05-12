@@ -31,6 +31,9 @@ module.exports = (env, argv) => {
       path: path.join(__dirname, "dist"),
       filename: '[name].js',
     },
+    resolve: {
+      extensions: ['.js', '.tsx']
+    },
     devServer: {
       hot: true,
       port: 8081,
@@ -45,6 +48,9 @@ module.exports = (env, argv) => {
     plugins,
     module: {
       rules: [{
+        test: /\.tsx?$/,
+        use: ['awesome-typescript-loader'],
+      }, {
         test: /\.scss$/,
         use: [{
           loader: "style-loader" // creates style nodes from JS strings
@@ -77,8 +83,7 @@ module.exports = (env, argv) => {
       }, {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loader: "file-loader"
-      }
-             ]
+      }]
     }
   };
 }
