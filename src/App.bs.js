@@ -50,8 +50,7 @@ function make() {
                                   param[1]
                                 ];
                         })));
-              var match = List.length(self[/* state */1][/* selectingParsedData */7]) > 0 || List.length(self[/* state */1][/* selectedParsedData */8]) > 0;
-              var match$1 = List.length(self[/* state */1][/* matchResult */9]) > 0;
+              var match = List.length(self[/* state */1][/* matchResult */9]) > 0;
               return React.createElement("div", {
                           className: "page-split"
                         }, React.createElement("div", {
@@ -100,14 +99,15 @@ function make() {
                                 }, React.createElement("button", {
                                       className: "mdc-button",
                                       onClick: Curry._1(self[/* handle */0], loadSampleData)
-                                    }, "Load Sample Data"), match ? React.createElement("button", {
-                                        className: "mdc-button mdc-button--raised",
-                                        onClick: (function () {
-                                            return Curry._1(self[/* send */3], /* MatchNow */0);
-                                          })
-                                      }, "Match now") : null)), React.createElement("div", {
+                                    }, "Load Sample Data"), React.createElement("button", {
+                                      className: "mdc-button mdc-button--raised",
+                                      disabled: List.length(self[/* state */1][/* selectingParsedData */7]) === 0 || List.length(self[/* state */1][/* selectedParsedData */8]) === 0,
+                                      onClick: (function () {
+                                          return Curry._1(self[/* send */3], /* MatchNow */0);
+                                        })
+                                    }, "Match now"))), React.createElement("div", {
                               className: "graph-pane"
-                            }, ReasonReact.element(/* None */0, /* None */0, Graph.make(state[/* selectingParsedData */7], state[/* selectedParsedData */8], resultData, /* array */[])), match$1 ? ReasonReact.element(/* None */0, /* None */0, Result.make(state, resultData, /* array */[])) : null));
+                            }, ReasonReact.element(/* None */0, /* None */0, Graph.make(state[/* selectingParsedData */7], state[/* selectedParsedData */8], resultData, /* array */[])), match ? ReasonReact.element(/* None */0, /* None */0, Result.make(state, resultData, /* array */[])) : null));
             }),
           /* initialState */(function () {
               return /* record */[
@@ -209,7 +209,6 @@ function make() {
                       var rawData = action[0];
                       var match = DataParser.parseData(rawData, state[/* selectingRowFormat */3]);
                       var selectedNamesEntries = match[1];
-                      console.log(SampleData.sampleDataToRaw(state[/* selectedRowFormat */4], selectedNamesEntries));
                       var match$1 = !state[/* mutualMatch */2] && List.length(state[/* selectedParsedData */8]) === 0;
                       var match$2 = !state[/* mutualMatch */2] && List.length(state[/* selectedParsedData */8]) === 0;
                       return /* Update */Block.__(0, [/* record */[

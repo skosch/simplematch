@@ -10,6 +10,18 @@ var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
 var Caml_builtin_exceptions = require("bs-platform/lib/js/caml_builtin_exceptions.js");
 
+var applyChanges = (
+    function(oldRawArray, changes) {
+      const newRawArray = oldRawArray.slice();
+      for (const [row, col, oldVal, newVal] of changes) {
+        if (newVal) {
+          newRawArray[row][col] = newVal;
+        }
+      }
+      return newRawArray.filter(a => !a[0] || !a[1]);
+     }
+  );
+
 var component = ReasonReact.statelessComponent("SideDataImporter");
 
 function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, updateRawData, includeSelectees, _) {
@@ -44,6 +56,13 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
       return $$String.capitalize(selectingName);
     }
   };
+  var changeHandler = function (changes, source) {
+    if (source !== "loadData") {
+      return Curry._1(updateRawData, Curry._2(applyChanges, rawData, changes));
+    } else {
+      return 0;
+    }
+  };
   return /* record */[
           /* debugName */component[/* debugName */0],
           /* reactClassInternal */component[/* reactClassInternal */1],
@@ -74,7 +93,8 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                                       maxCols: maxCols,
                                       startColumns: match ? 30 : maxCols,
                                       stretchH: match$1 ? "none" : "all",
-                                      data: match$2 ? rawData : null
+                                      data: match$2 ? rawData : null,
+                                      onAfterChange: changeHandler
                                     }, /* array */[]))), React.createElement("div", {
                               className: "rowformat-selector"
                             }, includeSelectees ? React.createElement("span", undefined, "Format: ", React.createElement("select", {
@@ -94,7 +114,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                                                       Caml_builtin_exceptions.match_failure,
                                                       [
                                                         "SideDataImporter.re",
-                                                        82,
+                                                        105,
                                                         24
                                                       ]
                                                     ];
@@ -120,6 +140,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
         ];
 }
 
+exports.applyChanges = applyChanges;
 exports.component = component;
 exports.make = make;
-/* component Not a pure module */
+/* applyChanges Not a pure module */

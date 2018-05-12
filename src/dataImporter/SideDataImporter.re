@@ -6,6 +6,20 @@ open Belt;
 
 [@bs.val] [@bs.module "pluralize"] external singular : string => string = "";
 
+let applyChanges = [%bs.raw
+  {|
+    function(oldRawArray, changes) {
+      const newRawArray = oldRawArray.slice();
+      for (const [row, col, oldVal, newVal] of changes) {
+        if (newVal) {
+          newRawArray[row][col] = newVal;
+        }
+      }
+      return newRawArray.filter(a => !a[0] || !a[1]);
+     }
+  |}
+];
+
 let component = ReasonReact.statelessComponent("SideDataImporter");
 
 let make =
@@ -33,6 +47,14 @@ let make =
     | 0 => String.capitalize(selectingName)
     | 1 => "Can match<br />with " ++ selectedName
     | _ => String.capitalize(singular(selectedHeader(index - 2)))
+    };
+  let changeHandler = (changes, source) =>
+    if (source !== "loadData") {
+      let newRawData = 
+        rawData
+        |. applyChanges(changes);
+
+      updateRawData(newRawData);
     };
   {
     ...component,
@@ -64,6 +86,7 @@ let make =
               "data":
                 Array.length(rawData) > 0 ?
                   Js.Nullable.return(rawData) : Js.Nullable.null,
+              "onAfterChange": changeHandler,
             }
           />
         </div>
@@ -101,7 +124,9 @@ let make =
               </span> :
               ReasonReact.null
           )
-          <button onClick=((_) => updateRawData([||])) className="mdc-button clear-button">
+          <button
+            onClick=((_) => updateRawData([||]))
+            className="mdc-button clear-button">
             (ReasonReact.string("Clear"))
           </button>
         </div>

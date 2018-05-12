@@ -77,10 +77,15 @@ body {
       flex: 0 0;
     }
     .table-wrapper {
-      border-bottom: 1px solid lightgray;
       font-size: 80%;
       flex: 1 1;
+      box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.2);
       
+      .ht_master .wtHolder {
+        background: whitesmoke;
+        box-shadow: 1px 0px 0px 0 rgba(0, 0, 0, 0.15) inset, -1px 0px 0px 0 rgba(0, 0, 0, 0.15) inset
+      }
+
       th {
         vertical-align: middle;
       }
