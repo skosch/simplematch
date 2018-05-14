@@ -7,13 +7,21 @@ var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 var Caml_format = require("bs-platform/lib/js/caml_format.js");
 var Belt_HashMapString = require("bs-platform/lib/js/belt_HashMapString.js");
 
+function ifEmptyString(str, alt) {
+  if (str === "") {
+    return alt;
+  } else {
+    return str;
+  }
+}
+
 function parseData(rawData, rowFormat) {
   var sideDataEntries = rowFormat ? Belt_List.fromArray(Belt_HashMapString.valuesToArray(Belt_Array.reduce(rawData, Belt_HashMapString.make(rawData.length), (function (nameMap, cols) {
-                    if (cols.length >= 2) {
-                      var name = Js_option.getWithDefault("", Belt_Array.get(cols, 0));
-                      var canMatchWith = Js_option.getWithDefault("1", Belt_Array.get(cols, 1));
+                    var name = Js_option.getWithDefault("", Belt_Array.get(cols, 0));
+                    if (name !== "" && cols.length >= 2) {
+                      var canMatchWith = ifEmptyString(Js_option.getWithDefault("1", Belt_Array.get(cols, 1)), "1");
                       var selectedName = Js_option.getWithDefault("", Belt_Array.get(cols, 2));
-                      var rank = Js_option.getWithDefault("1", Belt_Array.get(cols, 3));
+                      var rank = ifEmptyString(Js_option.getWithDefault("1", Belt_Array.get(cols, 3)), "1");
                       var match = Belt_HashMapString.get(nameMap, name);
                       var previouslyFoundSelectedNames = match ? match[0][/* selectedNames */2] : /* [] */0;
                       var entry_000 = /* name */$$String.trim(name);
@@ -36,9 +44,9 @@ function parseData(rawData, rowFormat) {
                       return nameMap;
                     }
                   })))) : Belt_List.reverse(Belt_Array.reduce(rawData, /* [] */0, (function (allRows, cols) {
-                if (cols.length >= 2) {
-                  var name = Js_option.getWithDefault("", Belt_Array.get(cols, 0));
-                  var canMatchWith = Js_option.getWithDefault("1", Belt_Array.get(cols, 1));
+                var name = Js_option.getWithDefault("", Belt_Array.get(cols, 0));
+                if (name !== "" && cols.length >= 2) {
+                  var canMatchWith = ifEmptyString(Js_option.getWithDefault("1", Belt_Array.get(cols, 1)), "1");
                   var selectedNames = Belt_Array.slice(cols, 2, cols.length);
                   var __x = Belt_List.mapWithIndex(Belt_List.fromArray(selectedNames), (function (i, sn) {
                           return /* tuple */[
@@ -90,5 +98,6 @@ function parseData(rawData, rowFormat) {
         ];
 }
 
+exports.ifEmptyString = ifEmptyString;
 exports.parseData = parseData;
 /* No side effect */

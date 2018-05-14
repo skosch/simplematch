@@ -3,7 +3,6 @@
 var List = require("bs-platform/lib/js/list.js");
 var Block = require("bs-platform/lib/js/block.js");
 var Curry = require("bs-platform/lib/js/curry.js");
-var Graph = require("./graph/Graph.bs.js");
 var React = require("react");
 var Result = require("./result/Result.bs.js");
 var RunMatch = require("./matching/RunMatch.bs.js");
@@ -51,63 +50,67 @@ function make() {
                                 ];
                         })));
               var match = List.length(self[/* state */1][/* matchResult */9]) > 0;
-              return React.createElement("div", {
-                          className: "page-split"
-                        }, React.createElement("div", {
-                              className: "input-pane"
+              return React.createElement("div", undefined, React.createElement("div", {
+                              className: "page-content"
                             }, React.createElement("div", {
-                                  className: "names-question"
-                                }, React.createElement("input", {
-                                      type: "text",
-                                      value: self[/* state */1][/* selectingName */0],
-                                      onChange: (function (_event) {
-                                          return Curry._1(self[/* send */3], /* UpdateSelectingName */Block.__(0, [_event.target.value]));
-                                        })
-                                    }), React.createElement("span", undefined, " are ranking "), React.createElement("input", {
-                                      type: "text",
-                                      value: self[/* state */1][/* selectedName */1],
-                                      onChange: (function (_event) {
-                                          return Curry._1(self[/* send */3], /* UpdateSelectedName */Block.__(1, [_event.target.value]));
-                                        })
-                                    }), React.createElement("span", undefined), React.createElement("div", {
-                                      className: "mdc-switch"
+                                  className: "input-pane"
+                                }, React.createElement("div", {
+                                      className: "names-question"
                                     }, React.createElement("input", {
-                                          className: "mdc-switch__native-control",
-                                          id: "mutual-switch",
-                                          role: "switch",
-                                          checked: self[/* state */1][/* mutualMatch */2],
-                                          type: "checkbox",
+                                          type: "text",
+                                          value: self[/* state */1][/* selectingName */0],
                                           onChange: (function (_event) {
-                                              return Curry._1(self[/* send */3], /* UpdateMutualMatch */Block.__(2, [_event.target.checked]));
+                                              return Curry._1(self[/* send */3], /* UpdateSelectingName */Block.__(0, [_event.target.value]));
                                             })
-                                        }), React.createElement("div", {
-                                          className: "mdc-switch__background"
-                                        }, React.createElement("div", {
-                                              className: "mdc-switch__knob"
-                                            }))), React.createElement("label", {
-                                      htmlFor: "mutual-switch"
-                                    }, "and vice versa")), ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectingRawData */5], state[/* selectingName */0], state[/* selectedName */1], state[/* selectingRowFormat */3], (function (rowFormat) {
-                                        return Curry._1(self[/* send */3], /* UpdateSelectingRowFormat */Block.__(3, [rowFormat]));
-                                      }), (function (rawData) {
-                                        return Curry._1(self[/* send */3], /* UpdateSelectingRawData */Block.__(5, [rawData]));
-                                      }), true, /* array */[])), ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectedRawData */6], state[/* selectedName */1], state[/* selectingName */0], state[/* selectedRowFormat */4], (function (rowFormat) {
-                                        return Curry._1(self[/* send */3], /* UpdateSelectedRowFormat */Block.__(4, [rowFormat]));
-                                      }), (function (rawData) {
-                                        return Curry._1(self[/* send */3], /* UpdateSelectedRawData */Block.__(6, [rawData]));
-                                      }), state[/* mutualMatch */2], /* array */[])), React.createElement("div", {
-                                  className: "bottom-buttons"
-                                }, React.createElement("button", {
-                                      className: "mdc-button",
-                                      onClick: Curry._1(self[/* handle */0], loadSampleData)
-                                    }, "Load Sample Data"), React.createElement("button", {
-                                      className: "mdc-button mdc-button--raised",
-                                      disabled: List.length(self[/* state */1][/* selectingParsedData */7]) === 0 || List.length(self[/* state */1][/* selectedParsedData */8]) === 0,
-                                      onClick: (function () {
-                                          return Curry._1(self[/* send */3], /* MatchNow */0);
-                                        })
-                                    }, "Match now"))), React.createElement("div", {
-                              className: "graph-pane"
-                            }, ReasonReact.element(/* None */0, /* None */0, Graph.make(state[/* selectingParsedData */7], state[/* selectedParsedData */8], resultData, /* array */[])), match ? ReasonReact.element(/* None */0, /* None */0, Result.make(state, resultData, /* array */[])) : null));
+                                        }), React.createElement("span", undefined, " are ranking "), React.createElement("input", {
+                                          type: "text",
+                                          value: self[/* state */1][/* selectedName */1],
+                                          onChange: (function (_event) {
+                                              return Curry._1(self[/* send */3], /* UpdateSelectedName */Block.__(1, [_event.target.value]));
+                                            })
+                                        }), React.createElement("span", undefined), React.createElement("div", {
+                                          className: "mdc-switch"
+                                        }, React.createElement("input", {
+                                              className: "mdc-switch__native-control",
+                                              id: "mutual-switch",
+                                              role: "switch",
+                                              checked: self[/* state */1][/* mutualMatch */2],
+                                              type: "checkbox",
+                                              onChange: (function (_event) {
+                                                  return Curry._1(self[/* send */3], /* UpdateMutualMatch */Block.__(2, [_event.target.checked]));
+                                                })
+                                            }), React.createElement("div", {
+                                              className: "mdc-switch__background"
+                                            }, React.createElement("div", {
+                                                  className: "mdc-switch__knob"
+                                                }))), React.createElement("label", {
+                                          htmlFor: "mutual-switch"
+                                        }, "and vice versa")), React.createElement("div", {
+                                      className: "data-importers"
+                                    }, ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectingRawData */5], state[/* selectingName */0], state[/* selectedName */1], state[/* selectingRowFormat */3], (function (rowFormat) {
+                                                return Curry._1(self[/* send */3], /* UpdateSelectingRowFormat */Block.__(3, [rowFormat]));
+                                              }), (function (rawData) {
+                                                return Curry._1(self[/* send */3], /* UpdateSelectingRawData */Block.__(5, [rawData]));
+                                              }), true, /* array */[])), ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectedRawData */6], state[/* selectedName */1], state[/* selectingName */0], state[/* selectedRowFormat */4], (function (rowFormat) {
+                                                return Curry._1(self[/* send */3], /* UpdateSelectedRowFormat */Block.__(4, [rowFormat]));
+                                              }), (function (rawData) {
+                                                return Curry._1(self[/* send */3], /* UpdateSelectedRawData */Block.__(6, [rawData]));
+                                              }), state[/* mutualMatch */2], /* array */[]))), React.createElement("div", {
+                                      className: "bottom-buttons"
+                                    }, React.createElement("button", {
+                                          className: "mdc-button",
+                                          onClick: Curry._1(self[/* handle */0], loadSampleData)
+                                        }, "Load Sample Data"), React.createElement("button", {
+                                          className: "mdc-button mdc-button--raised",
+                                          disabled: List.length(self[/* state */1][/* selectingParsedData */7]) === 0 || List.length(self[/* state */1][/* selectedParsedData */8]) === 0,
+                                          onClick: (function () {
+                                              return Curry._1(self[/* send */3], /* MatchNow */0);
+                                            })
+                                        }, "Match now")))), React.createElement("div", {
+                              className: "page-content"
+                            }, React.createElement("div", {
+                                  className: "graph-pane"
+                                }, match ? ReasonReact.element(/* None */0, /* None */0, Result.make(state, resultData, /* array */[])) : null)));
             }),
           /* initialState */(function () {
               return /* record */[
@@ -247,6 +250,8 @@ function make() {
         ];
 }
 
+var ifEmptyString = DataParser.ifEmptyString;
+
 var parseData = DataParser.parseData;
 
 var positions = SampleData.positions;
@@ -263,6 +268,7 @@ var minCostMaxFlow = RunMatch.minCostMaxFlow;
 
 var runMatch = RunMatch.runMatch;
 
+exports.ifEmptyString = ifEmptyString;
 exports.parseData = parseData;
 exports.positions = positions;
 exports.candidates = candidates;

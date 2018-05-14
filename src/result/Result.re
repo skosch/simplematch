@@ -15,17 +15,21 @@ let make = (~currentState, ~resultData, _children) => {
     ...component,
     render: (_) => {
       <div className="result">
-         <HotTable settings={{
-            "colHeaders": columnHeader,
-            "rowHeaders": true,
-            "copyPaste": true,
-            "width": "50%",
-            "height": 300,
-            "maxCols": 2,
-            "stretchH": "all",
-            "data": resultData
-          }}
-        />     
+         <div className="result-table">
+            <HotTable settings={{
+                "colHeaders": columnHeader,
+                "rowHeaders": true,
+                "copyPaste": true,
+                "width": "50%",
+                "maxCols": 2,
+                "stretchH": "all",
+                "data": resultData
+              }}
+            />     
+        </div>
+        <div className="result-details">
+          (ReasonReact.string(string_of_int(Array.length(resultData)) ++ " pairings"))
+        </div>
       </div>
     }
   }

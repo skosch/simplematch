@@ -2,6 +2,8 @@ open Belt;
 
 let component = ReasonReact.statelessComponent("Graph");
 
+[@bs.val] external max : (int => int => int) = "Math.max";
+
 type cytoscapeElement = {
   .
   "data": {
@@ -25,12 +27,14 @@ type cytoscapeElement = {
 };
 
 let make = (~selectingParsedData, ~selectedParsedData, ~resultData, _children) => {
+  let nSelecting = List.length(selectingParsedData);
+  let nSelected = List.length(selectedParsedData);
+  let longerSide = max(nSelecting, nSelected);
+
   let existingNodeNamesMap =
     List.reduce(
       selectingParsedData @ selectedParsedData,
-      HashMap.String.make(
-        List.length(selectingParsedData) + List.length(selectedParsedData),
-      ),
+      HashMap.String.make(nSelecting + nSelected),
       (p, c: SharedTypes.sideDataEntry) => {
         HashMap.String.set(p, c.name, true);
         p;
@@ -96,7 +100,7 @@ let make = (~selectingParsedData, ~selectedParsedData, ~resultData, _children) =
          sideDataEntryToElementArray(
            e,
            0,
-           2 * i - List.length(selectingParsedData),
+           2 * i - nSelecting,
            "selecting",
          )
        )
@@ -107,8 +111,8 @@ let make = (~selectingParsedData, ~selectedParsedData, ~resultData, _children) =
     |. List.map(((i, e)) =>
          sideDataEntryToElementArray(
            e,
-           100,
-           2 * i - List.length(selectedParsedData),
+           7 * longerSide, /* appropriate for 15 * 7 */
+           2 * i - nSelected,
            "selected",
          )
        )
@@ -126,7 +130,7 @@ let make = (~selectingParsedData, ~selectedParsedData, ~resultData, _children) =
        );
   {
     ...component,
-    render: (_) =>
+    render: (_) => {
       <div className="graph">
         <Cytoscape
           elements
@@ -165,6 +169,7 @@ let make = (~selectingParsedData, ~selectedParsedData, ~resultData, _children) =
           layout={}
         />
         <div id="graph-container" />
-      </div>,
+      </div>;
+    } 
   };
 };

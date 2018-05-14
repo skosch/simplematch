@@ -86,13 +86,15 @@ function MinCostMaxFlow(n, cap, cost, s, t) {
          while( dijkstra( s, t ) ) {
            let bot = Infinity;
            for( let v = t, u = par[v]; v != s; u = par[v = u] ) {
+             /* bot = smallest flow (or reverse capacity remaining) */
              bot = Math.min(bot, fnet[v][u] ? fnet[v][u] : ( cap[u][v] - fnet[u][v] ));
            }
+           /* go back through the graph from sink to source */
            for( let v = t, u = par[v]; v != s; u = par[v = u] ) {
              if( fnet[v][u] ) { 
-               fnet[v][u] -= bot; fcost -= bot * cost[v][u];
+               fnet[v][u] -= bot; fcost -= Math.sqrt(bot) * cost[v][u];
              } else { 
-               fnet[u][v] += bot; fcost += bot * cost[u][v];
+               fnet[u][v] += bot; fcost += Math.sqrt(bot) * cost[u][v];
              }
            }
            flow += bot;

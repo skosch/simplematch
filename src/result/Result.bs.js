@@ -39,16 +39,19 @@ function make(currentState, resultData, _) {
           /* render */(function () {
               return React.createElement("div", {
                           className: "result"
-                        }, ReasonReact.element(/* None */0, /* None */0, HotTable.make({
-                                  colHeaders: columnHeader,
-                                  rowHeaders: true,
-                                  copyPaste: true,
-                                  width: "50%",
-                                  height: 300,
-                                  maxCols: 2,
-                                  stretchH: "all",
-                                  data: resultData
-                                }, /* array */[])));
+                        }, React.createElement("div", {
+                              className: "result-table"
+                            }, ReasonReact.element(/* None */0, /* None */0, HotTable.make({
+                                      colHeaders: columnHeader,
+                                      rowHeaders: true,
+                                      copyPaste: true,
+                                      width: "50%",
+                                      maxCols: 2,
+                                      stretchH: "all",
+                                      data: resultData
+                                    }, /* array */[]))), React.createElement("div", {
+                              className: "result-details"
+                            }, String(resultData.length) + " pairings"));
             }),
           /* initialState */component[/* initialState */10],
           /* retainedProps */component[/* retainedProps */11],

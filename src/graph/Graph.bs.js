@@ -22,7 +22,10 @@ var class_tables = [
 ];
 
 function make(selectingParsedData, selectedParsedData, resultData, _) {
-  var existingNodeNamesMap = Belt_List.reduce(Pervasives.$at(selectingParsedData, selectedParsedData), Belt_HashMapString.make(Belt_List.length(selectingParsedData) + Belt_List.length(selectedParsedData) | 0), (function (p, c) {
+  var nSelecting = Belt_List.length(selectingParsedData);
+  var nSelected = Belt_List.length(selectedParsedData);
+  var longerSide = Math.max(nSelecting, nSelected);
+  var existingNodeNamesMap = Belt_List.reduce(Pervasives.$at(selectingParsedData, selectedParsedData), Belt_HashMapString.make(nSelecting + nSelected | 0), (function (p, c) {
           Belt_HashMapString.set(p, c[/* name */0], true);
           return p;
         }));
@@ -32,7 +35,7 @@ function make(selectingParsedData, selectedParsedData, resultData, _) {
                   Caml_builtin_exceptions.match_failure,
                   [
                     "Graph.re",
-                    44,
+                    48,
                     12
                   ]
                 ];
@@ -90,7 +93,7 @@ function make(selectingParsedData, selectedParsedData, resultData, _) {
                           x
                         ];
                 })), (function (param) {
-              return sideDataEntryToElementArray(param[1], 0, (param[0] << 1) - Belt_List.length(selectingParsedData) | 0, "selecting");
+              return sideDataEntryToElementArray(param[1], 0, (param[0] << 1) - nSelecting | 0, "selecting");
             })));
   var selectedElements = Belt_List.toArray(Belt_List.map(Belt_List.mapWithIndex(selectedParsedData, (function (i, x) {
                   return /* tuple */[
@@ -98,7 +101,7 @@ function make(selectingParsedData, selectedParsedData, resultData, _) {
                           x
                         ];
                 })), (function (param) {
-              return sideDataEntryToElementArray(param[1], 100, (param[0] << 1) - Belt_List.length(selectedParsedData) | 0, "selected");
+              return sideDataEntryToElementArray(param[1], Caml_int32.imul(7, longerSide), (param[0] << 1) - nSelected | 0, "selected");
             })));
   var elements = Belt_Array.concatMany(Belt_Array.concatMany(/* array */[
               selectingElements,

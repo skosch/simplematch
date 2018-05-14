@@ -12,10 +12,13 @@ let applyChanges = [%bs.raw
       const newRawArray = oldRawArray.slice();
       for (const [row, col, oldVal, newVal] of changes) {
         if (newVal) {
+          if (newRawArray[row] === undefined) {
+            newRawArray[row] = [];
+          }
           newRawArray[row][col] = newVal;
         }
       }
-      return newRawArray.filter(a => !a[0] || !a[1]);
+      return newRawArray.filter(a => a[0] !== null && a[1] !== null);
      }
   |}
 ];
@@ -67,7 +70,6 @@ let make =
             )
           )
         </div>
-        <div className="table-wrapper">
           <HotTable
             settings={
               "colHeaders": columnHeader,
@@ -89,7 +91,6 @@ let make =
               "onAfterChange": changeHandler,
             }
           />
-        </div>
         <div className="rowformat-selector">
           (
             includeSelectees ?

@@ -15,10 +15,13 @@ var applyChanges = (
       const newRawArray = oldRawArray.slice();
       for (const [row, col, oldVal, newVal] of changes) {
         if (newVal) {
+          if (newRawArray[row] === undefined) {
+            newRawArray[row] = [];
+          }
           newRawArray[row][col] = newVal;
         }
       }
-      return newRawArray.filter(a => !a[0] || !a[1]);
+      return newRawArray.filter(a => a[0] !== null && a[1] !== null);
      }
   );
 
@@ -81,21 +84,19 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                           className: "data-importer"
                         }, React.createElement("div", {
                               className: "question-statement"
-                            }, "Paste your " + (selectingName + " into the spreadsheet below:")), React.createElement("div", {
-                              className: "table-wrapper"
-                            }, ReasonReact.element(/* None */0, /* None */0, HotTable.make({
-                                      colHeaders: columnHeader,
-                                      rowHeaders: true,
-                                      copyPaste: true,
-                                      width: "100%",
-                                      minSpareRows: 1,
-                                      startRows: 30,
-                                      maxCols: maxCols,
-                                      startColumns: match ? 30 : maxCols,
-                                      stretchH: match$1 ? "none" : "all",
-                                      data: match$2 ? rawData : null,
-                                      onAfterChange: changeHandler
-                                    }, /* array */[]))), React.createElement("div", {
+                            }, "Paste your " + (selectingName + " into the spreadsheet below:")), ReasonReact.element(/* None */0, /* None */0, HotTable.make({
+                                  colHeaders: columnHeader,
+                                  rowHeaders: true,
+                                  copyPaste: true,
+                                  width: "100%",
+                                  minSpareRows: 1,
+                                  startRows: 30,
+                                  maxCols: maxCols,
+                                  startColumns: match ? 30 : maxCols,
+                                  stretchH: match$1 ? "none" : "all",
+                                  data: match$2 ? rawData : null,
+                                  onAfterChange: changeHandler
+                                }, /* array */[])), React.createElement("div", {
                               className: "rowformat-selector"
                             }, includeSelectees ? React.createElement("span", undefined, "Format: ", React.createElement("select", {
                                         onChange: (function (_event) {
@@ -114,7 +115,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                                                       Caml_builtin_exceptions.match_failure,
                                                       [
                                                         "SideDataImporter.re",
-                                                        105,
+                                                        106,
                                                         24
                                                       ]
                                                     ];

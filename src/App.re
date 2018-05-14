@@ -1,7 +1,6 @@
 /*include SharedTypes;*/
 include DataParser;
 
-include Graph;
 
 include SampleData;
 
@@ -127,7 +126,8 @@ let make = _children => {
         self.state.matchResult
         |. Belt.List.map(((p1, p2)) => [|p1, p2|])
         |> Belt.List.toArray;
-      <div className="page-split">
+    <div>
+      <div className="page-content">
         <div className="input-pane">
           <div className="names-question">
             <input
@@ -186,6 +186,7 @@ let make = _children => {
               (ReasonReact.string("and vice versa"))
             </label>
           </div>
+          <div className="data-importers">
           <SideDataImporter
             selectingName=state.selectingName
             selectedName=state.selectedName
@@ -212,6 +213,7 @@ let make = _children => {
               rawData => self.send(UpdateSelectedRawData(rawData))
             )
           />
+      </div>
           <div className="bottom-buttons">
             <button
               onClick=(self.handle(loadSampleData)) className="mdc-button">
@@ -228,16 +230,15 @@ let make = _children => {
             </button>
           </div>
         </div>
+        
+    </div>
+      <div className="page-content">
         <div className="graph-pane">
-          <Graph
-            selectingParsedData=state.selectingParsedData
-            selectedParsedData=state.selectedParsedData
-            resultData
-          />
           (
             List.length(self.state.matchResult) > 0 ?
               <Result currentState=state resultData /> : ReasonReact.null
           )
+        </div>
         </div>
       </div>;
     },
