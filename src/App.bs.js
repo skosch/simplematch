@@ -262,6 +262,8 @@ var sampleDataToRaw = SampleData.sampleDataToRaw;
 
 var IntCmp = RunMatch.IntCmp;
 
+var rankSortedArray = RunMatch.rankSortedArray;
+
 var galeShapley = RunMatch.galeShapley;
 
 var minCostMaxFlow = RunMatch.minCostMaxFlow;
@@ -274,6 +276,7 @@ exports.positions = positions;
 exports.candidates = candidates;
 exports.sampleDataToRaw = sampleDataToRaw;
 exports.IntCmp = IntCmp;
+exports.rankSortedArray = rankSortedArray;
 exports.galeShapley = galeShapley;
 exports.minCostMaxFlow = minCostMaxFlow;
 exports.runMatch = runMatch;

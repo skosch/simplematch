@@ -47,7 +47,7 @@ body {
   padding: 0;
   margin: 0;
   background: white;
-  --mdc-theme-primary: teal;
+  --mdc-theme-primary: #444c6c;
   --mdc-theme-secondary: white;
   color: #333;
   margin: 5rem 0;
@@ -100,7 +100,6 @@ body {
       border-bottom: 2px solid transparent;
       width: 20%;
       transition: all 120ms ease;
-      text-align: center;
 
       &:focus {
         background-color: rgba(255, 255, 255, 0.25);
@@ -180,8 +179,8 @@ body {
       color: #333;
     }
     .result-details {
-      padding: 1.5rem;
-      flex: 0 0 50%;
+      padding: 0 0 0 1.5rem;
+      flex: 1 1 50%;
     }
   }
 }
@@ -234,4 +233,34 @@ select {
 
 select::-ms-expand { 
   display: none; /* remove default arrow in IE 10 and 11 */
+}
+
+.counts {
+  display: flex;
+  .pairings {
+    font-size: 2.5rem;
+    font-weight: 300;
+    flex: 1 1;
+  }
+
+  .label {
+    font-size: 0.87rem;
+    font-weight: 500;
+    margin-left: 0.3rem;
+    opacity: 0.5;
+  }
+  .matched-counts {
+    flex: 2 1;
+    .selectors-matched {
+      font-size: 2.5rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+  }
+  .top-label {
+    opacity: 0.6;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 2rem;
+  }
 }

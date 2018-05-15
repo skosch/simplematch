@@ -1,7 +1,7 @@
 'use strict';
 
-var MCMF = require("./MCMF.bs.js");
 var Curry = require("bs-platform/lib/js/curry.js");
+var MCMF = require("./MCMF");
 var Belt_Id = require("bs-platform/lib/js/belt_Id.js");
 var Belt_Set = require("bs-platform/lib/js/belt_Set.js");
 var Caml_obj = require("bs-platform/lib/js/caml_obj.js");
@@ -9,6 +9,7 @@ var Belt_List = require("bs-platform/lib/js/belt_List.js");
 var Js_option = require("bs-platform/lib/js/js_option.js");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 var Pervasives = require("bs-platform/lib/js/pervasives.js");
+var GaleShapley = require("./GaleShapley");
 var Belt_HashMapInt = require("bs-platform/lib/js/belt_HashMapInt.js");
 var Belt_HashMapString = require("bs-platform/lib/js/belt_HashMapString.js");
 
@@ -16,20 +17,28 @@ var cmp = Caml_obj.caml_compare;
 
 var IntCmp = Belt_Id.MakeComparable(/* module */[/* cmp */cmp]);
 
-function galeShapley() {
-  return /* :: */[
-          /* tuple */[
-            "bla1",
-            "bla2"
-          ],
-          /* :: */[
-            /* tuple */[
-              "bla2",
-              "bla3"
-            ],
-            /* [] */0
-          ]
-        ];
+function rankSortedArray(selectedNames) {
+  return Belt_Array.map(Belt_List.toArray(selectedNames).sort((function (param, param$1) {
+                    return Caml_obj.caml_compare(param[1], param$1[1]);
+                  })), (function (param) {
+                return param[0];
+              }));
+}
+
+function galeShapley(currentState) {
+  var selectingTuples = Belt_List.toArray(Belt_List.map(currentState[/* selectingParsedData */7], (function (e) {
+              return /* tuple */[
+                      e[/* name */0],
+                      rankSortedArray(e[/* selectedNames */2])
+                    ];
+            })));
+  var selectedTuples = Belt_List.toArray(Belt_List.map(currentState[/* selectedParsedData */8], (function (e) {
+              return /* tuple */[
+                      e[/* name */0],
+                      rankSortedArray(e[/* selectedNames */2])
+                    ];
+            })));
+  return Belt_List.fromArray(Curry._2(GaleShapley.default, selectingTuples, selectedTuples));
 }
 
 function minCostMaxFlow(currentState) {
@@ -133,7 +142,7 @@ function minCostMaxFlow(currentState) {
                 }))]
       ]);
   var nNodes = (nSelecting + nSelected | 0) + 2 | 0;
-  var resultFlowNet = Curry._5(MCMF.runMinCostMaxFlow, nNodes, capacities, costs, 0, nNodes - 1 | 0).fnet;
+  var resultFlowNet = Curry._5(MCMF.default, nNodes, capacities, costs, 0, nNodes - 1 | 0).fnet;
   var errorEntry = /* record */[
     /* name */"?",
     /* canMatchWith */0,
@@ -179,6 +188,7 @@ function runMatch(currentState) {
 }
 
 exports.IntCmp = IntCmp;
+exports.rankSortedArray = rankSortedArray;
 exports.galeShapley = galeShapley;
 exports.minCostMaxFlow = minCostMaxFlow;
 exports.runMatch = runMatch;
