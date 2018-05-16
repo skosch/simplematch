@@ -97,7 +97,6 @@ function parseData(rawData, rowFormat, hasSelectees) {
                       var firstAndOnlySelectee = Belt_List.head(match[2]);
                       var match$1 = Belt_HashMapString.get(nameMap, name);
                       var previouslyFoundSelectedNames = match$1 ? match$1[0][/* selectedNames */2] : /* [] */0;
-                      console.log(firstAndOnlySelectee);
                       var tmp;
                       if (firstAndOnlySelectee) {
                         var match$2 = firstAndOnlySelectee[0];

@@ -96,7 +96,6 @@ let parseData =
                 entry.selectedNames
               | None => []
               };
-            Js.log(firstAndOnlySelectee);
             let entry: SharedTypes.sideDataEntry = {
               name,
               canMatchWith,

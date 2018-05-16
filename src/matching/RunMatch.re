@@ -42,6 +42,8 @@ let galeShapley = (currentState: SharedTypes.state) => {
     currentState.selectedParsedData
     |. List.map(e => (e.name, rankSortedArray(e.selectedNames)))
     |. List.toArray;
+  Js.log(selectingTuples);
+  Js.log(selectedTuples);
   let res = 
     runGaleShapley(selectingTuples, selectedTuples)
     |. List.fromArray;

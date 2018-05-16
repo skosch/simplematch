@@ -38,6 +38,8 @@ function galeShapley(currentState) {
                       rankSortedArray(e[/* selectedNames */2])
                     ];
             })));
+  console.log(selectingTuples);
+  console.log(selectedTuples);
   return Belt_List.fromArray(Curry._2(GaleShapley.default, selectingTuples, selectedTuples));
 }
 
