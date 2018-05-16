@@ -11,17 +11,30 @@ var ReasonReact = require("reason-react/src/ReasonReact.js");
 var Caml_builtin_exceptions = require("bs-platform/lib/js/caml_builtin_exceptions.js");
 
 var applyChanges = (
-    function(oldRawArray, changes) {
+    function(oldRawArray, changes, maxCols) {
       const newRawArray = oldRawArray.slice();
+      const maxNewRowCols = Math.min(maxCols, 4);
       for (const [row, col, oldVal, newVal] of changes) {
         if (newVal) {
-          if (newRawArray[row] === undefined) {
-            newRawArray[row] = [];
+          if (newRawArray[row] === undefined || newRawArray[row] === null) {
+            newRawArray[row] = new Array(maxNewRowCols).fill("");
           }
           newRawArray[row][col] = newVal;
         }
       }
-      return newRawArray.filter(a => a[0] !== null && a[1] !== null);
+      /* make sure every undefined row is filled with empty strings */
+      for (let i = 0; i < newRawArray.length; i++) {
+        if (!newRawArray[i]) {
+          newRawArray[i] = new Array(maxNewRowCols).fill("");
+        } else {
+          for (let j = 0; j < newRawArray[i].length; j++) {
+            if (newRawArray[i][j] === null) {
+              newRawArray[i][j] = "";
+            }
+          }
+        }
+      }
+      return newRawArray;
      }
   );
 
@@ -61,7 +74,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
   };
   var changeHandler = function (changes, source) {
     if (source !== "loadData") {
-      return Curry._1(updateRawData, Curry._2(applyChanges, rawData, changes));
+      return Curry._1(updateRawData, Curry._3(applyChanges, rawData, changes, maxCols));
     } else {
       return 0;
     }
@@ -115,7 +128,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                                                       Caml_builtin_exceptions.match_failure,
                                                       [
                                                         "SideDataImporter.re",
-                                                        106,
+                                                        119,
                                                         24
                                                       ]
                                                     ];

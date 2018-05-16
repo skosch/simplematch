@@ -93,7 +93,7 @@ let make = _children => {
         })
       | UpdateSelectingRawData(rawData) =>
         let (parsedData, selectedNamesEntries) =
-          parseData(rawData, state.selectingRowFormat);
+          parseData(rawData, state.selectingRowFormat, true);
         ReasonReact.Update({
           ...state,
           selectingRawData: rawData,
@@ -108,7 +108,7 @@ let make = _children => {
         });
       | UpdateSelectedRawData(rawData) => {
         let (parsedData, _selectedNamesEntries) =
-          parseData(rawData, state.selectedRowFormat);
+          parseData(rawData, state.selectedRowFormat, state.mutualMatch);
         
         ReasonReact.Update({
           ...state,

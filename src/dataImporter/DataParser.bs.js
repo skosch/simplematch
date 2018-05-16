@@ -15,28 +15,107 @@ function ifEmptyString(str, alt) {
   }
 }
 
-function parseData(rawData, rowFormat) {
+function optString(optStr) {
+  var ss = $$String.trim(Js_option.getWithDefault("", optStr));
+  if (ss === "") {
+    return /* None */0;
+  } else {
+    return /* Some */[ss];
+  }
+}
+
+function optStringToOptInt(optStr) {
+  if (optStr) {
+    try {
+      return /* Some */[Caml_format.caml_int_of_string(optStr[0])];
+    }
+    catch (exn){
+      return /* None */0;
+    }
+  } else {
+    return /* None */0;
+  }
+}
+
+function parseSelectees(cols, rowFormat) {
+  if (rowFormat) {
+    var match = optString(Belt_Array.get(cols, 0));
+    var match$1 = optStringToOptInt(Belt_Array.get(cols, 1));
+    if (match && match$1) {
+      return /* Some */[/* :: */[
+                /* tuple */[
+                  match[0],
+                  match$1[0]
+                ],
+                /* [] */0
+              ]];
+    } else {
+      return /* None */0;
+    }
+  } else {
+    var __x = Belt_Array.mapWithIndex(cols.filter((function (s) {
+                return $$String.trim(s) !== "";
+              })), (function (i, sn) {
+            return /* tuple */[
+                    i,
+                    sn
+                  ];
+          }));
+    return Js_option.some(Belt_List.reverse(Belt_Array.reduce(__x, /* [] */0, (function (p, param) {
+                          return /* :: */[
+                                  /* tuple */[
+                                    param[1],
+                                    param[0] + 1 | 0
+                                  ],
+                                  p
+                                ];
+                        }))));
+  }
+}
+
+function parseSingleRow(cols, hasSelectees, rowFormat) {
+  var name = optString(Belt_Array.get(cols, 0));
+  var canMatchWith = optStringToOptInt(optString(Belt_Array.get(cols, 1)));
+  var selectees = hasSelectees ? parseSelectees(cols.slice(2), rowFormat) : /* Some */[/* [] */0];
+  if (name && canMatchWith && selectees) {
+    return /* Some */[/* tuple */[
+              name[0],
+              canMatchWith[0],
+              selectees[0]
+            ]];
+  } else {
+    return /* None */0;
+  }
+}
+
+function parseData(rawData, rowFormat, hasSelectees) {
   var sideDataEntries = rowFormat ? Belt_List.fromArray(Belt_HashMapString.valuesToArray(Belt_Array.reduce(rawData, Belt_HashMapString.make(rawData.length), (function (nameMap, cols) {
-                    var name = Js_option.getWithDefault("", Belt_Array.get(cols, 0));
-                    if (name !== "" && cols.length >= 2) {
-                      var canMatchWith = ifEmptyString(Js_option.getWithDefault("1", Belt_Array.get(cols, 1)), "1");
-                      var selectedName = Js_option.getWithDefault("", Belt_Array.get(cols, 2));
-                      var rank = ifEmptyString(Js_option.getWithDefault("1", Belt_Array.get(cols, 3)), "1");
-                      var match = Belt_HashMapString.get(nameMap, name);
-                      var previouslyFoundSelectedNames = match ? match[0][/* selectedNames */2] : /* [] */0;
-                      var entry_000 = /* name */$$String.trim(name);
-                      var entry_001 = /* canMatchWith */Caml_format.caml_int_of_string(canMatchWith);
-                      var entry_002 = /* selectedNames */selectedName !== "" ? /* :: */[
+                    var rowContent = parseSingleRow(cols, hasSelectees, rowFormat);
+                    if (rowContent) {
+                      var match = rowContent[0];
+                      var name = match[0];
+                      var firstAndOnlySelectee = Belt_List.head(match[2]);
+                      var match$1 = Belt_HashMapString.get(nameMap, name);
+                      var previouslyFoundSelectedNames = match$1 ? match$1[0][/* selectedNames */2] : /* [] */0;
+                      console.log(firstAndOnlySelectee);
+                      var tmp;
+                      if (firstAndOnlySelectee) {
+                        var match$2 = firstAndOnlySelectee[0];
+                        tmp = /* :: */[
                           /* tuple */[
-                            selectedName,
-                            Caml_format.caml_int_of_string(rank)
+                            match$2[0],
+                            match$2[1]
                           ],
                           previouslyFoundSelectedNames
-                        ] : previouslyFoundSelectedNames;
+                        ];
+                      } else {
+                        tmp = previouslyFoundSelectedNames;
+                      }
+                      var entry_001 = /* canMatchWith */match[1];
                       var entry = /* record */[
-                        entry_000,
+                        /* name */name,
                         entry_001,
-                        entry_002
+                        /* selectedNames */tmp
                       ];
                       Belt_HashMapString.set(nameMap, name, entry);
                       return nameMap;
@@ -44,27 +123,13 @@ function parseData(rawData, rowFormat) {
                       return nameMap;
                     }
                   })))) : Belt_List.reverse(Belt_Array.reduce(rawData, /* [] */0, (function (allRows, cols) {
-                var name = Js_option.getWithDefault("", Belt_Array.get(cols, 0));
-                if (name !== "" && cols.length >= 2) {
-                  var canMatchWith = ifEmptyString(Js_option.getWithDefault("1", Belt_Array.get(cols, 1)), "1");
-                  var selectedNames = Belt_Array.slice(cols, 2, cols.length);
-                  var __x = Belt_List.mapWithIndex(Belt_List.fromArray(selectedNames), (function (i, sn) {
-                          return /* tuple */[
-                                  i,
-                                  sn
-                                ];
-                        }));
-                  var entry_000 = /* name */$$String.trim(name);
-                  var entry_001 = /* canMatchWith */Caml_format.caml_int_of_string(canMatchWith);
-                  var entry_002 = /* selectedNames */Belt_List.reverse(Belt_List.reduce(__x, /* [] */0, (function (p, param) {
-                              return /* :: */[
-                                      /* tuple */[
-                                        param[1],
-                                        param[0] + 1 | 0
-                                      ],
-                                      p
-                                    ];
-                            })));
+                var rowContent = parseSingleRow(cols, hasSelectees, rowFormat);
+                if (rowContent) {
+                  var match = rowContent[0];
+                  Belt_Array.slice(cols, 2, cols.length);
+                  var entry_000 = /* name */match[0];
+                  var entry_001 = /* canMatchWith */match[1];
+                  var entry_002 = /* selectedNames */match[2];
                   var entry = /* record */[
                     entry_000,
                     entry_001,
@@ -99,5 +164,9 @@ function parseData(rawData, rowFormat) {
 }
 
 exports.ifEmptyString = ifEmptyString;
+exports.optString = optString;
+exports.optStringToOptInt = optStringToOptInt;
+exports.parseSelectees = parseSelectees;
+exports.parseSingleRow = parseSingleRow;
 exports.parseData = parseData;
 /* No side effect */

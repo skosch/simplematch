@@ -210,7 +210,7 @@ function make() {
                                 ]]);
                   case 5 : 
                       var rawData = action[0];
-                      var match = DataParser.parseData(rawData, state[/* selectingRowFormat */3]);
+                      var match = DataParser.parseData(rawData, state[/* selectingRowFormat */3], true);
                       var selectedNamesEntries = match[1];
                       var match$1 = !state[/* mutualMatch */2] && List.length(state[/* selectedParsedData */8]) === 0;
                       var match$2 = !state[/* mutualMatch */2] && List.length(state[/* selectedParsedData */8]) === 0;
@@ -228,7 +228,7 @@ function make() {
                                 ]]);
                   case 6 : 
                       var rawData$1 = action[0];
-                      var match$3 = DataParser.parseData(rawData$1, state[/* selectedRowFormat */4]);
+                      var match$3 = DataParser.parseData(rawData$1, state[/* selectedRowFormat */4], state[/* mutualMatch */2]);
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
@@ -252,6 +252,14 @@ function make() {
 
 var ifEmptyString = DataParser.ifEmptyString;
 
+var optString = DataParser.optString;
+
+var optStringToOptInt = DataParser.optStringToOptInt;
+
+var parseSelectees = DataParser.parseSelectees;
+
+var parseSingleRow = DataParser.parseSingleRow;
+
 var parseData = DataParser.parseData;
 
 var positions = SampleData.positions;
@@ -271,6 +279,10 @@ var minCostMaxFlow = RunMatch.minCostMaxFlow;
 var runMatch = RunMatch.runMatch;
 
 exports.ifEmptyString = ifEmptyString;
+exports.optString = optString;
+exports.optStringToOptInt = optStringToOptInt;
+exports.parseSelectees = parseSelectees;
+exports.parseSingleRow = parseSingleRow;
 exports.parseData = parseData;
 exports.positions = positions;
 exports.candidates = candidates;
