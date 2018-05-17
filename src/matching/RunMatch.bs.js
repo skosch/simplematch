@@ -2,20 +2,16 @@
 
 var Curry = require("bs-platform/lib/js/curry.js");
 var MCMF = require("./MCMF");
-var Belt_Id = require("bs-platform/lib/js/belt_Id.js");
 var Belt_Set = require("bs-platform/lib/js/belt_Set.js");
 var Caml_obj = require("bs-platform/lib/js/caml_obj.js");
 var Belt_List = require("bs-platform/lib/js/belt_List.js");
 var Js_option = require("bs-platform/lib/js/js_option.js");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 var Pervasives = require("bs-platform/lib/js/pervasives.js");
+var SharedTypes = require("../SharedTypes.bs.js");
 var GaleShapley = require("./GaleShapley");
 var Belt_HashMapInt = require("bs-platform/lib/js/belt_HashMapInt.js");
 var Belt_HashMapString = require("bs-platform/lib/js/belt_HashMapString.js");
-
-var cmp = Caml_obj.caml_compare;
-
-var IntCmp = Belt_Id.MakeComparable(/* module */[/* cmp */cmp]);
 
 function rankSortedArray(selectedNames) {
   return Belt_Array.map(Belt_List.toArray(selectedNames).sort((function (param, param$1) {
@@ -67,7 +63,7 @@ function minCostMaxFlow(currentState) {
   var connectingCapacitiesRows = Belt_List.toArray(Belt_List.map(selectingParsedData, (function (s) {
               var selectedIndicesSet = Belt_Set.fromArray(Belt_List.toArray(Belt_List.map(s[/* selectedNames */2], (function (param) {
                               return Belt_HashMapString.get(selectedIndices, param[0]);
-                            }))), IntCmp);
+                            }))), SharedTypes.OptIntCmp);
               return Belt_Array.concatMany(/* array */[
                           /* array */[0],
                           Belt_Array.makeBy(nSelecting, (function () {
@@ -189,9 +185,8 @@ function runMatch(currentState) {
   }
 }
 
-exports.IntCmp = IntCmp;
 exports.rankSortedArray = rankSortedArray;
 exports.galeShapley = galeShapley;
 exports.minCostMaxFlow = minCostMaxFlow;
 exports.runMatch = runMatch;
-/* IntCmp Not a pure module */
+/* ./MCMF Not a pure module */

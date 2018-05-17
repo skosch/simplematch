@@ -47,8 +47,10 @@ let make =
       ~updateRowFormat,
       ~updateRawData,
       ~includeSelectees,
+  ~ignoredRowIndices,
       _children,
     ) => {
+
   let maxCols =
     2 + (includeSelectees ? (rowFormat == SelectedInMultipleRows ? 2 : 10000) : 0);
 
@@ -58,12 +60,19 @@ let make =
     } else {
       singular(selectedName) ++ " ranked #" ++ string_of_int(index + 1);
     };
+
   let columnHeader = index =>
     switch (index) {
     | 0 => String.capitalize(selectingName)
     | 1 => "Can match<br />with " ++ selectedName
     | _ => String.capitalize(singular(selectedHeader(index - 2)))
     };
+
+  let rowHeaders = index => (
+   "<span class=\"" ++ (Set.has(ignoredRowIndices, index) ? "ignored-row" : "")
+      ++ "\" title=\"" ++ (Set.has(ignoredRowIndices, index) ? "Row has errors and will be ignored" : "") ++ "\">" ++ string_of_int(index + 1) ++ "</span>"
+  );
+
   let changeHandler = (changes, source) =>
     if (source !== "loadData") {
       let newRawData = 
@@ -86,7 +95,7 @@ let make =
           <HotTable
             settings={
               "colHeaders": columnHeader,
-              "rowHeaders": true,
+              "rowHeaders": rowHeaders,
               "copyPaste": true,
               "width": "100%",
               "minSpareRows": 1,

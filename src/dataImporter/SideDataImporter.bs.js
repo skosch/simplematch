@@ -3,11 +3,13 @@
 var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
 var $$String = require("bs-platform/lib/js/string.js");
+var Belt_Set = require("bs-platform/lib/js/belt_Set.js");
 var HotTable = require("./HotTable.bs.js");
 var Js_option = require("bs-platform/lib/js/js_option.js");
 var Pluralize = require("pluralize");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
+var SharedTypes = require("../SharedTypes.bs.js");
 var Caml_builtin_exceptions = require("bs-platform/lib/js/caml_builtin_exceptions.js");
 
 var applyChanges = (
@@ -40,7 +42,7 @@ var applyChanges = (
 
 var component = ReasonReact.statelessComponent("SideDataImporter");
 
-function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, updateRawData, includeSelectees, _) {
+function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, updateRawData, includeSelectees, ignoredRowIndices, _) {
   var tmp;
   if (includeSelectees) {
     var match = rowFormat === /* SelectedInMultipleRows */1;
@@ -72,6 +74,15 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
       return $$String.capitalize(selectingName);
     }
   };
+  var rowHeaders = function (index) {
+    var match = Belt_Set.has(ignoredRowIndices, index);
+    var match$1 = Belt_Set.has(ignoredRowIndices, index);
+    return "<span class=\"" + ((
+              match ? "ignored-row" : ""
+            ) + ("\" title=\"" + ((
+                  match$1 ? "Row has errors and will be ignored" : ""
+                ) + ("\">" + (String(index + 1 | 0) + "</span>")))));
+  };
   var changeHandler = function (changes, source) {
     if (source !== "loadData") {
       return Curry._1(updateRawData, Curry._3(applyChanges, rawData, changes, maxCols));
@@ -99,7 +110,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                               className: "question-statement"
                             }, "Paste your " + (selectingName + " into the spreadsheet below:")), ReasonReact.element(/* None */0, /* None */0, HotTable.make({
                                   colHeaders: columnHeader,
-                                  rowHeaders: true,
+                                  rowHeaders: rowHeaders,
                                   copyPaste: true,
                                   width: "100%",
                                   minSpareRows: 1,
@@ -128,7 +139,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                                                       Caml_builtin_exceptions.match_failure,
                                                       [
                                                         "SideDataImporter.re",
-                                                        119,
+                                                        128,
                                                         24
                                                       ]
                                                     ];
@@ -154,6 +165,12 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
         ];
 }
 
+var IntCmp = SharedTypes.IntCmp;
+
+var OptIntCmp = SharedTypes.OptIntCmp;
+
+exports.IntCmp = IntCmp;
+exports.OptIntCmp = OptIntCmp;
 exports.applyChanges = applyChanges;
 exports.component = component;
 exports.make = make;

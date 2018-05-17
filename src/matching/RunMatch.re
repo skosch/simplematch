@@ -19,14 +19,6 @@ type runGaleShapleyType =
 [@bs.module "./GaleShapley"]
 external runGaleShapley : runGaleShapleyType = "default";
 
-module IntCmp =
-  Id.MakeComparable(
-    {
-      type t = option(int);
-      let cmp = (i1, i2) => compare(i1, i2);
-    },
-  );
-
 let rankSortedArray = selectedNames =>
   selectedNames
   |. List.toArray
@@ -79,7 +71,7 @@ let minCostMaxFlow = (currentState: SharedTypes.state) => {
                 HashMap.String.get(selectedIndices, sn)
               )
            |> List.toArray
-           |. Set.fromArray(~id=(module IntCmp));
+           |. Set.fromArray(~id=(module SharedTypes.OptIntCmp));
          Array.concatMany([|
            [|0|],
            Array.makeBy(nSelecting, _i => 0),

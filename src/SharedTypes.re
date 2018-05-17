@@ -1,3 +1,20 @@
+open Belt;
+
+module IntCmp =
+  Id.MakeComparable(
+    {
+      type t = int;
+      let cmp = (i1, i2) => compare(i1, i2);
+    },
+  );
+module OptIntCmp =
+  Id.MakeComparable(
+    {
+      type t = option(int);
+      let cmp = (i1, i2) => compare(i1, i2);
+    },
+  );
+
 type rowFormat =
   | SelectedInColumns
   | SelectedInMultipleRows;
@@ -26,6 +43,9 @@ type state = {
 
   selectingParsedData: list(sideDataEntry),
   selectedParsedData: list(sideDataEntry),
+  
+  selectingIgnoredRowIndices: Set.t(int, IntCmp.identity),
+  selectedIgnoredRowIndices: Set.t(int, IntCmp.identity),
   
   matchResult: list(pairing),
 };

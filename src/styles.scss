@@ -124,6 +124,17 @@ body {
         flex: 1 0;
         max-height: 100%;
         position: relative;
+        th {
+          cursor: default;
+        }
+        .ignored-row {
+          font-weight: bold;
+          color: #cd5200;
+          background: #ffc198;
+          width: 50px;
+          padding: 0px 6px;
+          border-radius: 100%;
+        }
 
         .question-statement {
         margin-bottom: 1rem;

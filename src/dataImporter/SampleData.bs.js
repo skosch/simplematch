@@ -1,6 +1,7 @@
 'use strict';
 
 var Belt_List = require("bs-platform/lib/js/belt_List.js");
+var SharedTypes = require("../SharedTypes.bs.js");
 
 function sampleDataToRaw(rowFormat, sampleParticipants) {
   if (rowFormat) {
@@ -51,6 +52,10 @@ function sampleDataToRaw(rowFormat, sampleParticipants) {
                     })));
   }
 }
+
+var IntCmp = SharedTypes.IntCmp;
+
+var OptIntCmp = SharedTypes.OptIntCmp;
 
 var positions = /* :: */[
   /* record */[
@@ -735,7 +740,9 @@ var candidates = /* :: */[
   ]
 ];
 
+exports.IntCmp = IntCmp;
+exports.OptIntCmp = OptIntCmp;
 exports.positions = positions;
 exports.candidates = candidates;
 exports.sampleDataToRaw = sampleDataToRaw;
-/* No side effect */
+/* SharedTypes Not a pure module */

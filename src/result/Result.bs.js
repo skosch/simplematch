@@ -7,6 +7,7 @@ var Belt_List = require("bs-platform/lib/js/belt_List.js");
 var Js_option = require("bs-platform/lib/js/js_option.js");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
+var SharedTypes = require("../SharedTypes.bs.js");
 var Belt_HashMapString = require("bs-platform/lib/js/belt_HashMapString.js");
 var Caml_builtin_exceptions = require("bs-platform/lib/js/caml_builtin_exceptions.js");
 
@@ -116,6 +117,12 @@ function make(currentState, resultData, _) {
         ];
 }
 
+var IntCmp = SharedTypes.IntCmp;
+
+var OptIntCmp = SharedTypes.OptIntCmp;
+
+exports.IntCmp = IntCmp;
+exports.OptIntCmp = OptIntCmp;
 exports.component = component;
 exports.make = make;
 /* component Not a pure module */

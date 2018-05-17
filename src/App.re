@@ -57,6 +57,8 @@ let make = _children => {
       selectedRawData: [||],
       selectingParsedData: [],
       selectedParsedData: [],
+    selectingIgnoredRowIndices: Belt.Set.make(~id=(module SharedTypes.IntCmp)),
+    selectedIgnoredRowIndices: Belt.Set.make(~id=(module SharedTypes.IntCmp)),
       matchResult: [],
     },
     didMount: self => loadSampleData(0, self),
@@ -92,12 +94,13 @@ let make = _children => {
           matchResult: [],
         })
       | UpdateSelectingRawData(rawData) =>
-        let (parsedData, selectedNamesEntries) =
+        let (parsedData, ignoredRowIndices, selectedNamesEntries) =
           parseData(rawData, state.selectingRowFormat, true);
         ReasonReact.Update({
           ...state,
           selectingRawData: rawData,
           selectingParsedData: parsedData,
+          selectingIgnoredRowIndices: ignoredRowIndices,
           selectedParsedData:
             ! state.mutualMatch && List.length(state.selectedParsedData) == 0 ?
               selectedNamesEntries : state.selectedParsedData,
@@ -107,12 +110,13 @@ let make = _children => {
               state.selectedRawData,
         });
       | UpdateSelectedRawData(rawData) => {
-        let (parsedData, _selectedNamesEntries) =
+        let (parsedData, ignoredRowIndices, _selectedNamesEntries) =
           parseData(rawData, state.selectedRowFormat, state.mutualMatch);
         
         ReasonReact.Update({
           ...state,
           selectedRawData: rawData,
+          selectedIgnoredRowIndices: ignoredRowIndices,
           selectedParsedData: parsedData,
         });
         };
@@ -193,6 +197,7 @@ let make = _children => {
             rawData=state.selectingRawData
             rowFormat=state.selectingRowFormat
             includeSelectees=true
+      ignoredRowIndices=state.selectingIgnoredRowIndices
             updateRawData=(
               rawData => self.send(UpdateSelectingRawData(rawData))
             )
@@ -206,6 +211,7 @@ let make = _children => {
             rawData=state.selectedRawData
             rowFormat=state.selectedRowFormat
             includeSelectees=state.mutualMatch
+      ignoredRowIndices=state.selectedIgnoredRowIndices
             updateRowFormat=(
               rowFormat => self.send(UpdateSelectedRowFormat(rowFormat))
             )

@@ -5,11 +5,13 @@ var Block = require("bs-platform/lib/js/block.js");
 var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
 var Result = require("./result/Result.bs.js");
+var Belt_Set = require("bs-platform/lib/js/belt_Set.js");
 var RunMatch = require("./matching/RunMatch.bs.js");
 var Belt_List = require("bs-platform/lib/js/belt_List.js");
 var DataParser = require("./dataImporter/DataParser.bs.js");
 var SampleData = require("./dataImporter/SampleData.bs.js");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
+var SharedTypes = require("./SharedTypes.bs.js");
 var SideDataImporter = require("./dataImporter/SideDataImporter.bs.js");
 
 ((require('./styles.scss')));
@@ -43,13 +45,13 @@ function make() {
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function (self) {
               var state = self[/* state */1];
-              var resultData = Belt_List.toArray(Belt_List.map(self[/* state */1][/* matchResult */9], (function (param) {
+              var resultData = Belt_List.toArray(Belt_List.map(self[/* state */1][/* matchResult */11], (function (param) {
                           return /* array */[
                                   param[0],
                                   param[1]
                                 ];
                         })));
-              var match = List.length(self[/* state */1][/* matchResult */9]) > 0;
+              var match = List.length(self[/* state */1][/* matchResult */11]) > 0;
               return React.createElement("div", undefined, React.createElement("div", {
                               className: "page-content"
                             }, React.createElement("div", {
@@ -91,11 +93,11 @@ function make() {
                                                 return Curry._1(self[/* send */3], /* UpdateSelectingRowFormat */Block.__(3, [rowFormat]));
                                               }), (function (rawData) {
                                                 return Curry._1(self[/* send */3], /* UpdateSelectingRawData */Block.__(5, [rawData]));
-                                              }), true, /* array */[])), ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectedRawData */6], state[/* selectedName */1], state[/* selectingName */0], state[/* selectedRowFormat */4], (function (rowFormat) {
+                                              }), true, state[/* selectingIgnoredRowIndices */9], /* array */[])), ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectedRawData */6], state[/* selectedName */1], state[/* selectingName */0], state[/* selectedRowFormat */4], (function (rowFormat) {
                                                 return Curry._1(self[/* send */3], /* UpdateSelectedRowFormat */Block.__(4, [rowFormat]));
                                               }), (function (rawData) {
                                                 return Curry._1(self[/* send */3], /* UpdateSelectedRawData */Block.__(6, [rawData]));
-                                              }), state[/* mutualMatch */2], /* array */[]))), React.createElement("div", {
+                                              }), state[/* mutualMatch */2], state[/* selectedIgnoredRowIndices */10], /* array */[]))), React.createElement("div", {
                                       className: "bottom-buttons"
                                     }, React.createElement("button", {
                                           className: "mdc-button",
@@ -123,6 +125,8 @@ function make() {
                       /* selectedRawData : array */[],
                       /* selectingParsedData : [] */0,
                       /* selectedParsedData : [] */0,
+                      /* selectingIgnoredRowIndices */Belt_Set.make(SharedTypes.IntCmp),
+                      /* selectedIgnoredRowIndices */Belt_Set.make(SharedTypes.IntCmp),
                       /* matchResult : [] */0
                     ];
             }),
@@ -139,6 +143,8 @@ function make() {
                             /* selectedRawData */state[/* selectedRawData */6],
                             /* selectingParsedData */state[/* selectingParsedData */7],
                             /* selectedParsedData */state[/* selectedParsedData */8],
+                            /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
+                            /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
                             /* matchResult */RunMatch.runMatch(state)
                           ]]);
               } else {
@@ -154,7 +160,9 @@ function make() {
                                   /* selectedRawData */state[/* selectedRawData */6],
                                   /* selectingParsedData */state[/* selectingParsedData */7],
                                   /* selectedParsedData */state[/* selectedParsedData */8],
-                                  /* matchResult */state[/* matchResult */9]
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
+                                  /* matchResult */state[/* matchResult */11]
                                 ]]);
                   case 1 : 
                       return /* Update */Block.__(0, [/* record */[
@@ -167,7 +175,9 @@ function make() {
                                   /* selectedRawData */state[/* selectedRawData */6],
                                   /* selectingParsedData */state[/* selectingParsedData */7],
                                   /* selectedParsedData */state[/* selectedParsedData */8],
-                                  /* matchResult */state[/* matchResult */9]
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
+                                  /* matchResult */state[/* matchResult */11]
                                 ]]);
                   case 2 : 
                       return /* Update */Block.__(0, [/* record */[
@@ -180,6 +190,8 @@ function make() {
                                   /* selectedRawData : array */[],
                                   /* selectingParsedData */state[/* selectingParsedData */7],
                                   /* selectedParsedData : [] */0,
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
                                   /* matchResult : [] */0
                                 ]]);
                   case 3 : 
@@ -193,6 +205,8 @@ function make() {
                                   /* selectedRawData */state[/* selectedRawData */6],
                                   /* selectingParsedData : [] */0,
                                   /* selectedParsedData */state[/* selectedParsedData */8],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
                                   /* matchResult : [] */0
                                 ]]);
                   case 4 : 
@@ -206,12 +220,14 @@ function make() {
                                   /* selectedRawData */state[/* selectedRawData */6],
                                   /* selectingParsedData : [] */0,
                                   /* selectedParsedData */state[/* selectedParsedData */8],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
                                   /* matchResult : [] */0
                                 ]]);
                   case 5 : 
                       var rawData = action[0];
                       var match = DataParser.parseData(rawData, state[/* selectingRowFormat */3], true);
-                      var selectedNamesEntries = match[1];
+                      var selectedNamesEntries = match[2];
                       var match$1 = !state[/* mutualMatch */2] && List.length(state[/* selectedParsedData */8]) === 0;
                       var match$2 = !state[/* mutualMatch */2] && List.length(state[/* selectedParsedData */8]) === 0;
                       return /* Update */Block.__(0, [/* record */[
@@ -224,7 +240,9 @@ function make() {
                                   /* selectedRawData */match$1 ? SampleData.sampleDataToRaw(state[/* selectedRowFormat */4], selectedNamesEntries) : state[/* selectedRawData */6],
                                   /* selectingParsedData */match[0],
                                   /* selectedParsedData */match$2 ? selectedNamesEntries : state[/* selectedParsedData */8],
-                                  /* matchResult */state[/* matchResult */9]
+                                  /* selectingIgnoredRowIndices */match[1],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
+                                  /* matchResult */state[/* matchResult */11]
                                 ]]);
                   case 6 : 
                       var rawData$1 = action[0];
@@ -239,7 +257,9 @@ function make() {
                                   /* selectedRawData */rawData$1,
                                   /* selectingParsedData */state[/* selectingParsedData */7],
                                   /* selectedParsedData */match$3[0],
-                                  /* matchResult */state[/* matchResult */9]
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
+                                  /* selectedIgnoredRowIndices */match$3[1],
+                                  /* matchResult */state[/* matchResult */11]
                                 ]]);
                   
                 }
@@ -252,6 +272,8 @@ function make() {
 
 var ifEmptyString = DataParser.ifEmptyString;
 
+var listToSet = DataParser.listToSet;
+
 var optString = DataParser.optString;
 
 var optStringToOptInt = DataParser.optStringToOptInt;
@@ -262,13 +284,15 @@ var parseSingleRow = DataParser.parseSingleRow;
 
 var parseData = DataParser.parseData;
 
+var IntCmp = SampleData.IntCmp;
+
+var OptIntCmp = SampleData.OptIntCmp;
+
 var positions = SampleData.positions;
 
 var candidates = SampleData.candidates;
 
 var sampleDataToRaw = SampleData.sampleDataToRaw;
-
-var IntCmp = RunMatch.IntCmp;
 
 var rankSortedArray = RunMatch.rankSortedArray;
 
@@ -279,15 +303,17 @@ var minCostMaxFlow = RunMatch.minCostMaxFlow;
 var runMatch = RunMatch.runMatch;
 
 exports.ifEmptyString = ifEmptyString;
+exports.listToSet = listToSet;
 exports.optString = optString;
 exports.optStringToOptInt = optStringToOptInt;
 exports.parseSelectees = parseSelectees;
 exports.parseSingleRow = parseSingleRow;
 exports.parseData = parseData;
+exports.IntCmp = IntCmp;
+exports.OptIntCmp = OptIntCmp;
 exports.positions = positions;
 exports.candidates = candidates;
 exports.sampleDataToRaw = sampleDataToRaw;
-exports.IntCmp = IntCmp;
 exports.rankSortedArray = rankSortedArray;
 exports.galeShapley = galeShapley;
 exports.minCostMaxFlow = minCostMaxFlow;

@@ -1,10 +1,12 @@
 'use strict';
 
 var $$String = require("bs-platform/lib/js/string.js");
+var Belt_Set = require("bs-platform/lib/js/belt_Set.js");
 var Belt_List = require("bs-platform/lib/js/belt_List.js");
 var Js_option = require("bs-platform/lib/js/js_option.js");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 var Caml_format = require("bs-platform/lib/js/caml_format.js");
+var SharedTypes = require("../SharedTypes.bs.js");
 var Belt_HashMapString = require("bs-platform/lib/js/belt_HashMapString.js");
 
 function ifEmptyString(str, alt) {
@@ -13,6 +15,10 @@ function ifEmptyString(str, alt) {
   } else {
     return str;
   }
+}
+
+function listToSet(l) {
+  return Belt_Set.fromArray(Belt_List.toArray(l), SharedTypes.IntCmp);
 }
 
 function optString(optStr) {
@@ -89,59 +95,112 @@ function parseSingleRow(cols, hasSelectees, rowFormat) {
 }
 
 function parseData(rawData, rowFormat, hasSelectees) {
-  var sideDataEntries = rowFormat ? Belt_List.fromArray(Belt_HashMapString.valuesToArray(Belt_Array.reduce(rawData, Belt_HashMapString.make(rawData.length), (function (nameMap, cols) {
-                    var rowContent = parseSingleRow(cols, hasSelectees, rowFormat);
-                    if (rowContent) {
-                      var match = rowContent[0];
-                      var name = match[0];
-                      var firstAndOnlySelectee = Belt_List.head(match[2]);
-                      var match$1 = Belt_HashMapString.get(nameMap, name);
-                      var previouslyFoundSelectedNames = match$1 ? match$1[0][/* selectedNames */2] : /* [] */0;
-                      var tmp;
-                      if (firstAndOnlySelectee) {
-                        var match$2 = firstAndOnlySelectee[0];
-                        tmp = /* :: */[
-                          /* tuple */[
-                            match$2[0],
-                            match$2[1]
-                          ],
-                          previouslyFoundSelectedNames
-                        ];
-                      } else {
-                        tmp = previouslyFoundSelectedNames;
-                      }
-                      var entry_001 = /* canMatchWith */match[1];
-                      var entry = /* record */[
-                        /* name */name,
-                        entry_001,
-                        /* selectedNames */tmp
+  var match;
+  if (rowFormat) {
+    var match$1 = Belt_Array.reduce(Belt_Array.mapWithIndex(rawData, (function (i, r) {
+                return /* tuple */[
+                        r,
+                        i
                       ];
-                      Belt_HashMapString.set(nameMap, name, entry);
-                      return nameMap;
-                    } else {
-                      return nameMap;
-                    }
-                  })))) : Belt_List.reverse(Belt_Array.reduce(rawData, /* [] */0, (function (allRows, cols) {
-                var rowContent = parseSingleRow(cols, hasSelectees, rowFormat);
-                if (rowContent) {
-                  var match = rowContent[0];
-                  Belt_Array.slice(cols, 2, cols.length);
-                  var entry_000 = /* name */match[0];
-                  var entry_001 = /* canMatchWith */match[1];
-                  var entry_002 = /* selectedNames */match[2];
-                  var entry = /* record */[
-                    entry_000,
-                    entry_001,
-                    entry_002
-                  ];
-                  return /* :: */[
-                          entry,
-                          allRows
-                        ];
-                } else {
-                  return allRows;
-                }
-              })));
+              })), /* tuple */[
+          Belt_HashMapString.make(rawData.length),
+          /* [] */0
+        ], (function (param, param$1) {
+            var allIgnoredRowIndices = param[1];
+            var nameMap = param[0];
+            var rowContent = parseSingleRow(param$1[0], hasSelectees, rowFormat);
+            if (rowContent) {
+              var match = rowContent[0];
+              var name = match[0];
+              var firstAndOnlySelectee = Belt_List.head(match[2]);
+              var match$1 = Belt_HashMapString.get(nameMap, name);
+              var previouslyFoundSelectedNames = match$1 ? match$1[0][/* selectedNames */2] : /* [] */0;
+              var tmp;
+              if (firstAndOnlySelectee) {
+                var match$2 = firstAndOnlySelectee[0];
+                tmp = /* :: */[
+                  /* tuple */[
+                    match$2[0],
+                    match$2[1]
+                  ],
+                  previouslyFoundSelectedNames
+                ];
+              } else {
+                tmp = previouslyFoundSelectedNames;
+              }
+              var entry_001 = /* canMatchWith */match[1];
+              var entry = /* record */[
+                /* name */name,
+                entry_001,
+                /* selectedNames */tmp
+              ];
+              Belt_HashMapString.set(nameMap, name, entry);
+              return /* tuple */[
+                      nameMap,
+                      allIgnoredRowIndices
+                    ];
+            } else {
+              return /* tuple */[
+                      nameMap,
+                      /* :: */[
+                        param$1[1],
+                        allIgnoredRowIndices
+                      ]
+                    ];
+            }
+          }));
+    match = /* tuple */[
+      Belt_List.fromArray(Belt_HashMapString.valuesToArray(match$1[0])),
+      Belt_Set.fromArray(Belt_List.toArray(match$1[1]), SharedTypes.IntCmp)
+    ];
+  } else {
+    var match$2 = Belt_Array.reduce(Belt_Array.mapWithIndex(rawData, (function (i, r) {
+                return /* tuple */[
+                        r,
+                        i
+                      ];
+              })), /* tuple */[
+          /* [] */0,
+          /* [] */0
+        ], (function (param, param$1) {
+            var cols = param$1[0];
+            var allIgnoredRowIndices = param[1];
+            var allRows = param[0];
+            var rowContent = parseSingleRow(cols, hasSelectees, rowFormat);
+            if (rowContent) {
+              var match = rowContent[0];
+              Belt_Array.slice(cols, 2, cols.length);
+              var entry_000 = /* name */match[0];
+              var entry_001 = /* canMatchWith */match[1];
+              var entry_002 = /* selectedNames */match[2];
+              var entry = /* record */[
+                entry_000,
+                entry_001,
+                entry_002
+              ];
+              return /* tuple */[
+                      /* :: */[
+                        entry,
+                        allRows
+                      ],
+                      allIgnoredRowIndices
+                    ];
+            } else {
+              return /* tuple */[
+                      allRows,
+                      /* :: */[
+                        param$1[1],
+                        allIgnoredRowIndices
+                      ]
+                    ];
+            }
+          }));
+    match = /* tuple */[
+      Belt_List.reverse(match$2[0]),
+      Belt_Set.fromArray(Belt_List.toArray(match$2[1]), SharedTypes.IntCmp)
+    ];
+  }
+  var sideDataEntries = match[0];
   var selectedNamesEntries = Belt_List.map(Belt_List.fromArray(Belt_HashMapString.keysToArray(Belt_HashMapString.fromArray(Belt_List.toArray(Belt_List.map(Belt_List.reduce(sideDataEntries, /* [] */0, (function (selectedNameList, entry) {
                                   return Belt_List.concat(selectedNameList, entry[/* selectedNames */2]);
                                 })), (function (param) {
@@ -158,14 +217,16 @@ function parseData(rawData, rowFormat, hasSelectees) {
         }));
   return /* tuple */[
           sideDataEntries,
+          match[1],
           selectedNamesEntries
         ];
 }
 
 exports.ifEmptyString = ifEmptyString;
+exports.listToSet = listToSet;
 exports.optString = optString;
 exports.optStringToOptInt = optStringToOptInt;
 exports.parseSelectees = parseSelectees;
 exports.parseSingleRow = parseSingleRow;
 exports.parseData = parseData;
-/* No side effect */
+/* SharedTypes Not a pure module */
