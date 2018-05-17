@@ -8,16 +8,15 @@ type runMCMFType =
     "cost": int,
     "fnet": array(array(int)),
   };
-
-type gsInputLine = (string, array(string));
-
-type runGaleShapleyType =
-  (array(gsInputLine), array(gsInputLine)) => array(SharedTypes.pairing);
+type stringArrayDict = Js.Dict.t(array(string));
+type intDict = Js.Dict.t(int);
+type runPopularManyToMany =
+  (stringArrayDict, stringArrayDict, intDict, intDict) => array(SharedTypes.pairing);
 
 [@bs.module "./MCMF"] external runMinCostMaxFlow : runMCMFType = "default";
 
-[@bs.module "./GaleShapley"]
-external runGaleShapley : runGaleShapleyType = "default";
+[@bs.module "./PopularManyToMany"]
+external runPopularManyToMany : runPopularManyToMany = "default";
 
 let rankSortedArray = selectedNames =>
   selectedNames
@@ -25,19 +24,26 @@ let rankSortedArray = selectedNames =>
   |> Js.Array.sortInPlaceWith(((_n1, r1), (_n2, r2)) => compare(r1, r2))
   |. Array.map(((n, r)) => n);
 
-let galeShapley = (currentState: SharedTypes.state) => {
-  let selectingTuples =
+let popularManyToMany = (currentState: SharedTypes.state) => {
+  let selectingSelected =
     currentState.selectingParsedData
     |. List.map(e => (e.name, rankSortedArray(e.selectedNames)))
-    |. List.toArray;
-  let selectedTuples =
+    |. Js.Dict.fromList;
+  let selectingCanMatchWith =
+    currentState.selectingParsedData
+    |. List.map(e => (e.name, e.canMatchWith))
+    |. Js.Dict.fromList;
+  let selectedSelected =
     currentState.selectedParsedData
     |. List.map(e => (e.name, rankSortedArray(e.selectedNames)))
-    |. List.toArray;
-  Js.log(selectingTuples);
-  Js.log(selectedTuples);
+    |. Js.Dict.fromList;
+  let selectedCanMatchWith =
+    currentState.selectedParsedData
+    |. List.map(e => (e.name, e.canMatchWith))
+    |. Js.Dict.fromList;
+
   let res = 
-    runGaleShapley(selectingTuples, selectedTuples)
+    runPopularManyToMany(selectingSelected, selectedSelected, selectingCanMatchWith, selectedCanMatchWith)
     |. List.fromArray;
 
   res;
@@ -215,7 +221,7 @@ let runMatch = (currentState: SharedTypes.state) => {
   /* TODO: also, all ranked selectedNames must be different on both sides, and decide between 1-level gale shapley
      if canMatchWith = 1 everywhere, or 2-level if not (see https://arxiv.org/pdf/1609.07531.pdf) */
   if (mutualRankedMatch) {
-    galeShapley(currentState);
+    popularManyToMany(currentState);
   } else {
     minCostMaxFlow(currentState);
   };

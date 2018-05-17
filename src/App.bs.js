@@ -296,7 +296,7 @@ var sampleDataToRaw = SampleData.sampleDataToRaw;
 
 var rankSortedArray = RunMatch.rankSortedArray;
 
-var galeShapley = RunMatch.galeShapley;
+var popularManyToMany = RunMatch.popularManyToMany;
 
 var minCostMaxFlow = RunMatch.minCostMaxFlow;
 
@@ -315,7 +315,7 @@ exports.positions = positions;
 exports.candidates = candidates;
 exports.sampleDataToRaw = sampleDataToRaw;
 exports.rankSortedArray = rankSortedArray;
-exports.galeShapley = galeShapley;
+exports.popularManyToMany = popularManyToMany;
 exports.minCostMaxFlow = minCostMaxFlow;
 exports.runMatch = runMatch;
 exports.component = component;
