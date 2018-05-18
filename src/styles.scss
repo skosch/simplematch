@@ -296,49 +296,58 @@ button.mdc-button {
   margin-left: 1rem;
 }
 
-select {
-  line-height: 28px;
+.material-select {
   display: inline-block;
-  position: relative;
-  font-family: Roboto;
-  background-color: transparent;
-  border-width: 0 0 2px 0;
-  border-color: #E5E5E5;
-  border-style: solid;
-  margin-top: 4px;
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23666'><polygon points='0,30 70,30 35,65'/></svg>") right/0.8rem no-repeat #fff;
-  padding: 3px 1.1rem 2px 0rem;
+  text-align: left;
+  span {
+    display: block;
+    font-size: 70%;
+    opacity: 0.5;
+    margin: 0.2rem 0 0.1rem 0.1rem;
+  }
+  select {
+    line-height: 28px;
+    display: inline-block;
+    position: relative;
+    font-family: Roboto;
+    background-color: transparent;
+    border-width: 0 0 2px 0;
+    border-color: #E5E5E5;
+    border-style: solid;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23666'><polygon points='0,30 70,30 35,65'/></svg>") right/0.8rem no-repeat #fff;
+    padding: 3px 1.1rem 4px 0rem;
 
-  &:focus {
-    outline: none;
+    &:focus {
+      outline: none;
+    }
+
+    option {
+      line-height: 2rem;
+      background: #F5F5F5;
+      color: #343434;
+    }
+    option:checked, option:hover {
+      box-shadow: 0 0 10px 100px #eee inset;
+    }
+    option:disabled {
+      color: gray;
+      background: lightgray;
+      font-style: italic;
+    }
+    option[disabled].select-header {
+      color: gray;
+      background: lightgray;
+      font-style: italic;
+    }
   }
 
-  option {
-    line-height: 2rem;
-    background: #F5F5F5;
-    color: #343434;
+  select::-ms-expand { 
+    display: none; /* remove default arrow in IE 10 and 11 */
   }
-  option:checked, option:hover {
-    box-shadow: 0 0 10px 100px #eee inset;
-  }
-  option:disabled {
-    color: gray;
-    background: lightgray;
-    font-style: italic;
-  }
-  option[disabled].select-header {
-    color: gray;
-    background: lightgray;
-    font-style: italic;
-  }
-}
-
-select::-ms-expand { 
-  display: none; /* remove default arrow in IE 10 and 11 */
 }
 
 .counts {
@@ -370,3 +379,4 @@ select::-ms-expand {
     line-height: 2rem;
   }
 }
+

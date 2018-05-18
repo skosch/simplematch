@@ -138,7 +138,9 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
               var tmp$1;
               if (includeSelectees) {
                 var match$5 = rowFormat === /* SelectedInMultipleRows */1;
-                tmp$1 = React.createElement("span", undefined, "Format: ", React.createElement("select", {
+                tmp$1 = React.createElement("div", {
+                      className: "material-select"
+                    }, React.createElement("span", undefined, "Table format"), React.createElement("select", {
                           value: match$5 ? "multiple-rows" : "columns",
                           onChange: (function (_event) {
                               var value = _event.target.value;

@@ -165,8 +165,8 @@ let make =
       <div className="rowformat-selector">
         (
           includeSelectees ?
-            <span>
-              (ReasonReact.string("Format: "))
+            <div className="material-select">
+            <span>(ReasonReact.string("Table format"))</span>
               <select
                 onChange=(
                   _event => {
@@ -197,7 +197,7 @@ let make =
                   (ReasonReact.string(selectedName ++ " in columns"))
                 </option>
               </select>
-            </span> :
+            </div> :
             ReasonReact.null
         )
         <button

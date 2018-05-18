@@ -329,7 +329,8 @@ let make = _children => {
             <div className="bottom-buttons">
               (state.mutualMatch ? (
             <span>
-              (ReasonReact.string("Match strategy: "))
+              <div className="material-select">
+              <span>(ReasonReact.string("Match strategy"))</span>
               <select
                 onChange=(
                   _event => {
@@ -353,21 +354,22 @@ let make = _children => {
                 <option value="selecting-break-ties">
                   (
                     ReasonReact.string(
-                      "Stable match, ties broken by " ++ singular(state.selectingName) ++ " preferences",
+                      "Stable match, " ++ String.uncapitalize(state.selectingName) ++ " have the last word on ties",
                     )
                   )
                 </option>
                 <option value="selected-break-ties">
                   (
                     ReasonReact.string(
-                      "Stable match, ties broken by " ++ singular(state.selectedName) ++ " preferences",
+                      "Stable match, " ++ String.uncapitalize(state.selectedName) ++ " have the last word on ties",
                     )
                   )
                 </option>
                 <option value="mcmf">
-                  (ReasonReact.string("Maximize matches, minimize sum of ranks"))
+                  (ReasonReact.string("Maximize number of matches, minimize sum of ranks"))
                 </option>
               </select>
+              </div>
             </span>
             ) : ReasonReact.null)
               <button

@@ -5,10 +5,10 @@ var Block = require("bs-platform/lib/js/block.js");
 var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
 var Result = require("./result/Result.bs.js");
+var $$String = require("bs-platform/lib/js/string.js");
 var Belt_Set = require("bs-platform/lib/js/belt_Set.js");
 var RunMatch = require("./matching/RunMatch.bs.js");
 var Belt_List = require("bs-platform/lib/js/belt_List.js");
-var Pluralize = require("pluralize");
 var DataParser = require("./dataImporter/DataParser.bs.js");
 var SampleData = require("./dataImporter/SampleData.bs.js");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
@@ -83,40 +83,42 @@ function make() {
                       break;
                   
                 }
-                tmp = React.createElement("span", undefined, "Match strategy: ", React.createElement("select", {
-                          value: tmp$1,
-                          onChange: (function (_event) {
-                              var value = _event.target.value;
-                              var matchStrategy;
-                              switch (value) {
-                                case "mcmf" : 
-                                    matchStrategy = /* MCMF */2;
-                                    break;
-                                case "selected-break-ties" : 
-                                    matchStrategy = /* SelectedBreakTies */1;
-                                    break;
-                                case "selecting-break-ties" : 
-                                    matchStrategy = /* SelectingBreakTies */0;
-                                    break;
-                                default:
-                                  throw [
-                                        Caml_builtin_exceptions.match_failure,
-                                        [
-                                          "App.re",
-                                          340,
-                                          22
-                                        ]
-                                      ];
-                              }
-                              return Curry._1(self[/* send */3], /* UpdateMatchStrategy */Block.__(7, [matchStrategy]));
-                            })
-                        }, React.createElement("option", {
-                              value: "selecting-break-ties"
-                            }, "Stable match, ties broken by " + (Pluralize.singular(state[/* selectingName */0]) + " preferences")), React.createElement("option", {
-                              value: "selected-break-ties"
-                            }, "Stable match, ties broken by " + (Pluralize.singular(state[/* selectedName */1]) + " preferences")), React.createElement("option", {
-                              value: "mcmf"
-                            }, "Maximize matches, minimize sum of ranks")));
+                tmp = React.createElement("span", undefined, React.createElement("div", {
+                          className: "material-select"
+                        }, React.createElement("span", undefined, "Match strategy"), React.createElement("select", {
+                              value: tmp$1,
+                              onChange: (function (_event) {
+                                  var value = _event.target.value;
+                                  var matchStrategy;
+                                  switch (value) {
+                                    case "mcmf" : 
+                                        matchStrategy = /* MCMF */2;
+                                        break;
+                                    case "selected-break-ties" : 
+                                        matchStrategy = /* SelectedBreakTies */1;
+                                        break;
+                                    case "selecting-break-ties" : 
+                                        matchStrategy = /* SelectingBreakTies */0;
+                                        break;
+                                    default:
+                                      throw [
+                                            Caml_builtin_exceptions.match_failure,
+                                            [
+                                              "App.re",
+                                              341,
+                                              22
+                                            ]
+                                          ];
+                                  }
+                                  return Curry._1(self[/* send */3], /* UpdateMatchStrategy */Block.__(7, [matchStrategy]));
+                                })
+                            }, React.createElement("option", {
+                                  value: "selecting-break-ties"
+                                }, "Stable match, " + ($$String.uncapitalize(state[/* selectingName */0]) + " have the last word on ties")), React.createElement("option", {
+                                  value: "selected-break-ties"
+                                }, "Stable match, " + ($$String.uncapitalize(state[/* selectedName */1]) + " have the last word on ties")), React.createElement("option", {
+                                  value: "mcmf"
+                                }, "Maximize number of matches, minimize sum of ranks"))));
               } else {
                 tmp = null;
               }
