@@ -215,7 +215,8 @@ let minCostMaxFlow = (currentState: SharedTypes.state) => {
   pairings;
 };
 
-let shouldUsePopularManyToMany = (currentState: SharedTypes.state) => {
+let suggestStrategy = (selectingParsedData: list(SharedTypes.sideDataEntry),
+                       selectedParsedData: list(SharedTypes.sideDataEntry), mutualMatch: bool) => {
   let hasNoDuplicates = [%bs.raw {|function(arr) {
       for (let i = 0; i < arr.length - 1; i++) {
         for (let j = i + 1; j < arr.length; j++) {
@@ -233,16 +234,21 @@ let shouldUsePopularManyToMany = (currentState: SharedTypes.state) => {
                                 |. List.toArray
                                 |. hasNoDuplicates);
     
-    currentState.mutualMatch && 
-    isMonotonous(List.map(currentState.selectingParsedData, s => s.selectedNames)) &&
-    isMonotonous(List.map(currentState.selectedParsedData, s => s.selectedNames));
+  if(mutualMatch && 
+    isMonotonous(List.map(selectingParsedData, s => s.selectedNames)) &&
+    isMonotonous(List.map(selectedParsedData, s => s.selectedNames))) {
+    SharedTypes.SelectingBreakTies;
+  } else {
+    SharedTypes.MCMF;
+  }
 };
 
 let runMatch = (currentState: SharedTypes.state) => {
   /* First decide on Gale-Shapley vs MinCostMaxFlow. */
-  if (shouldUsePopularManyToMany(currentState)) {
-    popularManyToMany(currentState);
-  } else {
-    minCostMaxFlow(currentState);
-  };
+  switch(currentState.matchStrategy) {
+    | SharedTypes.SelectingBreakTies => popularManyToMany(currentState);
+    | SharedTypes.SelectedBreakTies => popularManyToMany(currentState);
+    | SharedTypes.MCMF => minCostMaxFlow(currentState);
+  }
 };
+

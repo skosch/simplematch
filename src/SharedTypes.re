@@ -19,6 +19,11 @@ type rowFormat =
   | SelectedInColumns
   | SelectedInMultipleRows;
 
+type matchStrategy =
+  | SelectingBreakTies
+  | SelectedBreakTies
+  | MCMF;
+
 type selectedNameWithRank = (string, int);
 
 type sideDataEntry = {
@@ -35,6 +40,7 @@ type state = {
 
   sampleMenuOpen: bool,
   mutualMatch: bool,
+  matchStrategy: matchStrategy,
 
   selectingRowFormat: rowFormat,
   selectedRowFormat: rowFormat,

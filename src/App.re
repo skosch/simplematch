@@ -13,6 +13,9 @@ include RunMatch;
 
 [%bs.raw {|require('../node_modules/@material/menu/mdc-menu.scss')|}];
 
+[@bs.module] external pluralize : unit => unit = "";
+[@bs.val] [@bs.module "pluralize"] external singular : string => string = "";
+
 /* Action declaration */
 type action =
   | UpdateSelectingName(string)
@@ -22,6 +25,7 @@ type action =
   | UpdateSelectedRowFormat(rowFormat)
   | UpdateSelectingRawData(array(array(string)))
   | UpdateSelectedRawData(array(array(string)))
+  | UpdateMatchStrategy(matchStrategy)
   | OpenSampleMenu
   | CloseSampleMenu
   | MatchNow;
@@ -39,6 +43,7 @@ let make = _children => {
     self.ReasonReact.send(UpdateSelectingRowFormat(SelectedInMultipleRows));
     self.ReasonReact.send(UpdateSelectedRowFormat(SelectedInMultipleRows));
     self.ReasonReact.send(UpdateMutualMatch(true));
+    self.ReasonReact.send(UpdateMatchStrategy(MCMF));
     self.ReasonReact.send(
       UpdateSelectingRawData(
         sampleDataToRaw(SelectedInMultipleRows, imperialCandidates),
@@ -56,6 +61,7 @@ let make = _children => {
     self.ReasonReact.send(UpdateSelectingRowFormat(SelectedInColumns));
     self.ReasonReact.send(UpdateSelectedRowFormat(SelectedInColumns));
     self.ReasonReact.send(UpdateMutualMatch(true));
+    self.ReasonReact.send(UpdateMatchStrategy(SelectingBreakTies));
     self.ReasonReact.send(
       UpdateSelectingRawData(
         sampleDataToRaw(SelectedInColumns, marriageMen),
@@ -85,6 +91,7 @@ let make = _children => {
         Belt.Set.make(~id=(module SharedTypes.IntCmp)),
       selectedIgnoredRowIndices:
         Belt.Set.make(~id=(module SharedTypes.IntCmp)),
+      matchStrategy: MCMF,
       matchResult: [],
     },
     /*didMount: self => loadSampleData(0, self),*/
@@ -122,19 +129,21 @@ let make = _children => {
       | UpdateSelectingRawData(rawData) =>
         let (parsedData, ignoredRowIndices, selectedNamesEntries) =
           parseData(rawData, state.selectingRowFormat, true);
+        let selectedParsedData =
+            ! state.mutualMatch && List.length(state.selectedParsedData) == 0 ?
+              selectedNamesEntries : state.selectedParsedData;
         ReasonReact.Update({
           ...state,
           selectingRawData: rawData,
           selectingParsedData: parsedData,
           selectingIgnoredRowIndices: ignoredRowIndices,
-          selectedParsedData:
-            ! state.mutualMatch && List.length(state.selectedParsedData) == 0 ?
-              selectedNamesEntries : state.selectedParsedData,
+          selectedParsedData: selectedParsedData,
           selectedRawData:
             ! state.mutualMatch && List.length(state.selectedParsedData) == 0 ?
               sampleDataToRaw(state.selectedRowFormat, selectedNamesEntries) :
               state.selectedRawData,
           sampleMenuOpen: false,
+          matchStrategy: suggestStrategy(parsedData, selectedParsedData, state.mutualMatch)
         });
       | UpdateSelectedRawData(rawData) =>
         let (parsedData, ignoredRowIndices, _selectedNamesEntries) =
@@ -145,12 +154,14 @@ let make = _children => {
           selectedIgnoredRowIndices: ignoredRowIndices,
           selectedParsedData: parsedData,
           sampleMenuOpen: false,
+          matchStrategy: suggestStrategy(state.selectingParsedData, parsedData, state.mutualMatch)
         });
       | CloseSampleMenu =>
-        ReasonReact.Update({...state, sampleMenuOpen: false})
-      | OpenSampleMenu => ReasonReact.Update({...state, sampleMenuOpen: true})
+        ReasonReact.Update({...state, sampleMenuOpen: false});
+      | OpenSampleMenu => ReasonReact.Update({...state, sampleMenuOpen: true});
+      | UpdateMatchStrategy(matchStrategy) => ReasonReact.Update({...state, matchStrategy});
       | MatchNow =>
-        ReasonReact.Update({...state, matchResult: RunMatch.runMatch(state)})
+        ReasonReact.Update({...state, matchResult: RunMatch.runMatch(state)});
       },
     render: self => {
       let state = self.state;
@@ -316,6 +327,49 @@ let make = _children => {
               />
             </div>
             <div className="bottom-buttons">
+              (state.mutualMatch ? (
+            <span>
+              (ReasonReact.string("Match strategy: "))
+              <select
+                onChange=(
+                  _event => {
+                    let value = ReactDOMRe.domElementToObj(
+                                  ReactEventRe.Form.target(_event),
+                                )##value;
+                    let matchStrategy =
+                      switch (value) {
+                      | "selecting-break-ties" => SelectingBreakTies
+                      | "selected-break-ties" => SelectedBreakTies
+                      | "mcmf" => MCMF
+                      };
+                    self.send(UpdateMatchStrategy(matchStrategy));
+                  }
+                )
+                value=(switch(state.matchStrategy) {
+                 | SelectingBreakTies => "selecting-break-ties";
+                 | SelectedBreakTies => "selected-break-ties";
+                 | MCMF => "mcmf"
+              })>
+                <option value="selecting-break-ties">
+                  (
+                    ReasonReact.string(
+                      "Stable match, ties broken by " ++ singular(state.selectingName) ++ " preferences",
+                    )
+                  )
+                </option>
+                <option value="selected-break-ties">
+                  (
+                    ReasonReact.string(
+                      "Stable match, ties broken by " ++ singular(state.selectedName) ++ " preferences",
+                    )
+                  )
+                </option>
+                <option value="mcmf">
+                  (ReasonReact.string("Maximize matches, minimize sum of ranks"))
+                </option>
+              </select>
+            </span>
+            ) : ReasonReact.null)
               <button
                 onClick=((_) => self.send(MatchNow))
                 className="mdc-button mdc-button--raised"

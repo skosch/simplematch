@@ -156,8 +156,8 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                                         Caml_builtin_exceptions.match_failure,
                                         [
                                           "SideDataImporter.re",
-                                          173,
-                                          24
+                                          177,
+                                          22
                                         ]
                                       ];
                               }

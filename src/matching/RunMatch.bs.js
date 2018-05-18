@@ -23,25 +23,25 @@ function rankSortedArray(selectedNames) {
 }
 
 function popularManyToMany(currentState) {
-  var selectingSelected = Js_dict.fromList(Belt_List.map(currentState[/* selectingParsedData */8], (function (e) {
+  var selectingSelected = Js_dict.fromList(Belt_List.map(currentState[/* selectingParsedData */9], (function (e) {
               return /* tuple */[
                       e[/* name */0],
                       rankSortedArray(e[/* selectedNames */2])
                     ];
             })));
-  var selectingCanMatchWith = Js_dict.fromList(Belt_List.map(currentState[/* selectingParsedData */8], (function (e) {
+  var selectingCanMatchWith = Js_dict.fromList(Belt_List.map(currentState[/* selectingParsedData */9], (function (e) {
               return /* tuple */[
                       e[/* name */0],
                       e[/* canMatchWith */1]
                     ];
             })));
-  var selectedSelected = Js_dict.fromList(Belt_List.map(currentState[/* selectedParsedData */9], (function (e) {
+  var selectedSelected = Js_dict.fromList(Belt_List.map(currentState[/* selectedParsedData */10], (function (e) {
               return /* tuple */[
                       e[/* name */0],
                       rankSortedArray(e[/* selectedNames */2])
                     ];
             })));
-  var selectedCanMatchWith = Js_dict.fromList(Belt_List.map(currentState[/* selectedParsedData */9], (function (e) {
+  var selectedCanMatchWith = Js_dict.fromList(Belt_List.map(currentState[/* selectedParsedData */10], (function (e) {
               return /* tuple */[
                       e[/* name */0],
                       e[/* canMatchWith */1]
@@ -51,8 +51,8 @@ function popularManyToMany(currentState) {
 }
 
 function minCostMaxFlow(currentState) {
-  var selectingParsedData = currentState[/* selectingParsedData */8];
-  var selectedParsedData = currentState[/* selectedParsedData */9];
+  var selectingParsedData = currentState[/* selectingParsedData */9];
+  var selectedParsedData = currentState[/* selectedParsedData */10];
   var selectedIndices = Belt_HashMapString.fromArray(Belt_List.toArray(Belt_List.mapWithIndex(selectedParsedData, (function (i, s) {
                   return /* tuple */[
                           s[/* name */0],
@@ -187,7 +187,7 @@ function minCostMaxFlow(currentState) {
               }));
 }
 
-function shouldUsePopularManyToMany(currentState) {
+function suggestStrategy(selectingParsedData, selectedParsedData, mutualMatch) {
   var hasNoDuplicates = (function(arr) {
       for (let i = 0; i < arr.length - 1; i++) {
         for (let j = i + 1; j < arr.length; j++) {
@@ -205,28 +205,29 @@ function shouldUsePopularManyToMany(currentState) {
                                       }))));
                 }));
   };
-  if (currentState[/* mutualMatch */3] && isMonotonous(Belt_List.map(currentState[/* selectingParsedData */8], (function (s) {
+  if (mutualMatch && isMonotonous(Belt_List.map(selectingParsedData, (function (s) {
+                return s[/* selectedNames */2];
+              }))) && isMonotonous(Belt_List.map(selectedParsedData, (function (s) {
                 return s[/* selectedNames */2];
               })))) {
-    return isMonotonous(Belt_List.map(currentState[/* selectedParsedData */9], (function (s) {
-                      return s[/* selectedNames */2];
-                    })));
+    return /* SelectingBreakTies */0;
   } else {
-    return false;
+    return /* MCMF */2;
   }
 }
 
 function runMatch(currentState) {
-  if (shouldUsePopularManyToMany(currentState)) {
-    return popularManyToMany(currentState);
-  } else {
+  var match = currentState[/* matchStrategy */4];
+  if (match >= 2) {
     return minCostMaxFlow(currentState);
+  } else {
+    return popularManyToMany(currentState);
   }
 }
 
 exports.rankSortedArray = rankSortedArray;
 exports.popularManyToMany = popularManyToMany;
 exports.minCostMaxFlow = minCostMaxFlow;
-exports.shouldUsePopularManyToMany = shouldUsePopularManyToMany;
+exports.suggestStrategy = suggestStrategy;
 exports.runMatch = runMatch;
 /* ./MCMF Not a pure module */
