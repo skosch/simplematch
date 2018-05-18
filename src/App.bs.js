@@ -20,45 +20,110 @@ var SideDataImporter = require("./dataImporter/SideDataImporter.bs.js");
 
 ((require('../node_modules/@material/button/mdc-button.scss')));
 
+((require('../node_modules/@material/menu/mdc-menu.scss')));
+
 var component = ReasonReact.reducerComponent("App");
 
 function make() {
-  var loadSampleData = function (_, self) {
-    Curry._1(self[/* send */3], /* UpdateSelectingRawData */Block.__(5, [SampleData.sampleDataToRaw(self[/* state */1][/* selectingRowFormat */3], SampleData.candidates)]));
-    if (self[/* state */1][/* mutualMatch */2]) {
-      return Curry._1(self[/* send */3], /* UpdateSelectedRawData */Block.__(6, [SampleData.sampleDataToRaw(self[/* state */1][/* selectedRowFormat */4], SampleData.positions)]));
-    } else {
-      return 0;
-    }
+  var loadImperialInternships = function (_, self) {
+    Curry._1(self[/* send */3], /* UpdateSelectingName */Block.__(0, ["Applicants"]));
+    Curry._1(self[/* send */3], /* UpdateSelectedName */Block.__(1, ["Internships"]));
+    Curry._1(self[/* send */3], /* UpdateSelectingRowFormat */Block.__(3, [/* SelectedInMultipleRows */1]));
+    Curry._1(self[/* send */3], /* UpdateSelectedRowFormat */Block.__(4, [/* SelectedInMultipleRows */1]));
+    Curry._1(self[/* send */3], /* UpdateMutualMatch */Block.__(2, [true]));
+    Curry._1(self[/* send */3], /* UpdateSelectingRawData */Block.__(5, [SampleData.sampleDataToRaw(/* SelectedInMultipleRows */1, SampleData.imperialCandidates)]));
+    return Curry._1(self[/* send */3], /* UpdateSelectedRawData */Block.__(6, [SampleData.sampleDataToRaw(/* SelectedInMultipleRows */1, SampleData.imperialPositions)]));
+  };
+  var loadMarriageProposals = function (_, self) {
+    Curry._1(self[/* send */3], /* UpdateSelectingName */Block.__(0, ["Men"]));
+    Curry._1(self[/* send */3], /* UpdateSelectedName */Block.__(1, ["Women"]));
+    Curry._1(self[/* send */3], /* UpdateSelectingRowFormat */Block.__(3, [/* SelectedInColumns */0]));
+    Curry._1(self[/* send */3], /* UpdateSelectedRowFormat */Block.__(4, [/* SelectedInColumns */0]));
+    Curry._1(self[/* send */3], /* UpdateMutualMatch */Block.__(2, [true]));
+    Curry._1(self[/* send */3], /* UpdateSelectingRawData */Block.__(5, [SampleData.sampleDataToRaw(/* SelectedInColumns */0, SampleData.marriageMen)]));
+    return Curry._1(self[/* send */3], /* UpdateSelectedRawData */Block.__(6, [SampleData.sampleDataToRaw(/* SelectedInColumns */0, SampleData.marriageWomen)]));
   };
   return /* record */[
           /* debugName */component[/* debugName */0],
           /* reactClassInternal */component[/* reactClassInternal */1],
           /* handedOffState */component[/* handedOffState */2],
           /* willReceiveProps */component[/* willReceiveProps */3],
-          /* didMount */(function (self) {
-              return loadSampleData(0, self);
-            }),
+          /* didMount */component[/* didMount */4],
           /* didUpdate */component[/* didUpdate */5],
           /* willUnmount */component[/* willUnmount */6],
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function (self) {
               var state = self[/* state */1];
-              var resultData = Belt_List.toArray(Belt_List.map(self[/* state */1][/* matchResult */11], (function (param) {
+              var resultData = Belt_List.toArray(Belt_List.map(self[/* state */1][/* matchResult */12], (function (param) {
                           return /* array */[
                                   param[0],
                                   param[1]
                                 ];
                         })));
-              var match = List.length(self[/* state */1][/* matchResult */11]) > 0;
-              return React.createElement("div", undefined, React.createElement("div", {
-                              className: "page-content"
+              var match = state[/* sampleMenuOpen */2];
+              var match$1 = List.length(self[/* state */1][/* matchResult */12]) > 0;
+              return React.createElement("div", {
+                          onClick: (function () {
+                              return Curry._1(self[/* send */3], /* CloseSampleMenu */1);
+                            })
+                        }, React.createElement("div", {
+                              className: "splash"
                             }, React.createElement("div", {
+                                  className: "plank-logo"
+                                }, "Plank"), React.createElement("div", {
+                                  className: "splash-content"
+                                }, React.createElement("h1", undefined, "MiniMatcher"), React.createElement("div", undefined, "Match candidates to jobs based on their preferences"))), React.createElement("div", {
+                              className: "page-content top-content"
+                            }, React.createElement("div", {
+                                  className: "input-pane top-pane"
+                                }, React.createElement("div", {
+                                      className: "splash-buttons"
+                                    }, React.createElement("span", {
+                                          className: "privacy-info"
+                                        }, React.createElement("svg", {
+                                              height: "24",
+                                              width: "24",
+                                              viewBox: "0 0 24 24",
+                                              xmlns: "http://www.w3.org/2000/svg"
+                                            }, React.createElement("path", {
+                                                  d: "M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"
+                                                }), React.createElement("path", {
+                                                  d: "M0 0h24v24H0z",
+                                                  fill: "none"
+                                                })), "The match runs in your browser.", React.createElement("br", undefined), "None of your data leaves your computer."), React.createElement("div", {
+                                          className: "mdc-menu-anchor"
+                                        }, React.createElement("button", {
+                                              className: "mdc-button",
+                                              onClick: (function (e) {
+                                                  e.stopPropagation();
+                                                  return Curry._1(self[/* send */3], /* OpenSampleMenu */0);
+                                                })
+                                            }, "Load Sample Data"), React.createElement("div", {
+                                              className: "mdc-menu" + (
+                                                match ? " mdc-menu--open" : ""
+                                              ),
+                                              tabIndex: -1
+                                            }, React.createElement("ul", {
+                                                  className: "mdc-menu__items mdc-list",
+                                                  role: "menu"
+                                                }, React.createElement("li", {
+                                                      className: "mdc-list-item",
+                                                      role: "menuitem",
+                                                      tabIndex: 0,
+                                                      onClick: Curry._1(self[/* handle */0], loadImperialInternships)
+                                                    }, "Imperial Internships"), React.createElement("li", {
+                                                      className: "mdc-list-item",
+                                                      role: "menuitem",
+                                                      tabIndex: 0,
+                                                      onClick: Curry._1(self[/* handle */0], loadMarriageProposals)
+                                                    }, "Stable Marriages")))))), React.createElement("div", {
                                   className: "input-pane"
                                 }, React.createElement("div", {
                                       className: "names-question"
-                                    }, React.createElement("input", {
+                                    }, React.createElement("span", {
+                                          className: "leftpad"
+                                        }), React.createElement("input", {
                                           type: "text",
                                           value: self[/* state */1][/* selectingName */0],
                                           onChange: (function (_event) {
@@ -70,13 +135,13 @@ function make() {
                                           onChange: (function (_event) {
                                               return Curry._1(self[/* send */3], /* UpdateSelectedName */Block.__(1, [_event.target.value]));
                                             })
-                                        }), React.createElement("span", undefined), React.createElement("div", {
+                                        }), React.createElement("div", {
                                           className: "mdc-switch"
                                         }, React.createElement("input", {
                                               className: "mdc-switch__native-control",
                                               id: "mutual-switch",
                                               role: "switch",
-                                              checked: self[/* state */1][/* mutualMatch */2],
+                                              checked: self[/* state */1][/* mutualMatch */3],
                                               type: "checkbox",
                                               onChange: (function (_event) {
                                                   return Curry._1(self[/* send */3], /* UpdateMutualMatch */Block.__(2, [_event.target.checked]));
@@ -87,37 +152,37 @@ function make() {
                                                   className: "mdc-switch__knob"
                                                 }))), React.createElement("label", {
                                           htmlFor: "mutual-switch"
-                                        }, "and vice versa")), React.createElement("div", {
+                                        }, "and vice versa"), React.createElement("span", {
+                                          className: "rightpad"
+                                        })), React.createElement("div", {
                                       className: "data-importers"
-                                    }, ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectingRawData */5], state[/* selectingName */0], state[/* selectedName */1], state[/* selectingRowFormat */3], (function (rowFormat) {
+                                    }, ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectingRawData */6], state[/* selectingName */0], state[/* selectedName */1], state[/* selectingRowFormat */4], (function (rowFormat) {
                                                 return Curry._1(self[/* send */3], /* UpdateSelectingRowFormat */Block.__(3, [rowFormat]));
                                               }), (function (rawData) {
                                                 return Curry._1(self[/* send */3], /* UpdateSelectingRawData */Block.__(5, [rawData]));
-                                              }), true, state[/* selectingIgnoredRowIndices */9], /* array */[])), ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectedRawData */6], state[/* selectedName */1], state[/* selectingName */0], state[/* selectedRowFormat */4], (function (rowFormat) {
+                                              }), true, state[/* selectingIgnoredRowIndices */10], /* array */[])), ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectedRawData */7], state[/* selectedName */1], state[/* selectingName */0], state[/* selectedRowFormat */5], (function (rowFormat) {
                                                 return Curry._1(self[/* send */3], /* UpdateSelectedRowFormat */Block.__(4, [rowFormat]));
                                               }), (function (rawData) {
                                                 return Curry._1(self[/* send */3], /* UpdateSelectedRawData */Block.__(6, [rawData]));
-                                              }), state[/* mutualMatch */2], state[/* selectedIgnoredRowIndices */10], /* array */[]))), React.createElement("div", {
+                                              }), state[/* mutualMatch */3], state[/* selectedIgnoredRowIndices */11], /* array */[]))), React.createElement("div", {
                                       className: "bottom-buttons"
                                     }, React.createElement("button", {
-                                          className: "mdc-button",
-                                          onClick: Curry._1(self[/* handle */0], loadSampleData)
-                                        }, "Load Sample Data"), React.createElement("button", {
                                           className: "mdc-button mdc-button--raised",
-                                          disabled: List.length(self[/* state */1][/* selectingParsedData */7]) === 0 || List.length(self[/* state */1][/* selectedParsedData */8]) === 0,
+                                          disabled: List.length(self[/* state */1][/* selectingParsedData */8]) === 0 || List.length(self[/* state */1][/* selectedParsedData */9]) === 0,
                                           onClick: (function () {
-                                              return Curry._1(self[/* send */3], /* MatchNow */0);
+                                              return Curry._1(self[/* send */3], /* MatchNow */2);
                                             })
                                         }, "Match now")))), React.createElement("div", {
                               className: "page-content"
                             }, React.createElement("div", {
                                   className: "graph-pane"
-                                }, match ? ReasonReact.element(/* None */0, /* None */0, Result.make(state, resultData, /* array */[])) : null)));
+                                }, match$1 ? ReasonReact.element(/* None */0, /* None */0, Result.make(state, resultData, /* array */[])) : null)));
             }),
           /* initialState */(function () {
               return /* record */[
                       /* selectingName */"candidates",
                       /* selectedName */"positions",
+                      /* sampleMenuOpen */false,
                       /* mutualMatch */false,
                       /* selectingRowFormat : SelectedInMultipleRows */1,
                       /* selectedRowFormat : SelectedInMultipleRows */1,
@@ -133,133 +198,177 @@ function make() {
           /* retainedProps */component[/* retainedProps */11],
           /* reducer */(function (action, state) {
               if (typeof action === "number") {
-                return /* Update */Block.__(0, [/* record */[
-                            /* selectingName */state[/* selectingName */0],
-                            /* selectedName */state[/* selectedName */1],
-                            /* mutualMatch */state[/* mutualMatch */2],
-                            /* selectingRowFormat */state[/* selectingRowFormat */3],
-                            /* selectedRowFormat */state[/* selectedRowFormat */4],
-                            /* selectingRawData */state[/* selectingRawData */5],
-                            /* selectedRawData */state[/* selectedRawData */6],
-                            /* selectingParsedData */state[/* selectingParsedData */7],
-                            /* selectedParsedData */state[/* selectedParsedData */8],
-                            /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
-                            /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
-                            /* matchResult */RunMatch.runMatch(state)
-                          ]]);
+                switch (action) {
+                  case 0 : 
+                      return /* Update */Block.__(0, [/* record */[
+                                  /* selectingName */state[/* selectingName */0],
+                                  /* selectedName */state[/* selectedName */1],
+                                  /* sampleMenuOpen */true,
+                                  /* mutualMatch */state[/* mutualMatch */3],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */4],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */5],
+                                  /* selectingRawData */state[/* selectingRawData */6],
+                                  /* selectedRawData */state[/* selectedRawData */7],
+                                  /* selectingParsedData */state[/* selectingParsedData */8],
+                                  /* selectedParsedData */state[/* selectedParsedData */9],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */10],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */11],
+                                  /* matchResult */state[/* matchResult */12]
+                                ]]);
+                  case 1 : 
+                      return /* Update */Block.__(0, [/* record */[
+                                  /* selectingName */state[/* selectingName */0],
+                                  /* selectedName */state[/* selectedName */1],
+                                  /* sampleMenuOpen */false,
+                                  /* mutualMatch */state[/* mutualMatch */3],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */4],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */5],
+                                  /* selectingRawData */state[/* selectingRawData */6],
+                                  /* selectedRawData */state[/* selectedRawData */7],
+                                  /* selectingParsedData */state[/* selectingParsedData */8],
+                                  /* selectedParsedData */state[/* selectedParsedData */9],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */10],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */11],
+                                  /* matchResult */state[/* matchResult */12]
+                                ]]);
+                  case 2 : 
+                      return /* Update */Block.__(0, [/* record */[
+                                  /* selectingName */state[/* selectingName */0],
+                                  /* selectedName */state[/* selectedName */1],
+                                  /* sampleMenuOpen */state[/* sampleMenuOpen */2],
+                                  /* mutualMatch */state[/* mutualMatch */3],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */4],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */5],
+                                  /* selectingRawData */state[/* selectingRawData */6],
+                                  /* selectedRawData */state[/* selectedRawData */7],
+                                  /* selectingParsedData */state[/* selectingParsedData */8],
+                                  /* selectedParsedData */state[/* selectedParsedData */9],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */10],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */11],
+                                  /* matchResult */RunMatch.runMatch(state)
+                                ]]);
+                  
+                }
               } else {
                 switch (action.tag | 0) {
                   case 0 : 
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */action[0],
                                   /* selectedName */state[/* selectedName */1],
-                                  /* mutualMatch */state[/* mutualMatch */2],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */3],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */4],
-                                  /* selectingRawData */state[/* selectingRawData */5],
-                                  /* selectedRawData */state[/* selectedRawData */6],
-                                  /* selectingParsedData */state[/* selectingParsedData */7],
-                                  /* selectedParsedData */state[/* selectedParsedData */8],
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
-                                  /* matchResult */state[/* matchResult */11]
+                                  /* sampleMenuOpen */state[/* sampleMenuOpen */2],
+                                  /* mutualMatch */state[/* mutualMatch */3],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */4],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */5],
+                                  /* selectingRawData */state[/* selectingRawData */6],
+                                  /* selectedRawData */state[/* selectedRawData */7],
+                                  /* selectingParsedData */state[/* selectingParsedData */8],
+                                  /* selectedParsedData */state[/* selectedParsedData */9],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */10],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */11],
+                                  /* matchResult */state[/* matchResult */12]
                                 ]]);
                   case 1 : 
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */action[0],
-                                  /* mutualMatch */state[/* mutualMatch */2],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */3],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */4],
-                                  /* selectingRawData */state[/* selectingRawData */5],
-                                  /* selectedRawData */state[/* selectedRawData */6],
-                                  /* selectingParsedData */state[/* selectingParsedData */7],
-                                  /* selectedParsedData */state[/* selectedParsedData */8],
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
-                                  /* matchResult */state[/* matchResult */11]
+                                  /* sampleMenuOpen */state[/* sampleMenuOpen */2],
+                                  /* mutualMatch */state[/* mutualMatch */3],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */4],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */5],
+                                  /* selectingRawData */state[/* selectingRawData */6],
+                                  /* selectedRawData */state[/* selectedRawData */7],
+                                  /* selectingParsedData */state[/* selectingParsedData */8],
+                                  /* selectedParsedData */state[/* selectedParsedData */9],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */10],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */11],
+                                  /* matchResult */state[/* matchResult */12]
                                 ]]);
                   case 2 : 
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
+                                  /* sampleMenuOpen */state[/* sampleMenuOpen */2],
                                   /* mutualMatch */action[0],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */3],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */4],
-                                  /* selectingRawData */state[/* selectingRawData */5],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */4],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */5],
+                                  /* selectingRawData */state[/* selectingRawData */6],
                                   /* selectedRawData : array */[],
-                                  /* selectingParsedData */state[/* selectingParsedData */7],
+                                  /* selectingParsedData */state[/* selectingParsedData */8],
                                   /* selectedParsedData : [] */0,
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */10],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */11],
                                   /* matchResult : [] */0
                                 ]]);
                   case 3 : 
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
-                                  /* mutualMatch */state[/* mutualMatch */2],
+                                  /* sampleMenuOpen */state[/* sampleMenuOpen */2],
+                                  /* mutualMatch */state[/* mutualMatch */3],
                                   /* selectingRowFormat */action[0],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */4],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */5],
                                   /* selectingRawData : array */[],
-                                  /* selectedRawData */state[/* selectedRawData */6],
+                                  /* selectedRawData */state[/* selectedRawData */7],
                                   /* selectingParsedData : [] */0,
-                                  /* selectedParsedData */state[/* selectedParsedData */8],
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
+                                  /* selectedParsedData */state[/* selectedParsedData */9],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */10],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */11],
                                   /* matchResult : [] */0
                                 ]]);
                   case 4 : 
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
-                                  /* mutualMatch */state[/* mutualMatch */2],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */3],
+                                  /* sampleMenuOpen */state[/* sampleMenuOpen */2],
+                                  /* mutualMatch */state[/* mutualMatch */3],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */4],
                                   /* selectedRowFormat */action[0],
                                   /* selectingRawData : array */[],
-                                  /* selectedRawData */state[/* selectedRawData */6],
+                                  /* selectedRawData */state[/* selectedRawData */7],
                                   /* selectingParsedData : [] */0,
-                                  /* selectedParsedData */state[/* selectedParsedData */8],
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
+                                  /* selectedParsedData */state[/* selectedParsedData */9],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */10],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */11],
                                   /* matchResult : [] */0
                                 ]]);
                   case 5 : 
                       var rawData = action[0];
-                      var match = DataParser.parseData(rawData, state[/* selectingRowFormat */3], true);
+                      var match = DataParser.parseData(rawData, state[/* selectingRowFormat */4], true);
                       var selectedNamesEntries = match[2];
-                      var match$1 = !state[/* mutualMatch */2] && List.length(state[/* selectedParsedData */8]) === 0;
-                      var match$2 = !state[/* mutualMatch */2] && List.length(state[/* selectedParsedData */8]) === 0;
+                      var match$1 = !state[/* mutualMatch */3] && List.length(state[/* selectedParsedData */9]) === 0;
+                      var match$2 = !state[/* mutualMatch */3] && List.length(state[/* selectedParsedData */9]) === 0;
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
-                                  /* mutualMatch */state[/* mutualMatch */2],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */3],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */4],
+                                  /* sampleMenuOpen */false,
+                                  /* mutualMatch */state[/* mutualMatch */3],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */4],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */5],
                                   /* selectingRawData */rawData,
-                                  /* selectedRawData */match$1 ? SampleData.sampleDataToRaw(state[/* selectedRowFormat */4], selectedNamesEntries) : state[/* selectedRawData */6],
+                                  /* selectedRawData */match$1 ? SampleData.sampleDataToRaw(state[/* selectedRowFormat */5], selectedNamesEntries) : state[/* selectedRawData */7],
                                   /* selectingParsedData */match[0],
-                                  /* selectedParsedData */match$2 ? selectedNamesEntries : state[/* selectedParsedData */8],
+                                  /* selectedParsedData */match$2 ? selectedNamesEntries : state[/* selectedParsedData */9],
                                   /* selectingIgnoredRowIndices */match[1],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */10],
-                                  /* matchResult */state[/* matchResult */11]
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */11],
+                                  /* matchResult */state[/* matchResult */12]
                                 ]]);
                   case 6 : 
                       var rawData$1 = action[0];
-                      var match$3 = DataParser.parseData(rawData$1, state[/* selectedRowFormat */4], state[/* mutualMatch */2]);
+                      var match$3 = DataParser.parseData(rawData$1, state[/* selectedRowFormat */5], state[/* mutualMatch */3]);
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
-                                  /* mutualMatch */state[/* mutualMatch */2],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */3],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */4],
-                                  /* selectingRawData */state[/* selectingRawData */5],
+                                  /* sampleMenuOpen */false,
+                                  /* mutualMatch */state[/* mutualMatch */3],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */4],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */5],
+                                  /* selectingRawData */state[/* selectingRawData */6],
                                   /* selectedRawData */rawData$1,
-                                  /* selectingParsedData */state[/* selectingParsedData */7],
+                                  /* selectingParsedData */state[/* selectingParsedData */8],
                                   /* selectedParsedData */match$3[0],
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */9],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */10],
                                   /* selectedIgnoredRowIndices */match$3[1],
-                                  /* matchResult */state[/* matchResult */11]
+                                  /* matchResult */state[/* matchResult */12]
                                 ]]);
                   
                 }
@@ -288,9 +397,13 @@ var IntCmp = SampleData.IntCmp;
 
 var OptIntCmp = SampleData.OptIntCmp;
 
-var positions = SampleData.positions;
+var imperialPositions = SampleData.imperialPositions;
 
-var candidates = SampleData.candidates;
+var imperialCandidates = SampleData.imperialCandidates;
+
+var marriageMen = SampleData.marriageMen;
+
+var marriageWomen = SampleData.marriageWomen;
 
 var sampleDataToRaw = SampleData.sampleDataToRaw;
 
@@ -313,8 +426,10 @@ exports.parseSingleRow = parseSingleRow;
 exports.parseData = parseData;
 exports.IntCmp = IntCmp;
 exports.OptIntCmp = OptIntCmp;
-exports.positions = positions;
-exports.candidates = candidates;
+exports.imperialPositions = imperialPositions;
+exports.imperialCandidates = imperialCandidates;
+exports.marriageMen = marriageMen;
+exports.marriageWomen = marriageWomen;
 exports.sampleDataToRaw = sampleDataToRaw;
 exports.rankSortedArray = rankSortedArray;
 exports.popularManyToMany = popularManyToMany;

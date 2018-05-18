@@ -2,7 +2,7 @@ include SharedTypes;
 
 open Belt;
 
-let positions: list(sideDataEntry) = [
+let imperialPositions: list(sideDataEntry) = [
   {
     name: "Stormtrooper (Soldier)",
     canMatchWith: 6,
@@ -73,7 +73,7 @@ let positions: list(sideDataEntry) = [
   },
 ];
 
-let candidates: list(sideDataEntry) = [
+let imperialCandidates: list(sideDataEntry) = [
   {
     name: "Orn Aak",
     canMatchWith: 2,
@@ -213,6 +213,212 @@ let candidates: list(sideDataEntry) = [
   },
 ];
 
+let marriageMen: list(sideDataEntry) = [
+  {
+    name: "Peter",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Marion", 1),
+      ("Pam", 2),
+      ("Melody", 3),
+      ("Anna", 4),
+    ],
+  },
+  {
+    name: "Alfred",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Pam", 1),
+      ("Lora", 2),
+      ("Elena", 3),
+      ("Sherry", 4),
+    ],
+  },
+  {
+    name: "Bernard",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Anna", 1),
+      ("Marion", 2),
+      ("Elena", 3),
+      ("Tanya", 4),
+    ],
+  },
+  {
+    name: "Allan",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Elena", 1),
+      ("Lora", 2),
+      ("Marion", 3),
+      ("Tanya", 4),
+    ],
+  },
+  {
+    name: "Hugh",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Tanya", 1),
+      ("Anna", 2),
+      ("Melody", 3),
+      ("Marion", 4),
+    ],
+  },
+  {
+    name: "Felipe",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Lora", 1),
+      ("Pam", 2),
+      ("Sherry", 3),
+      ("Sandy", 4),
+    ],
+  },
+  {
+    name: "Richard",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Anna", 1),
+      ("Tanya", 2),
+      ("Josephine", 3),
+      ("Melody", 4),
+    ],
+  },
+  {
+    name: "Ryan",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Marion", 1),
+      ("Elena", 2),
+      ("Josephine", 3),
+      ("Tanya", 4),
+    ],
+  },
+  {
+    name: "Gilbert",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Starfighter Pilot", 1),
+      ("Sandy", 2),
+      ("Anna", 3),
+      ("Melody", 4),
+    ],
+  },
+  {
+    name: "Eric",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Anna", 1),
+      ("Sandy", 2),
+      ("Sherry", 3),
+      ("Lora", 4)
+    ],
+  },
+];
+
+let marriageWomen: list(sideDataEntry) = [
+  {
+    name: "Elena",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Richard", 1),
+      ("Ryan", 2),
+      ("Hugh", 3),
+      ("Peter", 4),
+    ],
+  },
+  {
+    name: "Melody",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Peter", 1),
+      ("Eric", 2),
+      ("Felipe", 3),
+      ("Gilbert", 4),
+    ],
+  },
+  {
+    name: "Marion",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Hugh", 1),
+      ("Richard", 2),
+      ("Peter", 3),
+      ("Bernard", 4),
+    ],
+  },
+  {
+    name: "Sherry",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Ryan", 1),
+      ("Allan", 2),
+      ("Hugh", 3),
+      ("Bernard", 4),
+    ],
+  },
+  {
+    name: "Anna",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Eric", 1),
+      ("Peter", 2),
+      ("Felipe", 3),
+      ("Alfred", 4),
+    ],
+  },
+  {
+    name: "Tanya",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Hugh", 1),
+      ("Richard", 2),
+      ("Ryan", 3),
+      ("Peter", 2),
+    ],
+  },
+  {
+    name: "Lora",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Allan", 1),
+      ("Bernard", 2),
+      ("Gilbert", 3),
+      ("Hugh", 4),
+    ],
+  },
+  {
+    name: "Pam",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Bernard", 1),
+      ("Felipe", 2),
+      ("Hugh", 3),
+      ("Gilbert", 4),
+    ],
+  },
+  {
+    name: "Josephine",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Bernard", 1),
+      ("Eric", 2),
+      ("Hugh", 3),
+      ("Felipe", 4),
+    ],
+  },
+  {
+    name: "Sandy",
+    canMatchWith: 1,
+    selectedNames: [
+      ("Hugh", 1),
+      ("Peter", 2),
+      ("Alfred", 3),
+      ("Eric", 4),
+    ],
+  },
+];
+
 let sampleDataToRaw = (rowFormat, sampleParticipants) => {
   let rows =
     switch (rowFormat) {
@@ -243,3 +449,4 @@ let sampleDataToRaw = (rowFormat, sampleParticipants) => {
     };
   rows;
 };
+

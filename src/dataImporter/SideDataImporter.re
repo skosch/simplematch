@@ -36,7 +36,16 @@ let applyChanges = [%bs.raw
   |}
 ];
 
-let component = ReasonReact.statelessComponent("SideDataImporter");
+type sideDataImporterState = {
+  prevRawData: ref(array(array(string))),
+  prevSelectingName: ref(string),
+  prevSelectedName: ref(string),
+  prevRowFormat: ref(SharedTypes.rowFormat),
+  prevIncludeSelectees: ref(bool),
+  prevIgnoredRowIndices: ref(Belt.Set.t(int, IntCmp.identity))
+};
+
+let component = ReasonReact.reducerComponent("SideDataImporter");
 
 let make =
     (
@@ -47,12 +56,49 @@ let make =
       ~updateRowFormat,
       ~updateRawData,
       ~includeSelectees,
-  ~ignoredRowIndices,
+      ~ignoredRowIndices,
       _children,
     ) => {
 
+ 
+  {
+    ...component,
+      initialState: () => {
+    prevRawData: ref(rawData),
+    prevSelectingName: ref(selectingName),
+    prevSelectedName: ref(selectedName),
+    prevRowFormat: ref(rowFormat),
+    prevIncludeSelectees: ref(includeSelectees),
+    prevIgnoredRowIndices: ref(ignoredRowIndices),
+  },
+    reducer: (_action: unit, state) => ReasonReact.Update(state),
+    shouldUpdate: ({oldSelf, newSelf}) => {
+      let newRawData = oldSelf.state.prevRawData^ !== rawData;
+      let newSelectingName = oldSelf.state.prevSelectingName^ !== selectingName;
+      let newSelectedName = oldSelf.state.prevSelectedName^ !== selectedName;
+      let newRowFormat = oldSelf.state.prevRowFormat^ !== rowFormat;
+      let newIncludeSelectees = oldSelf.state.prevIncludeSelectees^ !== includeSelectees;
+      let newIgnoredRowIndices = oldSelf.state.prevIgnoredRowIndices^ !== ignoredRowIndices;
+      newSelf.state.prevRawData := rawData;
+      newSelf.state.prevSelectingName := selectingName;
+      newSelf.state.prevSelectedName := selectedName;
+      newSelf.state.prevRowFormat := rowFormat;
+      newSelf.state.prevIgnoredRowIndices := ignoredRowIndices;
+      newSelf.state.prevIncludeSelectees := includeSelectees;
+    
+      (newRawData || newSelectedName || newSelectingName || newRowFormat || newIgnoredRowIndices || newIncludeSelectees);
+    },
+    render: (_) => {
+
   let maxCols =
     2 + (includeSelectees ? (rowFormat == SelectedInMultipleRows ? 2 : 10000) : 0);
+  
+  let minCols = 
+      rawData
+      |. Array.reduce(0, (p, c) => {
+          let clength = Array.length(c);
+          clength > p ? clength : p;
+        });
 
   let selectedHeader = (index: int) =>
     if (rowFormat == SelectedInMultipleRows) {
@@ -64,7 +110,7 @@ let make =
   let columnHeader = index =>
     switch (index) {
     | 0 => String.capitalize(selectingName)
-    | 1 => "Can match<br />with " ++ selectedName
+    | 1 => "Can match with<br /> how many " ++ selectedName
     | _ => String.capitalize(singular(selectedHeader(index - 2)))
     };
 
@@ -80,10 +126,8 @@ let make =
         |. applyChanges(changes, maxCols);
     
       updateRawData(newRawData);
-    };
-  {
-    ...component,
-    render: (_) =>
+    };   
+    
       <div className="data-importer">
         <div className="question-statement">
           (
@@ -100,6 +144,7 @@ let make =
               "width": "100%",
               "minSpareRows": 1,
               "startRows": 30,
+              "minCols": rowFormat == SelectedInColumns ? minCols + 1 : minCols,
               "maxCols": maxCols,
               "startColumns": maxCols > 30 ? 30 : maxCols,
               "stretchH":
@@ -132,7 +177,9 @@ let make =
                         };
                       updateRowFormat(rowFormat);
                     }
-                  )>
+                  )
+      value=(rowFormat == SelectedInMultipleRows ? "multiple-rows" : "columns")
+      >
                   <option value="multiple-rows">
                     (
                       ReasonReact.string(
@@ -153,6 +200,7 @@ let make =
             (ReasonReact.string("Clear"))
           </button>
         </div>
-      </div>,
+      </div>;
+    }
   };
 };

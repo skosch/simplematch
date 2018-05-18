@@ -20,13 +20,13 @@ function make(currentState, resultData, _) {
             Belt_HashMapString.set(p, Js_option.getWithDefault("", Belt_Array.get(c, 1)), true);
             return p;
           }));
-    var selectorsMatched = Belt_List.reduce(currentState[/* selectingParsedData */7], 0, (function (p, c) {
+    var selectorsMatched = Belt_List.reduce(currentState[/* selectingParsedData */8], 0, (function (p, c) {
             var match = Belt_HashMapString.has(matchedNames, c[/* name */0]);
             return p + (
                     match ? 1 : 0
                   ) | 0;
           }));
-    var selecteesMatched = Belt_List.reduce(currentState[/* selectedParsedData */8], 0, (function (p, c) {
+    var selecteesMatched = Belt_List.reduce(currentState[/* selectedParsedData */9], 0, (function (p, c) {
             var match = Belt_HashMapString.has(matchedNames, c[/* name */0]);
             return p + (
                     match ? 1 : 0
@@ -97,7 +97,7 @@ function make(currentState, resultData, _) {
                                               className: "top-label"
                                             }, $$String.capitalize(currentState[/* selectingName */0])), String(selectorsMatched), React.createElement("span", {
                                               className: "label"
-                                            }, "matched,"), String(Belt_List.length(currentState[/* selectingParsedData */7]) - selectorsMatched | 0), React.createElement("span", {
+                                            }, "matched,"), String(Belt_List.length(currentState[/* selectingParsedData */8]) - selectorsMatched | 0), React.createElement("span", {
                                               className: "label"
                                             }, "unmatched")), React.createElement("div", {
                                           className: "selectors-matched"
@@ -105,7 +105,7 @@ function make(currentState, resultData, _) {
                                               className: "top-label"
                                             }, $$String.capitalize(currentState[/* selectedName */1])), String(selecteesMatched), React.createElement("span", {
                                               className: "label"
-                                            }, "matched,"), String(Belt_List.length(currentState[/* selectedParsedData */8]) - selecteesMatched | 0), React.createElement("span", {
+                                            }, "matched,"), String(Belt_List.length(currentState[/* selectedParsedData */9]) - selecteesMatched | 0), React.createElement("span", {
                                               className: "label"
                                             }, "unmatched"))))));
             }),

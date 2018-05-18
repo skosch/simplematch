@@ -89,7 +89,7 @@ const twoLevelGaleShapley = (studentsWithChoices, coursesWithChoices, studentCap
     while (residual[currentStudentName] > 0
            && currentChoices.length > 0) {
       const currentBestChoice = currentChoices.shift();
-      if (!coursesWithChoices[currentBestChoice].includes(currentStudentName)) {
+      if (!coursesWithChoices[currentBestChoice] || !coursesWithChoices[currentBestChoice].includes(currentStudentName)) {
         continue;
       }
       

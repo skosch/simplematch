@@ -23,25 +23,25 @@ function rankSortedArray(selectedNames) {
 }
 
 function popularManyToMany(currentState) {
-  var selectingSelected = Js_dict.fromList(Belt_List.map(currentState[/* selectingParsedData */7], (function (e) {
+  var selectingSelected = Js_dict.fromList(Belt_List.map(currentState[/* selectingParsedData */8], (function (e) {
               return /* tuple */[
                       e[/* name */0],
                       rankSortedArray(e[/* selectedNames */2])
                     ];
             })));
-  var selectingCanMatchWith = Js_dict.fromList(Belt_List.map(currentState[/* selectingParsedData */7], (function (e) {
+  var selectingCanMatchWith = Js_dict.fromList(Belt_List.map(currentState[/* selectingParsedData */8], (function (e) {
               return /* tuple */[
                       e[/* name */0],
                       e[/* canMatchWith */1]
                     ];
             })));
-  var selectedSelected = Js_dict.fromList(Belt_List.map(currentState[/* selectedParsedData */8], (function (e) {
+  var selectedSelected = Js_dict.fromList(Belt_List.map(currentState[/* selectedParsedData */9], (function (e) {
               return /* tuple */[
                       e[/* name */0],
                       rankSortedArray(e[/* selectedNames */2])
                     ];
             })));
-  var selectedCanMatchWith = Js_dict.fromList(Belt_List.map(currentState[/* selectedParsedData */8], (function (e) {
+  var selectedCanMatchWith = Js_dict.fromList(Belt_List.map(currentState[/* selectedParsedData */9], (function (e) {
               return /* tuple */[
                       e[/* name */0],
                       e[/* canMatchWith */1]
@@ -51,8 +51,8 @@ function popularManyToMany(currentState) {
 }
 
 function minCostMaxFlow(currentState) {
-  var selectingParsedData = currentState[/* selectingParsedData */7];
-  var selectedParsedData = currentState[/* selectedParsedData */8];
+  var selectingParsedData = currentState[/* selectingParsedData */8];
+  var selectedParsedData = currentState[/* selectedParsedData */9];
   var selectedIndices = Belt_HashMapString.fromArray(Belt_List.toArray(Belt_List.mapWithIndex(selectedParsedData, (function (i, s) {
                   return /* tuple */[
                           s[/* name */0],
@@ -189,16 +189,13 @@ function minCostMaxFlow(currentState) {
 
 function shouldUsePopularManyToMany(currentState) {
   var hasNoDuplicates = (function(arr) {
-       console.log(arr);
       for (let i = 0; i < arr.length - 1; i++) {
         for (let j = i + 1; j < arr.length; j++) {
           if (arr[i] === arr[j]) {
-       console.log("has duplicates");
             return false;
           }
         }
        }
-       console.log("has no duplicates");
      return true;
    });
   var isMonotonous = function (l) {
@@ -208,10 +205,10 @@ function shouldUsePopularManyToMany(currentState) {
                                       }))));
                 }));
   };
-  if (currentState[/* mutualMatch */2] && isMonotonous(Belt_List.map(currentState[/* selectingParsedData */7], (function (s) {
+  if (currentState[/* mutualMatch */3] && isMonotonous(Belt_List.map(currentState[/* selectingParsedData */8], (function (s) {
                 return s[/* selectedNames */2];
               })))) {
-    return isMonotonous(Belt_List.map(currentState[/* selectedParsedData */8], (function (s) {
+    return isMonotonous(Belt_List.map(currentState[/* selectedParsedData */9], (function (s) {
                       return s[/* selectedNames */2];
                     })));
   } else {

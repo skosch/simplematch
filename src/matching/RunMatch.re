@@ -217,16 +217,13 @@ let minCostMaxFlow = (currentState: SharedTypes.state) => {
 
 let shouldUsePopularManyToMany = (currentState: SharedTypes.state) => {
   let hasNoDuplicates = [%bs.raw {|function(arr) {
-       console.log(arr);
       for (let i = 0; i < arr.length - 1; i++) {
         for (let j = i + 1; j < arr.length; j++) {
           if (arr[i] === arr[j]) {
-       console.log("has duplicates");
             return false;
           }
         }
        }
-       console.log("has no duplicates");
      return true;
    }|}];
 

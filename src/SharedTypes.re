@@ -33,6 +33,7 @@ type state = {
   selectingName: string,
   selectedName: string,
 
+  sampleMenuOpen: bool,
   mutualMatch: bool,
 
   selectingRowFormat: rowFormat,

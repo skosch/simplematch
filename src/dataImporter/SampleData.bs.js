@@ -57,7 +57,7 @@ var IntCmp = SharedTypes.IntCmp;
 
 var OptIntCmp = SharedTypes.OptIntCmp;
 
-var positions = /* :: */[
+var imperialPositions = /* :: */[
   /* record */[
     /* name */"Stormtrooper (Soldier)",
     /* canMatchWith */6,
@@ -322,7 +322,7 @@ var positions = /* :: */[
   ]
 ];
 
-var candidates = /* :: */[
+var imperialCandidates = /* :: */[
   /* record */[
     /* name */"Orn Aak",
     /* canMatchWith */2,
@@ -740,9 +740,635 @@ var candidates = /* :: */[
   ]
 ];
 
+var marriageMen = /* :: */[
+  /* record */[
+    /* name */"Peter",
+    /* canMatchWith */1,
+    /* selectedNames : :: */[
+      /* tuple */[
+        "Marion",
+        1
+      ],
+      /* :: */[
+        /* tuple */[
+          "Pam",
+          2
+        ],
+        /* :: */[
+          /* tuple */[
+            "Melody",
+            3
+          ],
+          /* :: */[
+            /* tuple */[
+              "Anna",
+              4
+            ],
+            /* [] */0
+          ]
+        ]
+      ]
+    ]
+  ],
+  /* :: */[
+    /* record */[
+      /* name */"Alfred",
+      /* canMatchWith */1,
+      /* selectedNames : :: */[
+        /* tuple */[
+          "Pam",
+          1
+        ],
+        /* :: */[
+          /* tuple */[
+            "Lora",
+            2
+          ],
+          /* :: */[
+            /* tuple */[
+              "Elena",
+              3
+            ],
+            /* :: */[
+              /* tuple */[
+                "Sherry",
+                4
+              ],
+              /* [] */0
+            ]
+          ]
+        ]
+      ]
+    ],
+    /* :: */[
+      /* record */[
+        /* name */"Bernard",
+        /* canMatchWith */1,
+        /* selectedNames : :: */[
+          /* tuple */[
+            "Anna",
+            1
+          ],
+          /* :: */[
+            /* tuple */[
+              "Marion",
+              2
+            ],
+            /* :: */[
+              /* tuple */[
+                "Elena",
+                3
+              ],
+              /* :: */[
+                /* tuple */[
+                  "Tanya",
+                  4
+                ],
+                /* [] */0
+              ]
+            ]
+          ]
+        ]
+      ],
+      /* :: */[
+        /* record */[
+          /* name */"Allan",
+          /* canMatchWith */1,
+          /* selectedNames : :: */[
+            /* tuple */[
+              "Elena",
+              1
+            ],
+            /* :: */[
+              /* tuple */[
+                "Lora",
+                2
+              ],
+              /* :: */[
+                /* tuple */[
+                  "Marion",
+                  3
+                ],
+                /* :: */[
+                  /* tuple */[
+                    "Tanya",
+                    4
+                  ],
+                  /* [] */0
+                ]
+              ]
+            ]
+          ]
+        ],
+        /* :: */[
+          /* record */[
+            /* name */"Hugh",
+            /* canMatchWith */1,
+            /* selectedNames : :: */[
+              /* tuple */[
+                "Tanya",
+                1
+              ],
+              /* :: */[
+                /* tuple */[
+                  "Anna",
+                  2
+                ],
+                /* :: */[
+                  /* tuple */[
+                    "Melody",
+                    3
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      "Marion",
+                      4
+                    ],
+                    /* [] */0
+                  ]
+                ]
+              ]
+            ]
+          ],
+          /* :: */[
+            /* record */[
+              /* name */"Felipe",
+              /* canMatchWith */1,
+              /* selectedNames : :: */[
+                /* tuple */[
+                  "Lora",
+                  1
+                ],
+                /* :: */[
+                  /* tuple */[
+                    "Pam",
+                    2
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      "Sherry",
+                      3
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        "Sandy",
+                        4
+                      ],
+                      /* [] */0
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            /* :: */[
+              /* record */[
+                /* name */"Richard",
+                /* canMatchWith */1,
+                /* selectedNames : :: */[
+                  /* tuple */[
+                    "Anna",
+                    1
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      "Tanya",
+                      2
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        "Josephine",
+                        3
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          "Melody",
+                          4
+                        ],
+                        /* [] */0
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              /* :: */[
+                /* record */[
+                  /* name */"Ryan",
+                  /* canMatchWith */1,
+                  /* selectedNames : :: */[
+                    /* tuple */[
+                      "Marion",
+                      1
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        "Elena",
+                        2
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          "Josephine",
+                          3
+                        ],
+                        /* :: */[
+                          /* tuple */[
+                            "Tanya",
+                            4
+                          ],
+                          /* [] */0
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                /* :: */[
+                  /* record */[
+                    /* name */"Gilbert",
+                    /* canMatchWith */1,
+                    /* selectedNames : :: */[
+                      /* tuple */[
+                        "Starfighter Pilot",
+                        1
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          "Sandy",
+                          2
+                        ],
+                        /* :: */[
+                          /* tuple */[
+                            "Anna",
+                            3
+                          ],
+                          /* :: */[
+                            /* tuple */[
+                              "Melody",
+                              4
+                            ],
+                            /* [] */0
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  /* :: */[
+                    /* record */[
+                      /* name */"Eric",
+                      /* canMatchWith */1,
+                      /* selectedNames : :: */[
+                        /* tuple */[
+                          "Anna",
+                          1
+                        ],
+                        /* :: */[
+                          /* tuple */[
+                            "Sandy",
+                            2
+                          ],
+                          /* :: */[
+                            /* tuple */[
+                              "Sherry",
+                              3
+                            ],
+                            /* :: */[
+                              /* tuple */[
+                                "Lora",
+                                4
+                              ],
+                              /* [] */0
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    /* [] */0
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+];
+
+var marriageWomen = /* :: */[
+  /* record */[
+    /* name */"Elena",
+    /* canMatchWith */1,
+    /* selectedNames : :: */[
+      /* tuple */[
+        "Richard",
+        1
+      ],
+      /* :: */[
+        /* tuple */[
+          "Ryan",
+          2
+        ],
+        /* :: */[
+          /* tuple */[
+            "Hugh",
+            3
+          ],
+          /* :: */[
+            /* tuple */[
+              "Peter",
+              4
+            ],
+            /* [] */0
+          ]
+        ]
+      ]
+    ]
+  ],
+  /* :: */[
+    /* record */[
+      /* name */"Melody",
+      /* canMatchWith */1,
+      /* selectedNames : :: */[
+        /* tuple */[
+          "Peter",
+          1
+        ],
+        /* :: */[
+          /* tuple */[
+            "Eric",
+            2
+          ],
+          /* :: */[
+            /* tuple */[
+              "Felipe",
+              3
+            ],
+            /* :: */[
+              /* tuple */[
+                "Gilbert",
+                4
+              ],
+              /* [] */0
+            ]
+          ]
+        ]
+      ]
+    ],
+    /* :: */[
+      /* record */[
+        /* name */"Marion",
+        /* canMatchWith */1,
+        /* selectedNames : :: */[
+          /* tuple */[
+            "Hugh",
+            1
+          ],
+          /* :: */[
+            /* tuple */[
+              "Richard",
+              2
+            ],
+            /* :: */[
+              /* tuple */[
+                "Peter",
+                3
+              ],
+              /* :: */[
+                /* tuple */[
+                  "Bernard",
+                  4
+                ],
+                /* [] */0
+              ]
+            ]
+          ]
+        ]
+      ],
+      /* :: */[
+        /* record */[
+          /* name */"Sherry",
+          /* canMatchWith */1,
+          /* selectedNames : :: */[
+            /* tuple */[
+              "Ryan",
+              1
+            ],
+            /* :: */[
+              /* tuple */[
+                "Allan",
+                2
+              ],
+              /* :: */[
+                /* tuple */[
+                  "Hugh",
+                  3
+                ],
+                /* :: */[
+                  /* tuple */[
+                    "Bernard",
+                    4
+                  ],
+                  /* [] */0
+                ]
+              ]
+            ]
+          ]
+        ],
+        /* :: */[
+          /* record */[
+            /* name */"Anna",
+            /* canMatchWith */1,
+            /* selectedNames : :: */[
+              /* tuple */[
+                "Eric",
+                1
+              ],
+              /* :: */[
+                /* tuple */[
+                  "Peter",
+                  2
+                ],
+                /* :: */[
+                  /* tuple */[
+                    "Felipe",
+                    3
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      "Alfred",
+                      4
+                    ],
+                    /* [] */0
+                  ]
+                ]
+              ]
+            ]
+          ],
+          /* :: */[
+            /* record */[
+              /* name */"Tanya",
+              /* canMatchWith */1,
+              /* selectedNames : :: */[
+                /* tuple */[
+                  "Hugh",
+                  1
+                ],
+                /* :: */[
+                  /* tuple */[
+                    "Richard",
+                    2
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      "Ryan",
+                      3
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        "Peter",
+                        2
+                      ],
+                      /* [] */0
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            /* :: */[
+              /* record */[
+                /* name */"Lora",
+                /* canMatchWith */1,
+                /* selectedNames : :: */[
+                  /* tuple */[
+                    "Allan",
+                    1
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      "Bernard",
+                      2
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        "Gilbert",
+                        3
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          "Hugh",
+                          4
+                        ],
+                        /* [] */0
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              /* :: */[
+                /* record */[
+                  /* name */"Pam",
+                  /* canMatchWith */1,
+                  /* selectedNames : :: */[
+                    /* tuple */[
+                      "Bernard",
+                      1
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        "Felipe",
+                        2
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          "Hugh",
+                          3
+                        ],
+                        /* :: */[
+                          /* tuple */[
+                            "Gilbert",
+                            4
+                          ],
+                          /* [] */0
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                /* :: */[
+                  /* record */[
+                    /* name */"Josephine",
+                    /* canMatchWith */1,
+                    /* selectedNames : :: */[
+                      /* tuple */[
+                        "Bernard",
+                        1
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          "Eric",
+                          2
+                        ],
+                        /* :: */[
+                          /* tuple */[
+                            "Hugh",
+                            3
+                          ],
+                          /* :: */[
+                            /* tuple */[
+                              "Felipe",
+                              4
+                            ],
+                            /* [] */0
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  /* :: */[
+                    /* record */[
+                      /* name */"Sandy",
+                      /* canMatchWith */1,
+                      /* selectedNames : :: */[
+                        /* tuple */[
+                          "Hugh",
+                          1
+                        ],
+                        /* :: */[
+                          /* tuple */[
+                            "Peter",
+                            2
+                          ],
+                          /* :: */[
+                            /* tuple */[
+                              "Alfred",
+                              3
+                            ],
+                            /* :: */[
+                              /* tuple */[
+                                "Eric",
+                                4
+                              ],
+                              /* [] */0
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    /* [] */0
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+];
+
 exports.IntCmp = IntCmp;
 exports.OptIntCmp = OptIntCmp;
-exports.positions = positions;
-exports.candidates = candidates;
+exports.imperialPositions = imperialPositions;
+exports.imperialCandidates = imperialCandidates;
+exports.marriageMen = marriageMen;
+exports.marriageWomen = marriageWomen;
 exports.sampleDataToRaw = sampleDataToRaw;
 /* SharedTypes Not a pure module */
