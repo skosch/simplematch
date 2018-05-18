@@ -55,6 +55,8 @@ function sampleDataToRaw(rowFormat, sampleParticipants) {
 
 var IntCmp = SharedTypes.IntCmp;
 
+var StrCmp = SharedTypes.StrCmp;
+
 var OptIntCmp = SharedTypes.OptIntCmp;
 
 var imperialPositions = /* :: */[
@@ -986,7 +988,7 @@ var marriageMen = /* :: */[
                     /* canMatchWith */1,
                     /* selectedNames : :: */[
                       /* tuple */[
-                        "Starfighter Pilot",
+                        "Elena",
                         1
                       ],
                       /* :: */[
@@ -1365,6 +1367,7 @@ var marriageWomen = /* :: */[
 ];
 
 exports.IntCmp = IntCmp;
+exports.StrCmp = StrCmp;
 exports.OptIntCmp = OptIntCmp;
 exports.imperialPositions = imperialPositions;
 exports.imperialCandidates = imperialCandidates;

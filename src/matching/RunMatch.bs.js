@@ -53,12 +53,24 @@ function popularManyToMany(currentState) {
 function minCostMaxFlow(currentState) {
   var selectingParsedData = currentState[/* selectingParsedData */9];
   var selectedParsedData = currentState[/* selectedParsedData */10];
+  Belt_HashMapString.fromArray(Belt_List.toArray(Belt_List.mapWithIndex(selectingParsedData, (function (i, s) {
+                  return /* tuple */[
+                          s[/* name */0],
+                          i
+                        ];
+                }))));
   var selectedIndices = Belt_HashMapString.fromArray(Belt_List.toArray(Belt_List.mapWithIndex(selectedParsedData, (function (i, s) {
                   return /* tuple */[
                           s[/* name */0],
                           i
                         ];
                 }))));
+  var match = currentState[/* mutualMatch */3];
+  var reverseConnectedIndicesSets = match ? Belt_Array.map(Belt_List.toArray(selectedParsedData), (function (s) {
+            return Belt_Set.fromArray(Belt_List.toArray(Belt_List.map(s[/* selectedNames */2], (function (param) {
+                                  return param[0];
+                                }))), SharedTypes.StrCmp);
+          })) : /* array */[];
   var nSelecting = Belt_List.length(selectingParsedData);
   var nSelected = Belt_List.length(selectedParsedData);
   var selectingCapacitiesRow = Belt_Array.concatMany(/* array */[
@@ -72,7 +84,7 @@ function minCostMaxFlow(currentState) {
         /* array */[0]
       ]);
   var connectingCapacitiesRows = Belt_List.toArray(Belt_List.map(selectingParsedData, (function (s) {
-              var selectedIndicesSet = Belt_Set.fromArray(Belt_List.toArray(Belt_List.map(s[/* selectedNames */2], (function (param) {
+              var connectedIndicesSet = Belt_Set.fromArray(Belt_List.toArray(Belt_List.map(s[/* selectedNames */2], (function (param) {
                               return Belt_HashMapString.get(selectedIndices, param[0]);
                             }))), SharedTypes.OptIntCmp);
               return Belt_Array.concatMany(/* array */[
@@ -81,8 +93,17 @@ function minCostMaxFlow(currentState) {
                                   return 0;
                                 })),
                           Belt_Array.makeBy(nSelected, (function (i) {
-                                  var match = Belt_Set.has(selectedIndicesSet, /* Some */[i]);
+                                  var isForwardConnected = Belt_Set.has(connectedIndicesSet, /* Some */[i]);
+                                  var match = currentState[/* mutualMatch */3];
+                                  var isReverseConnected;
                                   if (match) {
+                                    var match$1 = Belt_Array.get(reverseConnectedIndicesSets, i);
+                                    isReverseConnected = match$1 ? Belt_Set.has(match$1[0], s[/* name */0]) : false;
+                                  } else {
+                                    isReverseConnected = true;
+                                  }
+                                  var match$2 = isForwardConnected && isReverseConnected;
+                                  if (match$2) {
                                     return 1;
                                   } else {
                                     return 0;

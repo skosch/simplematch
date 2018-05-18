@@ -9,8 +9,13 @@ var IntCmp = Belt_Id.MakeComparable(/* module */[/* cmp */cmp]);
 
 var cmp$1 = Caml_obj.caml_compare;
 
-var OptIntCmp = Belt_Id.MakeComparable(/* module */[/* cmp */cmp$1]);
+var StrCmp = Belt_Id.MakeComparable(/* module */[/* cmp */cmp$1]);
+
+var cmp$2 = Caml_obj.caml_compare;
+
+var OptIntCmp = Belt_Id.MakeComparable(/* module */[/* cmp */cmp$2]);
 
 exports.IntCmp = IntCmp;
+exports.StrCmp = StrCmp;
 exports.OptIntCmp = OptIntCmp;
 /* IntCmp Not a pure module */

@@ -119,9 +119,12 @@ function make(currentState, resultData, _) {
 
 var IntCmp = SharedTypes.IntCmp;
 
+var StrCmp = SharedTypes.StrCmp;
+
 var OptIntCmp = SharedTypes.OptIntCmp;
 
 exports.IntCmp = IntCmp;
+exports.StrCmp = StrCmp;
 exports.OptIntCmp = OptIntCmp;
 exports.component = component;
 exports.make = make;

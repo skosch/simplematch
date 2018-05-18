@@ -218,9 +218,12 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
 
 var IntCmp = SharedTypes.IntCmp;
 
+var StrCmp = SharedTypes.StrCmp;
+
 var OptIntCmp = SharedTypes.OptIntCmp;
 
 exports.IntCmp = IntCmp;
+exports.StrCmp = StrCmp;
 exports.OptIntCmp = OptIntCmp;
 exports.applyChanges = applyChanges;
 exports.component = component;

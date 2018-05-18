@@ -7,6 +7,13 @@ module IntCmp =
       let cmp = (i1, i2) => compare(i1, i2);
     },
   );
+module StrCmp =
+  Id.MakeComparable(
+    {
+      type t = string;
+      let cmp = (i1, i2) => compare(i1, i2);
+    },
+  );
 module OptIntCmp =
   Id.MakeComparable(
     {

@@ -484,6 +484,8 @@ var parseData = DataParser.parseData;
 
 var IntCmp = SampleData.IntCmp;
 
+var StrCmp = SampleData.StrCmp;
+
 var OptIntCmp = SampleData.OptIntCmp;
 
 var imperialPositions = SampleData.imperialPositions;
@@ -514,6 +516,7 @@ exports.parseSelectees = parseSelectees;
 exports.parseSingleRow = parseSingleRow;
 exports.parseData = parseData;
 exports.IntCmp = IntCmp;
+exports.StrCmp = StrCmp;
 exports.OptIntCmp = OptIntCmp;
 exports.imperialPositions = imperialPositions;
 exports.imperialCandidates = imperialCandidates;

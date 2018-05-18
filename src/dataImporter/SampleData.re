@@ -298,7 +298,7 @@ let marriageMen: list(sideDataEntry) = [
     name: "Gilbert",
     canMatchWith: 1,
     selectedNames: [
-      ("Starfighter Pilot", 1),
+      ("Elena", 1),
       ("Sandy", 2),
       ("Anna", 3),
       ("Melody", 4),

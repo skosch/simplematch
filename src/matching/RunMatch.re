@@ -53,11 +53,29 @@ let minCostMaxFlow = (currentState: SharedTypes.state) => {
   /* now do min cost max flow */
   let selectingParsedData = currentState.selectingParsedData;
   let selectedParsedData = currentState.selectedParsedData;
+  let selectingIndices =
+    selectingParsedData
+    |. List.mapWithIndex((i, s) => (s.name, i))
+    |> List.toArray
+    |> HashMap.String.fromArray;
   let selectedIndices =
     selectedParsedData
     |. List.mapWithIndex((i, s) => (s.name, i))
     |> List.toArray
     |> HashMap.String.fromArray;
+  
+    let reverseConnectedIndicesSets =
+    currentState.mutualMatch ?
+    selectedParsedData
+        |. List.toArray
+        |. Array.map(s => 
+            s.selectedNames
+            |. List.map(((sn, _)) => sn)
+            |> List.toArray /* an array of selected indices */
+            |. Set.fromArray(~id=(module SharedTypes.StrCmp))
+        )
+    : [||];
+  
   let nSelecting = List.length(selectingParsedData);
   let nSelected = List.length(selectedParsedData);
   /* First row of the capacities matrix: from source to selecting side */
@@ -71,19 +89,27 @@ let minCostMaxFlow = (currentState: SharedTypes.state) => {
   let connectingCapacitiesRows =
     selectingParsedData
     |. List.map(s => {
-         let selectedIndicesSet =
+        /* the indices selected by s */
+        /* if mutual: we need to find the indices that selected s back. */
+         let connectedIndicesSet =
            s.selectedNames
            |. List.map(((sn, _)) =>
                 HashMap.String.get(selectedIndices, sn)
               )
-           |> List.toArray
+           |> List.toArray /* an array of selected indices */
            |. Set.fromArray(~id=(module SharedTypes.OptIntCmp));
+           
          Array.concatMany([|
            [|0|],
            Array.makeBy(nSelecting, _i => 0),
-           Array.makeBy(nSelected, i =>
-             Set.has(selectedIndicesSet, Some(i)) ? 1 : 0
-           ),
+           Array.makeBy(nSelected, i => {
+             let isForwardConnected = Set.has(connectedIndicesSet, Some(i));
+             let isReverseConnected = currentState.mutualMatch ? (switch(reverseConnectedIndicesSets[i]) {
+               | Some(reverseSet) => Set.has(reverseSet, s.name);
+               | None => false;
+             }) : true;
+             isForwardConnected && isReverseConnected ? 1 : 0;
+           }),
            [|0|],
          |]);
        })
