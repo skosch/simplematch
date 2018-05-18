@@ -300,6 +300,8 @@ var popularManyToMany = RunMatch.popularManyToMany;
 
 var minCostMaxFlow = RunMatch.minCostMaxFlow;
 
+var shouldUsePopularManyToMany = RunMatch.shouldUsePopularManyToMany;
+
 var runMatch = RunMatch.runMatch;
 
 exports.ifEmptyString = ifEmptyString;
@@ -317,6 +319,7 @@ exports.sampleDataToRaw = sampleDataToRaw;
 exports.rankSortedArray = rankSortedArray;
 exports.popularManyToMany = popularManyToMany;
 exports.minCostMaxFlow = minCostMaxFlow;
+exports.shouldUsePopularManyToMany = shouldUsePopularManyToMany;
 exports.runMatch = runMatch;
 exports.component = component;
 exports.make = make;

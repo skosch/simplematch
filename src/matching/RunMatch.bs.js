@@ -187,9 +187,40 @@ function minCostMaxFlow(currentState) {
               }));
 }
 
+function shouldUsePopularManyToMany(currentState) {
+  var hasNoDuplicates = (function(arr) {
+       console.log(arr);
+      for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[i] === arr[j]) {
+       console.log("has duplicates");
+            return false;
+          }
+        }
+       }
+       console.log("has no duplicates");
+     return true;
+   });
+  var isMonotonous = function (l) {
+    return Belt_List.every(l, (function (sns) {
+                  return Curry._1(hasNoDuplicates, Belt_List.toArray(Belt_List.map(sns, (function (param) {
+                                        return param[1];
+                                      }))));
+                }));
+  };
+  if (currentState[/* mutualMatch */2] && isMonotonous(Belt_List.map(currentState[/* selectingParsedData */7], (function (s) {
+                return s[/* selectedNames */2];
+              })))) {
+    return isMonotonous(Belt_List.map(currentState[/* selectedParsedData */8], (function (s) {
+                      return s[/* selectedNames */2];
+                    })));
+  } else {
+    return false;
+  }
+}
+
 function runMatch(currentState) {
-  var mutualRankedMatch = currentState[/* mutualMatch */2];
-  if (mutualRankedMatch) {
+  if (shouldUsePopularManyToMany(currentState)) {
     return popularManyToMany(currentState);
   } else {
     return minCostMaxFlow(currentState);
@@ -199,5 +230,6 @@ function runMatch(currentState) {
 exports.rankSortedArray = rankSortedArray;
 exports.popularManyToMany = popularManyToMany;
 exports.minCostMaxFlow = minCostMaxFlow;
+exports.shouldUsePopularManyToMany = shouldUsePopularManyToMany;
 exports.runMatch = runMatch;
 /* ./MCMF Not a pure module */

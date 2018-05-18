@@ -22,7 +22,7 @@ let rankSortedArray = selectedNames =>
   selectedNames
   |. List.toArray
   |> Js.Array.sortInPlaceWith(((_n1, r1), (_n2, r2)) => compare(r1, r2))
-  |. Array.map(((n, r)) => n);
+  |. Array.map(((sn, _)) => sn);
 
 let popularManyToMany = (currentState: SharedTypes.state) => {
   let selectingSelected =
@@ -215,12 +215,35 @@ let minCostMaxFlow = (currentState: SharedTypes.state) => {
   pairings;
 };
 
+let shouldUsePopularManyToMany = (currentState: SharedTypes.state) => {
+  let hasNoDuplicates = [%bs.raw {|function(arr) {
+       console.log(arr);
+      for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[i] === arr[j]) {
+       console.log("has duplicates");
+            return false;
+          }
+        }
+       }
+       console.log("has no duplicates");
+     return true;
+   }|}];
+
+  let isMonotonous = l => List.every(l, sns => 
+                                sns
+                                |. List.map(((_, r)) => r)
+                                |. List.toArray
+                                |. hasNoDuplicates);
+    
+    currentState.mutualMatch && 
+    isMonotonous(List.map(currentState.selectingParsedData, s => s.selectedNames)) &&
+    isMonotonous(List.map(currentState.selectedParsedData, s => s.selectedNames));
+};
+
 let runMatch = (currentState: SharedTypes.state) => {
   /* First decide on Gale-Shapley vs MinCostMaxFlow. */
-  let mutualRankedMatch = currentState.mutualMatch;
-  /* TODO: also, all ranked selectedNames must be different on both sides, and decide between 1-level gale shapley
-     if canMatchWith = 1 everywhere, or 2-level if not (see https://arxiv.org/pdf/1609.07531.pdf) */
-  if (mutualRankedMatch) {
+  if (shouldUsePopularManyToMany(currentState)) {
     popularManyToMany(currentState);
   } else {
     minCostMaxFlow(currentState);
