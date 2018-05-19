@@ -154,6 +154,7 @@ body {
         th {
           cursor: default;
         }
+        tr:not(:last-child) {
         .ignored-row {
           font-weight: bold;
           color: #cd5200;
@@ -161,6 +162,7 @@ body {
           width: 50px;
           padding: 0px 6px;
           border-radius: 3rem;
+        }
         }
 
         .question-statement {
@@ -377,6 +379,21 @@ button.mdc-button {
     font-weight: 500;
     font-size: 1rem;
     line-height: 2rem;
+  }
+  .histogram {
+    font-size: 1rem;
+    height: 2rem;
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px solid gray;
+    margin: 1rem 0;
+    .hist-bar {
+      flex: 1;
+      background: lightgray;
+      display: inline-block;
+      vertical-align: bottom;
+      border-radius: 3px 3px 0 0;
+    }
   }
 }
 

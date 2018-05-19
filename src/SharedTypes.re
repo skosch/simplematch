@@ -1,5 +1,6 @@
 open Belt;
 
+type pairing = (string, string);
 module IntCmp =
   Id.MakeComparable(
     {
@@ -11,6 +12,14 @@ module StrCmp =
   Id.MakeComparable(
     {
       type t = string;
+      let cmp = (i1, i2) => compare(i1, i2);
+    },
+  );
+
+module PairingCmp =
+  Id.MakeComparable(
+    {
+      type t = pairing;
       let cmp = (i1, i2) => compare(i1, i2);
     },
   );
@@ -39,7 +48,6 @@ type sideDataEntry = {
   selectedNames: list(selectedNameWithRank),
 };
 
-type pairing = (string, string);
 
 type state = {
   selectingName: string,

@@ -57,6 +57,8 @@ var IntCmp = SharedTypes.IntCmp;
 
 var StrCmp = SharedTypes.StrCmp;
 
+var PairingCmp = SharedTypes.PairingCmp;
+
 var OptIntCmp = SharedTypes.OptIntCmp;
 
 var imperialPositions = /* :: */[
@@ -1368,6 +1370,7 @@ var marriageWomen = /* :: */[
 
 exports.IntCmp = IntCmp;
 exports.StrCmp = StrCmp;
+exports.PairingCmp = PairingCmp;
 exports.OptIntCmp = OptIntCmp;
 exports.imperialPositions = imperialPositions;
 exports.imperialCandidates = imperialCandidates;

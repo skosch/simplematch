@@ -222,10 +222,13 @@ var IntCmp = SharedTypes.IntCmp;
 
 var StrCmp = SharedTypes.StrCmp;
 
+var PairingCmp = SharedTypes.PairingCmp;
+
 var OptIntCmp = SharedTypes.OptIntCmp;
 
 exports.IntCmp = IntCmp;
 exports.StrCmp = StrCmp;
+exports.PairingCmp = PairingCmp;
 exports.OptIntCmp = OptIntCmp;
 exports.applyChanges = applyChanges;
 exports.component = component;

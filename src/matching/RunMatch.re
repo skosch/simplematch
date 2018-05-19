@@ -24,7 +24,7 @@ let rankSortedArray = selectedNames =>
   |> Js.Array.sortInPlaceWith(((_n1, r1), (_n2, r2)) => compare(r1, r2))
   |. Array.map(((sn, _)) => sn);
 
-let popularManyToMany = (currentState: SharedTypes.state) => {
+let popularManyToMany = (currentState: SharedTypes.state, swapParties: bool) => {
   let selectingSelected =
     currentState.selectingParsedData
     |. List.map(e => (e.name, rankSortedArray(e.selectedNames)))
@@ -42,11 +42,14 @@ let popularManyToMany = (currentState: SharedTypes.state) => {
     |. List.map(e => (e.name, e.canMatchWith))
     |. Js.Dict.fromList;
 
-  let res = 
+  if (swapParties) {
+    runPopularManyToMany(selectedSelected, selectingSelected, selectedCanMatchWith, selectingCanMatchWith)
+    |. List.fromArray
+    |. List.map(((a, b)) => (b, a));
+  } else {
     runPopularManyToMany(selectingSelected, selectedSelected, selectingCanMatchWith, selectedCanMatchWith)
     |. List.fromArray;
-
-  res;
+  }
 };
 
 let minCostMaxFlow = (currentState: SharedTypes.state) => {
@@ -272,8 +275,8 @@ let suggestStrategy = (selectingParsedData: list(SharedTypes.sideDataEntry),
 let runMatch = (currentState: SharedTypes.state) => {
   /* First decide on Gale-Shapley vs MinCostMaxFlow. */
   switch(currentState.matchStrategy) {
-    | SharedTypes.SelectingBreakTies => popularManyToMany(currentState);
-    | SharedTypes.SelectedBreakTies => popularManyToMany(currentState);
+    | SharedTypes.SelectingBreakTies => popularManyToMany(currentState, false);
+    | SharedTypes.SelectedBreakTies => popularManyToMany(currentState, true);
     | SharedTypes.MCMF => minCostMaxFlow(currentState);
   }
 };

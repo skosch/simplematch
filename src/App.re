@@ -342,6 +342,7 @@ let make = _children => {
                       | "selecting-break-ties" => SelectingBreakTies
                       | "selected-break-ties" => SelectedBreakTies
                       | "mcmf" => MCMF
+                      | "" => MCMF
                       };
                     self.send(UpdateMatchStrategy(matchStrategy));
                   }

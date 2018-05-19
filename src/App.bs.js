@@ -91,6 +91,7 @@ function make() {
                                   var value = _event.target.value;
                                   var matchStrategy;
                                   switch (value) {
+                                    case "" : 
                                     case "mcmf" : 
                                         matchStrategy = /* MCMF */2;
                                         break;
@@ -488,6 +489,8 @@ var IntCmp = SampleData.IntCmp;
 
 var StrCmp = SampleData.StrCmp;
 
+var PairingCmp = SampleData.PairingCmp;
+
 var OptIntCmp = SampleData.OptIntCmp;
 
 var imperialPositions = SampleData.imperialPositions;
@@ -519,6 +522,7 @@ exports.parseSingleRow = parseSingleRow;
 exports.parseData = parseData;
 exports.IntCmp = IntCmp;
 exports.StrCmp = StrCmp;
+exports.PairingCmp = PairingCmp;
 exports.OptIntCmp = OptIntCmp;
 exports.imperialPositions = imperialPositions;
 exports.imperialCandidates = imperialCandidates;

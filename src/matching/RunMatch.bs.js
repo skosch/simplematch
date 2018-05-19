@@ -22,7 +22,7 @@ function rankSortedArray(selectedNames) {
               }));
 }
 
-function popularManyToMany(currentState) {
+function popularManyToMany(currentState, swapParties) {
   var selectingSelected = Js_dict.fromList(Belt_List.map(currentState[/* selectingParsedData */9], (function (e) {
               return /* tuple */[
                       e[/* name */0],
@@ -47,7 +47,16 @@ function popularManyToMany(currentState) {
                       e[/* canMatchWith */1]
                     ];
             })));
-  return Belt_List.fromArray(Curry._4(PopularManyToMany.default, selectingSelected, selectedSelected, selectingCanMatchWith, selectedCanMatchWith));
+  if (swapParties) {
+    return Belt_List.map(Belt_List.fromArray(Curry._4(PopularManyToMany.default, selectedSelected, selectingSelected, selectedCanMatchWith, selectingCanMatchWith)), (function (param) {
+                  return /* tuple */[
+                          param[1],
+                          param[0]
+                        ];
+                }));
+  } else {
+    return Belt_List.fromArray(Curry._4(PopularManyToMany.default, selectingSelected, selectedSelected, selectingCanMatchWith, selectedCanMatchWith));
+  }
 }
 
 function minCostMaxFlow(currentState) {
@@ -239,10 +248,14 @@ function suggestStrategy(selectingParsedData, selectedParsedData, mutualMatch) {
 
 function runMatch(currentState) {
   var match = currentState[/* matchStrategy */4];
-  if (match >= 2) {
-    return minCostMaxFlow(currentState);
-  } else {
-    return popularManyToMany(currentState);
+  switch (match) {
+    case 0 : 
+        return popularManyToMany(currentState, false);
+    case 1 : 
+        return popularManyToMany(currentState, true);
+    case 2 : 
+        return minCostMaxFlow(currentState);
+    
   }
 }
 

@@ -133,12 +133,10 @@ const twoLevelGaleShapley = (studentsWithChoices, coursesWithChoices, studentCap
   const pairings = [];
   for (const course in matchesByCourse) {
     for (const student of [...matchesByCourse[course]]) {
-      pairings.push([course, student.slice(1)]);
+      pairings.push([student.slice(1), course]);
     }
   }
   return pairings;
 }
-
-
 
 export default twoLevelGaleShapley;
