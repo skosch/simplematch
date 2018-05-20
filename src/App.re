@@ -197,7 +197,6 @@ let make = _children => {
       let state = self.state;
       let resultData =
         self.state.matchResult
-        |. Belt.List.map(((p1, p2)) => [|p1, p2|])
         |> Belt.List.toArray;
       <div onClick=((_) => self.send(CloseSampleMenu))>
         <div className="splash">

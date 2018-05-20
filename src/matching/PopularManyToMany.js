@@ -65,6 +65,16 @@ const twoLevelGaleShapley = (studentsWithChoices, coursesWithChoices, studentCap
   const a0 = Object.keys(studentsWithChoices).map(n => "0" + n);
   const a1 = Object.keys(studentsWithChoices).map(n => "1" + n);
   const b = Object.keys(coursesWithChoices);
+
+  /* make a deep copy for later adding the original ranks to the pairing tuples */
+  const originalStudentsWithChoices = {};
+  for (const student of Object.keys(studentsWithChoices)) {
+    originalStudentsWithChoices[student] = [...studentsWithChoices[student]];
+  }
+  const originalCoursesWithChoices = {};
+  for (const course of Object.keys(coursesWithChoices)) {
+    originalCoursesWithChoices[course] = [...coursesWithChoices[course]];
+  }
   
   const currentStudentChoices = a0.concat(a1).reduce((p, c) => {
     p[c] = studentsWithChoices[c.slice(1)];
@@ -130,10 +140,25 @@ const twoLevelGaleShapley = (studentsWithChoices, coursesWithChoices, studentCap
     currentStudent = Q.shift();
   }
   
+  const studentsRanksOfCourses = {};
+  for (const student of Object.keys(originalStudentsWithChoices)) {
+    for (const [index, course] of originalStudentsWithChoices[student].entries()) {
+      studentsRanksOfCourses[student + "_" + course] = index + 1;
+    }
+  }
+  const coursesRanksOfStudents = {};
+  for (const course of Object.keys(originalCoursesWithChoices)) {
+    for (const [index, student] of originalCoursesWithChoices[course].entries()) {
+      coursesRanksOfStudents[course + "_" + student] = index + 1;
+    }
+  }
   const pairings = [];
   for (const course in matchesByCourse) {
     for (const student of [...matchesByCourse[course]]) {
-      pairings.push([student.slice(1), course]);
+      const studentName = student.slice(1);
+      const studentsRankOfCourse = studentsRanksOfCourses[studentName + "_" + course];
+      const coursesRankOfStudent = coursesRanksOfStudents[course + "_" + studentName];
+      pairings.push([studentName, course, studentsRankOfCourse, coursesRankOfStudent]);
     }
   }
   return pairings;

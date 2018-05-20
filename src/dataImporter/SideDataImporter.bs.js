@@ -158,7 +158,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                                         Caml_builtin_exceptions.match_failure,
                                         [
                                           "SideDataImporter.re",
-                                          178,
+                                          176,
                                           22
                                         ]
                                       ];
@@ -167,7 +167,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                             })
                         }, React.createElement("option", {
                               value: "multiple-rows"
-                            }, "One " + (Pluralize.singular(selectedName) + " per row")), React.createElement("option", {
+                            }, "One " + ($$String.uncapitalize(Pluralize.singular(selectedName)) + " per row")), React.createElement("option", {
                               value: "columns"
                             }, selectedName + " in columns")));
               } else {
@@ -177,7 +177,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                           className: "data-importer"
                         }, React.createElement("div", {
                               className: "question-statement"
-                            }, "Paste your " + (selectingName + " into the spreadsheet below:")), ReasonReact.element(/* None */0, /* None */0, HotTable.make({
+                            }, "Paste your ", React.createElement("strong", undefined, selectingName), " into the spreadsheet below:"), ReasonReact.element(/* None */0, /* None */0, HotTable.make({
                                   colHeaders: columnHeader,
                                   rowHeaders: rowHeaders,
                                   copyPaste: true,

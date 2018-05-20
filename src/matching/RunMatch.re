@@ -45,7 +45,7 @@ let popularManyToMany = (currentState: SharedTypes.state, swapParties: bool) => 
   if (swapParties) {
     runPopularManyToMany(selectedSelected, selectingSelected, selectedCanMatchWith, selectingCanMatchWith)
     |. List.fromArray
-    |. List.map(((a, b)) => (b, a));
+    |. List.map(((a, b, c, d)) => (b, a, d, c));
   } else {
     runPopularManyToMany(selectingSelected, selectedSelected, selectingCanMatchWith, selectedCanMatchWith)
     |. List.fromArray;
@@ -78,6 +78,43 @@ let minCostMaxFlow = (currentState: SharedTypes.state) => {
             |. Set.fromArray(~id=(module SharedTypes.StrCmp))
         )
     : [||];
+  
+  let selectedIndicesRankMapForSelectingList =
+    List.map(selectingParsedData, s =>
+             s.selectedNames
+             |. List.map(((sn, rank)) =>
+                         (
+               Js.Option.getWithDefault(
+                           -1,
+                           HashMap.String.get(selectedIndices, sn),
+                         ),
+               rank,
+             )
+               )
+             |> List.toArray
+             |. HashMap.Int.fromArray /* {indexOfSelected: rank, ...} */
+  ); 
+
+  let selectedIndicesRankMapForSelectingArray =
+  List.toArray(selectedIndicesRankMapForSelectingList);
+  
+  let selectingIndicesRankMapForSelectedList =
+    List.map(selectedParsedData, s =>
+             s.selectedNames
+             |. List.map(((sn, rank)) =>
+                         (
+               Js.Option.getWithDefault(
+                           -1,
+                           HashMap.String.get(selectingIndices, sn),
+                         ),
+               rank,
+             )
+               )
+             |> List.toArray
+             |. HashMap.Int.fromArray /* {indexOfSelecting: rank, ...} */
+  ); 
+  let selectingIndicesRankMapForSelectedArray = 
+    List.toArray(selectingIndicesRankMapForSelectedList);
   
   let nSelecting = List.length(selectingParsedData);
   let nSelected = List.length(selectedParsedData);
@@ -142,28 +179,25 @@ let minCostMaxFlow = (currentState: SharedTypes.state) => {
     |]);
   let connectingCostsRows =
     selectingParsedData
-    |. List.map(s => {
-         let selectedIndicesRankMap =
-           s.selectedNames
-           |. List.map(((sn, rank)) =>
-                (
-                  Js.Option.getWithDefault(
-                    -1,
-                    HashMap.String.get(selectedIndices, sn),
-                  ),
-                  rank,
-                )
-              )
-           |> List.toArray
-           |. HashMap.Int.fromArray;
+    |. List.zip(selectedIndicesRankMapForSelectingList)
+    |. List.mapWithIndex((i, e) => (i, e))
+    |. List.map(((selectingIndex, (s, selectedIndicesRankMap))) => {
+         /* TODO: Take both costs into account */
          Array.concatMany([|
            [|0|],
            Array.makeBy(nSelecting, _i => 0),
-           Array.makeBy(nSelected, i =>
-             Js.Option.getWithDefault(
-               0,
-               HashMap.Int.get(selectedIndicesRankMap, i),
-             )
+           Array.makeBy(nSelected, selectedIndex => {
+           let forwardCost = 
+            Js.Option.getWithDefault(0,  
+               HashMap.Int.get(selectedIndicesRankMap, selectedIndex));
+           let reverseCost = 
+             switch(selectingIndicesRankMapForSelectedArray[selectedIndex]) {
+               | Some(hm) => Js.Option.getWithDefault(0, HashMap.Int.get(hm, selectingIndex));
+               | None => 0;
+             };
+
+             forwardCost + reverseCost;
+         }
            ),
            [|0|],
          |]);
@@ -228,10 +262,18 @@ let minCostMaxFlow = (currentState: SharedTypes.state) => {
                       Js.Option.getWithDefault(
                         errorEntry,
                         List.get(selectedParsedData, selectedIndex),
-                      ).
-                        name;
+                      ).name;
+
+  
+               let selectingRank = Js.Option.getWithDefault(0, 
+                 HashMap.Int.get(Js.Option.getWithDefault(HashMap.Int.make(0),
+                 selectedIndicesRankMapForSelectingArray[selectingIndex]), selectedIndex));
+               let selectedRank = Js.Option.getWithDefault(0,
+                 HashMap.Int.get(Js.Option.getWithDefault(HashMap.Int.make(0),
+                  selectingIndicesRankMapForSelectedArray[selectedIndex]), selectingIndex));
+
                     [
-                      (selectingName, selectedName),
+                      (selectingName, selectedName, selectingRank, selectedRank),
                       ...pairingsListInThisRow,
                     ];
                   } else {

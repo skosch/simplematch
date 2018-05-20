@@ -1,6 +1,7 @@
 open Belt;
 
-type pairing = (string, string);
+type pairing = (string, string, int, int) /* selector, selectee, selectorRank, selecteeRank */;
+
 module IntCmp =
   Id.MakeComparable(
     {

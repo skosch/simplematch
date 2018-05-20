@@ -51,7 +51,9 @@ function popularManyToMany(currentState, swapParties) {
     return Belt_List.map(Belt_List.fromArray(Curry._4(PopularManyToMany.default, selectedSelected, selectingSelected, selectedCanMatchWith, selectingCanMatchWith)), (function (param) {
                   return /* tuple */[
                           param[1],
-                          param[0]
+                          param[0],
+                          param[3],
+                          param[2]
                         ];
                 }));
   } else {
@@ -62,7 +64,7 @@ function popularManyToMany(currentState, swapParties) {
 function minCostMaxFlow(currentState) {
   var selectingParsedData = currentState[/* selectingParsedData */9];
   var selectedParsedData = currentState[/* selectedParsedData */10];
-  Belt_HashMapString.fromArray(Belt_List.toArray(Belt_List.mapWithIndex(selectingParsedData, (function (i, s) {
+  var selectingIndices = Belt_HashMapString.fromArray(Belt_List.toArray(Belt_List.mapWithIndex(selectingParsedData, (function (i, s) {
                   return /* tuple */[
                           s[/* name */0],
                           i
@@ -80,6 +82,24 @@ function minCostMaxFlow(currentState) {
                                   return param[0];
                                 }))), SharedTypes.StrCmp);
           })) : /* array */[];
+  var selectedIndicesRankMapForSelectingList = Belt_List.map(selectingParsedData, (function (s) {
+          return Belt_HashMapInt.fromArray(Belt_List.toArray(Belt_List.map(s[/* selectedNames */2], (function (param) {
+                                return /* tuple */[
+                                        Js_option.getWithDefault(-1, Belt_HashMapString.get(selectedIndices, param[0])),
+                                        param[1]
+                                      ];
+                              }))));
+        }));
+  var selectedIndicesRankMapForSelectingArray = Belt_List.toArray(selectedIndicesRankMapForSelectingList);
+  var selectingIndicesRankMapForSelectedList = Belt_List.map(selectedParsedData, (function (s) {
+          return Belt_HashMapInt.fromArray(Belt_List.toArray(Belt_List.map(s[/* selectedNames */2], (function (param) {
+                                return /* tuple */[
+                                        Js_option.getWithDefault(-1, Belt_HashMapString.get(selectingIndices, param[0])),
+                                        param[1]
+                                      ];
+                              }))));
+        }));
+  var selectingIndicesRankMapForSelectedArray = Belt_List.toArray(selectingIndicesRankMapForSelectedList);
   var nSelecting = Belt_List.length(selectingParsedData);
   var nSelected = Belt_List.length(selectedParsedData);
   var selectingCapacitiesRow = Belt_Array.concatMany(/* array */[
@@ -145,20 +165,24 @@ function minCostMaxFlow(currentState) {
               })),
         /* array */[0]
       ]);
-  var connectingCostsRows = Belt_List.toArray(Belt_List.map(selectingParsedData, (function (s) {
-              var selectedIndicesRankMap = Belt_HashMapInt.fromArray(Belt_List.toArray(Belt_List.map(s[/* selectedNames */2], (function (param) {
-                              return /* tuple */[
-                                      Js_option.getWithDefault(-1, Belt_HashMapString.get(selectedIndices, param[0])),
-                                      param[1]
-                                    ];
-                            }))));
+  var connectingCostsRows = Belt_List.toArray(Belt_List.map(Belt_List.mapWithIndex(Belt_List.zip(selectingParsedData, selectedIndicesRankMapForSelectingList), (function (i, e) {
+                  return /* tuple */[
+                          i,
+                          e
+                        ];
+                })), (function (param) {
+              var selectedIndicesRankMap = param[1][1];
+              var selectingIndex = param[0];
               return Belt_Array.concatMany(/* array */[
                           /* array */[0],
                           Belt_Array.makeBy(nSelecting, (function () {
                                   return 0;
                                 })),
-                          Belt_Array.makeBy(nSelected, (function (i) {
-                                  return Js_option.getWithDefault(0, Belt_HashMapInt.get(selectedIndicesRankMap, i));
+                          Belt_Array.makeBy(nSelected, (function (selectedIndex) {
+                                  var forwardCost = Js_option.getWithDefault(0, Belt_HashMapInt.get(selectedIndicesRankMap, selectedIndex));
+                                  var match = Belt_Array.get(selectingIndicesRankMapForSelectedArray, selectedIndex);
+                                  var reverseCost = match ? Js_option.getWithDefault(0, Belt_HashMapInt.get(match[0], selectingIndex)) : 0;
+                                  return forwardCost + reverseCost | 0;
                                 })),
                           /* array */[0]
                         ]);
@@ -193,7 +217,8 @@ function minCostMaxFlow(currentState) {
                             row
                           ];
                   })), /* [] */0, (function (pairingsList, param) {
-                var selectingName = Js_option.getWithDefault(errorEntry, Belt_List.get(selectingParsedData, param[0]))[/* name */0];
+                var selectingIndex = param[0];
+                var selectingName = Js_option.getWithDefault(errorEntry, Belt_List.get(selectingParsedData, selectingIndex))[/* name */0];
                 var pairingsInThisRow = Belt_Array.reduce(Belt_Array.mapWithIndex(Belt_Array.slice(param[1], 1 + nSelecting | 0, nSelected), (function (selectedIndex, column) {
                             return /* tuple */[
                                     selectedIndex,
@@ -201,11 +226,16 @@ function minCostMaxFlow(currentState) {
                                   ];
                           })), /* [] */0, (function (pairingsListInThisRow, param) {
                         if (param[1] >= 1) {
-                          var selectedName = Js_option.getWithDefault(errorEntry, Belt_List.get(selectedParsedData, param[0]))[/* name */0];
+                          var selectedIndex = param[0];
+                          var selectedName = Js_option.getWithDefault(errorEntry, Belt_List.get(selectedParsedData, selectedIndex))[/* name */0];
+                          var selectingRank = Js_option.getWithDefault(0, Belt_HashMapInt.get(Js_option.getWithDefault(Belt_HashMapInt.make(0), Belt_Array.get(selectedIndicesRankMapForSelectingArray, selectingIndex)), selectedIndex));
+                          var selectedRank = Js_option.getWithDefault(0, Belt_HashMapInt.get(Js_option.getWithDefault(Belt_HashMapInt.make(0), Belt_Array.get(selectingIndicesRankMapForSelectedArray, selectedIndex)), selectingIndex));
                           return /* :: */[
                                   /* tuple */[
                                     selectingName,
-                                    selectedName
+                                    selectedName,
+                                    selectingRank,
+                                    selectedRank
                                   ],
                                   pairingsListInThisRow
                                 ];

@@ -136,11 +136,9 @@ let make =
       };
     <div className="data-importer">
       <div className="question-statement">
-        (
-          ReasonReact.string(
-            "Paste your " ++ selectingName ++ " into the spreadsheet below:",
-          )
-        )
+        (ReasonReact.string("Paste your "))
+        <strong>(ReasonReact.string(selectingName))</strong>
+        (ReasonReact.string(" into the spreadsheet below:"))
       </div>
       <HotTable
         settings={
@@ -190,7 +188,7 @@ let make =
                 <option value="multiple-rows">
                   (
                     ReasonReact.string(
-                      "One " ++ singular(selectedName) ++ " per row",
+                      "One " ++ String.uncapitalize(singular(selectedName)) ++ " per row",
                     )
                   )
                 </option>

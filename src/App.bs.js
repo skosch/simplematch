@@ -69,12 +69,7 @@ function make() {
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function (self) {
               var state = self[/* state */1];
-              var resultData = Belt_List.toArray(Belt_List.map(self[/* state */1][/* matchResult */13], (function (param) {
-                          return /* array */[
-                                  param[0],
-                                  param[1]
-                                ];
-                        })));
+              var resultData = Belt_List.toArray(self[/* state */1][/* matchResult */13]);
               var match = state[/* sampleMenuOpen */2];
               var match$1 = state[/* mutualMatch */3];
               var tmp;
@@ -116,7 +111,7 @@ function make() {
                                             Caml_builtin_exceptions.match_failure,
                                             [
                                               "App.re",
-                                              377,
+                                              376,
                                               22
                                             ]
                                           ];

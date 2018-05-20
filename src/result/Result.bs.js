@@ -6,6 +6,7 @@ var Belt_Set = require("bs-platform/lib/js/belt_Set.js");
 var HotTable = require("../dataImporter/HotTable.bs.js");
 var Belt_List = require("bs-platform/lib/js/belt_List.js");
 var Js_option = require("bs-platform/lib/js/js_option.js");
+var Pluralize = require("pluralize");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
 var Pervasives = require("bs-platform/lib/js/pervasives.js");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
@@ -19,127 +20,70 @@ function make(currentState, resultData, _) {
     var match = Belt_Array.reduce(resultData, /* tuple */[
           Belt_Set.make(SharedTypes.StrCmp),
           Belt_Set.make(SharedTypes.StrCmp),
-          Belt_Set.make(SharedTypes.PairingCmp)
+          Belt_HashMapInt.make(30),
+          0,
+          Belt_HashMapInt.make(30),
+          0
         ], (function (param, c) {
-            var selectingName = Js_option.getWithDefault("", Belt_Array.get(c, 0));
-            var selectedName = Js_option.getWithDefault("", Belt_Array.get(c, 1));
-            var pairing = /* tuple */[
-              selectingName,
-              selectedName
-            ];
+            var selectedRank = c[3];
+            var selectingRank = c[2];
+            var selectedRanksWorst = param[5];
+            var selectedRanks = param[4];
+            var selectingRanksWorst = param[3];
+            var selectingRanks = param[2];
+            var oldSelectingRankCount = Js_option.getWithDefault(0, Belt_HashMapInt.get(selectingRanks, selectingRank));
+            Belt_HashMapInt.set(selectingRanks, selectingRank, oldSelectingRankCount + 1 | 0);
+            var oldSelectedRankCount = Js_option.getWithDefault(0, Belt_HashMapInt.get(selectedRanks, selectedRank));
+            Belt_HashMapInt.set(selectedRanks, selectedRank, oldSelectedRankCount + 1 | 0);
+            var match = selectingRank > selectingRanksWorst;
+            var match$1 = selectedRank > selectedRanksWorst;
             return /* tuple */[
-                    Belt_Set.add(param[0], selectingName),
-                    Belt_Set.add(param[1], selectedName),
-                    Belt_Set.add(param[2], pairing)
+                    Belt_Set.add(param[0], c[0]),
+                    Belt_Set.add(param[1], c[1]),
+                    selectingRanks,
+                    match ? selectingRank : selectingRanksWorst,
+                    selectedRanks,
+                    match$1 ? selectedRank : selectedRanksWorst
                   ];
           }));
-    var matchedPairings = match[2];
-    var selectedMatchedNames = match[1];
-    var selectingMatchedNames = match[0];
     var allSelectorNames = Belt_List.toArray(Belt_List.map(currentState[/* selectingParsedData */9], (function (e) {
                 return e[/* name */0];
               })));
     var allSelecteeNames = Belt_List.toArray(Belt_List.map(currentState[/* selectedParsedData */10], (function (e) {
                 return e[/* name */0];
               })));
-    var match$1 = Belt_List.reduce(currentState[/* selectingParsedData */9], /* tuple */[
-          0,
-          Belt_Set.fromArray(allSelectorNames, SharedTypes.StrCmp),
-          Belt_HashMapInt.make(30),
-          0
-        ], (function (param, c) {
-            var selectingRanks = param[2];
-            var selectorMatched = Belt_Set.has(selectingMatchedNames, c[/* name */0]);
-            var newSelectorsMatched = param[0] + (
-              selectorMatched ? 1 : 0
-            ) | 0;
-            var newUnmatchedNames = Belt_Set.remove(param[1], c[/* name */0]);
-            var match = Belt_List.reduce(c[/* selectedNames */2], /* tuple */[
-                  selectingRanks,
-                  param[3]
-                ], (function (param, param$1) {
-                    var r = param$1[1];
-                    var srw = param[1];
-                    var psr = param[0];
-                    if (Belt_Set.has(matchedPairings, /* tuple */[
-                            c[/* name */0],
-                            param$1[0]
-                          ])) {
-                      var oldCount = Js_option.getWithDefault(0, Belt_HashMapInt.get(selectingRanks, r));
-                      Belt_HashMapInt.set(psr, r, oldCount + 1 | 0);
-                    }
-                    var match = r > srw;
-                    return /* tuple */[
-                            psr,
-                            match ? r : srw
-                          ];
-                  }));
-            return /* tuple */[
-                    newSelectorsMatched,
-                    newUnmatchedNames,
-                    match[0],
-                    match[1]
-                  ];
+    var unmatchedSelectorNames = Belt_List.reduce(currentState[/* selectingParsedData */9], Belt_Set.fromArray(allSelectorNames, SharedTypes.StrCmp), (function (unmatchedSelectorNames, c) {
+            return Belt_Set.remove(unmatchedSelectorNames, c[/* name */0]);
           }));
-    var match$2 = Belt_List.reduce(currentState[/* selectedParsedData */10], /* tuple */[
-          0,
-          Belt_Set.fromArray(allSelecteeNames, SharedTypes.StrCmp),
-          Belt_HashMapInt.make(30),
-          0
-        ], (function (param, c) {
-            var selectedRanks = param[2];
-            var selecteeMatched = Belt_Set.has(selectedMatchedNames, c[/* name */0]);
-            var newSelecteesMatched = param[0] + (
-              selecteeMatched ? 1 : 0
-            ) | 0;
-            var newUnmatchedNames = Belt_Set.remove(param[1], c[/* name */0]);
-            var match = Belt_List.reduce(c[/* selectedNames */2], /* tuple */[
-                  selectedRanks,
-                  param[3]
-                ], (function (param, param$1) {
-                    var r = param$1[1];
-                    var srw = param[1];
-                    var psr = param[0];
-                    if (Belt_Set.has(matchedPairings, /* tuple */[
-                            param$1[0],
-                            c[/* name */0]
-                          ])) {
-                      var oldCount = Js_option.getWithDefault(0, Belt_HashMapInt.get(selectedRanks, r));
-                      Belt_HashMapInt.set(psr, r, oldCount + 1 | 0);
-                    }
-                    var match = r > srw;
-                    return /* tuple */[
-                            psr,
-                            match ? r : srw
-                          ];
-                  }));
-            return /* tuple */[
-                    newSelecteesMatched,
-                    newUnmatchedNames,
-                    match[0],
-                    match[1]
-                  ];
+    var unmatchedSelecteeNames = Belt_List.reduce(currentState[/* selectedParsedData */10], Belt_Set.fromArray(allSelecteeNames, SharedTypes.StrCmp), (function (unmatchedSelecteeNames, c) {
+            return Belt_Set.remove(unmatchedSelecteeNames, c[/* name */0]);
           }));
     return /* record */[
-            /* selectorsMatched */match$1[0],
-            /* selecteesMatched */match$2[0],
-            /* unmatchedSelectorNames */match$1[1],
-            /* unmatchedSelecteeNames */match$2[1],
-            /* selectingRanks */match$1[2],
-            /* selectedRanks */match$2[2],
-            /* selectingRanksWorst */match$1[3],
-            /* selectedRanksWorst */match$2[3]
+            /* selectorsMatched */Belt_Set.size(match[0]),
+            /* selecteesMatched */Belt_Set.size(match[1]),
+            /* unmatchedSelectorNames */unmatchedSelectorNames,
+            /* unmatchedSelecteeNames */unmatchedSelecteeNames,
+            /* selectingRanks */match[2],
+            /* selectedRanks */match[4],
+            /* selectingRanksWorst */match[3],
+            /* selectedRanksWorst */match[5]
           ];
   };
   var columnHeader = function (index) {
-    if (index !== 0) {
-      if (index !== 1) {
-        return "";
-      } else {
-        return currentState[/* selectedName */1];
-      }
+    if (index > 3 || index < 0) {
+      return "";
     } else {
-      return currentState[/* selectingName */0];
+      switch (index) {
+        case 0 : 
+            return Pluralize.singular(currentState[/* selectingName */0]);
+        case 1 : 
+            return Pluralize.singular(currentState[/* selectedName */1]);
+        case 2 : 
+            return Pluralize.singular(currentState[/* selectingName */0]) + (" ranked " + Pluralize.singular(currentState[/* selectedName */1]));
+        case 3 : 
+            return Pluralize.singular(currentState[/* selectedName */1]) + (" ranked " + Pluralize.singular(currentState[/* selectingName */0]));
+        
+      }
     }
   };
   var get_max_value = function (__x) {
@@ -171,15 +115,20 @@ function make(currentState, resultData, _) {
                 return Belt_Array.map(Belt_Array.range(1, worstRank), (function (r) {
                               var pcHeight = Js_option.getWithDefault(0, Belt_HashMapInt.get(rankMap, r)) * 100.0 / modeRank;
                               return React.createElement("div", {
-                                          key: String(r),
-                                          className: "hist-bar",
-                                          style: {
-                                            height: Pervasives.string_of_float(pcHeight) + "0%"
-                                          },
-                                          title: String(r)
-                                        });
+                                          className: "hist-bar-with-label"
+                                        }, React.createElement("div", {
+                                              key: String(r),
+                                              className: "hist-bar",
+                                              style: {
+                                                height: Pervasives.string_of_float(pcHeight) + "0%"
+                                              },
+                                              title: String(r)
+                                            }), React.createElement("div", {
+                                              className: "hist-label"
+                                            }, String(r)));
                             }));
               };
+              var match$1 = currentState[/* mutualMatch */3];
               return React.createElement("div", {
                           className: "result"
                         }, React.createElement("div", {
@@ -189,7 +138,7 @@ function make(currentState, resultData, _) {
                                       rowHeaders: true,
                                       copyPaste: true,
                                       width: "50%",
-                                      maxCols: 2,
+                                      maxCols: match$1 ? 4 : 3,
                                       stretchH: "all",
                                       data: resultData
                                     }, /* array */[]))), React.createElement("div", {
@@ -200,7 +149,7 @@ function make(currentState, resultData, _) {
                                       className: "pairings"
                                     }, React.createElement("div", {
                                           className: "top-label"
-                                        }, "Pairings"), String(resultData.length)), React.createElement("div", {
+                                        }, "Matches"), String(resultData.length)), React.createElement("div", {
                                       className: "matched-counts"
                                     }, React.createElement("div", {
                                           className: "selectors-matched"
