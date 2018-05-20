@@ -1368,6 +1368,5181 @@ var marriageWomen = /* :: */[
   ]
 ];
 
+var residents = /* :: */[
+  /* record */[
+    /* name */"F. Morris",
+    /* canMatchWith */1,
+    /* selectedNames : :: */[
+      /* tuple */[
+        "Eastman Medical",
+        1
+      ],
+      /* :: */[
+        /* tuple */[
+          "Princeton-Plainsboro",
+          2
+        ],
+        /* :: */[
+          /* tuple */[
+            "Seattle Grace",
+            3
+          ],
+          /* :: */[
+            /* tuple */[
+              "Sacred Heart Hospital",
+              4
+            ],
+            /* :: */[
+              /* tuple */[
+                "Springfield General",
+                5
+              ],
+              /* :: */[
+                /* tuple */[
+                  "St. Sebastian's Hospital",
+                  6
+                ],
+                /* :: */[
+                  /* tuple */[
+                    "Gotham General",
+                    7
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      "Frankenstein & Associates",
+                      8
+                    ],
+                    /* [] */0
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ],
+  /* :: */[
+    /* record */[
+      /* name */"X. Ward",
+      /* canMatchWith */1,
+      /* selectedNames : :: */[
+        /* tuple */[
+          "Springfield General",
+          1
+        ],
+        /* :: */[
+          /* tuple */[
+            "Gotham General",
+            2
+          ],
+          /* :: */[
+            /* tuple */[
+              "St. Sebastian's Hospital",
+              3
+            ],
+            /* :: */[
+              /* tuple */[
+                "Sacred Heart Hospital",
+                4
+              ],
+              /* :: */[
+                /* tuple */[
+                  "Frankenstein & Associates",
+                  5
+                ],
+                /* :: */[
+                  /* tuple */[
+                    "Eastman Medical",
+                    6
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      "Princeton-Plainsboro",
+                      7
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        "Seattle Grace",
+                        8
+                      ],
+                      /* [] */0
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ],
+    /* :: */[
+      /* record */[
+        /* name */"Q. Harris",
+        /* canMatchWith */1,
+        /* selectedNames : :: */[
+          /* tuple */[
+            "Seattle Grace",
+            1
+          ],
+          /* :: */[
+            /* tuple */[
+              "Springfield General",
+              2
+            ],
+            /* :: */[
+              /* tuple */[
+                "Eastman Medical",
+                3
+              ],
+              /* :: */[
+                /* tuple */[
+                  "Gotham General",
+                  4
+                ],
+                /* :: */[
+                  /* tuple */[
+                    "St. Sebastian's Hospital",
+                    5
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      "Frankenstein & Associates",
+                      6
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        "Sacred Heart Hospital",
+                        7
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          "Princeton-Plainsboro",
+                          8
+                        ],
+                        /* [] */0
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      /* :: */[
+        /* record */[
+          /* name */"C. Anderson",
+          /* canMatchWith */1,
+          /* selectedNames : :: */[
+            /* tuple */[
+              "Princeton-Plainsboro",
+              1
+            ],
+            /* :: */[
+              /* tuple */[
+                "Springfield General",
+                2
+              ],
+              /* :: */[
+                /* tuple */[
+                  "Gotham General",
+                  3
+                ],
+                /* :: */[
+                  /* tuple */[
+                    "St. Sebastian's Hospital",
+                    4
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      "Frankenstein & Associates",
+                      5
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        "Sacred Heart Hospital",
+                        6
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          "Seattle Grace",
+                          7
+                        ],
+                        /* :: */[
+                          /* tuple */[
+                            "Eastman Medical",
+                            8
+                          ],
+                          /* [] */0
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        /* :: */[
+          /* record */[
+            /* name */"W. Bennett",
+            /* canMatchWith */1,
+            /* selectedNames : :: */[
+              /* tuple */[
+                "Sacred Heart Hospital",
+                1
+              ],
+              /* :: */[
+                /* tuple */[
+                  "Seattle Grace",
+                  2
+                ],
+                /* :: */[
+                  /* tuple */[
+                    "St. Sebastian's Hospital",
+                    3
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      "Eastman Medical",
+                      4
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        "Springfield General",
+                        5
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          "Gotham General",
+                          6
+                        ],
+                        /* :: */[
+                          /* tuple */[
+                            "Princeton-Plainsboro",
+                            7
+                          ],
+                          /* :: */[
+                            /* tuple */[
+                              "Frankenstein & Associates",
+                              8
+                            ],
+                            /* [] */0
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          /* :: */[
+            /* record */[
+              /* name */"Q. Cox",
+              /* canMatchWith */1,
+              /* selectedNames : :: */[
+                /* tuple */[
+                  "Princeton-Plainsboro",
+                  1
+                ],
+                /* :: */[
+                  /* tuple */[
+                    "St. Sebastian's Hospital",
+                    2
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      "Sacred Heart Hospital",
+                      3
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        "Frankenstein & Associates",
+                        4
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          "Seattle Grace",
+                          5
+                        ],
+                        /* :: */[
+                          /* tuple */[
+                            "Eastman Medical",
+                            6
+                          ],
+                          /* :: */[
+                            /* tuple */[
+                              "Gotham General",
+                              7
+                            ],
+                            /* :: */[
+                              /* tuple */[
+                                "Springfield General",
+                                8
+                              ],
+                              /* [] */0
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            /* :: */[
+              /* record */[
+                /* name */"S. Cooper",
+                /* canMatchWith */1,
+                /* selectedNames : :: */[
+                  /* tuple */[
+                    "Frankenstein & Associates",
+                    1
+                  ],
+                  /* :: */[
+                    /* tuple */[
+                      "Gotham General",
+                      2
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        "Seattle Grace",
+                        3
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          "St. Sebastian's Hospital",
+                          4
+                        ],
+                        /* :: */[
+                          /* tuple */[
+                            "Springfield General",
+                            5
+                          ],
+                          /* :: */[
+                            /* tuple */[
+                              "Sacred Heart Hospital",
+                              6
+                            ],
+                            /* :: */[
+                              /* tuple */[
+                                "Princeton-Plainsboro",
+                                7
+                              ],
+                              /* :: */[
+                                /* tuple */[
+                                  "Eastman Medical",
+                                  8
+                                ],
+                                /* [] */0
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              /* :: */[
+                /* record */[
+                  /* name */"G. Wilson",
+                  /* canMatchWith */1,
+                  /* selectedNames : :: */[
+                    /* tuple */[
+                      "St. Sebastian's Hospital",
+                      1
+                    ],
+                    /* :: */[
+                      /* tuple */[
+                        "Frankenstein & Associates",
+                        2
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          "Eastman Medical",
+                          3
+                        ],
+                        /* :: */[
+                          /* tuple */[
+                            "Princeton-Plainsboro",
+                            4
+                          ],
+                          /* :: */[
+                            /* tuple */[
+                              "Gotham General",
+                              5
+                            ],
+                            /* :: */[
+                              /* tuple */[
+                                "Seattle Grace",
+                                6
+                              ],
+                              /* :: */[
+                                /* tuple */[
+                                  "Springfield General",
+                                  7
+                                ],
+                                /* :: */[
+                                  /* tuple */[
+                                    "Sacred Heart Hospital",
+                                    8
+                                  ],
+                                  /* [] */0
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                /* :: */[
+                  /* record */[
+                    /* name */"X. Miller",
+                    /* canMatchWith */1,
+                    /* selectedNames : :: */[
+                      /* tuple */[
+                        "Seattle Grace",
+                        1
+                      ],
+                      /* :: */[
+                        /* tuple */[
+                          "St. Sebastian's Hospital",
+                          2
+                        ],
+                        /* :: */[
+                          /* tuple */[
+                            "Sacred Heart Hospital",
+                            3
+                          ],
+                          /* :: */[
+                            /* tuple */[
+                              "Princeton-Plainsboro",
+                              4
+                            ],
+                            /* :: */[
+                              /* tuple */[
+                                "Springfield General",
+                                5
+                              ],
+                              /* :: */[
+                                /* tuple */[
+                                  "Frankenstein & Associates",
+                                  6
+                                ],
+                                /* :: */[
+                                  /* tuple */[
+                                    "Gotham General",
+                                    7
+                                  ],
+                                  /* :: */[
+                                    /* tuple */[
+                                      "Eastman Medical",
+                                      8
+                                    ],
+                                    /* [] */0
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  /* :: */[
+                    /* record */[
+                      /* name */"J. Wright",
+                      /* canMatchWith */1,
+                      /* selectedNames : :: */[
+                        /* tuple */[
+                          "Springfield General",
+                          1
+                        ],
+                        /* :: */[
+                          /* tuple */[
+                            "Sacred Heart Hospital",
+                            2
+                          ],
+                          /* :: */[
+                            /* tuple */[
+                              "Eastman Medical",
+                              3
+                            ],
+                            /* :: */[
+                              /* tuple */[
+                                "Gotham General",
+                                4
+                              ],
+                              /* :: */[
+                                /* tuple */[
+                                  "Frankenstein & Associates",
+                                  5
+                                ],
+                                /* :: */[
+                                  /* tuple */[
+                                    "Seattle Grace",
+                                    6
+                                  ],
+                                  /* :: */[
+                                    /* tuple */[
+                                      "St. Sebastian's Hospital",
+                                      7
+                                    ],
+                                    /* :: */[
+                                      /* tuple */[
+                                        "Princeton-Plainsboro",
+                                        8
+                                      ],
+                                      /* [] */0
+                                    ]
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    /* :: */[
+                      /* record */[
+                        /* name */"A. Phillips",
+                        /* canMatchWith */1,
+                        /* selectedNames : :: */[
+                          /* tuple */[
+                            "Princeton-Plainsboro",
+                            1
+                          ],
+                          /* :: */[
+                            /* tuple */[
+                              "St. Sebastian's Hospital",
+                              2
+                            ],
+                            /* :: */[
+                              /* tuple */[
+                                "Springfield General",
+                                3
+                              ],
+                              /* :: */[
+                                /* tuple */[
+                                  "Frankenstein & Associates",
+                                  4
+                                ],
+                                /* :: */[
+                                  /* tuple */[
+                                    "Seattle Grace",
+                                    5
+                                  ],
+                                  /* :: */[
+                                    /* tuple */[
+                                      "Gotham General",
+                                      6
+                                    ],
+                                    /* :: */[
+                                      /* tuple */[
+                                        "Sacred Heart Hospital",
+                                        7
+                                      ],
+                                      /* :: */[
+                                        /* tuple */[
+                                          "Eastman Medical",
+                                          8
+                                        ],
+                                        /* [] */0
+                                      ]
+                                    ]
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ],
+                      /* :: */[
+                        /* record */[
+                          /* name */"L. Turner",
+                          /* canMatchWith */1,
+                          /* selectedNames : :: */[
+                            /* tuple */[
+                              "St. Sebastian's Hospital",
+                              1
+                            ],
+                            /* :: */[
+                              /* tuple */[
+                                "Springfield General",
+                                2
+                              ],
+                              /* :: */[
+                                /* tuple */[
+                                  "Frankenstein & Associates",
+                                  3
+                                ],
+                                /* :: */[
+                                  /* tuple */[
+                                    "Gotham General",
+                                    4
+                                  ],
+                                  /* :: */[
+                                    /* tuple */[
+                                      "Eastman Medical",
+                                      5
+                                    ],
+                                    /* :: */[
+                                      /* tuple */[
+                                        "Princeton-Plainsboro",
+                                        6
+                                      ],
+                                      /* :: */[
+                                        /* tuple */[
+                                          "Sacred Heart Hospital",
+                                          7
+                                        ],
+                                        /* :: */[
+                                          /* tuple */[
+                                            "Seattle Grace",
+                                            8
+                                          ],
+                                          /* [] */0
+                                        ]
+                                      ]
+                                    ]
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ]
+                        ],
+                        /* :: */[
+                          /* record */[
+                            /* name */"X. James",
+                            /* canMatchWith */1,
+                            /* selectedNames : :: */[
+                              /* tuple */[
+                                "Princeton-Plainsboro",
+                                1
+                              ],
+                              /* :: */[
+                                /* tuple */[
+                                  "Sacred Heart Hospital",
+                                  2
+                                ],
+                                /* :: */[
+                                  /* tuple */[
+                                    "Eastman Medical",
+                                    3
+                                  ],
+                                  /* :: */[
+                                    /* tuple */[
+                                      "Seattle Grace",
+                                      4
+                                    ],
+                                    /* :: */[
+                                      /* tuple */[
+                                        "Frankenstein & Associates",
+                                        5
+                                      ],
+                                      /* :: */[
+                                        /* tuple */[
+                                          "Springfield General",
+                                          6
+                                        ],
+                                        /* :: */[
+                                          /* tuple */[
+                                            "St. Sebastian's Hospital",
+                                            7
+                                          ],
+                                          /* :: */[
+                                            /* tuple */[
+                                              "Gotham General",
+                                              8
+                                            ],
+                                            /* [] */0
+                                          ]
+                                        ]
+                                      ]
+                                    ]
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ],
+                          /* :: */[
+                            /* record */[
+                              /* name */"O. Martinez",
+                              /* canMatchWith */1,
+                              /* selectedNames : :: */[
+                                /* tuple */[
+                                  "Frankenstein & Associates",
+                                  1
+                                ],
+                                /* :: */[
+                                  /* tuple */[
+                                    "Gotham General",
+                                    2
+                                  ],
+                                  /* :: */[
+                                    /* tuple */[
+                                      "Seattle Grace",
+                                      3
+                                    ],
+                                    /* :: */[
+                                      /* tuple */[
+                                        "Princeton-Plainsboro",
+                                        4
+                                      ],
+                                      /* :: */[
+                                        /* tuple */[
+                                          "St. Sebastian's Hospital",
+                                          5
+                                        ],
+                                        /* :: */[
+                                          /* tuple */[
+                                            "Sacred Heart Hospital",
+                                            6
+                                          ],
+                                          /* :: */[
+                                            /* tuple */[
+                                              "Springfield General",
+                                              7
+                                            ],
+                                            /* :: */[
+                                              /* tuple */[
+                                                "Eastman Medical",
+                                                8
+                                              ],
+                                              /* [] */0
+                                            ]
+                                          ]
+                                        ]
+                                      ]
+                                    ]
+                                  ]
+                                ]
+                              ]
+                            ],
+                            /* :: */[
+                              /* record */[
+                                /* name */"U. Hall",
+                                /* canMatchWith */1,
+                                /* selectedNames : :: */[
+                                  /* tuple */[
+                                    "Frankenstein & Associates",
+                                    1
+                                  ],
+                                  /* :: */[
+                                    /* tuple */[
+                                      "Sacred Heart Hospital",
+                                      2
+                                    ],
+                                    /* :: */[
+                                      /* tuple */[
+                                        "Gotham General",
+                                        3
+                                      ],
+                                      /* :: */[
+                                        /* tuple */[
+                                          "Springfield General",
+                                          4
+                                        ],
+                                        /* :: */[
+                                          /* tuple */[
+                                            "St. Sebastian's Hospital",
+                                            5
+                                          ],
+                                          /* :: */[
+                                            /* tuple */[
+                                              "Seattle Grace",
+                                              6
+                                            ],
+                                            /* :: */[
+                                              /* tuple */[
+                                                "Eastman Medical",
+                                                7
+                                              ],
+                                              /* :: */[
+                                                /* tuple */[
+                                                  "Princeton-Plainsboro",
+                                                  8
+                                                ],
+                                                /* [] */0
+                                              ]
+                                            ]
+                                          ]
+                                        ]
+                                      ]
+                                    ]
+                                  ]
+                                ]
+                              ],
+                              /* :: */[
+                                /* record */[
+                                  /* name */"H. Butler",
+                                  /* canMatchWith */1,
+                                  /* selectedNames : :: */[
+                                    /* tuple */[
+                                      "Seattle Grace",
+                                      1
+                                    ],
+                                    /* :: */[
+                                      /* tuple */[
+                                        "Princeton-Plainsboro",
+                                        2
+                                      ],
+                                      /* :: */[
+                                        /* tuple */[
+                                          "Sacred Heart Hospital",
+                                          3
+                                        ],
+                                        /* :: */[
+                                          /* tuple */[
+                                            "Gotham General",
+                                            4
+                                          ],
+                                          /* :: */[
+                                            /* tuple */[
+                                              "Springfield General",
+                                              5
+                                            ],
+                                            /* :: */[
+                                              /* tuple */[
+                                                "Frankenstein & Associates",
+                                                6
+                                              ],
+                                              /* :: */[
+                                                /* tuple */[
+                                                  "Eastman Medical",
+                                                  7
+                                                ],
+                                                /* :: */[
+                                                  /* tuple */[
+                                                    "St. Sebastian's Hospital",
+                                                    8
+                                                  ],
+                                                  /* [] */0
+                                                ]
+                                              ]
+                                            ]
+                                          ]
+                                        ]
+                                      ]
+                                    ]
+                                  ]
+                                ],
+                                /* :: */[
+                                  /* record */[
+                                    /* name */"I. Sullivan",
+                                    /* canMatchWith */1,
+                                    /* selectedNames : :: */[
+                                      /* tuple */[
+                                        "Eastman Medical",
+                                        1
+                                      ],
+                                      /* :: */[
+                                        /* tuple */[
+                                          "Frankenstein & Associates",
+                                          2
+                                        ],
+                                        /* :: */[
+                                          /* tuple */[
+                                            "Seattle Grace",
+                                            3
+                                          ],
+                                          /* :: */[
+                                            /* tuple */[
+                                              "Princeton-Plainsboro",
+                                              4
+                                            ],
+                                            /* :: */[
+                                              /* tuple */[
+                                                "Sacred Heart Hospital",
+                                                5
+                                              ],
+                                              /* :: */[
+                                                /* tuple */[
+                                                  "Springfield General",
+                                                  6
+                                                ],
+                                                /* :: */[
+                                                  /* tuple */[
+                                                    "Gotham General",
+                                                    7
+                                                  ],
+                                                  /* :: */[
+                                                    /* tuple */[
+                                                      "St. Sebastian's Hospital",
+                                                      8
+                                                    ],
+                                                    /* [] */0
+                                                  ]
+                                                ]
+                                              ]
+                                            ]
+                                          ]
+                                        ]
+                                      ]
+                                    ]
+                                  ],
+                                  /* :: */[
+                                    /* record */[
+                                      /* name */"W. Perry",
+                                      /* canMatchWith */1,
+                                      /* selectedNames : :: */[
+                                        /* tuple */[
+                                          "St. Sebastian's Hospital",
+                                          1
+                                        ],
+                                        /* :: */[
+                                          /* tuple */[
+                                            "Gotham General",
+                                            2
+                                          ],
+                                          /* :: */[
+                                            /* tuple */[
+                                              "Sacred Heart Hospital",
+                                              3
+                                            ],
+                                            /* :: */[
+                                              /* tuple */[
+                                                "Eastman Medical",
+                                                4
+                                              ],
+                                              /* :: */[
+                                                /* tuple */[
+                                                  "Princeton-Plainsboro",
+                                                  5
+                                                ],
+                                                /* :: */[
+                                                  /* tuple */[
+                                                    "Frankenstein & Associates",
+                                                    6
+                                                  ],
+                                                  /* :: */[
+                                                    /* tuple */[
+                                                      "Springfield General",
+                                                      7
+                                                    ],
+                                                    /* :: */[
+                                                      /* tuple */[
+                                                        "Seattle Grace",
+                                                        8
+                                                      ],
+                                                      /* [] */0
+                                                    ]
+                                                  ]
+                                                ]
+                                              ]
+                                            ]
+                                          ]
+                                        ]
+                                      ]
+                                    ],
+                                    /* :: */[
+                                      /* record */[
+                                        /* name */"G. Stewart",
+                                        /* canMatchWith */1,
+                                        /* selectedNames : :: */[
+                                          /* tuple */[
+                                            "Frankenstein & Associates",
+                                            1
+                                          ],
+                                          /* :: */[
+                                            /* tuple */[
+                                              "Sacred Heart Hospital",
+                                              2
+                                            ],
+                                            /* :: */[
+                                              /* tuple */[
+                                                "Springfield General",
+                                                3
+                                              ],
+                                              /* :: */[
+                                                /* tuple */[
+                                                  "Seattle Grace",
+                                                  4
+                                                ],
+                                                /* :: */[
+                                                  /* tuple */[
+                                                    "Gotham General",
+                                                    5
+                                                  ],
+                                                  /* :: */[
+                                                    /* tuple */[
+                                                      "Princeton-Plainsboro",
+                                                      6
+                                                    ],
+                                                    /* :: */[
+                                                      /* tuple */[
+                                                        "Eastman Medical",
+                                                        7
+                                                      ],
+                                                      /* :: */[
+                                                        /* tuple */[
+                                                          "St. Sebastian's Hospital",
+                                                          8
+                                                        ],
+                                                        /* [] */0
+                                                      ]
+                                                    ]
+                                                  ]
+                                                ]
+                                              ]
+                                            ]
+                                          ]
+                                        ]
+                                      ],
+                                      /* :: */[
+                                        /* record */[
+                                          /* name */"V. Richardson",
+                                          /* canMatchWith */1,
+                                          /* selectedNames : :: */[
+                                            /* tuple */[
+                                              "Seattle Grace",
+                                              1
+                                            ],
+                                            /* :: */[
+                                              /* tuple */[
+                                                "Eastman Medical",
+                                                2
+                                              ],
+                                              /* :: */[
+                                                /* tuple */[
+                                                  "Springfield General",
+                                                  3
+                                                ],
+                                                /* :: */[
+                                                  /* tuple */[
+                                                    "Princeton-Plainsboro",
+                                                    4
+                                                  ],
+                                                  /* :: */[
+                                                    /* tuple */[
+                                                      "Sacred Heart Hospital",
+                                                      5
+                                                    ],
+                                                    /* :: */[
+                                                      /* tuple */[
+                                                        "Gotham General",
+                                                        6
+                                                      ],
+                                                      /* :: */[
+                                                        /* tuple */[
+                                                          "Frankenstein & Associates",
+                                                          7
+                                                        ],
+                                                        /* :: */[
+                                                          /* tuple */[
+                                                            "St. Sebastian's Hospital",
+                                                            8
+                                                          ],
+                                                          /* [] */0
+                                                        ]
+                                                      ]
+                                                    ]
+                                                  ]
+                                                ]
+                                              ]
+                                            ]
+                                          ]
+                                        ],
+                                        /* :: */[
+                                          /* record */[
+                                            /* name */"H. Green",
+                                            /* canMatchWith */1,
+                                            /* selectedNames : :: */[
+                                              /* tuple */[
+                                                "Sacred Heart Hospital",
+                                                1
+                                              ],
+                                              /* :: */[
+                                                /* tuple */[
+                                                  "Princeton-Plainsboro",
+                                                  2
+                                                ],
+                                                /* :: */[
+                                                  /* tuple */[
+                                                    "Eastman Medical",
+                                                    3
+                                                  ],
+                                                  /* :: */[
+                                                    /* tuple */[
+                                                      "Springfield General",
+                                                      4
+                                                    ],
+                                                    /* :: */[
+                                                      /* tuple */[
+                                                        "Frankenstein & Associates",
+                                                        5
+                                                      ],
+                                                      /* :: */[
+                                                        /* tuple */[
+                                                          "Gotham General",
+                                                          6
+                                                        ],
+                                                        /* :: */[
+                                                          /* tuple */[
+                                                            "Seattle Grace",
+                                                            7
+                                                          ],
+                                                          /* :: */[
+                                                            /* tuple */[
+                                                              "St. Sebastian's Hospital",
+                                                              8
+                                                            ],
+                                                            /* [] */0
+                                                          ]
+                                                        ]
+                                                      ]
+                                                    ]
+                                                  ]
+                                                ]
+                                              ]
+                                            ]
+                                          ],
+                                          /* :: */[
+                                            /* record */[
+                                              /* name */"Z. Ross",
+                                              /* canMatchWith */1,
+                                              /* selectedNames : :: */[
+                                                /* tuple */[
+                                                  "Frankenstein & Associates",
+                                                  1
+                                                ],
+                                                /* :: */[
+                                                  /* tuple */[
+                                                    "Seattle Grace",
+                                                    2
+                                                  ],
+                                                  /* :: */[
+                                                    /* tuple */[
+                                                      "Gotham General",
+                                                      3
+                                                    ],
+                                                    /* :: */[
+                                                      /* tuple */[
+                                                        "Eastman Medical",
+                                                        4
+                                                      ],
+                                                      /* :: */[
+                                                        /* tuple */[
+                                                          "Princeton-Plainsboro",
+                                                          5
+                                                        ],
+                                                        /* :: */[
+                                                          /* tuple */[
+                                                            "Springfield General",
+                                                            6
+                                                          ],
+                                                          /* :: */[
+                                                            /* tuple */[
+                                                              "St. Sebastian's Hospital",
+                                                              7
+                                                            ],
+                                                            /* :: */[
+                                                              /* tuple */[
+                                                                "Sacred Heart Hospital",
+                                                                8
+                                                              ],
+                                                              /* [] */0
+                                                            ]
+                                                          ]
+                                                        ]
+                                                      ]
+                                                    ]
+                                                  ]
+                                                ]
+                                              ]
+                                            ],
+                                            /* :: */[
+                                              /* record */[
+                                                /* name */"S. Cook",
+                                                /* canMatchWith */1,
+                                                /* selectedNames : :: */[
+                                                  /* tuple */[
+                                                    "Springfield General",
+                                                    1
+                                                  ],
+                                                  /* :: */[
+                                                    /* tuple */[
+                                                      "St. Sebastian's Hospital",
+                                                      2
+                                                    ],
+                                                    /* :: */[
+                                                      /* tuple */[
+                                                        "Gotham General",
+                                                        3
+                                                      ],
+                                                      /* :: */[
+                                                        /* tuple */[
+                                                          "Seattle Grace",
+                                                          4
+                                                        ],
+                                                        /* :: */[
+                                                          /* tuple */[
+                                                            "Sacred Heart Hospital",
+                                                            5
+                                                          ],
+                                                          /* :: */[
+                                                            /* tuple */[
+                                                              "Princeton-Plainsboro",
+                                                              6
+                                                            ],
+                                                            /* :: */[
+                                                              /* tuple */[
+                                                                "Frankenstein & Associates",
+                                                                7
+                                                              ],
+                                                              /* :: */[
+                                                                /* tuple */[
+                                                                  "Eastman Medical",
+                                                                  8
+                                                                ],
+                                                                /* [] */0
+                                                              ]
+                                                            ]
+                                                          ]
+                                                        ]
+                                                      ]
+                                                    ]
+                                                  ]
+                                                ]
+                                              ],
+                                              /* :: */[
+                                                /* record */[
+                                                  /* name */"H. Bailey",
+                                                  /* canMatchWith */1,
+                                                  /* selectedNames : :: */[
+                                                    /* tuple */[
+                                                      "Seattle Grace",
+                                                      1
+                                                    ],
+                                                    /* :: */[
+                                                      /* tuple */[
+                                                        "Gotham General",
+                                                        2
+                                                      ],
+                                                      /* :: */[
+                                                        /* tuple */[
+                                                          "Frankenstein & Associates",
+                                                          3
+                                                        ],
+                                                        /* :: */[
+                                                          /* tuple */[
+                                                            "Springfield General",
+                                                            4
+                                                          ],
+                                                          /* :: */[
+                                                            /* tuple */[
+                                                              "Eastman Medical",
+                                                              5
+                                                            ],
+                                                            /* :: */[
+                                                              /* tuple */[
+                                                                "Sacred Heart Hospital",
+                                                                6
+                                                              ],
+                                                              /* :: */[
+                                                                /* tuple */[
+                                                                  "St. Sebastian's Hospital",
+                                                                  7
+                                                                ],
+                                                                /* :: */[
+                                                                  /* tuple */[
+                                                                    "Princeton-Plainsboro",
+                                                                    8
+                                                                  ],
+                                                                  /* [] */0
+                                                                ]
+                                                              ]
+                                                            ]
+                                                          ]
+                                                        ]
+                                                      ]
+                                                    ]
+                                                  ]
+                                                ],
+                                                /* :: */[
+                                                  /* record */[
+                                                    /* name */"A. Wood",
+                                                    /* canMatchWith */1,
+                                                    /* selectedNames : :: */[
+                                                      /* tuple */[
+                                                        "Gotham General",
+                                                        1
+                                                      ],
+                                                      /* :: */[
+                                                        /* tuple */[
+                                                          "St. Sebastian's Hospital",
+                                                          2
+                                                        ],
+                                                        /* :: */[
+                                                          /* tuple */[
+                                                            "Princeton-Plainsboro",
+                                                            3
+                                                          ],
+                                                          /* :: */[
+                                                            /* tuple */[
+                                                              "Eastman Medical",
+                                                              4
+                                                            ],
+                                                            /* :: */[
+                                                              /* tuple */[
+                                                                "Sacred Heart Hospital",
+                                                                5
+                                                              ],
+                                                              /* :: */[
+                                                                /* tuple */[
+                                                                  "Frankenstein & Associates",
+                                                                  6
+                                                                ],
+                                                                /* :: */[
+                                                                  /* tuple */[
+                                                                    "Seattle Grace",
+                                                                    7
+                                                                  ],
+                                                                  /* :: */[
+                                                                    /* tuple */[
+                                                                      "Springfield General",
+                                                                      8
+                                                                    ],
+                                                                    /* [] */0
+                                                                  ]
+                                                                ]
+                                                              ]
+                                                            ]
+                                                          ]
+                                                        ]
+                                                      ]
+                                                    ]
+                                                  ],
+                                                  /* :: */[
+                                                    /* record */[
+                                                      /* name */"Z. Johnson",
+                                                      /* canMatchWith */1,
+                                                      /* selectedNames : :: */[
+                                                        /* tuple */[
+                                                          "Sacred Heart Hospital",
+                                                          1
+                                                        ],
+                                                        /* :: */[
+                                                          /* tuple */[
+                                                            "Gotham General",
+                                                            2
+                                                          ],
+                                                          /* :: */[
+                                                            /* tuple */[
+                                                              "Princeton-Plainsboro",
+                                                              3
+                                                            ],
+                                                            /* :: */[
+                                                              /* tuple */[
+                                                                "Frankenstein & Associates",
+                                                                4
+                                                              ],
+                                                              /* :: */[
+                                                                /* tuple */[
+                                                                  "Springfield General",
+                                                                  5
+                                                                ],
+                                                                /* :: */[
+                                                                  /* tuple */[
+                                                                    "St. Sebastian's Hospital",
+                                                                    6
+                                                                  ],
+                                                                  /* :: */[
+                                                                    /* tuple */[
+                                                                      "Eastman Medical",
+                                                                      7
+                                                                    ],
+                                                                    /* :: */[
+                                                                      /* tuple */[
+                                                                        "Seattle Grace",
+                                                                        8
+                                                                      ],
+                                                                      /* [] */0
+                                                                    ]
+                                                                  ]
+                                                                ]
+                                                              ]
+                                                            ]
+                                                          ]
+                                                        ]
+                                                      ]
+                                                    ],
+                                                    /* :: */[
+                                                      /* record */[
+                                                        /* name */"T. Campbell",
+                                                        /* canMatchWith */1,
+                                                        /* selectedNames : :: */[
+                                                          /* tuple */[
+                                                            "St. Sebastian's Hospital",
+                                                            1
+                                                          ],
+                                                          /* :: */[
+                                                            /* tuple */[
+                                                              "Princeton-Plainsboro",
+                                                              2
+                                                            ],
+                                                            /* :: */[
+                                                              /* tuple */[
+                                                                "Sacred Heart Hospital",
+                                                                3
+                                                              ],
+                                                              /* :: */[
+                                                                /* tuple */[
+                                                                  "Seattle Grace",
+                                                                  4
+                                                                ],
+                                                                /* :: */[
+                                                                  /* tuple */[
+                                                                    "Frankenstein & Associates",
+                                                                    5
+                                                                  ],
+                                                                  /* :: */[
+                                                                    /* tuple */[
+                                                                      "Gotham General",
+                                                                      6
+                                                                    ],
+                                                                    /* :: */[
+                                                                      /* tuple */[
+                                                                        "Springfield General",
+                                                                        7
+                                                                      ],
+                                                                      /* :: */[
+                                                                        /* tuple */[
+                                                                          "Eastman Medical",
+                                                                          8
+                                                                        ],
+                                                                        /* [] */0
+                                                                      ]
+                                                                    ]
+                                                                  ]
+                                                                ]
+                                                              ]
+                                                            ]
+                                                          ]
+                                                        ]
+                                                      ],
+                                                      /* :: */[
+                                                        /* record */[
+                                                          /* name */"J. Roberts",
+                                                          /* canMatchWith */1,
+                                                          /* selectedNames : :: */[
+                                                            /* tuple */[
+                                                              "St. Sebastian's Hospital",
+                                                              1
+                                                            ],
+                                                            /* :: */[
+                                                              /* tuple */[
+                                                                "Frankenstein & Associates",
+                                                                2
+                                                              ],
+                                                              /* :: */[
+                                                                /* tuple */[
+                                                                  "Springfield General",
+                                                                  3
+                                                                ],
+                                                                /* :: */[
+                                                                  /* tuple */[
+                                                                    "Princeton-Plainsboro",
+                                                                    4
+                                                                  ],
+                                                                  /* :: */[
+                                                                    /* tuple */[
+                                                                      "Seattle Grace",
+                                                                      5
+                                                                    ],
+                                                                    /* :: */[
+                                                                      /* tuple */[
+                                                                        "Gotham General",
+                                                                        6
+                                                                      ],
+                                                                      /* :: */[
+                                                                        /* tuple */[
+                                                                          "Eastman Medical",
+                                                                          7
+                                                                        ],
+                                                                        /* :: */[
+                                                                          /* tuple */[
+                                                                            "Sacred Heart Hospital",
+                                                                            8
+                                                                          ],
+                                                                          /* [] */0
+                                                                        ]
+                                                                      ]
+                                                                    ]
+                                                                  ]
+                                                                ]
+                                                              ]
+                                                            ]
+                                                          ]
+                                                        ],
+                                                        /* :: */[
+                                                          /* record */[
+                                                            /* name */"I. Gomez",
+                                                            /* canMatchWith */1,
+                                                            /* selectedNames : :: */[
+                                                              /* tuple */[
+                                                                "St. Sebastian's Hospital",
+                                                                1
+                                                              ],
+                                                              /* :: */[
+                                                                /* tuple */[
+                                                                  "Princeton-Plainsboro",
+                                                                  2
+                                                                ],
+                                                                /* :: */[
+                                                                  /* tuple */[
+                                                                    "Springfield General",
+                                                                    3
+                                                                  ],
+                                                                  /* :: */[
+                                                                    /* tuple */[
+                                                                      "Sacred Heart Hospital",
+                                                                      4
+                                                                    ],
+                                                                    /* :: */[
+                                                                      /* tuple */[
+                                                                        "Gotham General",
+                                                                        5
+                                                                      ],
+                                                                      /* :: */[
+                                                                        /* tuple */[
+                                                                          "Eastman Medical",
+                                                                          6
+                                                                        ],
+                                                                        /* :: */[
+                                                                          /* tuple */[
+                                                                            "Seattle Grace",
+                                                                            7
+                                                                          ],
+                                                                          /* :: */[
+                                                                            /* tuple */[
+                                                                              "Frankenstein & Associates",
+                                                                              8
+                                                                            ],
+                                                                            /* [] */0
+                                                                          ]
+                                                                        ]
+                                                                      ]
+                                                                    ]
+                                                                  ]
+                                                                ]
+                                                              ]
+                                                            ]
+                                                          ],
+                                                          /* :: */[
+                                                            /* record */[
+                                                              /* name */"V. Howard",
+                                                              /* canMatchWith */1,
+                                                              /* selectedNames : :: */[
+                                                                /* tuple */[
+                                                                  "Springfield General",
+                                                                  1
+                                                                ],
+                                                                /* :: */[
+                                                                  /* tuple */[
+                                                                    "Frankenstein & Associates",
+                                                                    2
+                                                                  ],
+                                                                  /* :: */[
+                                                                    /* tuple */[
+                                                                      "Eastman Medical",
+                                                                      3
+                                                                    ],
+                                                                    /* :: */[
+                                                                      /* tuple */[
+                                                                        "Princeton-Plainsboro",
+                                                                        4
+                                                                      ],
+                                                                      /* :: */[
+                                                                        /* tuple */[
+                                                                          "Seattle Grace",
+                                                                          5
+                                                                        ],
+                                                                        /* :: */[
+                                                                          /* tuple */[
+                                                                            "St. Sebastian's Hospital",
+                                                                            6
+                                                                          ],
+                                                                          /* :: */[
+                                                                            /* tuple */[
+                                                                              "Gotham General",
+                                                                              7
+                                                                            ],
+                                                                            /* :: */[
+                                                                              /* tuple */[
+                                                                                "Sacred Heart Hospital",
+                                                                                8
+                                                                              ],
+                                                                              /* [] */0
+                                                                            ]
+                                                                          ]
+                                                                        ]
+                                                                      ]
+                                                                    ]
+                                                                  ]
+                                                                ]
+                                                              ]
+                                                            ],
+                                                            /* :: */[
+                                                              /* record */[
+                                                                /* name */"L. Kelly",
+                                                                /* canMatchWith */1,
+                                                                /* selectedNames : :: */[
+                                                                  /* tuple */[
+                                                                    "Sacred Heart Hospital",
+                                                                    1
+                                                                  ],
+                                                                  /* :: */[
+                                                                    /* tuple */[
+                                                                      "St. Sebastian's Hospital",
+                                                                      2
+                                                                    ],
+                                                                    /* :: */[
+                                                                      /* tuple */[
+                                                                        "Eastman Medical",
+                                                                        3
+                                                                      ],
+                                                                      /* :: */[
+                                                                        /* tuple */[
+                                                                          "Gotham General",
+                                                                          4
+                                                                        ],
+                                                                        /* :: */[
+                                                                          /* tuple */[
+                                                                            "Springfield General",
+                                                                            5
+                                                                          ],
+                                                                          /* :: */[
+                                                                            /* tuple */[
+                                                                              "Seattle Grace",
+                                                                              6
+                                                                            ],
+                                                                            /* :: */[
+                                                                              /* tuple */[
+                                                                                "Frankenstein & Associates",
+                                                                                7
+                                                                              ],
+                                                                              /* :: */[
+                                                                                /* tuple */[
+                                                                                  "Princeton-Plainsboro",
+                                                                                  8
+                                                                                ],
+                                                                                /* [] */0
+                                                                              ]
+                                                                            ]
+                                                                          ]
+                                                                        ]
+                                                                      ]
+                                                                    ]
+                                                                  ]
+                                                                ]
+                                                              ],
+                                                              /* :: */[
+                                                                /* record */[
+                                                                  /* name */"U. Lee",
+                                                                  /* canMatchWith */1,
+                                                                  /* selectedNames : :: */[
+                                                                    /* tuple */[
+                                                                      "Sacred Heart Hospital",
+                                                                      1
+                                                                    ],
+                                                                    /* :: */[
+                                                                      /* tuple */[
+                                                                        "Eastman Medical",
+                                                                        2
+                                                                      ],
+                                                                      /* :: */[
+                                                                        /* tuple */[
+                                                                          "Frankenstein & Associates",
+                                                                          3
+                                                                        ],
+                                                                        /* :: */[
+                                                                          /* tuple */[
+                                                                            "St. Sebastian's Hospital",
+                                                                            4
+                                                                          ],
+                                                                          /* :: */[
+                                                                            /* tuple */[
+                                                                              "Springfield General",
+                                                                              5
+                                                                            ],
+                                                                            /* :: */[
+                                                                              /* tuple */[
+                                                                                "Gotham General",
+                                                                                6
+                                                                              ],
+                                                                              /* :: */[
+                                                                                /* tuple */[
+                                                                                  "Princeton-Plainsboro",
+                                                                                  7
+                                                                                ],
+                                                                                /* :: */[
+                                                                                  /* tuple */[
+                                                                                    "Seattle Grace",
+                                                                                    8
+                                                                                  ],
+                                                                                  /* [] */0
+                                                                                ]
+                                                                              ]
+                                                                            ]
+                                                                          ]
+                                                                        ]
+                                                                      ]
+                                                                    ]
+                                                                  ]
+                                                                ],
+                                                                /* :: */[
+                                                                  /* record */[
+                                                                    /* name */"U. Sanders",
+                                                                    /* canMatchWith */1,
+                                                                    /* selectedNames : :: */[
+                                                                      /* tuple */[
+                                                                        "Gotham General",
+                                                                        1
+                                                                      ],
+                                                                      /* :: */[
+                                                                        /* tuple */[
+                                                                          "Seattle Grace",
+                                                                          2
+                                                                        ],
+                                                                        /* :: */[
+                                                                          /* tuple */[
+                                                                            "Princeton-Plainsboro",
+                                                                            3
+                                                                          ],
+                                                                          /* :: */[
+                                                                            /* tuple */[
+                                                                              "Sacred Heart Hospital",
+                                                                              4
+                                                                            ],
+                                                                            /* :: */[
+                                                                              /* tuple */[
+                                                                                "Eastman Medical",
+                                                                                5
+                                                                              ],
+                                                                              /* :: */[
+                                                                                /* tuple */[
+                                                                                  "Springfield General",
+                                                                                  6
+                                                                                ],
+                                                                                /* :: */[
+                                                                                  /* tuple */[
+                                                                                    "Frankenstein & Associates",
+                                                                                    7
+                                                                                  ],
+                                                                                  /* :: */[
+                                                                                    /* tuple */[
+                                                                                      "St. Sebastian's Hospital",
+                                                                                      8
+                                                                                    ],
+                                                                                    /* [] */0
+                                                                                  ]
+                                                                                ]
+                                                                              ]
+                                                                            ]
+                                                                          ]
+                                                                        ]
+                                                                      ]
+                                                                    ]
+                                                                  ],
+                                                                  /* :: */[
+                                                                    /* record */[
+                                                                      /* name */"R. Watson",
+                                                                      /* canMatchWith */1,
+                                                                      /* selectedNames : :: */[
+                                                                        /* tuple */[
+                                                                          "St. Sebastian's Hospital",
+                                                                          1
+                                                                        ],
+                                                                        /* :: */[
+                                                                          /* tuple */[
+                                                                            "Princeton-Plainsboro",
+                                                                            2
+                                                                          ],
+                                                                          /* :: */[
+                                                                            /* tuple */[
+                                                                              "Gotham General",
+                                                                              3
+                                                                            ],
+                                                                            /* :: */[
+                                                                              /* tuple */[
+                                                                                "Eastman Medical",
+                                                                                4
+                                                                              ],
+                                                                              /* :: */[
+                                                                                /* tuple */[
+                                                                                  "Sacred Heart Hospital",
+                                                                                  5
+                                                                                ],
+                                                                                /* :: */[
+                                                                                  /* tuple */[
+                                                                                    "Frankenstein & Associates",
+                                                                                    6
+                                                                                  ],
+                                                                                  /* :: */[
+                                                                                    /* tuple */[
+                                                                                      "Springfield General",
+                                                                                      7
+                                                                                    ],
+                                                                                    /* :: */[
+                                                                                      /* tuple */[
+                                                                                        "Seattle Grace",
+                                                                                        8
+                                                                                      ],
+                                                                                      /* [] */0
+                                                                                    ]
+                                                                                  ]
+                                                                                ]
+                                                                              ]
+                                                                            ]
+                                                                          ]
+                                                                        ]
+                                                                      ]
+                                                                    ],
+                                                                    /* :: */[
+                                                                      /* record */[
+                                                                        /* name */"N. Murphy",
+                                                                        /* canMatchWith */1,
+                                                                        /* selectedNames : :: */[
+                                                                          /* tuple */[
+                                                                            "Seattle Grace",
+                                                                            1
+                                                                          ],
+                                                                          /* :: */[
+                                                                            /* tuple */[
+                                                                              "Springfield General",
+                                                                              2
+                                                                            ],
+                                                                            /* :: */[
+                                                                              /* tuple */[
+                                                                                "Gotham General",
+                                                                                3
+                                                                              ],
+                                                                              /* :: */[
+                                                                                /* tuple */[
+                                                                                  "Sacred Heart Hospital",
+                                                                                  4
+                                                                                ],
+                                                                                /* :: */[
+                                                                                  /* tuple */[
+                                                                                    "Frankenstein & Associates",
+                                                                                    5
+                                                                                  ],
+                                                                                  /* :: */[
+                                                                                    /* tuple */[
+                                                                                      "Princeton-Plainsboro",
+                                                                                      6
+                                                                                    ],
+                                                                                    /* :: */[
+                                                                                      /* tuple */[
+                                                                                        "Eastman Medical",
+                                                                                        7
+                                                                                      ],
+                                                                                      /* :: */[
+                                                                                        /* tuple */[
+                                                                                          "St. Sebastian's Hospital",
+                                                                                          8
+                                                                                        ],
+                                                                                        /* [] */0
+                                                                                      ]
+                                                                                    ]
+                                                                                  ]
+                                                                                ]
+                                                                              ]
+                                                                            ]
+                                                                          ]
+                                                                        ]
+                                                                      ],
+                                                                      /* :: */[
+                                                                        /* record */[
+                                                                          /* name */"D. Williams",
+                                                                          /* canMatchWith */1,
+                                                                          /* selectedNames : :: */[
+                                                                            /* tuple */[
+                                                                              "Sacred Heart Hospital",
+                                                                              1
+                                                                            ],
+                                                                            /* :: */[
+                                                                              /* tuple */[
+                                                                                "Gotham General",
+                                                                                2
+                                                                              ],
+                                                                              /* :: */[
+                                                                                /* tuple */[
+                                                                                  "Springfield General",
+                                                                                  3
+                                                                                ],
+                                                                                /* :: */[
+                                                                                  /* tuple */[
+                                                                                    "Frankenstein & Associates",
+                                                                                    4
+                                                                                  ],
+                                                                                  /* :: */[
+                                                                                    /* tuple */[
+                                                                                      "St. Sebastian's Hospital",
+                                                                                      5
+                                                                                    ],
+                                                                                    /* :: */[
+                                                                                      /* tuple */[
+                                                                                        "Seattle Grace",
+                                                                                        6
+                                                                                      ],
+                                                                                      /* :: */[
+                                                                                        /* tuple */[
+                                                                                          "Eastman Medical",
+                                                                                          7
+                                                                                        ],
+                                                                                        /* :: */[
+                                                                                          /* tuple */[
+                                                                                            "Princeton-Plainsboro",
+                                                                                            8
+                                                                                          ],
+                                                                                          /* [] */0
+                                                                                        ]
+                                                                                      ]
+                                                                                    ]
+                                                                                  ]
+                                                                                ]
+                                                                              ]
+                                                                            ]
+                                                                          ]
+                                                                        ],
+                                                                        /* :: */[
+                                                                          /* record */[
+                                                                            /* name */"Z. Scott",
+                                                                            /* canMatchWith */1,
+                                                                            /* selectedNames : :: */[
+                                                                              /* tuple */[
+                                                                                "Eastman Medical",
+                                                                                1
+                                                                              ],
+                                                                              /* :: */[
+                                                                                /* tuple */[
+                                                                                  "Gotham General",
+                                                                                  2
+                                                                                ],
+                                                                                /* :: */[
+                                                                                  /* tuple */[
+                                                                                    "St. Sebastian's Hospital",
+                                                                                    3
+                                                                                  ],
+                                                                                  /* :: */[
+                                                                                    /* tuple */[
+                                                                                      "Princeton-Plainsboro",
+                                                                                      4
+                                                                                    ],
+                                                                                    /* :: */[
+                                                                                      /* tuple */[
+                                                                                        "Seattle Grace",
+                                                                                        5
+                                                                                      ],
+                                                                                      /* :: */[
+                                                                                        /* tuple */[
+                                                                                          "Sacred Heart Hospital",
+                                                                                          6
+                                                                                        ],
+                                                                                        /* :: */[
+                                                                                          /* tuple */[
+                                                                                            "Springfield General",
+                                                                                            7
+                                                                                          ],
+                                                                                          /* :: */[
+                                                                                            /* tuple */[
+                                                                                              "Frankenstein & Associates",
+                                                                                              8
+                                                                                            ],
+                                                                                            /* [] */0
+                                                                                          ]
+                                                                                        ]
+                                                                                      ]
+                                                                                    ]
+                                                                                  ]
+                                                                                ]
+                                                                              ]
+                                                                            ]
+                                                                          ],
+                                                                          /* :: */[
+                                                                            /* record */[
+                                                                              /* name */"Z. Evans",
+                                                                              /* canMatchWith */1,
+                                                                              /* selectedNames : :: */[
+                                                                                /* tuple */[
+                                                                                  "Gotham General",
+                                                                                  1
+                                                                                ],
+                                                                                /* :: */[
+                                                                                  /* tuple */[
+                                                                                    "Seattle Grace",
+                                                                                    2
+                                                                                  ],
+                                                                                  /* :: */[
+                                                                                    /* tuple */[
+                                                                                      "St. Sebastian's Hospital",
+                                                                                      3
+                                                                                    ],
+                                                                                    /* :: */[
+                                                                                      /* tuple */[
+                                                                                        "Eastman Medical",
+                                                                                        4
+                                                                                      ],
+                                                                                      /* :: */[
+                                                                                        /* tuple */[
+                                                                                          "Princeton-Plainsboro",
+                                                                                          5
+                                                                                        ],
+                                                                                        /* :: */[
+                                                                                          /* tuple */[
+                                                                                            "Frankenstein & Associates",
+                                                                                            6
+                                                                                          ],
+                                                                                          /* :: */[
+                                                                                            /* tuple */[
+                                                                                              "Sacred Heart Hospital",
+                                                                                              7
+                                                                                            ],
+                                                                                            /* :: */[
+                                                                                              /* tuple */[
+                                                                                                "Springfield General",
+                                                                                                8
+                                                                                              ],
+                                                                                              /* [] */0
+                                                                                            ]
+                                                                                          ]
+                                                                                        ]
+                                                                                      ]
+                                                                                    ]
+                                                                                  ]
+                                                                                ]
+                                                                              ]
+                                                                            ],
+                                                                            /* :: */[
+                                                                              /* record */[
+                                                                                /* name */"T. Fisher",
+                                                                                /* canMatchWith */1,
+                                                                                /* selectedNames : :: */[
+                                                                                  /* tuple */[
+                                                                                    "Eastman Medical",
+                                                                                    1
+                                                                                  ],
+                                                                                  /* :: */[
+                                                                                    /* tuple */[
+                                                                                      "Springfield General",
+                                                                                      2
+                                                                                    ],
+                                                                                    /* :: */[
+                                                                                      /* tuple */[
+                                                                                        "Gotham General",
+                                                                                        3
+                                                                                      ],
+                                                                                      /* :: */[
+                                                                                        /* tuple */[
+                                                                                          "Princeton-Plainsboro",
+                                                                                          4
+                                                                                        ],
+                                                                                        /* :: */[
+                                                                                          /* tuple */[
+                                                                                            "Sacred Heart Hospital",
+                                                                                            5
+                                                                                          ],
+                                                                                          /* :: */[
+                                                                                            /* tuple */[
+                                                                                              "St. Sebastian's Hospital",
+                                                                                              6
+                                                                                            ],
+                                                                                            /* :: */[
+                                                                                              /* tuple */[
+                                                                                                "Frankenstein & Associates",
+                                                                                                7
+                                                                                              ],
+                                                                                              /* :: */[
+                                                                                                /* tuple */[
+                                                                                                  "Seattle Grace",
+                                                                                                  8
+                                                                                                ],
+                                                                                                /* [] */0
+                                                                                              ]
+                                                                                            ]
+                                                                                          ]
+                                                                                        ]
+                                                                                      ]
+                                                                                    ]
+                                                                                  ]
+                                                                                ]
+                                                                              ],
+                                                                              /* :: */[
+                                                                                /* record */[
+                                                                                  /* name */"Y. Myers",
+                                                                                  /* canMatchWith */1,
+                                                                                  /* selectedNames : :: */[
+                                                                                    /* tuple */[
+                                                                                      "Seattle Grace",
+                                                                                      1
+                                                                                    ],
+                                                                                    /* :: */[
+                                                                                      /* tuple */[
+                                                                                        "St. Sebastian's Hospital",
+                                                                                        2
+                                                                                      ],
+                                                                                      /* :: */[
+                                                                                        /* tuple */[
+                                                                                          "Gotham General",
+                                                                                          3
+                                                                                        ],
+                                                                                        /* :: */[
+                                                                                          /* tuple */[
+                                                                                            "Frankenstein & Associates",
+                                                                                            4
+                                                                                          ],
+                                                                                          /* :: */[
+                                                                                            /* tuple */[
+                                                                                              "Sacred Heart Hospital",
+                                                                                              5
+                                                                                            ],
+                                                                                            /* :: */[
+                                                                                              /* tuple */[
+                                                                                                "Eastman Medical",
+                                                                                                6
+                                                                                              ],
+                                                                                              /* :: */[
+                                                                                                /* tuple */[
+                                                                                                  "Springfield General",
+                                                                                                  7
+                                                                                                ],
+                                                                                                /* :: */[
+                                                                                                  /* tuple */[
+                                                                                                    "Princeton-Plainsboro",
+                                                                                                    8
+                                                                                                  ],
+                                                                                                  /* [] */0
+                                                                                                ]
+                                                                                              ]
+                                                                                            ]
+                                                                                          ]
+                                                                                        ]
+                                                                                      ]
+                                                                                    ]
+                                                                                  ]
+                                                                                ],
+                                                                                /* :: */[
+                                                                                  /* record */[
+                                                                                    /* name */"A. Collins",
+                                                                                    /* canMatchWith */1,
+                                                                                    /* selectedNames : :: */[
+                                                                                      /* tuple */[
+                                                                                        "Princeton-Plainsboro",
+                                                                                        1
+                                                                                      ],
+                                                                                      /* :: */[
+                                                                                        /* tuple */[
+                                                                                          "Gotham General",
+                                                                                          2
+                                                                                        ],
+                                                                                        /* :: */[
+                                                                                          /* tuple */[
+                                                                                            "Seattle Grace",
+                                                                                            3
+                                                                                          ],
+                                                                                          /* :: */[
+                                                                                            /* tuple */[
+                                                                                              "Frankenstein & Associates",
+                                                                                              4
+                                                                                            ],
+                                                                                            /* :: */[
+                                                                                              /* tuple */[
+                                                                                                "Eastman Medical",
+                                                                                                5
+                                                                                              ],
+                                                                                              /* :: */[
+                                                                                                /* tuple */[
+                                                                                                  "Springfield General",
+                                                                                                  6
+                                                                                                ],
+                                                                                                /* :: */[
+                                                                                                  /* tuple */[
+                                                                                                    "Sacred Heart Hospital",
+                                                                                                    7
+                                                                                                  ],
+                                                                                                  /* :: */[
+                                                                                                    /* tuple */[
+                                                                                                      "St. Sebastian's Hospital",
+                                                                                                      8
+                                                                                                    ],
+                                                                                                    /* [] */0
+                                                                                                  ]
+                                                                                                ]
+                                                                                              ]
+                                                                                            ]
+                                                                                          ]
+                                                                                        ]
+                                                                                      ]
+                                                                                    ]
+                                                                                  ],
+                                                                                  /* :: */[
+                                                                                    /* record */[
+                                                                                      /* name */"K. Peterson",
+                                                                                      /* canMatchWith */1,
+                                                                                      /* selectedNames : :: */[
+                                                                                        /* tuple */[
+                                                                                          "St. Sebastian's Hospital",
+                                                                                          1
+                                                                                        ],
+                                                                                        /* :: */[
+                                                                                          /* tuple */[
+                                                                                            "Eastman Medical",
+                                                                                            2
+                                                                                          ],
+                                                                                          /* :: */[
+                                                                                            /* tuple */[
+                                                                                              "Princeton-Plainsboro",
+                                                                                              3
+                                                                                            ],
+                                                                                            /* :: */[
+                                                                                              /* tuple */[
+                                                                                                "Sacred Heart Hospital",
+                                                                                                4
+                                                                                              ],
+                                                                                              /* :: */[
+                                                                                                /* tuple */[
+                                                                                                  "Springfield General",
+                                                                                                  5
+                                                                                                ],
+                                                                                                /* :: */[
+                                                                                                  /* tuple */[
+                                                                                                    "Gotham General",
+                                                                                                    6
+                                                                                                  ],
+                                                                                                  /* :: */[
+                                                                                                    /* tuple */[
+                                                                                                      "Frankenstein & Associates",
+                                                                                                      7
+                                                                                                    ],
+                                                                                                    /* :: */[
+                                                                                                      /* tuple */[
+                                                                                                        "Seattle Grace",
+                                                                                                        8
+                                                                                                      ],
+                                                                                                      /* [] */0
+                                                                                                    ]
+                                                                                                  ]
+                                                                                                ]
+                                                                                              ]
+                                                                                            ]
+                                                                                          ]
+                                                                                        ]
+                                                                                      ]
+                                                                                    ],
+                                                                                    /* :: */[
+                                                                                      /* record */[
+                                                                                        /* name */"M. Torres",
+                                                                                        /* canMatchWith */1,
+                                                                                        /* selectedNames : :: */[
+                                                                                          /* tuple */[
+                                                                                            "Sacred Heart Hospital",
+                                                                                            1
+                                                                                          ],
+                                                                                          /* :: */[
+                                                                                            /* tuple */[
+                                                                                              "Springfield General",
+                                                                                              2
+                                                                                            ],
+                                                                                            /* :: */[
+                                                                                              /* tuple */[
+                                                                                                "Princeton-Plainsboro",
+                                                                                                3
+                                                                                              ],
+                                                                                              /* :: */[
+                                                                                                /* tuple */[
+                                                                                                  "Eastman Medical",
+                                                                                                  4
+                                                                                                ],
+                                                                                                /* :: */[
+                                                                                                  /* tuple */[
+                                                                                                    "Gotham General",
+                                                                                                    5
+                                                                                                  ],
+                                                                                                  /* :: */[
+                                                                                                    /* tuple */[
+                                                                                                      "Frankenstein & Associates",
+                                                                                                      6
+                                                                                                    ],
+                                                                                                    /* :: */[
+                                                                                                      /* tuple */[
+                                                                                                        "Seattle Grace",
+                                                                                                        7
+                                                                                                      ],
+                                                                                                      /* :: */[
+                                                                                                        /* tuple */[
+                                                                                                          "St. Sebastian's Hospital",
+                                                                                                          8
+                                                                                                        ],
+                                                                                                        /* [] */0
+                                                                                                      ]
+                                                                                                    ]
+                                                                                                  ]
+                                                                                                ]
+                                                                                              ]
+                                                                                            ]
+                                                                                          ]
+                                                                                        ]
+                                                                                      ],
+                                                                                      /* :: */[
+                                                                                        /* record */[
+                                                                                          /* name */"G. Moore",
+                                                                                          /* canMatchWith */1,
+                                                                                          /* selectedNames : :: */[
+                                                                                            /* tuple */[
+                                                                                              "Springfield General",
+                                                                                              1
+                                                                                            ],
+                                                                                            /* :: */[
+                                                                                              /* tuple */[
+                                                                                                "Sacred Heart Hospital",
+                                                                                                2
+                                                                                              ],
+                                                                                              /* :: */[
+                                                                                                /* tuple */[
+                                                                                                  "St. Sebastian's Hospital",
+                                                                                                  3
+                                                                                                ],
+                                                                                                /* :: */[
+                                                                                                  /* tuple */[
+                                                                                                    "Eastman Medical",
+                                                                                                    4
+                                                                                                  ],
+                                                                                                  /* :: */[
+                                                                                                    /* tuple */[
+                                                                                                      "Princeton-Plainsboro",
+                                                                                                      5
+                                                                                                    ],
+                                                                                                    /* :: */[
+                                                                                                      /* tuple */[
+                                                                                                        "Frankenstein & Associates",
+                                                                                                        6
+                                                                                                      ],
+                                                                                                      /* :: */[
+                                                                                                        /* tuple */[
+                                                                                                          "Seattle Grace",
+                                                                                                          7
+                                                                                                        ],
+                                                                                                        /* :: */[
+                                                                                                          /* tuple */[
+                                                                                                            "Gotham General",
+                                                                                                            8
+                                                                                                          ],
+                                                                                                          /* [] */0
+                                                                                                        ]
+                                                                                                      ]
+                                                                                                    ]
+                                                                                                  ]
+                                                                                                ]
+                                                                                              ]
+                                                                                            ]
+                                                                                          ]
+                                                                                        ],
+                                                                                        /* :: */[
+                                                                                          /* record */[
+                                                                                            /* name */"R. Baker",
+                                                                                            /* canMatchWith */1,
+                                                                                            /* selectedNames : :: */[
+                                                                                              /* tuple */[
+                                                                                                "Princeton-Plainsboro",
+                                                                                                1
+                                                                                              ],
+                                                                                              /* :: */[
+                                                                                                /* tuple */[
+                                                                                                  "Sacred Heart Hospital",
+                                                                                                  2
+                                                                                                ],
+                                                                                                /* :: */[
+                                                                                                  /* tuple */[
+                                                                                                    "Gotham General",
+                                                                                                    3
+                                                                                                  ],
+                                                                                                  /* :: */[
+                                                                                                    /* tuple */[
+                                                                                                      "St. Sebastian's Hospital",
+                                                                                                      4
+                                                                                                    ],
+                                                                                                    /* :: */[
+                                                                                                      /* tuple */[
+                                                                                                        "Frankenstein & Associates",
+                                                                                                        5
+                                                                                                      ],
+                                                                                                      /* :: */[
+                                                                                                        /* tuple */[
+                                                                                                          "Seattle Grace",
+                                                                                                          6
+                                                                                                        ],
+                                                                                                        /* :: */[
+                                                                                                          /* tuple */[
+                                                                                                            "Springfield General",
+                                                                                                            7
+                                                                                                          ],
+                                                                                                          /* :: */[
+                                                                                                            /* tuple */[
+                                                                                                              "Eastman Medical",
+                                                                                                              8
+                                                                                                            ],
+                                                                                                            /* [] */0
+                                                                                                          ]
+                                                                                                        ]
+                                                                                                      ]
+                                                                                                    ]
+                                                                                                  ]
+                                                                                                ]
+                                                                                              ]
+                                                                                            ]
+                                                                                          ],
+                                                                                          /* :: */[
+                                                                                            /* record */[
+                                                                                              /* name */"H. Parker",
+                                                                                              /* canMatchWith */1,
+                                                                                              /* selectedNames : :: */[
+                                                                                                /* tuple */[
+                                                                                                  "Sacred Heart Hospital",
+                                                                                                  1
+                                                                                                ],
+                                                                                                /* :: */[
+                                                                                                  /* tuple */[
+                                                                                                    "St. Sebastian's Hospital",
+                                                                                                    2
+                                                                                                  ],
+                                                                                                  /* :: */[
+                                                                                                    /* tuple */[
+                                                                                                      "Seattle Grace",
+                                                                                                      3
+                                                                                                    ],
+                                                                                                    /* :: */[
+                                                                                                      /* tuple */[
+                                                                                                        "Princeton-Plainsboro",
+                                                                                                        4
+                                                                                                      ],
+                                                                                                      /* :: */[
+                                                                                                        /* tuple */[
+                                                                                                          "Frankenstein & Associates",
+                                                                                                          5
+                                                                                                        ],
+                                                                                                        /* :: */[
+                                                                                                          /* tuple */[
+                                                                                                            "Eastman Medical",
+                                                                                                            6
+                                                                                                          ],
+                                                                                                          /* :: */[
+                                                                                                            /* tuple */[
+                                                                                                              "Springfield General",
+                                                                                                              7
+                                                                                                            ],
+                                                                                                            /* :: */[
+                                                                                                              /* tuple */[
+                                                                                                                "Gotham General",
+                                                                                                                8
+                                                                                                              ],
+                                                                                                              /* [] */0
+                                                                                                            ]
+                                                                                                          ]
+                                                                                                        ]
+                                                                                                      ]
+                                                                                                    ]
+                                                                                                  ]
+                                                                                                ]
+                                                                                              ]
+                                                                                            ],
+                                                                                            /* :: */[
+                                                                                              /* record */[
+                                                                                                /* name */"Q. Brown",
+                                                                                                /* canMatchWith */1,
+                                                                                                /* selectedNames : :: */[
+                                                                                                  /* tuple */[
+                                                                                                    "Princeton-Plainsboro",
+                                                                                                    1
+                                                                                                  ],
+                                                                                                  /* :: */[
+                                                                                                    /* tuple */[
+                                                                                                      "Eastman Medical",
+                                                                                                      2
+                                                                                                    ],
+                                                                                                    /* :: */[
+                                                                                                      /* tuple */[
+                                                                                                        "Gotham General",
+                                                                                                        3
+                                                                                                      ],
+                                                                                                      /* :: */[
+                                                                                                        /* tuple */[
+                                                                                                          "Seattle Grace",
+                                                                                                          4
+                                                                                                        ],
+                                                                                                        /* :: */[
+                                                                                                          /* tuple */[
+                                                                                                            "St. Sebastian's Hospital",
+                                                                                                            5
+                                                                                                          ],
+                                                                                                          /* :: */[
+                                                                                                            /* tuple */[
+                                                                                                              "Sacred Heart Hospital",
+                                                                                                              6
+                                                                                                            ],
+                                                                                                            /* :: */[
+                                                                                                              /* tuple */[
+                                                                                                                "Frankenstein & Associates",
+                                                                                                                7
+                                                                                                              ],
+                                                                                                              /* :: */[
+                                                                                                                /* tuple */[
+                                                                                                                  "Springfield General",
+                                                                                                                  8
+                                                                                                                ],
+                                                                                                                /* [] */0
+                                                                                                              ]
+                                                                                                            ]
+                                                                                                          ]
+                                                                                                        ]
+                                                                                                      ]
+                                                                                                    ]
+                                                                                                  ]
+                                                                                                ]
+                                                                                              ],
+                                                                                              /* :: */[
+                                                                                                /* record */[
+                                                                                                  /* name */"I. Hughes",
+                                                                                                  /* canMatchWith */1,
+                                                                                                  /* selectedNames : :: */[
+                                                                                                    /* tuple */[
+                                                                                                      "Gotham General",
+                                                                                                      1
+                                                                                                    ],
+                                                                                                    /* :: */[
+                                                                                                      /* tuple */[
+                                                                                                        "St. Sebastian's Hospital",
+                                                                                                        2
+                                                                                                      ],
+                                                                                                      /* :: */[
+                                                                                                        /* tuple */[
+                                                                                                          "Eastman Medical",
+                                                                                                          3
+                                                                                                        ],
+                                                                                                        /* :: */[
+                                                                                                          /* tuple */[
+                                                                                                            "Sacred Heart Hospital",
+                                                                                                            4
+                                                                                                          ],
+                                                                                                          /* :: */[
+                                                                                                            /* tuple */[
+                                                                                                              "Springfield General",
+                                                                                                              5
+                                                                                                            ],
+                                                                                                            /* :: */[
+                                                                                                              /* tuple */[
+                                                                                                                "Princeton-Plainsboro",
+                                                                                                                6
+                                                                                                              ],
+                                                                                                              /* :: */[
+                                                                                                                /* tuple */[
+                                                                                                                  "Seattle Grace",
+                                                                                                                  7
+                                                                                                                ],
+                                                                                                                /* :: */[
+                                                                                                                  /* tuple */[
+                                                                                                                    "Frankenstein & Associates",
+                                                                                                                    8
+                                                                                                                  ],
+                                                                                                                  /* [] */0
+                                                                                                                ]
+                                                                                                              ]
+                                                                                                            ]
+                                                                                                          ]
+                                                                                                        ]
+                                                                                                      ]
+                                                                                                    ]
+                                                                                                  ]
+                                                                                                ],
+                                                                                                /* :: */[
+                                                                                                  /* record */[
+                                                                                                    /* name */"X. Carter",
+                                                                                                    /* canMatchWith */1,
+                                                                                                    /* selectedNames : :: */[
+                                                                                                      /* tuple */[
+                                                                                                        "Gotham General",
+                                                                                                        1
+                                                                                                      ],
+                                                                                                      /* :: */[
+                                                                                                        /* tuple */[
+                                                                                                          "Seattle Grace",
+                                                                                                          2
+                                                                                                        ],
+                                                                                                        /* :: */[
+                                                                                                          /* tuple */[
+                                                                                                            "Frankenstein & Associates",
+                                                                                                            3
+                                                                                                          ],
+                                                                                                          /* :: */[
+                                                                                                            /* tuple */[
+                                                                                                              "Springfield General",
+                                                                                                              4
+                                                                                                            ],
+                                                                                                            /* :: */[
+                                                                                                              /* tuple */[
+                                                                                                                "St. Sebastian's Hospital",
+                                                                                                                5
+                                                                                                              ],
+                                                                                                              /* :: */[
+                                                                                                                /* tuple */[
+                                                                                                                  "Sacred Heart Hospital",
+                                                                                                                  6
+                                                                                                                ],
+                                                                                                                /* :: */[
+                                                                                                                  /* tuple */[
+                                                                                                                    "Princeton-Plainsboro",
+                                                                                                                    7
+                                                                                                                  ],
+                                                                                                                  /* :: */[
+                                                                                                                    /* tuple */[
+                                                                                                                      "Eastman Medical",
+                                                                                                                      8
+                                                                                                                    ],
+                                                                                                                    /* [] */0
+                                                                                                                  ]
+                                                                                                                ]
+                                                                                                              ]
+                                                                                                            ]
+                                                                                                          ]
+                                                                                                        ]
+                                                                                                      ]
+                                                                                                    ]
+                                                                                                  ],
+                                                                                                  /* :: */[
+                                                                                                    /* record */[
+                                                                                                      /* name */"W. Robinson",
+                                                                                                      /* canMatchWith */1,
+                                                                                                      /* selectedNames : :: */[
+                                                                                                        /* tuple */[
+                                                                                                          "Princeton-Plainsboro",
+                                                                                                          1
+                                                                                                        ],
+                                                                                                        /* :: */[
+                                                                                                          /* tuple */[
+                                                                                                            "Seattle Grace",
+                                                                                                            2
+                                                                                                          ],
+                                                                                                          /* :: */[
+                                                                                                            /* tuple */[
+                                                                                                              "Springfield General",
+                                                                                                              3
+                                                                                                            ],
+                                                                                                            /* :: */[
+                                                                                                              /* tuple */[
+                                                                                                                "St. Sebastian's Hospital",
+                                                                                                                4
+                                                                                                              ],
+                                                                                                              /* :: */[
+                                                                                                                /* tuple */[
+                                                                                                                  "Eastman Medical",
+                                                                                                                  5
+                                                                                                                ],
+                                                                                                                /* :: */[
+                                                                                                                  /* tuple */[
+                                                                                                                    "Sacred Heart Hospital",
+                                                                                                                    6
+                                                                                                                  ],
+                                                                                                                  /* :: */[
+                                                                                                                    /* tuple */[
+                                                                                                                      "Gotham General",
+                                                                                                                      7
+                                                                                                                    ],
+                                                                                                                    /* :: */[
+                                                                                                                      /* tuple */[
+                                                                                                                        "Frankenstein & Associates",
+                                                                                                                        8
+                                                                                                                      ],
+                                                                                                                      /* [] */0
+                                                                                                                    ]
+                                                                                                                  ]
+                                                                                                                ]
+                                                                                                              ]
+                                                                                                            ]
+                                                                                                          ]
+                                                                                                        ]
+                                                                                                      ]
+                                                                                                    ],
+                                                                                                    /* :: */[
+                                                                                                      /* record */[
+                                                                                                        /* name */"X. Young",
+                                                                                                        /* canMatchWith */1,
+                                                                                                        /* selectedNames : :: */[
+                                                                                                          /* tuple */[
+                                                                                                            "St. Sebastian's Hospital",
+                                                                                                            1
+                                                                                                          ],
+                                                                                                          /* :: */[
+                                                                                                            /* tuple */[
+                                                                                                              "Gotham General",
+                                                                                                              2
+                                                                                                            ],
+                                                                                                            /* :: */[
+                                                                                                              /* tuple */[
+                                                                                                                "Seattle Grace",
+                                                                                                                3
+                                                                                                              ],
+                                                                                                              /* :: */[
+                                                                                                                /* tuple */[
+                                                                                                                  "Springfield General",
+                                                                                                                  4
+                                                                                                                ],
+                                                                                                                /* :: */[
+                                                                                                                  /* tuple */[
+                                                                                                                    "Princeton-Plainsboro",
+                                                                                                                    5
+                                                                                                                  ],
+                                                                                                                  /* :: */[
+                                                                                                                    /* tuple */[
+                                                                                                                      "Sacred Heart Hospital",
+                                                                                                                      6
+                                                                                                                    ],
+                                                                                                                    /* :: */[
+                                                                                                                      /* tuple */[
+                                                                                                                        "Frankenstein & Associates",
+                                                                                                                        7
+                                                                                                                      ],
+                                                                                                                      /* :: */[
+                                                                                                                        /* tuple */[
+                                                                                                                          "Eastman Medical",
+                                                                                                                          8
+                                                                                                                        ],
+                                                                                                                        /* [] */0
+                                                                                                                      ]
+                                                                                                                    ]
+                                                                                                                  ]
+                                                                                                                ]
+                                                                                                              ]
+                                                                                                            ]
+                                                                                                          ]
+                                                                                                        ]
+                                                                                                      ],
+                                                                                                      /* :: */[
+                                                                                                        /* record */[
+                                                                                                          /* name */"I. Clark",
+                                                                                                          /* canMatchWith */1,
+                                                                                                          /* selectedNames : :: */[
+                                                                                                            /* tuple */[
+                                                                                                              "Sacred Heart Hospital",
+                                                                                                              1
+                                                                                                            ],
+                                                                                                            /* :: */[
+                                                                                                              /* tuple */[
+                                                                                                                "Springfield General",
+                                                                                                                2
+                                                                                                              ],
+                                                                                                              /* :: */[
+                                                                                                                /* tuple */[
+                                                                                                                  "Princeton-Plainsboro",
+                                                                                                                  3
+                                                                                                                ],
+                                                                                                                /* :: */[
+                                                                                                                  /* tuple */[
+                                                                                                                    "St. Sebastian's Hospital",
+                                                                                                                    4
+                                                                                                                  ],
+                                                                                                                  /* :: */[
+                                                                                                                    /* tuple */[
+                                                                                                                      "Seattle Grace",
+                                                                                                                      5
+                                                                                                                    ],
+                                                                                                                    /* :: */[
+                                                                                                                      /* tuple */[
+                                                                                                                        "Frankenstein & Associates",
+                                                                                                                        6
+                                                                                                                      ],
+                                                                                                                      /* :: */[
+                                                                                                                        /* tuple */[
+                                                                                                                          "Gotham General",
+                                                                                                                          7
+                                                                                                                        ],
+                                                                                                                        /* :: */[
+                                                                                                                          /* tuple */[
+                                                                                                                            "Eastman Medical",
+                                                                                                                            8
+                                                                                                                          ],
+                                                                                                                          /* [] */0
+                                                                                                                        ]
+                                                                                                                      ]
+                                                                                                                    ]
+                                                                                                                  ]
+                                                                                                                ]
+                                                                                                              ]
+                                                                                                            ]
+                                                                                                          ]
+                                                                                                        ],
+                                                                                                        /* :: */[
+                                                                                                          /* record */[
+                                                                                                            /* name */"R. Rogers",
+                                                                                                            /* canMatchWith */1,
+                                                                                                            /* selectedNames : :: */[
+                                                                                                              /* tuple */[
+                                                                                                                "Seattle Grace",
+                                                                                                                1
+                                                                                                              ],
+                                                                                                              /* :: */[
+                                                                                                                /* tuple */[
+                                                                                                                  "Princeton-Plainsboro",
+                                                                                                                  2
+                                                                                                                ],
+                                                                                                                /* :: */[
+                                                                                                                  /* tuple */[
+                                                                                                                    "St. Sebastian's Hospital",
+                                                                                                                    3
+                                                                                                                  ],
+                                                                                                                  /* :: */[
+                                                                                                                    /* tuple */[
+                                                                                                                      "Springfield General",
+                                                                                                                      4
+                                                                                                                    ],
+                                                                                                                    /* :: */[
+                                                                                                                      /* tuple */[
+                                                                                                                        "Sacred Heart Hospital",
+                                                                                                                        5
+                                                                                                                      ],
+                                                                                                                      /* :: */[
+                                                                                                                        /* tuple */[
+                                                                                                                          "Eastman Medical",
+                                                                                                                          6
+                                                                                                                        ],
+                                                                                                                        /* :: */[
+                                                                                                                          /* tuple */[
+                                                                                                                            "Frankenstein & Associates",
+                                                                                                                            7
+                                                                                                                          ],
+                                                                                                                          /* :: */[
+                                                                                                                            /* tuple */[
+                                                                                                                              "Gotham General",
+                                                                                                                              8
+                                                                                                                            ],
+                                                                                                                            /* [] */0
+                                                                                                                          ]
+                                                                                                                        ]
+                                                                                                                      ]
+                                                                                                                    ]
+                                                                                                                  ]
+                                                                                                                ]
+                                                                                                              ]
+                                                                                                            ]
+                                                                                                          ],
+                                                                                                          /* :: */[
+                                                                                                            /* record */[
+                                                                                                              /* name */"M. Foster",
+                                                                                                              /* canMatchWith */1,
+                                                                                                              /* selectedNames : :: */[
+                                                                                                                /* tuple */[
+                                                                                                                  "Eastman Medical",
+                                                                                                                  1
+                                                                                                                ],
+                                                                                                                /* :: */[
+                                                                                                                  /* tuple */[
+                                                                                                                    "Gotham General",
+                                                                                                                    2
+                                                                                                                  ],
+                                                                                                                  /* :: */[
+                                                                                                                    /* tuple */[
+                                                                                                                      "Seattle Grace",
+                                                                                                                      3
+                                                                                                                    ],
+                                                                                                                    /* :: */[
+                                                                                                                      /* tuple */[
+                                                                                                                        "Frankenstein & Associates",
+                                                                                                                        4
+                                                                                                                      ],
+                                                                                                                      /* :: */[
+                                                                                                                        /* tuple */[
+                                                                                                                          "Princeton-Plainsboro",
+                                                                                                                          5
+                                                                                                                        ],
+                                                                                                                        /* :: */[
+                                                                                                                          /* tuple */[
+                                                                                                                            "St. Sebastian's Hospital",
+                                                                                                                            6
+                                                                                                                          ],
+                                                                                                                          /* :: */[
+                                                                                                                            /* tuple */[
+                                                                                                                              "Sacred Heart Hospital",
+                                                                                                                              7
+                                                                                                                            ],
+                                                                                                                            /* :: */[
+                                                                                                                              /* tuple */[
+                                                                                                                                "Springfield General",
+                                                                                                                                8
+                                                                                                                              ],
+                                                                                                                              /* [] */0
+                                                                                                                            ]
+                                                                                                                          ]
+                                                                                                                        ]
+                                                                                                                      ]
+                                                                                                                    ]
+                                                                                                                  ]
+                                                                                                                ]
+                                                                                                              ]
+                                                                                                            ],
+                                                                                                            /* :: */[
+                                                                                                              /* record */[
+                                                                                                                /* name */"D. Jackson",
+                                                                                                                /* canMatchWith */1,
+                                                                                                                /* selectedNames : :: */[
+                                                                                                                  /* tuple */[
+                                                                                                                    "Sacred Heart Hospital",
+                                                                                                                    1
+                                                                                                                  ],
+                                                                                                                  /* :: */[
+                                                                                                                    /* tuple */[
+                                                                                                                      "Seattle Grace",
+                                                                                                                      2
+                                                                                                                    ],
+                                                                                                                    /* :: */[
+                                                                                                                      /* tuple */[
+                                                                                                                        "Springfield General",
+                                                                                                                        3
+                                                                                                                      ],
+                                                                                                                      /* :: */[
+                                                                                                                        /* tuple */[
+                                                                                                                          "Eastman Medical",
+                                                                                                                          4
+                                                                                                                        ],
+                                                                                                                        /* :: */[
+                                                                                                                          /* tuple */[
+                                                                                                                            "Gotham General",
+                                                                                                                            5
+                                                                                                                          ],
+                                                                                                                          /* :: */[
+                                                                                                                            /* tuple */[
+                                                                                                                              "St. Sebastian's Hospital",
+                                                                                                                              6
+                                                                                                                            ],
+                                                                                                                            /* :: */[
+                                                                                                                              /* tuple */[
+                                                                                                                                "Frankenstein & Associates",
+                                                                                                                                7
+                                                                                                                              ],
+                                                                                                                              /* :: */[
+                                                                                                                                /* tuple */[
+                                                                                                                                  "Princeton-Plainsboro",
+                                                                                                                                  8
+                                                                                                                                ],
+                                                                                                                                /* [] */0
+                                                                                                                              ]
+                                                                                                                            ]
+                                                                                                                          ]
+                                                                                                                        ]
+                                                                                                                      ]
+                                                                                                                    ]
+                                                                                                                  ]
+                                                                                                                ]
+                                                                                                              ],
+                                                                                                              /* :: */[
+                                                                                                                /* record */[
+                                                                                                                  /* name */"Q. Russell",
+                                                                                                                  /* canMatchWith */1,
+                                                                                                                  /* selectedNames : :: */[
+                                                                                                                    /* tuple */[
+                                                                                                                      "Seattle Grace",
+                                                                                                                      1
+                                                                                                                    ],
+                                                                                                                    /* :: */[
+                                                                                                                      /* tuple */[
+                                                                                                                        "Eastman Medical",
+                                                                                                                        2
+                                                                                                                      ],
+                                                                                                                      /* :: */[
+                                                                                                                        /* tuple */[
+                                                                                                                          "Frankenstein & Associates",
+                                                                                                                          3
+                                                                                                                        ],
+                                                                                                                        /* :: */[
+                                                                                                                          /* tuple */[
+                                                                                                                            "Gotham General",
+                                                                                                                            4
+                                                                                                                          ],
+                                                                                                                          /* :: */[
+                                                                                                                            /* tuple */[
+                                                                                                                              "St. Sebastian's Hospital",
+                                                                                                                              5
+                                                                                                                            ],
+                                                                                                                            /* :: */[
+                                                                                                                              /* tuple */[
+                                                                                                                                "Sacred Heart Hospital",
+                                                                                                                                6
+                                                                                                                              ],
+                                                                                                                              /* :: */[
+                                                                                                                                /* tuple */[
+                                                                                                                                  "Princeton-Plainsboro",
+                                                                                                                                  7
+                                                                                                                                ],
+                                                                                                                                /* :: */[
+                                                                                                                                  /* tuple */[
+                                                                                                                                    "Springfield General",
+                                                                                                                                    8
+                                                                                                                                  ],
+                                                                                                                                  /* [] */0
+                                                                                                                                ]
+                                                                                                                              ]
+                                                                                                                            ]
+                                                                                                                          ]
+                                                                                                                        ]
+                                                                                                                      ]
+                                                                                                                    ]
+                                                                                                                  ]
+                                                                                                                ],
+                                                                                                                /* :: */[
+                                                                                                                  /* record */[
+                                                                                                                    /* name */"B. Reed",
+                                                                                                                    /* canMatchWith */1,
+                                                                                                                    /* selectedNames : :: */[
+                                                                                                                      /* tuple */[
+                                                                                                                        "Sacred Heart Hospital",
+                                                                                                                        1
+                                                                                                                      ],
+                                                                                                                      /* :: */[
+                                                                                                                        /* tuple */[
+                                                                                                                          "St. Sebastian's Hospital",
+                                                                                                                          2
+                                                                                                                        ],
+                                                                                                                        /* :: */[
+                                                                                                                          /* tuple */[
+                                                                                                                            "Seattle Grace",
+                                                                                                                            3
+                                                                                                                          ],
+                                                                                                                          /* :: */[
+                                                                                                                            /* tuple */[
+                                                                                                                              "Eastman Medical",
+                                                                                                                              4
+                                                                                                                            ],
+                                                                                                                            /* :: */[
+                                                                                                                              /* tuple */[
+                                                                                                                                "Princeton-Plainsboro",
+                                                                                                                                5
+                                                                                                                              ],
+                                                                                                                              /* :: */[
+                                                                                                                                /* tuple */[
+                                                                                                                                  "Gotham General",
+                                                                                                                                  6
+                                                                                                                                ],
+                                                                                                                                /* :: */[
+                                                                                                                                  /* tuple */[
+                                                                                                                                    "Springfield General",
+                                                                                                                                    7
+                                                                                                                                  ],
+                                                                                                                                  /* :: */[
+                                                                                                                                    /* tuple */[
+                                                                                                                                      "Frankenstein & Associates",
+                                                                                                                                      8
+                                                                                                                                    ],
+                                                                                                                                    /* [] */0
+                                                                                                                                  ]
+                                                                                                                                ]
+                                                                                                                              ]
+                                                                                                                            ]
+                                                                                                                          ]
+                                                                                                                        ]
+                                                                                                                      ]
+                                                                                                                    ]
+                                                                                                                  ],
+                                                                                                                  /* :: */[
+                                                                                                                    /* record */[
+                                                                                                                      /* name */"O. Brooks",
+                                                                                                                      /* canMatchWith */1,
+                                                                                                                      /* selectedNames : :: */[
+                                                                                                                        /* tuple */[
+                                                                                                                          "Gotham General",
+                                                                                                                          1
+                                                                                                                        ],
+                                                                                                                        /* :: */[
+                                                                                                                          /* tuple */[
+                                                                                                                            "Seattle Grace",
+                                                                                                                            2
+                                                                                                                          ],
+                                                                                                                          /* :: */[
+                                                                                                                            /* tuple */[
+                                                                                                                              "Eastman Medical",
+                                                                                                                              3
+                                                                                                                            ],
+                                                                                                                            /* :: */[
+                                                                                                                              /* tuple */[
+                                                                                                                                "St. Sebastian's Hospital",
+                                                                                                                                4
+                                                                                                                              ],
+                                                                                                                              /* :: */[
+                                                                                                                                /* tuple */[
+                                                                                                                                  "Princeton-Plainsboro",
+                                                                                                                                  5
+                                                                                                                                ],
+                                                                                                                                /* :: */[
+                                                                                                                                  /* tuple */[
+                                                                                                                                    "Frankenstein & Associates",
+                                                                                                                                    6
+                                                                                                                                  ],
+                                                                                                                                  /* :: */[
+                                                                                                                                    /* tuple */[
+                                                                                                                                      "Springfield General",
+                                                                                                                                      7
+                                                                                                                                    ],
+                                                                                                                                    /* :: */[
+                                                                                                                                      /* tuple */[
+                                                                                                                                        "Sacred Heart Hospital",
+                                                                                                                                        8
+                                                                                                                                      ],
+                                                                                                                                      /* [] */0
+                                                                                                                                    ]
+                                                                                                                                  ]
+                                                                                                                                ]
+                                                                                                                              ]
+                                                                                                                            ]
+                                                                                                                          ]
+                                                                                                                        ]
+                                                                                                                      ]
+                                                                                                                    ],
+                                                                                                                    /* :: */[
+                                                                                                                      /* record */[
+                                                                                                                        /* name */"J. Hill",
+                                                                                                                        /* canMatchWith */1,
+                                                                                                                        /* selectedNames : :: */[
+                                                                                                                          /* tuple */[
+                                                                                                                            "Princeton-Plainsboro",
+                                                                                                                            1
+                                                                                                                          ],
+                                                                                                                          /* :: */[
+                                                                                                                            /* tuple */[
+                                                                                                                              "Eastman Medical",
+                                                                                                                              2
+                                                                                                                            ],
+                                                                                                                            /* :: */[
+                                                                                                                              /* tuple */[
+                                                                                                                                "Frankenstein & Associates",
+                                                                                                                                3
+                                                                                                                              ],
+                                                                                                                              /* :: */[
+                                                                                                                                /* tuple */[
+                                                                                                                                  "Seattle Grace",
+                                                                                                                                  4
+                                                                                                                                ],
+                                                                                                                                /* :: */[
+                                                                                                                                  /* tuple */[
+                                                                                                                                    "Springfield General",
+                                                                                                                                    5
+                                                                                                                                  ],
+                                                                                                                                  /* :: */[
+                                                                                                                                    /* tuple */[
+                                                                                                                                      "St. Sebastian's Hospital",
+                                                                                                                                      6
+                                                                                                                                    ],
+                                                                                                                                    /* :: */[
+                                                                                                                                      /* tuple */[
+                                                                                                                                        "Gotham General",
+                                                                                                                                        7
+                                                                                                                                      ],
+                                                                                                                                      /* :: */[
+                                                                                                                                        /* tuple */[
+                                                                                                                                          "Sacred Heart Hospital",
+                                                                                                                                          8
+                                                                                                                                        ],
+                                                                                                                                        /* [] */0
+                                                                                                                                      ]
+                                                                                                                                    ]
+                                                                                                                                  ]
+                                                                                                                                ]
+                                                                                                                              ]
+                                                                                                                            ]
+                                                                                                                          ]
+                                                                                                                        ]
+                                                                                                                      ],
+                                                                                                                      /* :: */[
+                                                                                                                        /* record */[
+                                                                                                                          /* name */"G. Adams",
+                                                                                                                          /* canMatchWith */1,
+                                                                                                                          /* selectedNames : :: */[
+                                                                                                                            /* tuple */[
+                                                                                                                              "Springfield General",
+                                                                                                                              1
+                                                                                                                            ],
+                                                                                                                            /* :: */[
+                                                                                                                              /* tuple */[
+                                                                                                                                "Eastman Medical",
+                                                                                                                                2
+                                                                                                                              ],
+                                                                                                                              /* :: */[
+                                                                                                                                /* tuple */[
+                                                                                                                                  "Gotham General",
+                                                                                                                                  3
+                                                                                                                                ],
+                                                                                                                                /* :: */[
+                                                                                                                                  /* tuple */[
+                                                                                                                                    "Sacred Heart Hospital",
+                                                                                                                                    4
+                                                                                                                                  ],
+                                                                                                                                  /* :: */[
+                                                                                                                                    /* tuple */[
+                                                                                                                                      "St. Sebastian's Hospital",
+                                                                                                                                      5
+                                                                                                                                    ],
+                                                                                                                                    /* :: */[
+                                                                                                                                      /* tuple */[
+                                                                                                                                        "Seattle Grace",
+                                                                                                                                        6
+                                                                                                                                      ],
+                                                                                                                                      /* :: */[
+                                                                                                                                        /* tuple */[
+                                                                                                                                          "Princeton-Plainsboro",
+                                                                                                                                          7
+                                                                                                                                        ],
+                                                                                                                                        /* :: */[
+                                                                                                                                          /* tuple */[
+                                                                                                                                            "Frankenstein & Associates",
+                                                                                                                                            8
+                                                                                                                                          ],
+                                                                                                                                          /* [] */0
+                                                                                                                                        ]
+                                                                                                                                      ]
+                                                                                                                                    ]
+                                                                                                                                  ]
+                                                                                                                                ]
+                                                                                                                              ]
+                                                                                                                            ]
+                                                                                                                          ]
+                                                                                                                        ],
+                                                                                                                        /* :: */[
+                                                                                                                          /* record */[
+                                                                                                                            /* name */"Y. Barnes",
+                                                                                                                            /* canMatchWith */1,
+                                                                                                                            /* selectedNames : :: */[
+                                                                                                                              /* tuple */[
+                                                                                                                                "Seattle Grace",
+                                                                                                                                1
+                                                                                                                              ],
+                                                                                                                              /* :: */[
+                                                                                                                                /* tuple */[
+                                                                                                                                  "Springfield General",
+                                                                                                                                  2
+                                                                                                                                ],
+                                                                                                                                /* :: */[
+                                                                                                                                  /* tuple */[
+                                                                                                                                    "Gotham General",
+                                                                                                                                    3
+                                                                                                                                  ],
+                                                                                                                                  /* :: */[
+                                                                                                                                    /* tuple */[
+                                                                                                                                      "St. Sebastian's Hospital",
+                                                                                                                                      4
+                                                                                                                                    ],
+                                                                                                                                    /* :: */[
+                                                                                                                                      /* tuple */[
+                                                                                                                                        "Sacred Heart Hospital",
+                                                                                                                                        5
+                                                                                                                                      ],
+                                                                                                                                      /* :: */[
+                                                                                                                                        /* tuple */[
+                                                                                                                                          "Princeton-Plainsboro",
+                                                                                                                                          6
+                                                                                                                                        ],
+                                                                                                                                        /* :: */[
+                                                                                                                                          /* tuple */[
+                                                                                                                                            "Frankenstein & Associates",
+                                                                                                                                            7
+                                                                                                                                          ],
+                                                                                                                                          /* :: */[
+                                                                                                                                            /* tuple */[
+                                                                                                                                              "Eastman Medical",
+                                                                                                                                              8
+                                                                                                                                            ],
+                                                                                                                                            /* [] */0
+                                                                                                                                          ]
+                                                                                                                                        ]
+                                                                                                                                      ]
+                                                                                                                                    ]
+                                                                                                                                  ]
+                                                                                                                                ]
+                                                                                                                              ]
+                                                                                                                            ]
+                                                                                                                          ],
+                                                                                                                          /* :: */[
+                                                                                                                            /* record */[
+                                                                                                                              /* name */"T. Garcia",
+                                                                                                                              /* canMatchWith */1,
+                                                                                                                              /* selectedNames : :: */[
+                                                                                                                                /* tuple */[
+                                                                                                                                  "St. Sebastian's Hospital",
+                                                                                                                                  1
+                                                                                                                                ],
+                                                                                                                                /* :: */[
+                                                                                                                                  /* tuple */[
+                                                                                                                                    "Springfield General",
+                                                                                                                                    2
+                                                                                                                                  ],
+                                                                                                                                  /* :: */[
+                                                                                                                                    /* tuple */[
+                                                                                                                                      "Seattle Grace",
+                                                                                                                                      3
+                                                                                                                                    ],
+                                                                                                                                    /* :: */[
+                                                                                                                                      /* tuple */[
+                                                                                                                                        "Eastman Medical",
+                                                                                                                                        4
+                                                                                                                                      ],
+                                                                                                                                      /* :: */[
+                                                                                                                                        /* tuple */[
+                                                                                                                                          "Sacred Heart Hospital",
+                                                                                                                                          5
+                                                                                                                                        ],
+                                                                                                                                        /* :: */[
+                                                                                                                                          /* tuple */[
+                                                                                                                                            "Frankenstein & Associates",
+                                                                                                                                            6
+                                                                                                                                          ],
+                                                                                                                                          /* :: */[
+                                                                                                                                            /* tuple */[
+                                                                                                                                              "Gotham General",
+                                                                                                                                              7
+                                                                                                                                            ],
+                                                                                                                                            /* :: */[
+                                                                                                                                              /* tuple */[
+                                                                                                                                                "Princeton-Plainsboro",
+                                                                                                                                                8
+                                                                                                                                              ],
+                                                                                                                                              /* [] */0
+                                                                                                                                            ]
+                                                                                                                                          ]
+                                                                                                                                        ]
+                                                                                                                                      ]
+                                                                                                                                    ]
+                                                                                                                                  ]
+                                                                                                                                ]
+                                                                                                                              ]
+                                                                                                                            ],
+                                                                                                                            /* :: */[
+                                                                                                                              /* record */[
+                                                                                                                                /* name */"U. Morgan",
+                                                                                                                                /* canMatchWith */1,
+                                                                                                                                /* selectedNames : :: */[
+                                                                                                                                  /* tuple */[
+                                                                                                                                    "Sacred Heart Hospital",
+                                                                                                                                    1
+                                                                                                                                  ],
+                                                                                                                                  /* :: */[
+                                                                                                                                    /* tuple */[
+                                                                                                                                      "Eastman Medical",
+                                                                                                                                      2
+                                                                                                                                    ],
+                                                                                                                                    /* :: */[
+                                                                                                                                      /* tuple */[
+                                                                                                                                        "Princeton-Plainsboro",
+                                                                                                                                        3
+                                                                                                                                      ],
+                                                                                                                                      /* :: */[
+                                                                                                                                        /* tuple */[
+                                                                                                                                          "Gotham General",
+                                                                                                                                          4
+                                                                                                                                        ],
+                                                                                                                                        /* :: */[
+                                                                                                                                          /* tuple */[
+                                                                                                                                            "Frankenstein & Associates",
+                                                                                                                                            5
+                                                                                                                                          ],
+                                                                                                                                          /* :: */[
+                                                                                                                                            /* tuple */[
+                                                                                                                                              "Springfield General",
+                                                                                                                                              6
+                                                                                                                                            ],
+                                                                                                                                            /* :: */[
+                                                                                                                                              /* tuple */[
+                                                                                                                                                "St. Sebastian's Hospital",
+                                                                                                                                                7
+                                                                                                                                              ],
+                                                                                                                                              /* :: */[
+                                                                                                                                                /* tuple */[
+                                                                                                                                                  "Seattle Grace",
+                                                                                                                                                  8
+                                                                                                                                                ],
+                                                                                                                                                /* [] */0
+                                                                                                                                              ]
+                                                                                                                                            ]
+                                                                                                                                          ]
+                                                                                                                                        ]
+                                                                                                                                      ]
+                                                                                                                                    ]
+                                                                                                                                  ]
+                                                                                                                                ]
+                                                                                                                              ],
+                                                                                                                              /* :: */[
+                                                                                                                                /* record */[
+                                                                                                                                  /* name */"X. Martin",
+                                                                                                                                  /* canMatchWith */1,
+                                                                                                                                  /* selectedNames : :: */[
+                                                                                                                                    /* tuple */[
+                                                                                                                                      "Princeton-Plainsboro",
+                                                                                                                                      1
+                                                                                                                                    ],
+                                                                                                                                    /* :: */[
+                                                                                                                                      /* tuple */[
+                                                                                                                                        "Gotham General",
+                                                                                                                                        2
+                                                                                                                                      ],
+                                                                                                                                      /* :: */[
+                                                                                                                                        /* tuple */[
+                                                                                                                                          "Springfield General",
+                                                                                                                                          3
+                                                                                                                                        ],
+                                                                                                                                        /* :: */[
+                                                                                                                                          /* tuple */[
+                                                                                                                                            "St. Sebastian's Hospital",
+                                                                                                                                            4
+                                                                                                                                          ],
+                                                                                                                                          /* :: */[
+                                                                                                                                            /* tuple */[
+                                                                                                                                              "Eastman Medical",
+                                                                                                                                              5
+                                                                                                                                            ],
+                                                                                                                                            /* :: */[
+                                                                                                                                              /* tuple */[
+                                                                                                                                                "Sacred Heart Hospital",
+                                                                                                                                                6
+                                                                                                                                              ],
+                                                                                                                                              /* :: */[
+                                                                                                                                                /* tuple */[
+                                                                                                                                                  "Seattle Grace",
+                                                                                                                                                  7
+                                                                                                                                                ],
+                                                                                                                                                /* :: */[
+                                                                                                                                                  /* tuple */[
+                                                                                                                                                    "Frankenstein & Associates",
+                                                                                                                                                    8
+                                                                                                                                                  ],
+                                                                                                                                                  /* [] */0
+                                                                                                                                                ]
+                                                                                                                                              ]
+                                                                                                                                            ]
+                                                                                                                                          ]
+                                                                                                                                        ]
+                                                                                                                                      ]
+                                                                                                                                    ]
+                                                                                                                                  ]
+                                                                                                                                ],
+                                                                                                                                /* :: */[
+                                                                                                                                  /* record */[
+                                                                                                                                    /* name */"P. White",
+                                                                                                                                    /* canMatchWith */1,
+                                                                                                                                    /* selectedNames : :: */[
+                                                                                                                                      /* tuple */[
+                                                                                                                                        "Sacred Heart Hospital",
+                                                                                                                                        1
+                                                                                                                                      ],
+                                                                                                                                      /* :: */[
+                                                                                                                                        /* tuple */[
+                                                                                                                                          "Princeton-Plainsboro",
+                                                                                                                                          2
+                                                                                                                                        ],
+                                                                                                                                        /* :: */[
+                                                                                                                                          /* tuple */[
+                                                                                                                                            "Springfield General",
+                                                                                                                                            3
+                                                                                                                                          ],
+                                                                                                                                          /* :: */[
+                                                                                                                                            /* tuple */[
+                                                                                                                                              "Eastman Medical",
+                                                                                                                                              4
+                                                                                                                                            ],
+                                                                                                                                            /* :: */[
+                                                                                                                                              /* tuple */[
+                                                                                                                                                "Seattle Grace",
+                                                                                                                                                5
+                                                                                                                                              ],
+                                                                                                                                              /* :: */[
+                                                                                                                                                /* tuple */[
+                                                                                                                                                  "St. Sebastian's Hospital",
+                                                                                                                                                  6
+                                                                                                                                                ],
+                                                                                                                                                /* :: */[
+                                                                                                                                                  /* tuple */[
+                                                                                                                                                    "Frankenstein & Associates",
+                                                                                                                                                    7
+                                                                                                                                                  ],
+                                                                                                                                                  /* :: */[
+                                                                                                                                                    /* tuple */[
+                                                                                                                                                      "Gotham General",
+                                                                                                                                                      8
+                                                                                                                                                    ],
+                                                                                                                                                    /* [] */0
+                                                                                                                                                  ]
+                                                                                                                                                ]
+                                                                                                                                              ]
+                                                                                                                                            ]
+                                                                                                                                          ]
+                                                                                                                                        ]
+                                                                                                                                      ]
+                                                                                                                                    ]
+                                                                                                                                  ],
+                                                                                                                                  /* :: */[
+                                                                                                                                    /* record */[
+                                                                                                                                      /* name */"T. Allen",
+                                                                                                                                      /* canMatchWith */1,
+                                                                                                                                      /* selectedNames : :: */[
+                                                                                                                                        /* tuple */[
+                                                                                                                                          "Frankenstein & Associates",
+                                                                                                                                          1
+                                                                                                                                        ],
+                                                                                                                                        /* :: */[
+                                                                                                                                          /* tuple */[
+                                                                                                                                            "Princeton-Plainsboro",
+                                                                                                                                            2
+                                                                                                                                          ],
+                                                                                                                                          /* :: */[
+                                                                                                                                            /* tuple */[
+                                                                                                                                              "Seattle Grace",
+                                                                                                                                              3
+                                                                                                                                            ],
+                                                                                                                                            /* :: */[
+                                                                                                                                              /* tuple */[
+                                                                                                                                                "St. Sebastian's Hospital",
+                                                                                                                                                4
+                                                                                                                                              ],
+                                                                                                                                              /* :: */[
+                                                                                                                                                /* tuple */[
+                                                                                                                                                  "Springfield General",
+                                                                                                                                                  5
+                                                                                                                                                ],
+                                                                                                                                                /* :: */[
+                                                                                                                                                  /* tuple */[
+                                                                                                                                                    "Eastman Medical",
+                                                                                                                                                    6
+                                                                                                                                                  ],
+                                                                                                                                                  /* :: */[
+                                                                                                                                                    /* tuple */[
+                                                                                                                                                      "Sacred Heart Hospital",
+                                                                                                                                                      7
+                                                                                                                                                    ],
+                                                                                                                                                    /* :: */[
+                                                                                                                                                      /* tuple */[
+                                                                                                                                                        "Gotham General",
+                                                                                                                                                        8
+                                                                                                                                                      ],
+                                                                                                                                                      /* [] */0
+                                                                                                                                                    ]
+                                                                                                                                                  ]
+                                                                                                                                                ]
+                                                                                                                                              ]
+                                                                                                                                            ]
+                                                                                                                                          ]
+                                                                                                                                        ]
+                                                                                                                                      ]
+                                                                                                                                    ],
+                                                                                                                                    /* :: */[
+                                                                                                                                      /* record */[
+                                                                                                                                        /* name */"W. Powell",
+                                                                                                                                        /* canMatchWith */1,
+                                                                                                                                        /* selectedNames : :: */[
+                                                                                                                                          /* tuple */[
+                                                                                                                                            "St. Sebastian's Hospital",
+                                                                                                                                            1
+                                                                                                                                          ],
+                                                                                                                                          /* :: */[
+                                                                                                                                            /* tuple */[
+                                                                                                                                              "Gotham General",
+                                                                                                                                              2
+                                                                                                                                            ],
+                                                                                                                                            /* :: */[
+                                                                                                                                              /* tuple */[
+                                                                                                                                                "Frankenstein & Associates",
+                                                                                                                                                3
+                                                                                                                                              ],
+                                                                                                                                              /* :: */[
+                                                                                                                                                /* tuple */[
+                                                                                                                                                  "Sacred Heart Hospital",
+                                                                                                                                                  4
+                                                                                                                                                ],
+                                                                                                                                                /* :: */[
+                                                                                                                                                  /* tuple */[
+                                                                                                                                                    "Eastman Medical",
+                                                                                                                                                    5
+                                                                                                                                                  ],
+                                                                                                                                                  /* :: */[
+                                                                                                                                                    /* tuple */[
+                                                                                                                                                      "Seattle Grace",
+                                                                                                                                                      6
+                                                                                                                                                    ],
+                                                                                                                                                    /* :: */[
+                                                                                                                                                      /* tuple */[
+                                                                                                                                                        "Princeton-Plainsboro",
+                                                                                                                                                        7
+                                                                                                                                                      ],
+                                                                                                                                                      /* :: */[
+                                                                                                                                                        /* tuple */[
+                                                                                                                                                          "Springfield General",
+                                                                                                                                                          8
+                                                                                                                                                        ],
+                                                                                                                                                        /* [] */0
+                                                                                                                                                      ]
+                                                                                                                                                    ]
+                                                                                                                                                  ]
+                                                                                                                                                ]
+                                                                                                                                              ]
+                                                                                                                                            ]
+                                                                                                                                          ]
+                                                                                                                                        ]
+                                                                                                                                      ],
+                                                                                                                                      /* :: */[
+                                                                                                                                        /* record */[
+                                                                                                                                          /* name */"D. Gray",
+                                                                                                                                          /* canMatchWith */1,
+                                                                                                                                          /* selectedNames : :: */[
+                                                                                                                                            /* tuple */[
+                                                                                                                                              "St. Sebastian's Hospital",
+                                                                                                                                              1
+                                                                                                                                            ],
+                                                                                                                                            /* :: */[
+                                                                                                                                              /* tuple */[
+                                                                                                                                                "Princeton-Plainsboro",
+                                                                                                                                                2
+                                                                                                                                              ],
+                                                                                                                                              /* :: */[
+                                                                                                                                                /* tuple */[
+                                                                                                                                                  "Seattle Grace",
+                                                                                                                                                  3
+                                                                                                                                                ],
+                                                                                                                                                /* :: */[
+                                                                                                                                                  /* tuple */[
+                                                                                                                                                    "Frankenstein & Associates",
+                                                                                                                                                    4
+                                                                                                                                                  ],
+                                                                                                                                                  /* :: */[
+                                                                                                                                                    /* tuple */[
+                                                                                                                                                      "Eastman Medical",
+                                                                                                                                                      5
+                                                                                                                                                    ],
+                                                                                                                                                    /* :: */[
+                                                                                                                                                      /* tuple */[
+                                                                                                                                                        "Gotham General",
+                                                                                                                                                        6
+                                                                                                                                                      ],
+                                                                                                                                                      /* :: */[
+                                                                                                                                                        /* tuple */[
+                                                                                                                                                          "Sacred Heart Hospital",
+                                                                                                                                                          7
+                                                                                                                                                        ],
+                                                                                                                                                        /* :: */[
+                                                                                                                                                          /* tuple */[
+                                                                                                                                                            "Springfield General",
+                                                                                                                                                            8
+                                                                                                                                                          ],
+                                                                                                                                                          /* [] */0
+                                                                                                                                                        ]
+                                                                                                                                                      ]
+                                                                                                                                                    ]
+                                                                                                                                                  ]
+                                                                                                                                                ]
+                                                                                                                                              ]
+                                                                                                                                            ]
+                                                                                                                                          ]
+                                                                                                                                        ],
+                                                                                                                                        /* :: */[
+                                                                                                                                          /* record */[
+                                                                                                                                            /* name */"P. King",
+                                                                                                                                            /* canMatchWith */1,
+                                                                                                                                            /* selectedNames : :: */[
+                                                                                                                                              /* tuple */[
+                                                                                                                                                "St. Sebastian's Hospital",
+                                                                                                                                                1
+                                                                                                                                              ],
+                                                                                                                                              /* :: */[
+                                                                                                                                                /* tuple */[
+                                                                                                                                                  "Princeton-Plainsboro",
+                                                                                                                                                  2
+                                                                                                                                                ],
+                                                                                                                                                /* :: */[
+                                                                                                                                                  /* tuple */[
+                                                                                                                                                    "Gotham General",
+                                                                                                                                                    3
+                                                                                                                                                  ],
+                                                                                                                                                  /* :: */[
+                                                                                                                                                    /* tuple */[
+                                                                                                                                                      "Sacred Heart Hospital",
+                                                                                                                                                      4
+                                                                                                                                                    ],
+                                                                                                                                                    /* :: */[
+                                                                                                                                                      /* tuple */[
+                                                                                                                                                        "Eastman Medical",
+                                                                                                                                                        5
+                                                                                                                                                      ],
+                                                                                                                                                      /* :: */[
+                                                                                                                                                        /* tuple */[
+                                                                                                                                                          "Frankenstein & Associates",
+                                                                                                                                                          6
+                                                                                                                                                        ],
+                                                                                                                                                        /* :: */[
+                                                                                                                                                          /* tuple */[
+                                                                                                                                                            "Springfield General",
+                                                                                                                                                            7
+                                                                                                                                                          ],
+                                                                                                                                                          /* :: */[
+                                                                                                                                                            /* tuple */[
+                                                                                                                                                              "Seattle Grace",
+                                                                                                                                                              8
+                                                                                                                                                            ],
+                                                                                                                                                            /* [] */0
+                                                                                                                                                          ]
+                                                                                                                                                        ]
+                                                                                                                                                      ]
+                                                                                                                                                    ]
+                                                                                                                                                  ]
+                                                                                                                                                ]
+                                                                                                                                              ]
+                                                                                                                                            ]
+                                                                                                                                          ],
+                                                                                                                                          /* :: */[
+                                                                                                                                            /* record */[
+                                                                                                                                              /* name */"F. Smith",
+                                                                                                                                              /* canMatchWith */1,
+                                                                                                                                              /* selectedNames : :: */[
+                                                                                                                                                /* tuple */[
+                                                                                                                                                  "St. Sebastian's Hospital",
+                                                                                                                                                  1
+                                                                                                                                                ],
+                                                                                                                                                /* :: */[
+                                                                                                                                                  /* tuple */[
+                                                                                                                                                    "Frankenstein & Associates",
+                                                                                                                                                    2
+                                                                                                                                                  ],
+                                                                                                                                                  /* :: */[
+                                                                                                                                                    /* tuple */[
+                                                                                                                                                      "Gotham General",
+                                                                                                                                                      3
+                                                                                                                                                    ],
+                                                                                                                                                    /* :: */[
+                                                                                                                                                      /* tuple */[
+                                                                                                                                                        "Seattle Grace",
+                                                                                                                                                        4
+                                                                                                                                                      ],
+                                                                                                                                                      /* :: */[
+                                                                                                                                                        /* tuple */[
+                                                                                                                                                          "Princeton-Plainsboro",
+                                                                                                                                                          5
+                                                                                                                                                        ],
+                                                                                                                                                        /* :: */[
+                                                                                                                                                          /* tuple */[
+                                                                                                                                                            "Eastman Medical",
+                                                                                                                                                            6
+                                                                                                                                                          ],
+                                                                                                                                                          /* :: */[
+                                                                                                                                                            /* tuple */[
+                                                                                                                                                              "Sacred Heart Hospital",
+                                                                                                                                                              7
+                                                                                                                                                            ],
+                                                                                                                                                            /* :: */[
+                                                                                                                                                              /* tuple */[
+                                                                                                                                                                "Springfield General",
+                                                                                                                                                                8
+                                                                                                                                                              ],
+                                                                                                                                                              /* [] */0
+                                                                                                                                                            ]
+                                                                                                                                                          ]
+                                                                                                                                                        ]
+                                                                                                                                                      ]
+                                                                                                                                                    ]
+                                                                                                                                                  ]
+                                                                                                                                                ]
+                                                                                                                                              ]
+                                                                                                                                            ],
+                                                                                                                                            /* :: */[
+                                                                                                                                              /* record */[
+                                                                                                                                                /* name */"Q. Jones",
+                                                                                                                                                /* canMatchWith */1,
+                                                                                                                                                /* selectedNames : :: */[
+                                                                                                                                                  /* tuple */[
+                                                                                                                                                    "Eastman Medical",
+                                                                                                                                                    1
+                                                                                                                                                  ],
+                                                                                                                                                  /* :: */[
+                                                                                                                                                    /* tuple */[
+                                                                                                                                                      "Sacred Heart Hospital",
+                                                                                                                                                      2
+                                                                                                                                                    ],
+                                                                                                                                                    /* :: */[
+                                                                                                                                                      /* tuple */[
+                                                                                                                                                        "Springfield General",
+                                                                                                                                                        3
+                                                                                                                                                      ],
+                                                                                                                                                      /* :: */[
+                                                                                                                                                        /* tuple */[
+                                                                                                                                                          "St. Sebastian's Hospital",
+                                                                                                                                                          4
+                                                                                                                                                        ],
+                                                                                                                                                        /* :: */[
+                                                                                                                                                          /* tuple */[
+                                                                                                                                                            "Seattle Grace",
+                                                                                                                                                            5
+                                                                                                                                                          ],
+                                                                                                                                                          /* :: */[
+                                                                                                                                                            /* tuple */[
+                                                                                                                                                              "Princeton-Plainsboro",
+                                                                                                                                                              6
+                                                                                                                                                            ],
+                                                                                                                                                            /* :: */[
+                                                                                                                                                              /* tuple */[
+                                                                                                                                                                "Frankenstein & Associates",
+                                                                                                                                                                7
+                                                                                                                                                              ],
+                                                                                                                                                              /* :: */[
+                                                                                                                                                                /* tuple */[
+                                                                                                                                                                  "Gotham General",
+                                                                                                                                                                  8
+                                                                                                                                                                ],
+                                                                                                                                                                /* [] */0
+                                                                                                                                                              ]
+                                                                                                                                                            ]
+                                                                                                                                                          ]
+                                                                                                                                                        ]
+                                                                                                                                                      ]
+                                                                                                                                                    ]
+                                                                                                                                                  ]
+                                                                                                                                                ]
+                                                                                                                                              ],
+                                                                                                                                              /* :: */[
+                                                                                                                                                /* record */[
+                                                                                                                                                  /* name */"S. Bell",
+                                                                                                                                                  /* canMatchWith */1,
+                                                                                                                                                  /* selectedNames : :: */[
+                                                                                                                                                    /* tuple */[
+                                                                                                                                                      "Frankenstein & Associates",
+                                                                                                                                                      1
+                                                                                                                                                    ],
+                                                                                                                                                    /* :: */[
+                                                                                                                                                      /* tuple */[
+                                                                                                                                                        "Eastman Medical",
+                                                                                                                                                        2
+                                                                                                                                                      ],
+                                                                                                                                                      /* :: */[
+                                                                                                                                                        /* tuple */[
+                                                                                                                                                          "Gotham General",
+                                                                                                                                                          3
+                                                                                                                                                        ],
+                                                                                                                                                        /* :: */[
+                                                                                                                                                          /* tuple */[
+                                                                                                                                                            "St. Sebastian's Hospital",
+                                                                                                                                                            4
+                                                                                                                                                          ],
+                                                                                                                                                          /* :: */[
+                                                                                                                                                            /* tuple */[
+                                                                                                                                                              "Princeton-Plainsboro",
+                                                                                                                                                              5
+                                                                                                                                                            ],
+                                                                                                                                                            /* :: */[
+                                                                                                                                                              /* tuple */[
+                                                                                                                                                                "Sacred Heart Hospital",
+                                                                                                                                                                6
+                                                                                                                                                              ],
+                                                                                                                                                              /* :: */[
+                                                                                                                                                                /* tuple */[
+                                                                                                                                                                  "Springfield General",
+                                                                                                                                                                  7
+                                                                                                                                                                ],
+                                                                                                                                                                /* :: */[
+                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                    "Seattle Grace",
+                                                                                                                                                                    8
+                                                                                                                                                                  ],
+                                                                                                                                                                  /* [] */0
+                                                                                                                                                                ]
+                                                                                                                                                              ]
+                                                                                                                                                            ]
+                                                                                                                                                          ]
+                                                                                                                                                        ]
+                                                                                                                                                      ]
+                                                                                                                                                    ]
+                                                                                                                                                  ]
+                                                                                                                                                ],
+                                                                                                                                                /* :: */[
+                                                                                                                                                  /* record */[
+                                                                                                                                                    /* name */"K. Nelson",
+                                                                                                                                                    /* canMatchWith */1,
+                                                                                                                                                    /* selectedNames : :: */[
+                                                                                                                                                      /* tuple */[
+                                                                                                                                                        "Gotham General",
+                                                                                                                                                        1
+                                                                                                                                                      ],
+                                                                                                                                                      /* :: */[
+                                                                                                                                                        /* tuple */[
+                                                                                                                                                          "Seattle Grace",
+                                                                                                                                                          2
+                                                                                                                                                        ],
+                                                                                                                                                        /* :: */[
+                                                                                                                                                          /* tuple */[
+                                                                                                                                                            "Princeton-Plainsboro",
+                                                                                                                                                            3
+                                                                                                                                                          ],
+                                                                                                                                                          /* :: */[
+                                                                                                                                                            /* tuple */[
+                                                                                                                                                              "Sacred Heart Hospital",
+                                                                                                                                                              4
+                                                                                                                                                            ],
+                                                                                                                                                            /* :: */[
+                                                                                                                                                              /* tuple */[
+                                                                                                                                                                "Frankenstein & Associates",
+                                                                                                                                                                5
+                                                                                                                                                              ],
+                                                                                                                                                              /* :: */[
+                                                                                                                                                                /* tuple */[
+                                                                                                                                                                  "Springfield General",
+                                                                                                                                                                  6
+                                                                                                                                                                ],
+                                                                                                                                                                /* :: */[
+                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                    "Eastman Medical",
+                                                                                                                                                                    7
+                                                                                                                                                                  ],
+                                                                                                                                                                  /* :: */[
+                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                      "St. Sebastian's Hospital",
+                                                                                                                                                                      8
+                                                                                                                                                                    ],
+                                                                                                                                                                    /* [] */0
+                                                                                                                                                                  ]
+                                                                                                                                                                ]
+                                                                                                                                                              ]
+                                                                                                                                                            ]
+                                                                                                                                                          ]
+                                                                                                                                                        ]
+                                                                                                                                                      ]
+                                                                                                                                                    ]
+                                                                                                                                                  ],
+                                                                                                                                                  /* :: */[
+                                                                                                                                                    /* record */[
+                                                                                                                                                      /* name */"S. Davis",
+                                                                                                                                                      /* canMatchWith */1,
+                                                                                                                                                      /* selectedNames : :: */[
+                                                                                                                                                        /* tuple */[
+                                                                                                                                                          "Seattle Grace",
+                                                                                                                                                          1
+                                                                                                                                                        ],
+                                                                                                                                                        /* :: */[
+                                                                                                                                                          /* tuple */[
+                                                                                                                                                            "Frankenstein & Associates",
+                                                                                                                                                            2
+                                                                                                                                                          ],
+                                                                                                                                                          /* :: */[
+                                                                                                                                                            /* tuple */[
+                                                                                                                                                              "Springfield General",
+                                                                                                                                                              3
+                                                                                                                                                            ],
+                                                                                                                                                            /* :: */[
+                                                                                                                                                              /* tuple */[
+                                                                                                                                                                "Gotham General",
+                                                                                                                                                                4
+                                                                                                                                                              ],
+                                                                                                                                                              /* :: */[
+                                                                                                                                                                /* tuple */[
+                                                                                                                                                                  "Eastman Medical",
+                                                                                                                                                                  5
+                                                                                                                                                                ],
+                                                                                                                                                                /* :: */[
+                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                    "St. Sebastian's Hospital",
+                                                                                                                                                                    6
+                                                                                                                                                                  ],
+                                                                                                                                                                  /* :: */[
+                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                      "Sacred Heart Hospital",
+                                                                                                                                                                      7
+                                                                                                                                                                    ],
+                                                                                                                                                                    /* :: */[
+                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                        "Princeton-Plainsboro",
+                                                                                                                                                                        8
+                                                                                                                                                                      ],
+                                                                                                                                                                      /* [] */0
+                                                                                                                                                                    ]
+                                                                                                                                                                  ]
+                                                                                                                                                                ]
+                                                                                                                                                              ]
+                                                                                                                                                            ]
+                                                                                                                                                          ]
+                                                                                                                                                        ]
+                                                                                                                                                      ]
+                                                                                                                                                    ],
+                                                                                                                                                    /* :: */[
+                                                                                                                                                      /* record */[
+                                                                                                                                                        /* name */"R. Taylor",
+                                                                                                                                                        /* canMatchWith */1,
+                                                                                                                                                        /* selectedNames : :: */[
+                                                                                                                                                          /* tuple */[
+                                                                                                                                                            "Springfield General",
+                                                                                                                                                            1
+                                                                                                                                                          ],
+                                                                                                                                                          /* :: */[
+                                                                                                                                                            /* tuple */[
+                                                                                                                                                              "Frankenstein & Associates",
+                                                                                                                                                              2
+                                                                                                                                                            ],
+                                                                                                                                                            /* :: */[
+                                                                                                                                                              /* tuple */[
+                                                                                                                                                                "Gotham General",
+                                                                                                                                                                3
+                                                                                                                                                              ],
+                                                                                                                                                              /* :: */[
+                                                                                                                                                                /* tuple */[
+                                                                                                                                                                  "St. Sebastian's Hospital",
+                                                                                                                                                                  4
+                                                                                                                                                                ],
+                                                                                                                                                                /* :: */[
+                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                    "Eastman Medical",
+                                                                                                                                                                    5
+                                                                                                                                                                  ],
+                                                                                                                                                                  /* :: */[
+                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                      "Princeton-Plainsboro",
+                                                                                                                                                                      6
+                                                                                                                                                                    ],
+                                                                                                                                                                    /* :: */[
+                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                        "Seattle Grace",
+                                                                                                                                                                        7
+                                                                                                                                                                      ],
+                                                                                                                                                                      /* :: */[
+                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                          "Sacred Heart Hospital",
+                                                                                                                                                                          8
+                                                                                                                                                                        ],
+                                                                                                                                                                        /* [] */0
+                                                                                                                                                                      ]
+                                                                                                                                                                    ]
+                                                                                                                                                                  ]
+                                                                                                                                                                ]
+                                                                                                                                                              ]
+                                                                                                                                                            ]
+                                                                                                                                                          ]
+                                                                                                                                                        ]
+                                                                                                                                                      ],
+                                                                                                                                                      /* :: */[
+                                                                                                                                                        /* record */[
+                                                                                                                                                          /* name */"V. Edwards",
+                                                                                                                                                          /* canMatchWith */1,
+                                                                                                                                                          /* selectedNames : :: */[
+                                                                                                                                                            /* tuple */[
+                                                                                                                                                              "Princeton-Plainsboro",
+                                                                                                                                                              1
+                                                                                                                                                            ],
+                                                                                                                                                            /* :: */[
+                                                                                                                                                              /* tuple */[
+                                                                                                                                                                "St. Sebastian's Hospital",
+                                                                                                                                                                2
+                                                                                                                                                              ],
+                                                                                                                                                              /* :: */[
+                                                                                                                                                                /* tuple */[
+                                                                                                                                                                  "Springfield General",
+                                                                                                                                                                  3
+                                                                                                                                                                ],
+                                                                                                                                                                /* :: */[
+                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                    "Sacred Heart Hospital",
+                                                                                                                                                                    4
+                                                                                                                                                                  ],
+                                                                                                                                                                  /* :: */[
+                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                      "Frankenstein & Associates",
+                                                                                                                                                                      5
+                                                                                                                                                                    ],
+                                                                                                                                                                    /* :: */[
+                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                        "Eastman Medical",
+                                                                                                                                                                        6
+                                                                                                                                                                      ],
+                                                                                                                                                                      /* :: */[
+                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                          "Gotham General",
+                                                                                                                                                                          7
+                                                                                                                                                                        ],
+                                                                                                                                                                        /* :: */[
+                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                            "Seattle Grace",
+                                                                                                                                                                            8
+                                                                                                                                                                          ],
+                                                                                                                                                                          /* [] */0
+                                                                                                                                                                        ]
+                                                                                                                                                                      ]
+                                                                                                                                                                    ]
+                                                                                                                                                                  ]
+                                                                                                                                                                ]
+                                                                                                                                                              ]
+                                                                                                                                                            ]
+                                                                                                                                                          ]
+                                                                                                                                                        ],
+                                                                                                                                                        /* :: */[
+                                                                                                                                                          /* record */[
+                                                                                                                                                            /* name */"X. Jenkins",
+                                                                                                                                                            /* canMatchWith */1,
+                                                                                                                                                            /* selectedNames : :: */[
+                                                                                                                                                              /* tuple */[
+                                                                                                                                                                "Gotham General",
+                                                                                                                                                                1
+                                                                                                                                                              ],
+                                                                                                                                                              /* :: */[
+                                                                                                                                                                /* tuple */[
+                                                                                                                                                                  "Seattle Grace",
+                                                                                                                                                                  2
+                                                                                                                                                                ],
+                                                                                                                                                                /* :: */[
+                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                    "Princeton-Plainsboro",
+                                                                                                                                                                    3
+                                                                                                                                                                  ],
+                                                                                                                                                                  /* :: */[
+                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                      "Sacred Heart Hospital",
+                                                                                                                                                                      4
+                                                                                                                                                                    ],
+                                                                                                                                                                    /* :: */[
+                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                        "St. Sebastian's Hospital",
+                                                                                                                                                                        5
+                                                                                                                                                                      ],
+                                                                                                                                                                      /* :: */[
+                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                          "Frankenstein & Associates",
+                                                                                                                                                                          6
+                                                                                                                                                                        ],
+                                                                                                                                                                        /* :: */[
+                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                            "Eastman Medical",
+                                                                                                                                                                            7
+                                                                                                                                                                          ],
+                                                                                                                                                                          /* :: */[
+                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                              "Springfield General",
+                                                                                                                                                                              8
+                                                                                                                                                                            ],
+                                                                                                                                                                            /* [] */0
+                                                                                                                                                                          ]
+                                                                                                                                                                        ]
+                                                                                                                                                                      ]
+                                                                                                                                                                    ]
+                                                                                                                                                                  ]
+                                                                                                                                                                ]
+                                                                                                                                                              ]
+                                                                                                                                                            ]
+                                                                                                                                                          ],
+                                                                                                                                                          /* :: */[
+                                                                                                                                                            /* record */[
+                                                                                                                                                              /* name */"X. Walker",
+                                                                                                                                                              /* canMatchWith */1,
+                                                                                                                                                              /* selectedNames : :: */[
+                                                                                                                                                                /* tuple */[
+                                                                                                                                                                  "St. Sebastian's Hospital",
+                                                                                                                                                                  1
+                                                                                                                                                                ],
+                                                                                                                                                                /* :: */[
+                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                    "Seattle Grace",
+                                                                                                                                                                    2
+                                                                                                                                                                  ],
+                                                                                                                                                                  /* :: */[
+                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                      "Sacred Heart Hospital",
+                                                                                                                                                                      3
+                                                                                                                                                                    ],
+                                                                                                                                                                    /* :: */[
+                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                        "Gotham General",
+                                                                                                                                                                        4
+                                                                                                                                                                      ],
+                                                                                                                                                                      /* :: */[
+                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                          "Princeton-Plainsboro",
+                                                                                                                                                                          5
+                                                                                                                                                                        ],
+                                                                                                                                                                        /* :: */[
+                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                            "Eastman Medical",
+                                                                                                                                                                            6
+                                                                                                                                                                          ],
+                                                                                                                                                                          /* :: */[
+                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                              "Frankenstein & Associates",
+                                                                                                                                                                              7
+                                                                                                                                                                            ],
+                                                                                                                                                                            /* :: */[
+                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                "Springfield General",
+                                                                                                                                                                                8
+                                                                                                                                                                              ],
+                                                                                                                                                                              /* [] */0
+                                                                                                                                                                            ]
+                                                                                                                                                                          ]
+                                                                                                                                                                        ]
+                                                                                                                                                                      ]
+                                                                                                                                                                    ]
+                                                                                                                                                                  ]
+                                                                                                                                                                ]
+                                                                                                                                                              ]
+                                                                                                                                                            ],
+                                                                                                                                                            /* :: */[
+                                                                                                                                                              /* record */[
+                                                                                                                                                                /* name */"F. Lopez",
+                                                                                                                                                                /* canMatchWith */1,
+                                                                                                                                                                /* selectedNames : :: */[
+                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                    "Princeton-Plainsboro",
+                                                                                                                                                                    1
+                                                                                                                                                                  ],
+                                                                                                                                                                  /* :: */[
+                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                      "Sacred Heart Hospital",
+                                                                                                                                                                      2
+                                                                                                                                                                    ],
+                                                                                                                                                                    /* :: */[
+                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                        "Frankenstein & Associates",
+                                                                                                                                                                        3
+                                                                                                                                                                      ],
+                                                                                                                                                                      /* :: */[
+                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                          "Seattle Grace",
+                                                                                                                                                                          4
+                                                                                                                                                                        ],
+                                                                                                                                                                        /* :: */[
+                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                            "Springfield General",
+                                                                                                                                                                            5
+                                                                                                                                                                          ],
+                                                                                                                                                                          /* :: */[
+                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                              "Gotham General",
+                                                                                                                                                                              6
+                                                                                                                                                                            ],
+                                                                                                                                                                            /* :: */[
+                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                "St. Sebastian's Hospital",
+                                                                                                                                                                                7
+                                                                                                                                                                              ],
+                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                  "Eastman Medical",
+                                                                                                                                                                                  8
+                                                                                                                                                                                ],
+                                                                                                                                                                                /* [] */0
+                                                                                                                                                                              ]
+                                                                                                                                                                            ]
+                                                                                                                                                                          ]
+                                                                                                                                                                        ]
+                                                                                                                                                                      ]
+                                                                                                                                                                    ]
+                                                                                                                                                                  ]
+                                                                                                                                                                ]
+                                                                                                                                                              ],
+                                                                                                                                                              /* :: */[
+                                                                                                                                                                /* record */[
+                                                                                                                                                                  /* name */"V. Perez",
+                                                                                                                                                                  /* canMatchWith */1,
+                                                                                                                                                                  /* selectedNames : :: */[
+                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                      "Seattle Grace",
+                                                                                                                                                                      1
+                                                                                                                                                                    ],
+                                                                                                                                                                    /* :: */[
+                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                        "Sacred Heart Hospital",
+                                                                                                                                                                        2
+                                                                                                                                                                      ],
+                                                                                                                                                                      /* :: */[
+                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                          "Gotham General",
+                                                                                                                                                                          3
+                                                                                                                                                                        ],
+                                                                                                                                                                        /* :: */[
+                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                            "Frankenstein & Associates",
+                                                                                                                                                                            4
+                                                                                                                                                                          ],
+                                                                                                                                                                          /* :: */[
+                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                              "Princeton-Plainsboro",
+                                                                                                                                                                              5
+                                                                                                                                                                            ],
+                                                                                                                                                                            /* :: */[
+                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                "St. Sebastian's Hospital",
+                                                                                                                                                                                6
+                                                                                                                                                                              ],
+                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                  "Eastman Medical",
+                                                                                                                                                                                  7
+                                                                                                                                                                                ],
+                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                    "Springfield General",
+                                                                                                                                                                                    8
+                                                                                                                                                                                  ],
+                                                                                                                                                                                  /* [] */0
+                                                                                                                                                                                ]
+                                                                                                                                                                              ]
+                                                                                                                                                                            ]
+                                                                                                                                                                          ]
+                                                                                                                                                                        ]
+                                                                                                                                                                      ]
+                                                                                                                                                                    ]
+                                                                                                                                                                  ]
+                                                                                                                                                                ],
+                                                                                                                                                                /* :: */[
+                                                                                                                                                                  /* record */[
+                                                                                                                                                                    /* name */"M. Lewis",
+                                                                                                                                                                    /* canMatchWith */1,
+                                                                                                                                                                    /* selectedNames : :: */[
+                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                        "St. Sebastian's Hospital",
+                                                                                                                                                                        1
+                                                                                                                                                                      ],
+                                                                                                                                                                      /* :: */[
+                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                          "Princeton-Plainsboro",
+                                                                                                                                                                          2
+                                                                                                                                                                        ],
+                                                                                                                                                                        /* :: */[
+                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                            "Frankenstein & Associates",
+                                                                                                                                                                            3
+                                                                                                                                                                          ],
+                                                                                                                                                                          /* :: */[
+                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                              "Springfield General",
+                                                                                                                                                                              4
+                                                                                                                                                                            ],
+                                                                                                                                                                            /* :: */[
+                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                "Eastman Medical",
+                                                                                                                                                                                5
+                                                                                                                                                                              ],
+                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                  "Gotham General",
+                                                                                                                                                                                  6
+                                                                                                                                                                                ],
+                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                    "Seattle Grace",
+                                                                                                                                                                                    7
+                                                                                                                                                                                  ],
+                                                                                                                                                                                  /* :: */[
+                                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                                      "Sacred Heart Hospital",
+                                                                                                                                                                                      8
+                                                                                                                                                                                    ],
+                                                                                                                                                                                    /* [] */0
+                                                                                                                                                                                  ]
+                                                                                                                                                                                ]
+                                                                                                                                                                              ]
+                                                                                                                                                                            ]
+                                                                                                                                                                          ]
+                                                                                                                                                                        ]
+                                                                                                                                                                      ]
+                                                                                                                                                                    ]
+                                                                                                                                                                  ],
+                                                                                                                                                                  /* :: */[
+                                                                                                                                                                    /* record */[
+                                                                                                                                                                      /* name */"O. Thompson",
+                                                                                                                                                                      /* canMatchWith */1,
+                                                                                                                                                                      /* selectedNames : :: */[
+                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                          "Frankenstein & Associates",
+                                                                                                                                                                          1
+                                                                                                                                                                        ],
+                                                                                                                                                                        /* :: */[
+                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                            "St. Sebastian's Hospital",
+                                                                                                                                                                            2
+                                                                                                                                                                          ],
+                                                                                                                                                                          /* :: */[
+                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                              "Sacred Heart Hospital",
+                                                                                                                                                                              3
+                                                                                                                                                                            ],
+                                                                                                                                                                            /* :: */[
+                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                "Gotham General",
+                                                                                                                                                                                4
+                                                                                                                                                                              ],
+                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                  "Springfield General",
+                                                                                                                                                                                  5
+                                                                                                                                                                                ],
+                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                    "Seattle Grace",
+                                                                                                                                                                                    6
+                                                                                                                                                                                  ],
+                                                                                                                                                                                  /* :: */[
+                                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                                      "Eastman Medical",
+                                                                                                                                                                                      7
+                                                                                                                                                                                    ],
+                                                                                                                                                                                    /* :: */[
+                                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                                        "Princeton-Plainsboro",
+                                                                                                                                                                                        8
+                                                                                                                                                                                      ],
+                                                                                                                                                                                      /* [] */0
+                                                                                                                                                                                    ]
+                                                                                                                                                                                  ]
+                                                                                                                                                                                ]
+                                                                                                                                                                              ]
+                                                                                                                                                                            ]
+                                                                                                                                                                          ]
+                                                                                                                                                                        ]
+                                                                                                                                                                      ]
+                                                                                                                                                                    ],
+                                                                                                                                                                    /* :: */[
+                                                                                                                                                                      /* record */[
+                                                                                                                                                                        /* name */"W. Thomas",
+                                                                                                                                                                        /* canMatchWith */1,
+                                                                                                                                                                        /* selectedNames : :: */[
+                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                            "Frankenstein & Associates",
+                                                                                                                                                                            1
+                                                                                                                                                                          ],
+                                                                                                                                                                          /* :: */[
+                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                              "Seattle Grace",
+                                                                                                                                                                              2
+                                                                                                                                                                            ],
+                                                                                                                                                                            /* :: */[
+                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                "Gotham General",
+                                                                                                                                                                                3
+                                                                                                                                                                              ],
+                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                  "Springfield General",
+                                                                                                                                                                                  4
+                                                                                                                                                                                ],
+                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                    "St. Sebastian's Hospital",
+                                                                                                                                                                                    5
+                                                                                                                                                                                  ],
+                                                                                                                                                                                  /* :: */[
+                                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                                      "Princeton-Plainsboro",
+                                                                                                                                                                                      6
+                                                                                                                                                                                    ],
+                                                                                                                                                                                    /* :: */[
+                                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                                        "Eastman Medical",
+                                                                                                                                                                                        7
+                                                                                                                                                                                      ],
+                                                                                                                                                                                      /* :: */[
+                                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                                          "Sacred Heart Hospital",
+                                                                                                                                                                                          8
+                                                                                                                                                                                        ],
+                                                                                                                                                                                        /* [] */0
+                                                                                                                                                                                      ]
+                                                                                                                                                                                    ]
+                                                                                                                                                                                  ]
+                                                                                                                                                                                ]
+                                                                                                                                                                              ]
+                                                                                                                                                                            ]
+                                                                                                                                                                          ]
+                                                                                                                                                                        ]
+                                                                                                                                                                      ],
+                                                                                                                                                                      /* :: */[
+                                                                                                                                                                        /* record */[
+                                                                                                                                                                          /* name */"Z. Price",
+                                                                                                                                                                          /* canMatchWith */1,
+                                                                                                                                                                          /* selectedNames : :: */[
+                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                              "Springfield General",
+                                                                                                                                                                              1
+                                                                                                                                                                            ],
+                                                                                                                                                                            /* :: */[
+                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                "Sacred Heart Hospital",
+                                                                                                                                                                                2
+                                                                                                                                                                              ],
+                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                  "Princeton-Plainsboro",
+                                                                                                                                                                                  3
+                                                                                                                                                                                ],
+                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                    "Gotham General",
+                                                                                                                                                                                    4
+                                                                                                                                                                                  ],
+                                                                                                                                                                                  /* :: */[
+                                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                                      "St. Sebastian's Hospital",
+                                                                                                                                                                                      5
+                                                                                                                                                                                    ],
+                                                                                                                                                                                    /* :: */[
+                                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                                        "Seattle Grace",
+                                                                                                                                                                                        6
+                                                                                                                                                                                      ],
+                                                                                                                                                                                      /* :: */[
+                                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                                          "Eastman Medical",
+                                                                                                                                                                                          7
+                                                                                                                                                                                        ],
+                                                                                                                                                                                        /* :: */[
+                                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                                            "Frankenstein & Associates",
+                                                                                                                                                                                            8
+                                                                                                                                                                                          ],
+                                                                                                                                                                                          /* [] */0
+                                                                                                                                                                                        ]
+                                                                                                                                                                                      ]
+                                                                                                                                                                                    ]
+                                                                                                                                                                                  ]
+                                                                                                                                                                                ]
+                                                                                                                                                                              ]
+                                                                                                                                                                            ]
+                                                                                                                                                                          ]
+                                                                                                                                                                        ],
+                                                                                                                                                                        /* :: */[
+                                                                                                                                                                          /* record */[
+                                                                                                                                                                            /* name */"F. Mitchell",
+                                                                                                                                                                            /* canMatchWith */1,
+                                                                                                                                                                            /* selectedNames : :: */[
+                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                "Princeton-Plainsboro",
+                                                                                                                                                                                1
+                                                                                                                                                                              ],
+                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                  "Springfield General",
+                                                                                                                                                                                  2
+                                                                                                                                                                                ],
+                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                    "Gotham General",
+                                                                                                                                                                                    3
+                                                                                                                                                                                  ],
+                                                                                                                                                                                  /* :: */[
+                                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                                      "Frankenstein & Associates",
+                                                                                                                                                                                      4
+                                                                                                                                                                                    ],
+                                                                                                                                                                                    /* :: */[
+                                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                                        "Eastman Medical",
+                                                                                                                                                                                        5
+                                                                                                                                                                                      ],
+                                                                                                                                                                                      /* :: */[
+                                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                                          "Seattle Grace",
+                                                                                                                                                                                          6
+                                                                                                                                                                                        ],
+                                                                                                                                                                                        /* :: */[
+                                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                                            "Sacred Heart Hospital",
+                                                                                                                                                                                            7
+                                                                                                                                                                                          ],
+                                                                                                                                                                                          /* :: */[
+                                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                                              "St. Sebastian's Hospital",
+                                                                                                                                                                                              8
+                                                                                                                                                                                            ],
+                                                                                                                                                                                            /* [] */0
+                                                                                                                                                                                          ]
+                                                                                                                                                                                        ]
+                                                                                                                                                                                      ]
+                                                                                                                                                                                    ]
+                                                                                                                                                                                  ]
+                                                                                                                                                                                ]
+                                                                                                                                                                              ]
+                                                                                                                                                                            ]
+                                                                                                                                                                          ],
+                                                                                                                                                                          /* :: */[
+                                                                                                                                                                            /* record */[
+                                                                                                                                                                              /* name */"O. Sanchez",
+                                                                                                                                                                              /* canMatchWith */1,
+                                                                                                                                                                              /* selectedNames : :: */[
+                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                  "St. Sebastian's Hospital",
+                                                                                                                                                                                  1
+                                                                                                                                                                                ],
+                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                    "Princeton-Plainsboro",
+                                                                                                                                                                                    2
+                                                                                                                                                                                  ],
+                                                                                                                                                                                  /* :: */[
+                                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                                      "Seattle Grace",
+                                                                                                                                                                                      3
+                                                                                                                                                                                    ],
+                                                                                                                                                                                    /* :: */[
+                                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                                        "Frankenstein & Associates",
+                                                                                                                                                                                        4
+                                                                                                                                                                                      ],
+                                                                                                                                                                                      /* :: */[
+                                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                                          "Gotham General",
+                                                                                                                                                                                          5
+                                                                                                                                                                                        ],
+                                                                                                                                                                                        /* :: */[
+                                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                                            "Sacred Heart Hospital",
+                                                                                                                                                                                            6
+                                                                                                                                                                                          ],
+                                                                                                                                                                                          /* :: */[
+                                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                                              "Springfield General",
+                                                                                                                                                                                              7
+                                                                                                                                                                                            ],
+                                                                                                                                                                                            /* :: */[
+                                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                                "Eastman Medical",
+                                                                                                                                                                                                8
+                                                                                                                                                                                              ],
+                                                                                                                                                                                              /* [] */0
+                                                                                                                                                                                            ]
+                                                                                                                                                                                          ]
+                                                                                                                                                                                        ]
+                                                                                                                                                                                      ]
+                                                                                                                                                                                    ]
+                                                                                                                                                                                  ]
+                                                                                                                                                                                ]
+                                                                                                                                                                              ]
+                                                                                                                                                                            ],
+                                                                                                                                                                            /* :: */[
+                                                                                                                                                                              /* record */[
+                                                                                                                                                                                /* name */"H. Barrett",
+                                                                                                                                                                                /* canMatchWith */1,
+                                                                                                                                                                                /* selectedNames : :: */[
+                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                    "Eastman Medical",
+                                                                                                                                                                                    1
+                                                                                                                                                                                  ],
+                                                                                                                                                                                  /* :: */[
+                                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                                      "Frankenstein & Associates",
+                                                                                                                                                                                      2
+                                                                                                                                                                                    ],
+                                                                                                                                                                                    /* :: */[
+                                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                                        "Gotham General",
+                                                                                                                                                                                        3
+                                                                                                                                                                                      ],
+                                                                                                                                                                                      /* :: */[
+                                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                                          "Seattle Grace",
+                                                                                                                                                                                          4
+                                                                                                                                                                                        ],
+                                                                                                                                                                                        /* :: */[
+                                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                                            "Springfield General",
+                                                                                                                                                                                            5
+                                                                                                                                                                                          ],
+                                                                                                                                                                                          /* :: */[
+                                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                                              "St. Sebastian's Hospital",
+                                                                                                                                                                                              6
+                                                                                                                                                                                            ],
+                                                                                                                                                                                            /* :: */[
+                                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                                "Princeton-Plainsboro",
+                                                                                                                                                                                                7
+                                                                                                                                                                                              ],
+                                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                                  "Sacred Heart Hospital",
+                                                                                                                                                                                                  8
+                                                                                                                                                                                                ],
+                                                                                                                                                                                                /* [] */0
+                                                                                                                                                                                              ]
+                                                                                                                                                                                            ]
+                                                                                                                                                                                          ]
+                                                                                                                                                                                        ]
+                                                                                                                                                                                      ]
+                                                                                                                                                                                    ]
+                                                                                                                                                                                  ]
+                                                                                                                                                                                ]
+                                                                                                                                                                              ],
+                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                /* record */[
+                                                                                                                                                                                  /* name */"G. Cohen",
+                                                                                                                                                                                  /* canMatchWith */1,
+                                                                                                                                                                                  /* selectedNames : :: */[
+                                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                                      "Springfield General",
+                                                                                                                                                                                      1
+                                                                                                                                                                                    ],
+                                                                                                                                                                                    /* :: */[
+                                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                                        "Princeton-Plainsboro",
+                                                                                                                                                                                        2
+                                                                                                                                                                                      ],
+                                                                                                                                                                                      /* :: */[
+                                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                                          "Gotham General",
+                                                                                                                                                                                          3
+                                                                                                                                                                                        ],
+                                                                                                                                                                                        /* :: */[
+                                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                                            "Frankenstein & Associates",
+                                                                                                                                                                                            4
+                                                                                                                                                                                          ],
+                                                                                                                                                                                          /* :: */[
+                                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                                              "St. Sebastian's Hospital",
+                                                                                                                                                                                              5
+                                                                                                                                                                                            ],
+                                                                                                                                                                                            /* :: */[
+                                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                                "Eastman Medical",
+                                                                                                                                                                                                6
+                                                                                                                                                                                              ],
+                                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                                  "Sacred Heart Hospital",
+                                                                                                                                                                                                  7
+                                                                                                                                                                                                ],
+                                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                                    "Seattle Grace",
+                                                                                                                                                                                                    8
+                                                                                                                                                                                                  ],
+                                                                                                                                                                                                  /* [] */0
+                                                                                                                                                                                                ]
+                                                                                                                                                                                              ]
+                                                                                                                                                                                            ]
+                                                                                                                                                                                          ]
+                                                                                                                                                                                        ]
+                                                                                                                                                                                      ]
+                                                                                                                                                                                    ]
+                                                                                                                                                                                  ]
+                                                                                                                                                                                ],
+                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                  /* record */[
+                                                                                                                                                                                    /* name */"Y. Conrad",
+                                                                                                                                                                                    /* canMatchWith */1,
+                                                                                                                                                                                    /* selectedNames : :: */[
+                                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                                        "Seattle Grace",
+                                                                                                                                                                                        1
+                                                                                                                                                                                      ],
+                                                                                                                                                                                      /* :: */[
+                                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                                          "Sacred Heart Hospital",
+                                                                                                                                                                                          2
+                                                                                                                                                                                        ],
+                                                                                                                                                                                        /* :: */[
+                                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                                            "Eastman Medical",
+                                                                                                                                                                                            3
+                                                                                                                                                                                          ],
+                                                                                                                                                                                          /* :: */[
+                                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                                              "St. Sebastian's Hospital",
+                                                                                                                                                                                              4
+                                                                                                                                                                                            ],
+                                                                                                                                                                                            /* :: */[
+                                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                                "Springfield General",
+                                                                                                                                                                                                5
+                                                                                                                                                                                              ],
+                                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                                  "Frankenstein & Associates",
+                                                                                                                                                                                                  6
+                                                                                                                                                                                                ],
+                                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                                    "Gotham General",
+                                                                                                                                                                                                    7
+                                                                                                                                                                                                  ],
+                                                                                                                                                                                                  /* :: */[
+                                                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                                                      "Princeton-Plainsboro",
+                                                                                                                                                                                                      8
+                                                                                                                                                                                                    ],
+                                                                                                                                                                                                    /* [] */0
+                                                                                                                                                                                                  ]
+                                                                                                                                                                                                ]
+                                                                                                                                                                                              ]
+                                                                                                                                                                                            ]
+                                                                                                                                                                                          ]
+                                                                                                                                                                                        ]
+                                                                                                                                                                                      ]
+                                                                                                                                                                                    ]
+                                                                                                                                                                                  ],
+                                                                                                                                                                                  /* :: */[
+                                                                                                                                                                                    /* record */[
+                                                                                                                                                                                      /* name */"V. Kaye",
+                                                                                                                                                                                      /* canMatchWith */1,
+                                                                                                                                                                                      /* selectedNames : :: */[
+                                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                                          "Springfield General",
+                                                                                                                                                                                          1
+                                                                                                                                                                                        ],
+                                                                                                                                                                                        /* :: */[
+                                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                                            "Sacred Heart Hospital",
+                                                                                                                                                                                            2
+                                                                                                                                                                                          ],
+                                                                                                                                                                                          /* :: */[
+                                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                                              "St. Sebastian's Hospital",
+                                                                                                                                                                                              3
+                                                                                                                                                                                            ],
+                                                                                                                                                                                            /* :: */[
+                                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                                "Eastman Medical",
+                                                                                                                                                                                                4
+                                                                                                                                                                                              ],
+                                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                                  "Gotham General",
+                                                                                                                                                                                                  5
+                                                                                                                                                                                                ],
+                                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                                    "Princeton-Plainsboro",
+                                                                                                                                                                                                    6
+                                                                                                                                                                                                  ],
+                                                                                                                                                                                                  /* :: */[
+                                                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                                                      "Frankenstein & Associates",
+                                                                                                                                                                                                      7
+                                                                                                                                                                                                    ],
+                                                                                                                                                                                                    /* :: */[
+                                                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                                                        "Seattle Grace",
+                                                                                                                                                                                                        8
+                                                                                                                                                                                                      ],
+                                                                                                                                                                                                      /* [] */0
+                                                                                                                                                                                                    ]
+                                                                                                                                                                                                  ]
+                                                                                                                                                                                                ]
+                                                                                                                                                                                              ]
+                                                                                                                                                                                            ]
+                                                                                                                                                                                          ]
+                                                                                                                                                                                        ]
+                                                                                                                                                                                      ]
+                                                                                                                                                                                    ],
+                                                                                                                                                                                    /* :: */[
+                                                                                                                                                                                      /* record */[
+                                                                                                                                                                                        /* name */"L. Tanner",
+                                                                                                                                                                                        /* canMatchWith */1,
+                                                                                                                                                                                        /* selectedNames : :: */[
+                                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                                            "Sacred Heart Hospital",
+                                                                                                                                                                                            1
+                                                                                                                                                                                          ],
+                                                                                                                                                                                          /* :: */[
+                                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                                              "Springfield General",
+                                                                                                                                                                                              2
+                                                                                                                                                                                            ],
+                                                                                                                                                                                            /* :: */[
+                                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                                "St. Sebastian's Hospital",
+                                                                                                                                                                                                3
+                                                                                                                                                                                              ],
+                                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                                  "Gotham General",
+                                                                                                                                                                                                  4
+                                                                                                                                                                                                ],
+                                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                                    "Princeton-Plainsboro",
+                                                                                                                                                                                                    5
+                                                                                                                                                                                                  ],
+                                                                                                                                                                                                  /* :: */[
+                                                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                                                      "Eastman Medical",
+                                                                                                                                                                                                      6
+                                                                                                                                                                                                    ],
+                                                                                                                                                                                                    /* :: */[
+                                                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                                                        "Seattle Grace",
+                                                                                                                                                                                                        7
+                                                                                                                                                                                                      ],
+                                                                                                                                                                                                      /* :: */[
+                                                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                                                          "Frankenstein & Associates",
+                                                                                                                                                                                                          8
+                                                                                                                                                                                                        ],
+                                                                                                                                                                                                        /* [] */0
+                                                                                                                                                                                                      ]
+                                                                                                                                                                                                    ]
+                                                                                                                                                                                                  ]
+                                                                                                                                                                                                ]
+                                                                                                                                                                                              ]
+                                                                                                                                                                                            ]
+                                                                                                                                                                                          ]
+                                                                                                                                                                                        ]
+                                                                                                                                                                                      ],
+                                                                                                                                                                                      /* :: */[
+                                                                                                                                                                                        /* record */[
+                                                                                                                                                                                          /* name */"Q. Eddy",
+                                                                                                                                                                                          /* canMatchWith */1,
+                                                                                                                                                                                          /* selectedNames : :: */[
+                                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                                              "Frankenstein & Associates",
+                                                                                                                                                                                              1
+                                                                                                                                                                                            ],
+                                                                                                                                                                                            /* :: */[
+                                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                                "Eastman Medical",
+                                                                                                                                                                                                2
+                                                                                                                                                                                              ],
+                                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                                  "Seattle Grace",
+                                                                                                                                                                                                  3
+                                                                                                                                                                                                ],
+                                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                                    "Springfield General",
+                                                                                                                                                                                                    4
+                                                                                                                                                                                                  ],
+                                                                                                                                                                                                  /* :: */[
+                                                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                                                      "Sacred Heart Hospital",
+                                                                                                                                                                                                      5
+                                                                                                                                                                                                    ],
+                                                                                                                                                                                                    /* :: */[
+                                                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                                                        "Princeton-Plainsboro",
+                                                                                                                                                                                                        6
+                                                                                                                                                                                                      ],
+                                                                                                                                                                                                      /* :: */[
+                                                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                                                          "Gotham General",
+                                                                                                                                                                                                          7
+                                                                                                                                                                                                        ],
+                                                                                                                                                                                                        /* :: */[
+                                                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                                                            "St. Sebastian's Hospital",
+                                                                                                                                                                                                            8
+                                                                                                                                                                                                          ],
+                                                                                                                                                                                                          /* [] */0
+                                                                                                                                                                                                        ]
+                                                                                                                                                                                                      ]
+                                                                                                                                                                                                    ]
+                                                                                                                                                                                                  ]
+                                                                                                                                                                                                ]
+                                                                                                                                                                                              ]
+                                                                                                                                                                                            ]
+                                                                                                                                                                                          ]
+                                                                                                                                                                                        ],
+                                                                                                                                                                                        /* :: */[
+                                                                                                                                                                                          /* record */[
+                                                                                                                                                                                            /* name */"T. Rodger",
+                                                                                                                                                                                            /* canMatchWith */1,
+                                                                                                                                                                                            /* selectedNames : :: */[
+                                                                                                                                                                                              /* tuple */[
+                                                                                                                                                                                                "Frankenstein & Associates",
+                                                                                                                                                                                                1
+                                                                                                                                                                                              ],
+                                                                                                                                                                                              /* :: */[
+                                                                                                                                                                                                /* tuple */[
+                                                                                                                                                                                                  "St. Sebastian's Hospital",
+                                                                                                                                                                                                  2
+                                                                                                                                                                                                ],
+                                                                                                                                                                                                /* :: */[
+                                                                                                                                                                                                  /* tuple */[
+                                                                                                                                                                                                    "Princeton-Plainsboro",
+                                                                                                                                                                                                    3
+                                                                                                                                                                                                  ],
+                                                                                                                                                                                                  /* :: */[
+                                                                                                                                                                                                    /* tuple */[
+                                                                                                                                                                                                      "Springfield General",
+                                                                                                                                                                                                      4
+                                                                                                                                                                                                    ],
+                                                                                                                                                                                                    /* :: */[
+                                                                                                                                                                                                      /* tuple */[
+                                                                                                                                                                                                        "Seattle Grace",
+                                                                                                                                                                                                        5
+                                                                                                                                                                                                      ],
+                                                                                                                                                                                                      /* :: */[
+                                                                                                                                                                                                        /* tuple */[
+                                                                                                                                                                                                          "Eastman Medical",
+                                                                                                                                                                                                          6
+                                                                                                                                                                                                        ],
+                                                                                                                                                                                                        /* :: */[
+                                                                                                                                                                                                          /* tuple */[
+                                                                                                                                                                                                            "Gotham General",
+                                                                                                                                                                                                            7
+                                                                                                                                                                                                          ],
+                                                                                                                                                                                                          /* :: */[
+                                                                                                                                                                                                            /* tuple */[
+                                                                                                                                                                                                              "Sacred Heart Hospital",
+                                                                                                                                                                                                              8
+                                                                                                                                                                                                            ],
+                                                                                                                                                                                                            /* [] */0
+                                                                                                                                                                                                          ]
+                                                                                                                                                                                                        ]
+                                                                                                                                                                                                      ]
+                                                                                                                                                                                                    ]
+                                                                                                                                                                                                  ]
+                                                                                                                                                                                                ]
+                                                                                                                                                                                              ]
+                                                                                                                                                                                            ]
+                                                                                                                                                                                          ],
+                                                                                                                                                                                          /* [] */0
+                                                                                                                                                                                        ]
+                                                                                                                                                                                      ]
+                                                                                                                                                                                    ]
+                                                                                                                                                                                  ]
+                                                                                                                                                                                ]
+                                                                                                                                                                              ]
+                                                                                                                                                                            ]
+                                                                                                                                                                          ]
+                                                                                                                                                                        ]
+                                                                                                                                                                      ]
+                                                                                                                                                                    ]
+                                                                                                                                                                  ]
+                                                                                                                                                                ]
+                                                                                                                                                              ]
+                                                                                                                                                            ]
+                                                                                                                                                          ]
+                                                                                                                                                        ]
+                                                                                                                                                      ]
+                                                                                                                                                    ]
+                                                                                                                                                  ]
+                                                                                                                                                ]
+                                                                                                                                              ]
+                                                                                                                                            ]
+                                                                                                                                          ]
+                                                                                                                                        ]
+                                                                                                                                      ]
+                                                                                                                                    ]
+                                                                                                                                  ]
+                                                                                                                                ]
+                                                                                                                              ]
+                                                                                                                            ]
+                                                                                                                          ]
+                                                                                                                        ]
+                                                                                                                      ]
+                                                                                                                    ]
+                                                                                                                  ]
+                                                                                                                ]
+                                                                                                              ]
+                                                                                                            ]
+                                                                                                          ]
+                                                                                                        ]
+                                                                                                      ]
+                                                                                                    ]
+                                                                                                  ]
+                                                                                                ]
+                                                                                              ]
+                                                                                            ]
+                                                                                          ]
+                                                                                        ]
+                                                                                      ]
+                                                                                    ]
+                                                                                  ]
+                                                                                ]
+                                                                              ]
+                                                                            ]
+                                                                          ]
+                                                                        ]
+                                                                      ]
+                                                                    ]
+                                                                  ]
+                                                                ]
+                                                              ]
+                                                            ]
+                                                          ]
+                                                        ]
+                                                      ]
+                                                    ]
+                                                  ]
+                                                ]
+                                              ]
+                                            ]
+                                          ]
+                                        ]
+                                      ]
+                                    ]
+                                  ]
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+];
+
+var hospitals = /* :: */[
+  /* record */[
+    /* name */"Gotham General",
+    /* canMatchWith */23,
+    /* selectedNames : [] */0
+  ],
+  /* :: */[
+    /* record */[
+      /* name */"Sacred Heart Hospital",
+      /* canMatchWith */18,
+      /* selectedNames : [] */0
+    ],
+    /* :: */[
+      /* record */[
+        /* name */"Eastman Medical",
+        /* canMatchWith */16,
+        /* selectedNames : [] */0
+      ],
+      /* :: */[
+        /* record */[
+          /* name */"Princeton-Plainsboro",
+          /* canMatchWith */15,
+          /* selectedNames : [] */0
+        ],
+        /* :: */[
+          /* record */[
+            /* name */"Frankenstein & Associates",
+            /* canMatchWith */4,
+            /* selectedNames : [] */0
+          ],
+          /* :: */[
+            /* record */[
+              /* name */"Springfield General",
+              /* canMatchWith */19,
+              /* selectedNames : [] */0
+            ],
+            /* :: */[
+              /* record */[
+                /* name */"Seattle Grace",
+                /* canMatchWith */8,
+                /* selectedNames : [] */0
+              ],
+              /* :: */[
+                /* record */[
+                  /* name */"St. Sebastian's Hospital",
+                  /* canMatchWith */12,
+                  /* selectedNames : [] */0
+                ],
+                /* [] */0
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+];
+
 exports.IntCmp = IntCmp;
 exports.StrCmp = StrCmp;
 exports.PairingCmp = PairingCmp;
@@ -1376,5 +6551,7 @@ exports.imperialPositions = imperialPositions;
 exports.imperialCandidates = imperialCandidates;
 exports.marriageMen = marriageMen;
 exports.marriageWomen = marriageWomen;
+exports.residents = residents;
+exports.hospitals = hospitals;
 exports.sampleDataToRaw = sampleDataToRaw;
 /* SharedTypes Not a pure module */

@@ -60,7 +60,6 @@ body {
   display: flex;
   width: 90vw;
   max-width: 1280px;
-  overflow: hidden;
   flex-direction: column;
   margin: 0 auto 1.5rem auto;
   border-radius: 3px;
@@ -85,6 +84,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     
     @media (min-width: calc(1000px / 0.9)) {
       .leftpad {
@@ -215,44 +215,37 @@ body {
   }
 }
 
-.top-pane {
-  background: #2e5963;
-  padding: 1rem 1.5rem;
-  color: white;
-  border-radius: 3px 3px 0 0;
-  z-index: 10;
-  .privacy-info {
-    text-indent: -1.6rem;
-    margin-left: 1.2rem;
-    color: white;
-    opacity: 0.6;
-    font-size: 90%;
-    max-width: 20rem;
-    display: inline-block;
-    svg {
-      fill: white;
-      vertical-align: middle;
-      margin-right: 0.3rem;
+.mdc-menu-anchor {
+  position: absolute !important;
+  top: -2.3rem;
+  right: 0rem;
+  
+  .mdc-menu {
+    right: 0;
+    color: #555;
+    .mdc-list-item {
+      padding: .5rem 1rem;
+      &:hover {
+        background: lightgray;
+      }
+
     }
   }
-  .splash-buttons {
-    .mdc-menu-anchor {
-      button {
-        color: white;
-      }
-      float: right;
-      .mdc-menu {
-        right: 0;
-        color: #555;
-        .mdc-list-item {
-          padding: .5rem 1rem;
-          &:hover {
-            background: lightgray;
-          }
-                
-        }
-      }
-    }
+}
+
+.privacy-info {
+  float: left;
+  text-indent: -1.6rem;
+  margin-left: 1.2rem;
+  color: #333;
+  opacity: 0.6;
+  font-size: 90%;
+  max-width: 20rem;
+  display: inline-block;
+  svg {
+    fill: #333;
+    vertical-align: middle;
+    margin-right: 0.3rem;
   }
 }
 

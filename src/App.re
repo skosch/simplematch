@@ -74,6 +74,24 @@ let make = _children => {
       ),
     );
   };
+  let loadResidencies = (_, self) => {
+    self.ReasonReact.send(UpdateSelectingName("Residents"));
+    self.ReasonReact.send(UpdateSelectedName("Hospitals"));
+    self.ReasonReact.send(UpdateSelectingRowFormat(SelectedInMultipleRows));
+    self.ReasonReact.send(UpdateSelectedRowFormat(SelectedInMultipleRows));
+    self.ReasonReact.send(UpdateMutualMatch(false));
+    self.ReasonReact.send(UpdateMatchStrategy(MCMF));
+    self.ReasonReact.send(
+      UpdateSelectingRawData(
+        sampleDataToRaw(SelectedInMultipleRows, residents),
+      )
+    );
+    self.ReasonReact.send(
+      UpdateSelectedRawData(
+        sampleDataToRaw(SelectedInMultipleRows, hospitals),
+      )
+    );
+  };
   {
     /* spread the other default fields of component here and override a few */
     ...component,
@@ -196,25 +214,8 @@ let make = _children => {
           </div>
         </div>
         <div className="page-content top-content">
-          <div className="input-pane top-pane">
-            <div className="splash-buttons">
-              <span className="privacy-info">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"
-                  />
-                  <path d="M0 0h24v24H0z" fill="none" />
-                </svg>
-                (ReasonReact.string("The match runs in your browser."))
-                <br />
-                (
-                  ReasonReact.string("None of your data leaves your computer.")
-                )
-              </span>
+          <div className="input-pane">
+            <div className="names-question">
               <div className="mdc-menu-anchor">
                 <button
                   onClick=(
@@ -240,17 +241,20 @@ let make = _children => {
                       onClick=(self.handle(loadImperialInternships))>
                       (ReasonReact.string("Imperial Internships"))
                     </li>
-                    <li className="mdc-list-item" role="menuitem" tabIndex=0
+                    <li className="mdc-list-item" role="menuitem" tabIndex=1
                       onClick=(self.handle(loadMarriageProposals))>
-                      (ReasonReact.string("Stable Marriages"))
+                      (ReasonReact.string("Marriage Matchmaking"))
+                    </li>
+                    <li className="mdc-list-item" role="menuitem" tabIndex=2
+                      onClick=(self.handle(loadResidencies))>
+                      (ReasonReact.string("Rewarding Residencies"))
                     </li>
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="input-pane">
-            <div className="names-question">
+              
+              
+
               <span className="leftpad" />
               <input
                 _type="text"
@@ -341,6 +345,24 @@ let make = _children => {
               />
             </div>
             <div className="bottom-buttons">
+              <span className="privacy-info">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24">
+                  <path
+                    d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"
+                  />
+                  <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+                (ReasonReact.string("The match runs in your browser."))
+                <br />
+                (
+                  ReasonReact.string("None of your data leaves your computer.")
+                )
+              </span>
+
               (state.mutualMatch ? (
             <span>
               <div className="material-select">

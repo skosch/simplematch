@@ -47,6 +47,16 @@ function make() {
     Curry._1(self[/* send */3], /* UpdateSelectingRawData */Block.__(5, [SampleData.sampleDataToRaw(/* SelectedInColumns */0, SampleData.marriageMen)]));
     return Curry._1(self[/* send */3], /* UpdateSelectedRawData */Block.__(6, [SampleData.sampleDataToRaw(/* SelectedInColumns */0, SampleData.marriageWomen)]));
   };
+  var loadResidencies = function (_, self) {
+    Curry._1(self[/* send */3], /* UpdateSelectingName */Block.__(0, ["Residents"]));
+    Curry._1(self[/* send */3], /* UpdateSelectedName */Block.__(1, ["Hospitals"]));
+    Curry._1(self[/* send */3], /* UpdateSelectingRowFormat */Block.__(3, [/* SelectedInMultipleRows */1]));
+    Curry._1(self[/* send */3], /* UpdateSelectedRowFormat */Block.__(4, [/* SelectedInMultipleRows */1]));
+    Curry._1(self[/* send */3], /* UpdateMutualMatch */Block.__(2, [false]));
+    Curry._1(self[/* send */3], /* UpdateMatchStrategy */Block.__(7, [/* MCMF */2]));
+    Curry._1(self[/* send */3], /* UpdateSelectingRawData */Block.__(5, [SampleData.sampleDataToRaw(/* SelectedInMultipleRows */1, SampleData.residents)]));
+    return Curry._1(self[/* send */3], /* UpdateSelectedRawData */Block.__(6, [SampleData.sampleDataToRaw(/* SelectedInMultipleRows */1, SampleData.hospitals)]));
+  };
   return /* record */[
           /* debugName */component[/* debugName */0],
           /* reactClassInternal */component[/* reactClassInternal */1],
@@ -106,7 +116,7 @@ function make() {
                                             Caml_builtin_exceptions.match_failure,
                                             [
                                               "App.re",
-                                              355,
+                                              377,
                                               22
                                             ]
                                           ];
@@ -137,22 +147,10 @@ function make() {
                                 }, React.createElement("h1", undefined, "MiniMatcher"), React.createElement("div", undefined, "Match candidates to jobs based on their preferences"))), React.createElement("div", {
                               className: "page-content top-content"
                             }, React.createElement("div", {
-                                  className: "input-pane top-pane"
+                                  className: "input-pane"
                                 }, React.createElement("div", {
-                                      className: "splash-buttons"
-                                    }, React.createElement("span", {
-                                          className: "privacy-info"
-                                        }, React.createElement("svg", {
-                                              height: "24",
-                                              width: "24",
-                                              viewBox: "0 0 24 24",
-                                              xmlns: "http://www.w3.org/2000/svg"
-                                            }, React.createElement("path", {
-                                                  d: "M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"
-                                                }), React.createElement("path", {
-                                                  d: "M0 0h24v24H0z",
-                                                  fill: "none"
-                                                })), "The match runs in your browser.", React.createElement("br", undefined), "None of your data leaves your computer."), React.createElement("div", {
+                                      className: "names-question"
+                                    }, React.createElement("div", {
                                           className: "mdc-menu-anchor"
                                         }, React.createElement("button", {
                                               className: "mdc-button",
@@ -176,13 +174,14 @@ function make() {
                                                     }, "Imperial Internships"), React.createElement("li", {
                                                       className: "mdc-list-item",
                                                       role: "menuitem",
-                                                      tabIndex: 0,
+                                                      tabIndex: 1,
                                                       onClick: Curry._1(self[/* handle */0], loadMarriageProposals)
-                                                    }, "Stable Marriages")))))), React.createElement("div", {
-                                  className: "input-pane"
-                                }, React.createElement("div", {
-                                      className: "names-question"
-                                    }, React.createElement("span", {
+                                                    }, "Marriage Matchmaking"), React.createElement("li", {
+                                                      className: "mdc-list-item",
+                                                      role: "menuitem",
+                                                      tabIndex: 2,
+                                                      onClick: Curry._1(self[/* handle */0], loadResidencies)
+                                                    }, "Rewarding Residencies")))), React.createElement("span", {
                                           className: "leftpad"
                                         }), React.createElement("input", {
                                           type: "text",
@@ -231,7 +230,19 @@ function make() {
                                                 return Curry._1(self[/* send */3], /* AutofillSelected */0);
                                               }), state[/* mutualMatch */3], state[/* selectedIgnoredRowIndices */12], /* array */[]))), React.createElement("div", {
                                       className: "bottom-buttons"
-                                    }, tmp, React.createElement("button", {
+                                    }, React.createElement("span", {
+                                          className: "privacy-info"
+                                        }, React.createElement("svg", {
+                                              height: "24",
+                                              width: "24",
+                                              viewBox: "0 0 24 24",
+                                              xmlns: "http://www.w3.org/2000/svg"
+                                            }, React.createElement("path", {
+                                                  d: "M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"
+                                                }), React.createElement("path", {
+                                                  d: "M0 0h24v24H0z",
+                                                  fill: "none"
+                                                })), "The match runs in your browser.", React.createElement("br", undefined), "None of your data leaves your computer."), tmp, React.createElement("button", {
                                           className: "mdc-button mdc-button--raised",
                                           disabled: List.length(self[/* state */1][/* selectingParsedData */9]) === 0 || List.length(self[/* state */1][/* selectedParsedData */10]) === 0,
                                           onClick: (function () {
@@ -524,6 +535,10 @@ var marriageMen = SampleData.marriageMen;
 
 var marriageWomen = SampleData.marriageWomen;
 
+var residents = SampleData.residents;
+
+var hospitals = SampleData.hospitals;
+
 var sampleDataToRaw = SampleData.sampleDataToRaw;
 
 var rankSortedArray = RunMatch.rankSortedArray;
@@ -551,6 +566,8 @@ exports.imperialPositions = imperialPositions;
 exports.imperialCandidates = imperialCandidates;
 exports.marriageMen = marriageMen;
 exports.marriageWomen = marriageWomen;
+exports.residents = residents;
+exports.hospitals = hospitals;
 exports.sampleDataToRaw = sampleDataToRaw;
 exports.rankSortedArray = rankSortedArray;
 exports.popularManyToMany = popularManyToMany;
