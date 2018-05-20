@@ -2,6 +2,7 @@
 
 var $$String = require("bs-platform/lib/js/string.js");
 var Belt_Set = require("bs-platform/lib/js/belt_Set.js");
+var Caml_obj = require("bs-platform/lib/js/caml_obj.js");
 var Belt_List = require("bs-platform/lib/js/belt_List.js");
 var Js_option = require("bs-platform/lib/js/js_option.js");
 var Belt_Array = require("bs-platform/lib/js/belt_Array.js");
@@ -22,11 +23,15 @@ function listToSet(l) {
 }
 
 function optString(optStr) {
-  var ss = $$String.trim(Js_option.getWithDefault("", optStr));
-  if (ss === "") {
+  if (Caml_obj.caml_equal(optStr, ([null]))) {
     return /* None */0;
   } else {
-    return /* Some */[ss];
+    var ss = $$String.trim(Js_option.getWithDefault("", optStr));
+    if (ss === "") {
+      return /* None */0;
+    } else {
+      return /* Some */[ss];
+    }
   }
 }
 

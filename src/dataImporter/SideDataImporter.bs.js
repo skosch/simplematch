@@ -43,7 +43,7 @@ var applyChanges = (
 
 var component = ReasonReact.reducerComponent("SideDataImporter");
 
-function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, updateRawData, includeSelectees, ignoredRowIndices, _) {
+function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, updateRawData, autofillSelected, includeSelectees, ignoredRowIndices, _) {
   return /* record */[
           /* debugName */component[/* debugName */0],
           /* reactClassInternal */component[/* reactClassInternal */1],
@@ -109,10 +109,10 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                   if (index !== 1) {
                     return $$String.capitalize(Pluralize.singular(selectedHeader(index - 2 | 0)));
                   } else {
-                    return "Can match with<br /> how many " + selectedName;
+                    return "Can match with<br /> how many " + $$String.uncapitalize(selectedName);
                   }
                 } else {
-                  return $$String.capitalize(selectingName);
+                  return $$String.capitalize(Pluralize.singular(selectingName));
                 }
               };
               var rowHeaders = function (index) {
@@ -158,7 +158,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                                         Caml_builtin_exceptions.match_failure,
                                         [
                                           "SideDataImporter.re",
-                                          177,
+                                          178,
                                           22
                                         ]
                                       ];
@@ -192,7 +192,12 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                                   onAfterChange: changeHandler
                                 }, /* array */[])), React.createElement("div", {
                               className: "rowformat-selector"
-                            }, tmp$1, React.createElement("button", {
+                            }, tmp$1, includeSelectees ? null : React.createElement("button", {
+                                    className: "mdc-button clear-button",
+                                    onClick: (function () {
+                                        return Curry._1(autofillSelected, /* () */0);
+                                      })
+                                  }, "Auto-fill"), React.createElement("button", {
                                   className: "mdc-button clear-button",
                                   onClick: (function () {
                                       return Curry._1(updateRawData, /* array */[]);

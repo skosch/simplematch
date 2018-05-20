@@ -6,16 +6,19 @@ let ifEmptyString = (str, alt) =>
   | s => s
   };
 
-let listToSet = (l) => 
-  l 
-|> List.toArray
-|. Set.fromArray(~id=(module SharedTypes.IntCmp));
+let listToSet = l =>
+  l |> List.toArray |. Set.fromArray(~id=(module SharedTypes.IntCmp));
 
-let optString = optStr =>
-  switch (String.trim(Js.Option.getWithDefault("", optStr))) {
-  | "" => None
-  | ss => Some(ss)
+let optString = optStr => {
+  if (optStr == [%bs.raw {|[null]|}]) {
+    None;
+  } else {
+    switch (String.trim(Js.Option.getWithDefault("", optStr))) {
+    | "" => None
+    | ss => Some(ss)
+    };
   };
+};
 
 let optStringToOptInt = optStr =>
   switch (optStr) {

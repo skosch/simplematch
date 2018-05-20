@@ -54,6 +54,7 @@ let make =
       ~rowFormat,
       ~updateRowFormat,
       ~updateRawData,
+      ~autofillSelected,
       ~includeSelectees,
       ~ignoredRowIndices,
       _children,
@@ -113,8 +114,8 @@ let make =
       };
     let columnHeader = index =>
       switch (index) {
-      | 0 => String.capitalize(selectingName)
-      | 1 => "Can match with<br /> how many " ++ selectedName
+      | 0 => String.capitalize(singular(selectingName))
+      | 1 => "Can match with<br /> how many " ++ String.uncapitalize(selectedName)
       | _ => String.capitalize(singular(selectedHeader(index - 2)))
       };
     let rowHeaders = index =>
@@ -200,6 +201,13 @@ let make =
             </div> :
             ReasonReact.null
         )
+        (includeSelectees ? ReasonReact.null : 
+        <button
+          onClick=((_) => autofillSelected())
+          className="mdc-button clear-button">
+          (ReasonReact.string("Auto-fill"))
+        </button>
+    )
         <button
           onClick=((_) => updateRawData([||]))
           className="mdc-button clear-button">

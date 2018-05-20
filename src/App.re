@@ -25,6 +25,7 @@ type action =
   | UpdateSelectedRowFormat(rowFormat)
   | UpdateSelectingRawData(array(array(string)))
   | UpdateSelectedRawData(array(array(string)))
+  | AutofillSelected
   | UpdateMatchStrategy(matchStrategy)
   | OpenSampleMenu
   | CloseSampleMenu
@@ -145,6 +146,16 @@ let make = _children => {
           sampleMenuOpen: false,
           matchStrategy: suggestStrategy(parsedData, selectedParsedData, state.mutualMatch)
         });
+      | AutofillSelected => {
+        let (_, _, selectedNamesEntries) =
+          parseData(state.selectingRawData, state.selectingRowFormat, true);
+        ReasonReact.Update({
+          ...state,
+          selectedParsedData: selectedNamesEntries,
+          selectedRawData: sampleDataToRaw(state.selectedRowFormat, selectedNamesEntries),
+          sampleMenuOpen: false,
+        });
+        };
       | UpdateSelectedRawData(rawData) =>
         let (parsedData, ignoredRowIndices, _selectedNamesEntries) =
           parseData(rawData, state.selectedRowFormat, state.mutualMatch);
@@ -163,6 +174,7 @@ let make = _children => {
       | MatchNow =>
         ReasonReact.Update({...state, matchResult: RunMatch.runMatch(state)});
       },
+    
     render: self => {
       let state = self.state;
       let resultData =
@@ -302,6 +314,7 @@ let make = _children => {
                 selectedName=state.selectedName
                 rawData=state.selectingRawData
                 rowFormat=state.selectingRowFormat
+                autofillSelected=(() => ())
                 includeSelectees=true
                 ignoredRowIndices=state.selectingIgnoredRowIndices
                 updateRawData=(
@@ -317,6 +330,7 @@ let make = _children => {
                 rawData=state.selectedRawData
                 rowFormat=state.selectedRowFormat
                 includeSelectees=state.mutualMatch
+                autofillSelected=(() => self.send(AutofillSelected))
                 ignoredRowIndices=state.selectedIgnoredRowIndices
                 updateRowFormat=(
                   rowFormat => self.send(UpdateSelectedRowFormat(rowFormat))
