@@ -140,6 +140,58 @@ let make =
         <strong>(ReasonReact.string(selectingName))</strong>
         (ReasonReact.string(" into the spreadsheet below:"))
       </div>
+      <div className="data-format-selector">
+        (
+          includeSelectees ?
+            <div className="material-select">
+            <span>(ReasonReact.string("Data format"))</span>
+              <select
+                onChange=(
+                  _event => {
+                    let value = ReactDOMRe.domElementToObj(
+                                  ReactEventRe.Form.target(_event),
+                                )##value;
+                    let rowFormat =
+                      switch (value) {
+                      | "multiple-rows" => SelectedInMultipleRows
+                      | "columns" => SelectedInColumns
+                      | "*" => SelectedInColumns
+                      };
+                    updateRowFormat(rowFormat);
+                  }
+                )
+                value=(
+                  rowFormat == SelectedInMultipleRows ?
+                    "multiple-rows" : "columns"
+                )>
+                <option value="multiple-rows">
+                  (
+                    ReasonReact.string(
+                      "Repeated " ++ String.uncapitalize(selectingName) ++ ", one " ++ String.uncapitalize(singular(selectedName)) ++ " per row",
+                    )
+                  )
+                </option>
+                <option value="columns">
+                  (ReasonReact.string(
+                     "One " ++ String.uncapitalize(singular(selectingName)) ++ " per row, " ++
+          selectedName ++ " in columns"))
+                </option>
+              </select>
+            </div> :
+            <div className="material-select">
+            <span>(ReasonReact.string("Data format"))</span>
+              <select disabled={true}>
+                <option>
+                  (
+                    ReasonReact.string(
+                      "One " ++ String.uncapitalize(singular(selectingName)) ++ " per row",
+                    )
+                  )
+                </option>
+              </select>
+            </div>
+        )
+      </div>
       <HotTable
         settings={
           "colHeaders": columnHeader,
@@ -162,43 +214,7 @@ let make =
         }
       />
       <div className="rowformat-selector">
-        (
-          includeSelectees ?
-            <div className="material-select">
-            <span>(ReasonReact.string("Table format"))</span>
-              <select
-                onChange=(
-                  _event => {
-                    let value = ReactDOMRe.domElementToObj(
-                                  ReactEventRe.Form.target(_event),
-                                )##value;
-                    let rowFormat =
-                      switch (value) {
-                      | "multiple-rows" => SelectedInMultipleRows
-                      | "columns" => SelectedInColumns
-                      | "" => SelectedInColumns
-                      };
-                    updateRowFormat(rowFormat);
-                  }
-                )
-                value=(
-                  rowFormat == SelectedInMultipleRows ?
-                    "multiple-rows" : "columns"
-                )>
-                <option value="multiple-rows">
-                  (
-                    ReasonReact.string(
-                      "One " ++ String.uncapitalize(singular(selectedName)) ++ " per row",
-                    )
-                  )
-                </option>
-                <option value="columns">
-                  (ReasonReact.string(selectedName ++ " in columns"))
-                </option>
-              </select>
-            </div> :
-            ReasonReact.null
-        )
+        
         (includeSelectees ? ReasonReact.null : 
         <button
           onClick=((_) => autofillSelected())

@@ -131,22 +131,18 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                   return 0;
                 }
               };
-              var match$1 = rowFormat === /* SelectedInColumns */0;
-              var match$2 = maxCols > 30;
-              var match$3 = rawData.length > 0 && Js_option.getWithDefault(/* array */[], Belt_Array.get(rawData, 0)).length > 5;
-              var match$4 = rawData.length > 0;
               var tmp$1;
               if (includeSelectees) {
-                var match$5 = rowFormat === /* SelectedInMultipleRows */1;
+                var match$1 = rowFormat === /* SelectedInMultipleRows */1;
                 tmp$1 = React.createElement("div", {
                       className: "material-select"
-                    }, React.createElement("span", undefined, "Table format"), React.createElement("select", {
-                          value: match$5 ? "multiple-rows" : "columns",
+                    }, React.createElement("span", undefined, "Data format"), React.createElement("select", {
+                          value: match$1 ? "multiple-rows" : "columns",
                           onChange: (function (_event) {
                               var value = _event.target.value;
                               var tmp;
                               switch (value) {
-                                case "" : 
+                                case "*" : 
                                 case "columns" : 
                                     tmp = /* SelectedInColumns */0;
                                     break;
@@ -158,7 +154,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                                         Caml_builtin_exceptions.match_failure,
                                         [
                                           "SideDataImporter.re",
-                                          176,
+                                          155,
                                           22
                                         ]
                                       ];
@@ -167,32 +163,42 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                             })
                         }, React.createElement("option", {
                               value: "multiple-rows"
-                            }, "One " + ($$String.uncapitalize(Pluralize.singular(selectedName)) + " per row")), React.createElement("option", {
+                            }, "Repeated " + ($$String.uncapitalize(selectingName) + (", one " + ($$String.uncapitalize(Pluralize.singular(selectedName)) + " per row")))), React.createElement("option", {
                               value: "columns"
-                            }, selectedName + " in columns")));
+                            }, "One " + ($$String.uncapitalize(Pluralize.singular(selectingName)) + (" per row, " + (selectedName + " in columns"))))));
               } else {
-                tmp$1 = null;
+                tmp$1 = React.createElement("div", {
+                      className: "material-select"
+                    }, React.createElement("span", undefined, "Data format"), React.createElement("select", {
+                          disabled: true
+                        }, React.createElement("option", undefined, "One " + ($$String.uncapitalize(Pluralize.singular(selectingName)) + " per row"))));
               }
+              var match$2 = rowFormat === /* SelectedInColumns */0;
+              var match$3 = maxCols > 30;
+              var match$4 = rawData.length > 0 && Js_option.getWithDefault(/* array */[], Belt_Array.get(rawData, 0)).length > 5;
+              var match$5 = rawData.length > 0;
               return React.createElement("div", {
                           className: "data-importer"
                         }, React.createElement("div", {
                               className: "question-statement"
-                            }, "Paste your ", React.createElement("strong", undefined, selectingName), " into the spreadsheet below:"), ReasonReact.element(/* None */0, /* None */0, HotTable.make({
+                            }, "Paste your ", React.createElement("strong", undefined, selectingName), " into the spreadsheet below:"), React.createElement("div", {
+                              className: "data-format-selector"
+                            }, tmp$1), ReasonReact.element(/* None */0, /* None */0, HotTable.make({
                                   colHeaders: columnHeader,
                                   rowHeaders: rowHeaders,
                                   copyPaste: true,
                                   width: "100%",
                                   minSpareRows: 1,
                                   startRows: 30,
-                                  minCols: match$1 ? minCols + 1 | 0 : minCols,
+                                  minCols: match$2 ? minCols + 1 | 0 : minCols,
                                   maxCols: maxCols,
-                                  startColumns: match$2 ? 30 : maxCols,
-                                  stretchH: match$3 ? "none" : "all",
-                                  data: match$4 ? rawData : null,
+                                  startColumns: match$3 ? 30 : maxCols,
+                                  stretchH: match$4 ? "none" : "all",
+                                  data: match$5 ? rawData : null,
                                   onAfterChange: changeHandler
                                 }, /* array */[])), React.createElement("div", {
                               className: "rowformat-selector"
-                            }, tmp$1, includeSelectees ? null : React.createElement("button", {
+                            }, includeSelectees ? null : React.createElement("button", {
                                     className: "mdc-button clear-button",
                                     onClick: (function () {
                                         return Curry._1(autofillSelected, /* () */0);

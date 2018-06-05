@@ -3,6 +3,7 @@ include SharedTypes;
 open Belt;
 
 [@bs.module] external pluralize : unit => unit = "";
+
 [@bs.val] [@bs.module "pluralize"] external singular : string => string = "";
 
 type stats = {
@@ -20,8 +21,14 @@ let component = ReasonReact.statelessComponent("Result");
 
 let make = (~currentState, ~resultData, _children) => {
   let statistics = () : stats => {
-    let (selectingMatchedNames, selectedMatchedNames,
-         selectingRanks, selectingRanksWorst, selectedRanks, selectedRanksWorst) =
+    let (
+      selectingMatchedNames,
+      selectedMatchedNames,
+      selectingRanks,
+      selectingRanksWorst,
+      selectedRanks,
+      selectedRanksWorst,
+    ) =
       resultData
       |. Array.reduce(
            (
@@ -33,32 +40,46 @@ let make = (~currentState, ~resultData, _children) => {
              0,
            ),
            (
-             (selectingMatchedNames, selectedMatchedNames,
-              selectingRanks, selectingRanksWorst, selectedRanks, selectedRanksWorst),
+             (
+               selectingMatchedNames,
+               selectedMatchedNames,
+               selectingRanks,
+               selectingRanksWorst,
+               selectedRanks,
+               selectedRanksWorst,
+             ),
              c,
            ) => {
              let (selectingName, selectedName, selectingRank, selectedRank) = c;
-
-            let oldSelectingRankCount =
-            Js.Option.getWithDefault(
-            0,
-            HashMap.Int.get(selectingRanks, selectingRank),
-            );
-            HashMap.Int.set(selectingRanks, selectingRank, oldSelectingRankCount + 1);
-            let oldSelectedRankCount =
-            Js.Option.getWithDefault(
-            0,
-            HashMap.Int.get(selectedRanks, selectedRank),
-            );
-            HashMap.Int.set(selectedRanks, selectedRank, oldSelectedRankCount + 1);
-        
+             let oldSelectingRankCount =
+               Js.Option.getWithDefault(
+                 0,
+                 HashMap.Int.get(selectingRanks, selectingRank),
+               );
+             HashMap.Int.set(
+               selectingRanks,
+               selectingRank,
+               oldSelectingRankCount + 1,
+             );
+             let oldSelectedRankCount =
+               Js.Option.getWithDefault(
+                 0,
+                 HashMap.Int.get(selectedRanks, selectedRank),
+               );
+             HashMap.Int.set(
+               selectedRanks,
+               selectedRank,
+               oldSelectedRankCount + 1,
+             );
              (
                Set.add(selectingMatchedNames, selectingName),
                Set.add(selectedMatchedNames, selectedName),
                selectingRanks,
-               (selectingRank > selectingRanksWorst ? selectingRank : selectingRanksWorst),
+               selectingRank > selectingRanksWorst ?
+                 selectingRank : selectingRanksWorst,
                selectedRanks,
-               (selectedRank > selectedRanksWorst ? selectedRank : selectedRanksWorst),
+               selectedRank > selectedRanksWorst ?
+                 selectedRank : selectedRanksWorst,
              );
            },
          );
@@ -69,14 +90,16 @@ let make = (~currentState, ~resultData, _children) => {
     let unmatchedSelectorNames =
       currentState.selectingParsedData
       |. List.reduce(
-          Set.fromArray(allSelectorNames, ~id=(module StrCmp)),
-          (unmatchedSelectorNames, c) => Set.remove(unmatchedSelectorNames, c.name)
+           Set.fromArray(allSelectorNames, ~id=(module StrCmp)),
+           (unmatchedSelectorNames, c) =>
+           Set.remove(unmatchedSelectorNames, c.name)
          );
     let unmatchedSelecteeNames =
       currentState.selectedParsedData
       |. List.reduce(
-          Set.fromArray(allSelecteeNames, ~id=(module StrCmp)),
-          (unmatchedSelecteeNames, c) => Set.remove(unmatchedSelecteeNames, c.name)
+           Set.fromArray(allSelecteeNames, ~id=(module StrCmp)),
+           (unmatchedSelecteeNames, c) =>
+           Set.remove(unmatchedSelecteeNames, c.name)
          );
     {
       selectorsMatched: Set.size(selectingMatchedNames),
@@ -93,8 +116,14 @@ let make = (~currentState, ~resultData, _children) => {
     switch (index) {
     | 0 => singular(currentState.selectingName)
     | 1 => singular(currentState.selectedName)
-    | 2 => singular(currentState.selectingName) ++ " ranked " ++ singular(currentState.selectedName)
-    | 3 => singular(currentState.selectedName) ++ " ranked " ++ singular(currentState.selectingName)
+    | 2 =>
+      singular(currentState.selectingName)
+      ++ " ranked "
+      ++ singular(currentState.selectedName)
+    | 3 =>
+      singular(currentState.selectedName)
+      ++ " ranked "
+      ++ singular(currentState.selectingName)
     | _ => ""
     };
   let get_max_value = Array.reduce(_, 0, (p, c) => c > p ? c : p);
@@ -112,7 +141,6 @@ let make = (~currentState, ~resultData, _children) => {
         selectedRanksWorst,
       } =
         statistics();
-    
       let rankHistBars = (rankMap, worstRank) => {
         let modeRank = rankMap |> HashMap.Int.valuesToArray |> get_max_value;
         worstRank
@@ -124,20 +152,22 @@ let make = (~currentState, ~resultData, _children) => {
                )
                *. 100.0
                /. float_of_int(modeRank);
-            <div className="hist-bar-with-label">
-             <div
-               className="hist-bar"
-               style=(
-                 ReactDOMRe.Style.make(
-                   ~height=string_of_float(pcHeight) ++ "0%",
-                   (),
+             <div className="hist-bar-with-label">
+               <div
+                 className="hist-bar"
+                 style=(
+                   ReactDOMRe.Style.make(
+                     ~height=string_of_float(pcHeight) ++ "0%",
+                     (),
+                   )
                  )
-               )
-               key=(string_of_int(r))
-               title=(string_of_int(r))
-             />
-              <div className="hist-label">(ReasonReact.string(string_of_int(r)))</div>
-              </div>;
+                 key=(string_of_int(r))
+                 title=(string_of_int(r))
+               />
+               <div className="hist-label">
+                 (ReasonReact.string(string_of_int(r)))
+               </div>
+             </div>;
            });
       };
       <div className="result">
@@ -155,78 +185,126 @@ let make = (~currentState, ~resultData, _children) => {
           />
         </div>
         <div className="result-details">
-          <div className="counts">
-            <div className="pairings">
-              <div className="top-label">
-                (ReasonReact.string("Matches"))
-              </div>
-              (ReasonReact.string(string_of_int(Array.length(resultData))))
-            </div>
-            <div className="matched-counts">
-              <div className="selectors-matched">
-                <div className="top-label">
+          <table>
+            <tbody>
+              <tr>
+                <th className="top-label" colSpan=3>
+                  (ReasonReact.string("Matches"))
+                </th>
+              </tr>
+              <tr>
+                <td colSpan=3>
+                  <span className="count">
+                    (
+                      ReasonReact.string(
+                        string_of_int(Array.length(resultData)),
+                      )
+                    )
+                  </span>
+                  <br />
+                  <span className="label">
+                    (ReasonReact.string("total"))
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <th className="top-label" colSpan=3>
                   (
                     ReasonReact.string(
                       String.capitalize(currentState.selectingName),
                     )
                   )
-                </div>
-                (ReasonReact.string(string_of_int(selectorsMatched)))
-                <span className="label">
-                  (ReasonReact.string("matched,"))
-                </span>
-                (
-                  ReasonReact.string(
-                    string_of_int(
-                      List.length(currentState.selectingParsedData)
-                      - selectorsMatched,
-                    ),
-                  )
-                )
-                <span className="label">
-                  (ReasonReact.string("unmatched"))
-                </span>
-                <div className="histogram">
-                  (
-                    ReasonReact.array(
-                      rankHistBars(selectingRanks, selectingRanksWorst),
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <span className="count">
+                    (ReasonReact.string(string_of_int(selectorsMatched)))
+                  </span>
+                  <br />
+                  <span className="label">
+                    (ReasonReact.string("matched"))
+                  </span>
+                </td>
+                <td>
+                  <span className="count">
+                    (
+                      ReasonReact.string(
+                        string_of_int(
+                          List.length(currentState.selectingParsedData)
+                          - selectorsMatched,
+                        ),
+                      )
                     )
-                  )
-                </div>
-              </div>
-              <div className="selectors-matched">
-                <div className="top-label">
+                  </span>
+                  <br />
+                  <span className="label">
+                    (ReasonReact.string("unmatched"))
+                  </span>
+                </td>
+                <td>
+                  <div className="histogram">
+                    (
+                      ReasonReact.array(
+                        rankHistBars(selectingRanks, selectingRanksWorst),
+                      )
+                    )
+                  </div>
+                  <span className="label">
+                    (ReasonReact.string("matches by rank"))
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <th className="top-label" colSpan=5>
                   (
                     ReasonReact.string(
                       String.capitalize(currentState.selectedName),
                     )
                   )
-                </div>
-                (ReasonReact.string(string_of_int(selecteesMatched)))
-                <span className="label">
-                  (ReasonReact.string("matched,"))
-                </span>
-                (
-                  ReasonReact.string(
-                    string_of_int(
-                      List.length(currentState.selectedParsedData)
-                      - selecteesMatched,
-                    ),
-                  )
-                )
-                <span className="label">
-                  (ReasonReact.string("unmatched"))
-                </span>
-                <div className="histogram">
-                  (
-                    ReasonReact.array(
-                      rankHistBars(selectedRanks, selectedRanksWorst),
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <span className="count">
+                    (ReasonReact.string(string_of_int(selecteesMatched)))
+                  </span>
+                  <br />
+                  <span className="label">
+                    (ReasonReact.string("matched"))
+                  </span>
+                </td>
+                <td>
+                  <span className="count">
+                    (
+                      ReasonReact.string(
+                        string_of_int(
+                          List.length(currentState.selectedParsedData)
+                          - selecteesMatched,
+                        ),
+                      )
                     )
-                  )
-                </div>
-              </div>
-            </div>
-          </div>
+                  </span>
+                  <br />
+                  <span className="label">
+                    (ReasonReact.string("unmatched"))
+                  </span>
+                </td>
+                <td>
+                  <div className="histogram">
+                    (
+                      ReasonReact.array(
+                        rankHistBars(selectedRanks, selectedRanksWorst),
+                      )
+                    )
+                  </div>
+                  <span className="label">
+                    (ReasonReact.string("matches by rank"))
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>;
     },

@@ -97,6 +97,7 @@ function make() {
                                   var matchStrategy;
                                   switch (value) {
                                     case "" : 
+                                    case "*" : 
                                     case "mcmf" : 
                                         matchStrategy = /* MCMF */2;
                                         break;
@@ -111,7 +112,7 @@ function make() {
                                             Caml_builtin_exceptions.match_failure,
                                             [
                                               "App.re",
-                                              376,
+                                              366,
                                               22
                                             ]
                                           ];
@@ -139,7 +140,7 @@ function make() {
                                   className: "plank-logo"
                                 }, "Plank"), React.createElement("div", {
                                   className: "splash-content"
-                                }, React.createElement("h1", undefined, "MiniMatcher"), React.createElement("div", undefined, "Match candidates to jobs based on their preferences"))), React.createElement("div", {
+                                }, React.createElement("h1", undefined, "SimpleMatch"), React.createElement("div", undefined, "Finds the best match from rank lists in seconds"))), React.createElement("div", {
                               className: "page-content top-content"
                             }, React.createElement("div", {
                                   className: "input-pane"
@@ -227,17 +228,7 @@ function make() {
                                       className: "bottom-buttons"
                                     }, React.createElement("span", {
                                           className: "privacy-info"
-                                        }, React.createElement("svg", {
-                                              height: "24",
-                                              width: "24",
-                                              viewBox: "0 0 24 24",
-                                              xmlns: "http://www.w3.org/2000/svg"
-                                            }, React.createElement("path", {
-                                                  d: "M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"
-                                                }), React.createElement("path", {
-                                                  d: "M0 0h24v24H0z",
-                                                  fill: "none"
-                                                })), "The match runs in your browser.", React.createElement("br", undefined), "None of your data leaves your computer."), tmp, React.createElement("button", {
+                                        }, "The match runs in your browser.", React.createElement("br", undefined), "None of your data leaves your computer."), tmp, React.createElement("button", {
                                           className: "mdc-button mdc-button--raised",
                                           disabled: List.length(self[/* state */1][/* selectingParsedData */9]) === 0 || List.length(self[/* state */1][/* selectedParsedData */10]) === 0,
                                           onClick: (function () {
@@ -422,10 +413,10 @@ function make() {
                                   /* matchStrategy */state[/* matchStrategy */4],
                                   /* selectingRowFormat */state[/* selectingRowFormat */5],
                                   /* selectedRowFormat */action[0],
-                                  /* selectingRawData : array */[],
-                                  /* selectedRawData */state[/* selectedRawData */8],
-                                  /* selectingParsedData : [] */0,
-                                  /* selectedParsedData */state[/* selectedParsedData */10],
+                                  /* selectingRawData */state[/* selectingRawData */7],
+                                  /* selectedRawData : array */[],
+                                  /* selectingParsedData */state[/* selectingParsedData */9],
+                                  /* selectedParsedData : [] */0,
                                   /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */11],
                                   /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */12],
                                   /* matchResult : [] */0

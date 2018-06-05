@@ -143,35 +143,46 @@ function make(currentState, resultData, _) {
                                       data: resultData
                                     }, /* array */[]))), React.createElement("div", {
                               className: "result-details"
-                            }, React.createElement("div", {
-                                  className: "counts"
-                                }, React.createElement("div", {
-                                      className: "pairings"
-                                    }, React.createElement("div", {
-                                          className: "top-label"
-                                        }, "Matches"), String(resultData.length)), React.createElement("div", {
-                                      className: "matched-counts"
-                                    }, React.createElement("div", {
-                                          className: "selectors-matched"
-                                        }, React.createElement("div", {
-                                              className: "top-label"
-                                            }, $$String.capitalize(currentState[/* selectingName */0])), String(selectorsMatched), React.createElement("span", {
-                                              className: "label"
-                                            }, "matched,"), String(Belt_List.length(currentState[/* selectingParsedData */9]) - selectorsMatched | 0), React.createElement("span", {
-                                              className: "label"
-                                            }, "unmatched"), React.createElement("div", {
-                                              className: "histogram"
-                                            }, rankHistBars(match[/* selectingRanks */4], match[/* selectingRanksWorst */6]))), React.createElement("div", {
-                                          className: "selectors-matched"
-                                        }, React.createElement("div", {
-                                              className: "top-label"
-                                            }, $$String.capitalize(currentState[/* selectedName */1])), String(selecteesMatched), React.createElement("span", {
-                                              className: "label"
-                                            }, "matched,"), String(Belt_List.length(currentState[/* selectedParsedData */10]) - selecteesMatched | 0), React.createElement("span", {
-                                              className: "label"
-                                            }, "unmatched"), React.createElement("div", {
-                                              className: "histogram"
-                                            }, rankHistBars(match[/* selectedRanks */5], match[/* selectedRanksWorst */7])))))));
+                            }, React.createElement("table", undefined, React.createElement("tbody", undefined, React.createElement("tr", undefined, React.createElement("th", {
+                                              className: "top-label",
+                                              colSpan: 3
+                                            }, "Matches")), React.createElement("tr", undefined, React.createElement("td", {
+                                              colSpan: 3
+                                            }, React.createElement("span", {
+                                                  className: "count"
+                                                }, String(resultData.length)), React.createElement("br", undefined), React.createElement("span", {
+                                                  className: "label"
+                                                }, "total"))), React.createElement("tr", undefined, React.createElement("th", {
+                                              className: "top-label",
+                                              colSpan: 3
+                                            }, $$String.capitalize(currentState[/* selectingName */0]))), React.createElement("tr", undefined, React.createElement("td", undefined, React.createElement("span", {
+                                                  className: "count"
+                                                }, String(selectorsMatched)), React.createElement("br", undefined), React.createElement("span", {
+                                                  className: "label"
+                                                }, "matched")), React.createElement("td", undefined, React.createElement("span", {
+                                                  className: "count"
+                                                }, String(Belt_List.length(currentState[/* selectingParsedData */9]) - selectorsMatched | 0)), React.createElement("br", undefined), React.createElement("span", {
+                                                  className: "label"
+                                                }, "unmatched")), React.createElement("td", undefined, React.createElement("div", {
+                                                  className: "histogram"
+                                                }, rankHistBars(match[/* selectingRanks */4], match[/* selectingRanksWorst */6])), React.createElement("span", {
+                                                  className: "label"
+                                                }, "matches by rank"))), React.createElement("tr", undefined, React.createElement("th", {
+                                              className: "top-label",
+                                              colSpan: 5
+                                            }, $$String.capitalize(currentState[/* selectedName */1]))), React.createElement("tr", undefined, React.createElement("td", undefined, React.createElement("span", {
+                                                  className: "count"
+                                                }, String(selecteesMatched)), React.createElement("br", undefined), React.createElement("span", {
+                                                  className: "label"
+                                                }, "matched")), React.createElement("td", undefined, React.createElement("span", {
+                                                  className: "count"
+                                                }, String(Belt_List.length(currentState[/* selectedParsedData */10]) - selecteesMatched | 0)), React.createElement("br", undefined), React.createElement("span", {
+                                                  className: "label"
+                                                }, "unmatched")), React.createElement("td", undefined, React.createElement("div", {
+                                                  className: "histogram"
+                                                }, rankHistBars(match[/* selectedRanks */5], match[/* selectedRanksWorst */7])), React.createElement("span", {
+                                                  className: "label"
+                                                }, "matches by rank")))))));
             }),
           /* initialState */component[/* initialState */10],
           /* retainedProps */component[/* retainedProps */11],
