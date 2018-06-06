@@ -174,7 +174,7 @@ let make =
                 <option value="columns">
                   (ReasonReact.string(
                      "One " ++ String.uncapitalize(singular(selectingName)) ++ " per row, " ++
-          selectedName ++ " in columns"))
+          String.uncapitalize(selectedName) ++ " in columns"))
                 </option>
               </select>
             </div> :

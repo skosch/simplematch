@@ -11,35 +11,35 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 body {
@@ -70,7 +70,7 @@ strong {
 }
 
 .input-pane {
-  box-shadow: 4px 0 4px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 0 4px -2px rgba(0, 0, 0, 0.05);
   background: white;
   z-index: 3;
   border-radius: 3px;
@@ -154,17 +154,17 @@ strong {
         margin-bottom: 0.5rem;
       }
 
-        padding: 1rem .75rem;
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        min-width: calc(500px - 3rem);
-        max-height: 100%;
-        position: relative;
-        th {
-          cursor: default;
-        }
-        tr:not(:last-child) {
+      padding: 1rem .75rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: calc(500px - 3rem);
+      max-height: 100%;
+      position: relative;
+      th {
+        cursor: default;
+      }
+      tr:not(:last-child) {
         .ignored-row {
           font-weight: bold;
           color: #cd5200;
@@ -173,21 +173,21 @@ strong {
           padding: 0px 6px;
           border-radius: 3rem;
         }
-        }
+      }
 
-        .question-statement {
+      .question-statement {
         margin-bottom: 1rem;
         flex: 0 0;
-        }
-        .rowformat-selector {
+      }
+      .rowformat-selector {
         font-size: 90%;
         margin-top: 0.3rem;
         flex: 0 0;
         .clear-button {
-            float: right;
-            color: #333;
+          float: right;
+          color: #333;
         }
-        }
+      }
     }
   }
 
@@ -393,27 +393,57 @@ button.mdc-button {
     display: flex;
     align-items: flex-end;
     margin: 0.5rem 0 0 0;
-.hist-bar-with-label {
-    flex: 1;
-    text-align: center;
-    height: 2rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    .hist-bar {
-      background: lightgray;
-      display: inline-block;
-      vertical-align: bottom;
-      border-radius: 3px 3px 0 0;
+    .hist-bar-with-label {
+      flex: 1;
+      text-align: center;
+      height: 2rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      .hist-bar {
+        background: lightgray;
+        display: inline-block;
+        vertical-align: bottom;
+        border-radius: 3px 3px 0 0;
+      }
+      .hist-label {
+        font-size: 66%;
+        font-weight: bold;
+        opacity: 0.6;
+        border-top: 1px solid gray;
+      }
     }
-    .hist-label {
-      font-size: 66%;
-      font-weight: bold;
-      opacity: 0.6;
-      border-top: 1px solid gray;
-    }
-}
   }
 }
 
+.mdc-dialog__surface {
+  opacity: 1 !important;
+  transform: none !important;
+  .mdc-dialog__body {
+    letter-spacing: 0 !important;
+  }
+  .mdc-button:not(:disabled) {
+    color: #333 !important;
+  }
+  p {
+    margin-bottom: 0.4rem;
+  }
+}
+.mdc-dialog__backdrop {
+  opacity: 0.7 !important;
+}
+
+.info-link {
+  margin: 0 1rem;
+  cursor: pointer;
+  color: var(--mdc-theme-primary);
+}
+
+h3 {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}

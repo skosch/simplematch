@@ -46,16 +46,16 @@ function make(currentState, resultData, _) {
                     match$1 ? selectedRank : selectedRanksWorst
                   ];
           }));
-    var allSelectorNames = Belt_List.toArray(Belt_List.map(currentState[/* selectingParsedData */9], (function (e) {
+    var allSelectorNames = Belt_List.toArray(Belt_List.map(currentState[/* selectingParsedData */10], (function (e) {
                 return e[/* name */0];
               })));
-    var allSelecteeNames = Belt_List.toArray(Belt_List.map(currentState[/* selectedParsedData */10], (function (e) {
+    var allSelecteeNames = Belt_List.toArray(Belt_List.map(currentState[/* selectedParsedData */11], (function (e) {
                 return e[/* name */0];
               })));
-    var unmatchedSelectorNames = Belt_List.reduce(currentState[/* selectingParsedData */9], Belt_Set.fromArray(allSelectorNames, SharedTypes.StrCmp), (function (unmatchedSelectorNames, c) {
+    var unmatchedSelectorNames = Belt_List.reduce(currentState[/* selectingParsedData */10], Belt_Set.fromArray(allSelectorNames, SharedTypes.StrCmp), (function (unmatchedSelectorNames, c) {
             return Belt_Set.remove(unmatchedSelectorNames, c[/* name */0]);
           }));
-    var unmatchedSelecteeNames = Belt_List.reduce(currentState[/* selectedParsedData */10], Belt_Set.fromArray(allSelecteeNames, SharedTypes.StrCmp), (function (unmatchedSelecteeNames, c) {
+    var unmatchedSelecteeNames = Belt_List.reduce(currentState[/* selectedParsedData */11], Belt_Set.fromArray(allSelecteeNames, SharedTypes.StrCmp), (function (unmatchedSelecteeNames, c) {
             return Belt_Set.remove(unmatchedSelecteeNames, c[/* name */0]);
           }));
     return /* record */[
@@ -128,7 +128,7 @@ function make(currentState, resultData, _) {
                                             }, String(r)));
                             }));
               };
-              var match$1 = currentState[/* mutualMatch */3];
+              var match$1 = currentState[/* mutualMatch */4];
               return React.createElement("div", {
                           className: "result"
                         }, React.createElement("div", {
@@ -161,7 +161,7 @@ function make(currentState, resultData, _) {
                                                   className: "label"
                                                 }, "matched")), React.createElement("td", undefined, React.createElement("span", {
                                                   className: "count"
-                                                }, String(Belt_List.length(currentState[/* selectingParsedData */9]) - selectorsMatched | 0)), React.createElement("br", undefined), React.createElement("span", {
+                                                }, String(Belt_List.length(currentState[/* selectingParsedData */10]) - selectorsMatched | 0)), React.createElement("br", undefined), React.createElement("span", {
                                                   className: "label"
                                                 }, "unmatched")), React.createElement("td", undefined, React.createElement("div", {
                                                   className: "histogram"
@@ -176,7 +176,7 @@ function make(currentState, resultData, _) {
                                                   className: "label"
                                                 }, "matched")), React.createElement("td", undefined, React.createElement("span", {
                                                   className: "count"
-                                                }, String(Belt_List.length(currentState[/* selectedParsedData */10]) - selecteesMatched | 0)), React.createElement("br", undefined), React.createElement("span", {
+                                                }, String(Belt_List.length(currentState[/* selectedParsedData */11]) - selecteesMatched | 0)), React.createElement("br", undefined), React.createElement("span", {
                                                   className: "label"
                                                 }, "unmatched")), React.createElement("td", undefined, React.createElement("div", {
                                                   className: "histogram"

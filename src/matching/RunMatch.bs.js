@@ -23,25 +23,25 @@ function rankSortedArray(selectedNames) {
 }
 
 function popularManyToMany(currentState, swapParties) {
-  var selectingSelected = Js_dict.fromList(Belt_List.map(currentState[/* selectingParsedData */9], (function (e) {
+  var selectingSelected = Js_dict.fromList(Belt_List.map(currentState[/* selectingParsedData */10], (function (e) {
               return /* tuple */[
                       e[/* name */0],
                       rankSortedArray(e[/* selectedNames */2])
                     ];
             })));
-  var selectingCanMatchWith = Js_dict.fromList(Belt_List.map(currentState[/* selectingParsedData */9], (function (e) {
+  var selectingCanMatchWith = Js_dict.fromList(Belt_List.map(currentState[/* selectingParsedData */10], (function (e) {
               return /* tuple */[
                       e[/* name */0],
                       e[/* canMatchWith */1]
                     ];
             })));
-  var selectedSelected = Js_dict.fromList(Belt_List.map(currentState[/* selectedParsedData */10], (function (e) {
+  var selectedSelected = Js_dict.fromList(Belt_List.map(currentState[/* selectedParsedData */11], (function (e) {
               return /* tuple */[
                       e[/* name */0],
                       rankSortedArray(e[/* selectedNames */2])
                     ];
             })));
-  var selectedCanMatchWith = Js_dict.fromList(Belt_List.map(currentState[/* selectedParsedData */10], (function (e) {
+  var selectedCanMatchWith = Js_dict.fromList(Belt_List.map(currentState[/* selectedParsedData */11], (function (e) {
               return /* tuple */[
                       e[/* name */0],
                       e[/* canMatchWith */1]
@@ -62,8 +62,8 @@ function popularManyToMany(currentState, swapParties) {
 }
 
 function minCostMaxFlow(currentState) {
-  var selectingParsedData = currentState[/* selectingParsedData */9];
-  var selectedParsedData = currentState[/* selectedParsedData */10];
+  var selectingParsedData = currentState[/* selectingParsedData */10];
+  var selectedParsedData = currentState[/* selectedParsedData */11];
   var selectingIndices = Belt_HashMapString.fromArray(Belt_List.toArray(Belt_List.mapWithIndex(selectingParsedData, (function (i, s) {
                   return /* tuple */[
                           s[/* name */0],
@@ -76,7 +76,7 @@ function minCostMaxFlow(currentState) {
                           i
                         ];
                 }))));
-  var match = currentState[/* mutualMatch */3];
+  var match = currentState[/* mutualMatch */4];
   var reverseConnectedIndicesSets = match ? Belt_Array.map(Belt_List.toArray(selectedParsedData), (function (s) {
             return Belt_Set.fromArray(Belt_List.toArray(Belt_List.map(s[/* selectedNames */2], (function (param) {
                                   return param[0];
@@ -123,7 +123,7 @@ function minCostMaxFlow(currentState) {
                                 })),
                           Belt_Array.makeBy(nSelected, (function (i) {
                                   var isForwardConnected = Belt_Set.has(connectedIndicesSet, /* Some */[i]);
-                                  var match = currentState[/* mutualMatch */3];
+                                  var match = currentState[/* mutualMatch */4];
                                   var isReverseConnected;
                                   if (match) {
                                     var match$1 = Belt_Array.get(reverseConnectedIndicesSets, i);
@@ -277,7 +277,7 @@ function suggestStrategy(selectingParsedData, selectedParsedData, mutualMatch) {
 }
 
 function runMatch(currentState) {
-  var match = currentState[/* matchStrategy */4];
+  var match = currentState[/* matchStrategy */5];
   switch (match) {
     case 0 : 
         return popularManyToMany(currentState, false);

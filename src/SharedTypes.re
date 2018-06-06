@@ -55,6 +55,8 @@ type state = {
   selectedName: string,
 
   sampleMenuOpen: bool,
+  infoBoxOpen: bool,
+  
   mutualMatch: bool,
   matchStrategy: matchStrategy,
 

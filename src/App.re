@@ -13,7 +13,10 @@ include RunMatch;
 
 [%bs.raw {|require('../node_modules/@material/menu/mdc-menu.scss')|}];
 
+[%bs.raw {|require('../node_modules/@material/dialog/mdc-dialog.scss')|}];
+
 [@bs.module] external pluralize : unit => unit = "";
+
 [@bs.val] [@bs.module "pluralize"] external singular : string => string = "";
 
 /* Action declaration */
@@ -29,6 +32,8 @@ type action =
   | UpdateMatchStrategy(matchStrategy)
   | OpenSampleMenu
   | CloseSampleMenu
+  | OpenInfoBox
+  | CloseInfoBox
   | MatchNow;
 
 /* Component template declaration.
@@ -66,7 +71,7 @@ let make = _children => {
     self.ReasonReact.send(
       UpdateSelectingRawData(
         sampleDataToRaw(SelectedInColumns, marriageMen),
-      )
+      ),
     );
     self.ReasonReact.send(
       UpdateSelectedRawData(
@@ -84,12 +89,12 @@ let make = _children => {
     self.ReasonReact.send(
       UpdateSelectingRawData(
         sampleDataToRaw(SelectedInMultipleRows, residents),
-      )
+      ),
     );
     self.ReasonReact.send(
       UpdateSelectedRawData(
         sampleDataToRaw(SelectedInMultipleRows, hospitals),
-      )
+      ),
     );
   };
   {
@@ -99,6 +104,7 @@ let make = _children => {
       selectingName: "candidates",
       selectedName: "positions",
       sampleMenuOpen: false,
+      infoBoxOpen: false,
       mutualMatch: false,
       selectingRowFormat: SelectedInMultipleRows,
       selectedRowFormat: SelectedInMultipleRows,
@@ -128,6 +134,7 @@ let make = _children => {
           selectedRawData: [||],
           selectedParsedData: [],
           matchResult: [],
+          matchStrategy: mutualMatch ? state.matchStrategy : MCMF,
         })
       | UpdateSelectingRowFormat(rowFormat) =>
         ReasonReact.Update({
@@ -149,31 +156,36 @@ let make = _children => {
         let (parsedData, ignoredRowIndices, selectedNamesEntries) =
           parseData(rawData, state.selectingRowFormat, true);
         let selectedParsedData =
-            ! state.mutualMatch && List.length(state.selectedParsedData) == 0 ?
-              selectedNamesEntries : state.selectedParsedData;
+          ! state.mutualMatch && List.length(state.selectedParsedData) == 0 ?
+            selectedNamesEntries : state.selectedParsedData;
         ReasonReact.Update({
           ...state,
           selectingRawData: rawData,
           selectingParsedData: parsedData,
           selectingIgnoredRowIndices: ignoredRowIndices,
-          selectedParsedData: selectedParsedData,
+          selectedParsedData,
           selectedRawData:
             ! state.mutualMatch && List.length(state.selectedParsedData) == 0 ?
               sampleDataToRaw(state.selectedRowFormat, selectedNamesEntries) :
               state.selectedRawData,
           sampleMenuOpen: false,
-          matchStrategy: suggestStrategy(parsedData, selectedParsedData, state.mutualMatch)
+          matchStrategy:
+            suggestStrategy(
+              parsedData,
+              selectedParsedData,
+              state.mutualMatch,
+            ),
         });
-      | AutofillSelected => {
+      | AutofillSelected =>
         let (_, _, selectedNamesEntries) =
           parseData(state.selectingRawData, state.selectingRowFormat, true);
         ReasonReact.Update({
           ...state,
           selectedParsedData: selectedNamesEntries,
-          selectedRawData: sampleDataToRaw(state.selectedRowFormat, selectedNamesEntries),
+          selectedRawData:
+            sampleDataToRaw(state.selectedRowFormat, selectedNamesEntries),
           sampleMenuOpen: false,
         });
-        };
       | UpdateSelectedRawData(rawData) =>
         let (parsedData, ignoredRowIndices, _selectedNamesEntries) =
           parseData(rawData, state.selectedRowFormat, state.mutualMatch);
@@ -183,21 +195,26 @@ let make = _children => {
           selectedIgnoredRowIndices: ignoredRowIndices,
           selectedParsedData: parsedData,
           sampleMenuOpen: false,
-          matchStrategy: suggestStrategy(state.selectingParsedData, parsedData, state.mutualMatch)
+          matchStrategy:
+            suggestStrategy(
+              state.selectingParsedData,
+              parsedData,
+              state.mutualMatch,
+            ),
         });
       | CloseSampleMenu =>
-        ReasonReact.Update({...state, sampleMenuOpen: false});
-      | OpenSampleMenu => ReasonReact.Update({...state, sampleMenuOpen: true});
-      | UpdateMatchStrategy(matchStrategy) => ReasonReact.Update({...state, matchStrategy});
+        ReasonReact.Update({...state, sampleMenuOpen: false})
+      | OpenSampleMenu => ReasonReact.Update({...state, sampleMenuOpen: true})
+      | CloseInfoBox => ReasonReact.Update({...state, infoBoxOpen: false})
+      | OpenInfoBox => ReasonReact.Update({...state, infoBoxOpen: true})
+      | UpdateMatchStrategy(matchStrategy) =>
+        ReasonReact.Update({...state, matchStrategy})
       | MatchNow =>
-        ReasonReact.Update({...state, matchResult: RunMatch.runMatch(state)});
+        ReasonReact.Update({...state, matchResult: RunMatch.runMatch(state)})
       },
-    
     render: self => {
       let state = self.state;
-      let resultData =
-        self.state.matchResult
-        |> Belt.List.toArray;
+      let resultData = self.state.matchResult |> Belt.List.toArray;
       <div onClick=((_) => self.send(CloseSampleMenu))>
         <div className="splash">
           <div className="plank-logo"> (ReasonReact.string("Plank")) </div>
@@ -206,7 +223,7 @@ let make = _children => {
             <div>
               (
                 ReasonReact.string(
-                  "Finds the best match from rank lists in seconds"
+                  "Finds the best match from rank lists in seconds",
                 )
               )
             </div>
@@ -240,20 +257,23 @@ let make = _children => {
                       onClick=(self.handle(loadImperialInternships))>
                       (ReasonReact.string("Imperial Internships"))
                     </li>
-                    <li className="mdc-list-item" role="menuitem" tabIndex=1
+                    <li
+                      className="mdc-list-item"
+                      role="menuitem"
+                      tabIndex=1
                       onClick=(self.handle(loadMarriageProposals))>
                       (ReasonReact.string("Marriage Matchmaking"))
                     </li>
-                    <li className="mdc-list-item" role="menuitem" tabIndex=2
+                    <li
+                      className="mdc-list-item"
+                      role="menuitem"
+                      tabIndex=2
                       onClick=(self.handle(loadResidencies))>
                       (ReasonReact.string("Rewarding Residencies"))
                     </li>
                   </ul>
                 </div>
               </div>
-              
-              
-
               <span className="leftpad" />
               <input
                 _type="text"
@@ -269,7 +289,7 @@ let make = _children => {
                     )
                 )
               />
-              <span> (ReasonReact.string(" are ranking ")) </span>
+              <span> (ReasonReact.string(" have ranked ")) </span>
               <input
                 _type="text"
                 value=self.state.selectedName
@@ -351,54 +371,63 @@ let make = _children => {
                   ReasonReact.string("None of your data leaves your computer.")
                 )
               </span>
-
-              (state.mutualMatch ? (
-            <span>
-              <div className="material-select">
-              <span>(ReasonReact.string("Match strategy"))</span>
-              <select
-                onChange=(
-                  _event => {
-                    let value = ReactDOMRe.domElementToObj(
-                                  ReactEventRe.Form.target(_event),
-                                )##value;
-                    let matchStrategy =
-                      switch (value) {
-                      | "selecting-break-ties" => SelectingBreakTies
-                      | "selected-break-ties" => SelectedBreakTies
-                      | "mcmf" => MCMF
-                      | "" => MCMF
-                      | "*" => MCMF
-                      };
-                    self.send(UpdateMatchStrategy(matchStrategy));
-                  }
-                )
-                value=(switch(state.matchStrategy) {
-                 | SelectingBreakTies => "selecting-break-ties";
-                 | SelectedBreakTies => "selected-break-ties";
-                 | MCMF => "mcmf"
-              })>
-                <option value="selecting-break-ties">
-                  (
-                    ReasonReact.string(
-                      "Stable match, " ++ String.uncapitalize(state.selectingName) ++ " have the last word on ties",
+              <span>
+                <div className="material-select">
+                  <span> (ReasonReact.string("Matching strategy")) </span>
+                  <select
+                    disabled=(! state.mutualMatch)
+                    onChange=(
+                      _event => {
+                        let value = ReactDOMRe.domElementToObj(
+                                      ReactEventRe.Form.target(_event),
+                                    )##value;
+                        let matchStrategy =
+                          switch (value) {
+                          | "selecting-break-ties" => SelectingBreakTies
+                          | "selected-break-ties" => SelectedBreakTies
+                          | "mcmf" => MCMF
+                          | "" => MCMF
+                          | "*" => MCMF
+                          };
+                        self.send(UpdateMatchStrategy(matchStrategy));
+                      }
                     )
-                  )
-                </option>
-                <option value="selected-break-ties">
-                  (
-                    ReasonReact.string(
-                      "Stable match, " ++ String.uncapitalize(state.selectedName) ++ " have the last word on ties",
-                    )
-                  )
-                </option>
-                <option value="mcmf">
-                  (ReasonReact.string("Maximize number of matches, minimize sum of ranks"))
-                </option>
-              </select>
-              </div>
-            </span>
-            ) : ReasonReact.null)
+                    value=(
+                      switch (state.matchStrategy) {
+                      | SelectingBreakTies => "selecting-break-ties"
+                      | SelectedBreakTies => "selected-break-ties"
+                      | MCMF => "mcmf"
+                      }
+                    )>
+                    <option value="mcmf">
+                      (ReasonReact.string("Maximal matching"))
+                    </option>
+                    <option value="selecting-break-ties">
+                      (
+                        ReasonReact.string(
+                          "Popular matching, "
+                          ++ String.uncapitalize(state.selectingName)
+                          ++ " decide ties",
+                        )
+                      )
+                    </option>
+                    <option value="selected-break-ties">
+                      (
+                        ReasonReact.string(
+                          "Popular matching, "
+                          ++ String.uncapitalize(state.selectedName)
+                          ++ " decide ties",
+                        )
+                      )
+                    </option>
+                  </select>
+                </div>
+                <span
+                  className="info-link"
+                  onClick=((_) => self.send(OpenInfoBox))>
+                  (ReasonReact.string("(what is this?)"))
+                </span>
+              </span>
               <button
                 onClick=((_) => self.send(MatchNow))
                 className="mdc-button mdc-button--raised"
@@ -419,6 +448,114 @@ let make = _children => {
             )
           </div>
         </div>
+        <aside
+          id="my-mdc-dialog"
+          className="mdc-dialog"
+          role="alertdialog"
+          style=(
+            ReactDOMRe.Style.make(
+              ~visibility=state.infoBoxOpen ? "visible" : "hidden",
+              (),
+            )
+          )>
+          <div className="mdc-dialog__surface">
+            <header className="mdc-dialog__header">
+              <h2
+                id="my-mdc-dialog-label" className="mdc-dialog__header__title">
+                (ReasonReact.string("Matching strategy"))
+              </h2>
+            </header>
+            <section
+              id="my-mdc-dialog-description" className="mdc-dialog__body">
+              <h3> (ReasonReact.string("Maximal matching")) </h3>
+              <p>
+                (
+                  ReasonReact.string(
+                    "This strategy will always find the maximum possible number of matches, while taking\npreferences into account (it minimizes the sum of the ranks of all matches).",
+                  )
+                )
+              </p>
+              <p>
+                (
+                  ReasonReact.string(
+                    "This strategy may find more matches than the ",
+                  )
+                )
+                <em> (ReasonReact.string("Popular matching")) </em>
+                (
+                  ReasonReact.string(
+                    " strategy, but may include more matches that are less preferred.",
+                  )
+                )
+              </p>
+              <p>
+                (
+                  ReasonReact.string(
+                    "For more details, please see ",
+                  )
+                )
+                <a
+                  href="https://en.wikipedia.org/wiki/Minimum-cost_flow_problem#Minimum_weight_bipartite_matching">
+                  (ReasonReact.string("minimum-weight bipartite matching"))
+                </a>
+                (ReasonReact.string("."))
+              </p>
+              <br />
+              <h3> (ReasonReact.string("Popular matching")) </h3>
+              <p>
+                (
+                  ReasonReact.string(
+                    "A popular matching is one that tries to maximize overall satisfaction.
+                     While the algorithm will try to find as many matches as possible,
+                     it will not do so unconditionally. Under one-on-one conditions, this typically results in a ",
+                  )
+                )
+                <a
+                  href="https://en.wikipedia.org/wiki/Stable_marriage_problem">
+                  (ReasonReact.string("stable matching"))
+                </a>
+                (ReasonReact.string("."))
+              </p>
+              <p>
+                (
+                  ReasonReact.string(
+                    "When two different matchings would be equally popular, the rank lists of either "
+                    ++ String.uncapitalize(state.selectingName)
+                    ++ " or "
+                    ++ String.uncapitalize(state.selectedName)
+                    ++ " can be used to break ties.",
+                  )
+                )
+              </p>
+              <p>
+                (
+                  ReasonReact.string(
+                    "For an in-depth explanation, please see ",
+                  )
+                )
+                <a href="https://arxiv.org/abs/1609.07531">
+                  (ReasonReact.string("the original article describing the algorithm."))
+                </a>
+              </p>
+              <p>
+                (
+                  ReasonReact.string(
+                    "This strategy does not apply when only one side is ranking the other."
+                  )
+                )
+              </p>
+            </section>
+            <footer className="mdc-dialog__footer">
+              <button
+                _type="button"
+                className="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept"
+                onClick=((_) => self.send(CloseInfoBox))>
+                (ReasonReact.string("Close"))
+              </button>
+            </footer>
+          </div>
+          <div className="mdc-dialog__backdrop" />
+        </aside>
       </div>;
     },
   };

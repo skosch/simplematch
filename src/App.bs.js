@@ -24,6 +24,8 @@ var Caml_builtin_exceptions = require("bs-platform/lib/js/caml_builtin_exception
 
 ((require('../node_modules/@material/menu/mdc-menu.scss')));
 
+((require('../node_modules/@material/dialog/mdc-dialog.scss')));
+
 var component = ReasonReact.reducerComponent("App");
 
 function make() {
@@ -69,67 +71,24 @@ function make() {
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function (self) {
               var state = self[/* state */1];
-              var resultData = Belt_List.toArray(self[/* state */1][/* matchResult */13]);
+              var resultData = Belt_List.toArray(self[/* state */1][/* matchResult */14]);
               var match = state[/* sampleMenuOpen */2];
-              var match$1 = state[/* mutualMatch */3];
+              var match$1 = state[/* matchStrategy */5];
               var tmp;
-              if (match$1) {
-                var match$2 = state[/* matchStrategy */4];
-                var tmp$1;
-                switch (match$2) {
-                  case 0 : 
-                      tmp$1 = "selecting-break-ties";
-                      break;
-                  case 1 : 
-                      tmp$1 = "selected-break-ties";
-                      break;
-                  case 2 : 
-                      tmp$1 = "mcmf";
-                      break;
-                  
-                }
-                tmp = React.createElement("span", undefined, React.createElement("div", {
-                          className: "material-select"
-                        }, React.createElement("span", undefined, "Match strategy"), React.createElement("select", {
-                              value: tmp$1,
-                              onChange: (function (_event) {
-                                  var value = _event.target.value;
-                                  var matchStrategy;
-                                  switch (value) {
-                                    case "" : 
-                                    case "*" : 
-                                    case "mcmf" : 
-                                        matchStrategy = /* MCMF */2;
-                                        break;
-                                    case "selected-break-ties" : 
-                                        matchStrategy = /* SelectedBreakTies */1;
-                                        break;
-                                    case "selecting-break-ties" : 
-                                        matchStrategy = /* SelectingBreakTies */0;
-                                        break;
-                                    default:
-                                      throw [
-                                            Caml_builtin_exceptions.match_failure,
-                                            [
-                                              "App.re",
-                                              366,
-                                              22
-                                            ]
-                                          ];
-                                  }
-                                  return Curry._1(self[/* send */3], /* UpdateMatchStrategy */Block.__(7, [matchStrategy]));
-                                })
-                            }, React.createElement("option", {
-                                  value: "selecting-break-ties"
-                                }, "Stable match, " + ($$String.uncapitalize(state[/* selectingName */0]) + " have the last word on ties")), React.createElement("option", {
-                                  value: "selected-break-ties"
-                                }, "Stable match, " + ($$String.uncapitalize(state[/* selectedName */1]) + " have the last word on ties")), React.createElement("option", {
-                                  value: "mcmf"
-                                }, "Maximize number of matches, minimize sum of ranks"))));
-              } else {
-                tmp = null;
+              switch (match$1) {
+                case 0 : 
+                    tmp = "selecting-break-ties";
+                    break;
+                case 1 : 
+                    tmp = "selected-break-ties";
+                    break;
+                case 2 : 
+                    tmp = "mcmf";
+                    break;
+                
               }
-              var match$3 = List.length(self[/* state */1][/* matchResult */13]) > 0;
+              var match$2 = List.length(self[/* state */1][/* matchResult */14]) > 0;
+              var match$3 = state[/* infoBoxOpen */3];
               return React.createElement("div", {
                           onClick: (function () {
                               return Curry._1(self[/* send */3], /* CloseSampleMenu */2);
@@ -185,7 +144,7 @@ function make() {
                                           onChange: (function (_event) {
                                               return Curry._1(self[/* send */3], /* UpdateSelectingName */Block.__(0, [_event.target.value]));
                                             })
-                                        }), React.createElement("span", undefined, " are ranking "), React.createElement("input", {
+                                        }), React.createElement("span", undefined, " have ranked "), React.createElement("input", {
                                           type: "text",
                                           value: self[/* state */1][/* selectedName */1],
                                           onChange: (function (_event) {
@@ -197,7 +156,7 @@ function make() {
                                               className: "mdc-switch__native-control",
                                               id: "mutual-switch",
                                               role: "switch",
-                                              checked: self[/* state */1][/* mutualMatch */3],
+                                              checked: self[/* state */1][/* mutualMatch */4],
                                               type: "checkbox",
                                               onChange: (function (_event) {
                                                   return Curry._1(self[/* send */3], /* UpdateMutualMatch */Block.__(2, [_event.target.checked]));
@@ -212,39 +171,116 @@ function make() {
                                           className: "rightpad"
                                         })), React.createElement("div", {
                                       className: "data-importers"
-                                    }, ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectingRawData */7], state[/* selectingName */0], state[/* selectedName */1], state[/* selectingRowFormat */5], (function (rowFormat) {
+                                    }, ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectingRawData */8], state[/* selectingName */0], state[/* selectedName */1], state[/* selectingRowFormat */6], (function (rowFormat) {
                                                 return Curry._1(self[/* send */3], /* UpdateSelectingRowFormat */Block.__(3, [rowFormat]));
                                               }), (function (rawData) {
                                                 return Curry._1(self[/* send */3], /* UpdateSelectingRawData */Block.__(5, [rawData]));
                                               }), (function () {
                                                 return /* () */0;
-                                              }), true, state[/* selectingIgnoredRowIndices */11], /* array */[])), ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectedRawData */8], state[/* selectedName */1], state[/* selectingName */0], state[/* selectedRowFormat */6], (function (rowFormat) {
+                                              }), true, state[/* selectingIgnoredRowIndices */12], /* array */[])), ReasonReact.element(/* None */0, /* None */0, SideDataImporter.make(state[/* selectedRawData */9], state[/* selectedName */1], state[/* selectingName */0], state[/* selectedRowFormat */7], (function (rowFormat) {
                                                 return Curry._1(self[/* send */3], /* UpdateSelectedRowFormat */Block.__(4, [rowFormat]));
                                               }), (function (rawData) {
                                                 return Curry._1(self[/* send */3], /* UpdateSelectedRawData */Block.__(6, [rawData]));
                                               }), (function () {
                                                 return Curry._1(self[/* send */3], /* AutofillSelected */0);
-                                              }), state[/* mutualMatch */3], state[/* selectedIgnoredRowIndices */12], /* array */[]))), React.createElement("div", {
+                                              }), state[/* mutualMatch */4], state[/* selectedIgnoredRowIndices */13], /* array */[]))), React.createElement("div", {
                                       className: "bottom-buttons"
                                     }, React.createElement("span", {
                                           className: "privacy-info"
-                                        }, "The match runs in your browser.", React.createElement("br", undefined), "None of your data leaves your computer."), tmp, React.createElement("button", {
+                                        }, "The match runs in your browser.", React.createElement("br", undefined), "None of your data leaves your computer."), React.createElement("span", undefined, React.createElement("div", {
+                                              className: "material-select"
+                                            }, React.createElement("span", undefined, "Matching strategy"), React.createElement("select", {
+                                                  disabled: !state[/* mutualMatch */4],
+                                                  value: tmp,
+                                                  onChange: (function (_event) {
+                                                      var value = _event.target.value;
+                                                      var matchStrategy;
+                                                      switch (value) {
+                                                        case "" : 
+                                                        case "*" : 
+                                                        case "mcmf" : 
+                                                            matchStrategy = /* MCMF */2;
+                                                            break;
+                                                        case "selected-break-ties" : 
+                                                            matchStrategy = /* SelectedBreakTies */1;
+                                                            break;
+                                                        case "selecting-break-ties" : 
+                                                            matchStrategy = /* SelectingBreakTies */0;
+                                                            break;
+                                                        default:
+                                                          throw [
+                                                                Caml_builtin_exceptions.match_failure,
+                                                                [
+                                                                  "App.re",
+                                                                  385,
+                                                                  26
+                                                                ]
+                                                              ];
+                                                      }
+                                                      return Curry._1(self[/* send */3], /* UpdateMatchStrategy */Block.__(7, [matchStrategy]));
+                                                    })
+                                                }, React.createElement("option", {
+                                                      value: "mcmf"
+                                                    }, "Maximal matching"), React.createElement("option", {
+                                                      value: "selecting-break-ties"
+                                                    }, "Popular matching, " + ($$String.uncapitalize(state[/* selectingName */0]) + " decide ties")), React.createElement("option", {
+                                                      value: "selected-break-ties"
+                                                    }, "Popular matching, " + ($$String.uncapitalize(state[/* selectedName */1]) + " decide ties")))), React.createElement("span", {
+                                              className: "info-link",
+                                              onClick: (function () {
+                                                  return Curry._1(self[/* send */3], /* OpenInfoBox */3);
+                                                })
+                                            }, "(what is this?)")), React.createElement("button", {
                                           className: "mdc-button mdc-button--raised",
-                                          disabled: List.length(self[/* state */1][/* selectingParsedData */9]) === 0 || List.length(self[/* state */1][/* selectedParsedData */10]) === 0,
+                                          disabled: List.length(self[/* state */1][/* selectingParsedData */10]) === 0 || List.length(self[/* state */1][/* selectedParsedData */11]) === 0,
                                           onClick: (function () {
-                                              return Curry._1(self[/* send */3], /* MatchNow */3);
+                                              return Curry._1(self[/* send */3], /* MatchNow */5);
                                             })
                                         }, "Match now")))), React.createElement("div", {
                               className: "page-content"
                             }, React.createElement("div", {
                                   className: "graph-pane"
-                                }, match$3 ? ReasonReact.element(/* None */0, /* None */0, Result.make(state, resultData, /* array */[])) : null)));
+                                }, match$2 ? ReasonReact.element(/* None */0, /* None */0, Result.make(state, resultData, /* array */[])) : null)), React.createElement("aside", {
+                              className: "mdc-dialog",
+                              id: "my-mdc-dialog",
+                              role: "alertdialog",
+                              style: {
+                                visibility: match$3 ? "visible" : "hidden"
+                              }
+                            }, React.createElement("div", {
+                                  className: "mdc-dialog__surface"
+                                }, React.createElement("header", {
+                                      className: "mdc-dialog__header"
+                                    }, React.createElement("h2", {
+                                          className: "mdc-dialog__header__title",
+                                          id: "my-mdc-dialog-label"
+                                        }, "Matching strategy")), React.createElement("section", {
+                                      className: "mdc-dialog__body",
+                                      id: "my-mdc-dialog-description"
+                                    }, React.createElement("h3", undefined, "Maximal matching"), React.createElement("p", undefined, "This strategy will always find the maximum possible number of matches, while taking\npreferences into account (it minimizes the sum of the ranks of all matches)."), React.createElement("p", undefined, "This strategy may find more matches than the ", React.createElement("em", undefined, "Popular matching"), " strategy, but may include more matches that are less preferred."), React.createElement("p", undefined, "For more details, please see ", React.createElement("a", {
+                                              href: "https://en.wikipedia.org/wiki/Minimum-cost_flow_problem#Minimum_weight_bipartite_matching"
+                                            }, "minimum-weight bipartite matching"), "."), React.createElement("br", undefined), React.createElement("h3", undefined, "Popular matching"), React.createElement("p", undefined, "A popular matching is one that tries to maximize overall satisfaction.\n                     While the algorithm will try to find as many matches as possible,\n                     it will not do so unconditionally. Under one-on-one conditions, this typically results in a ", React.createElement("a", {
+                                              href: "https://en.wikipedia.org/wiki/Stable_marriage_problem"
+                                            }, "stable matching"), "."), React.createElement("p", undefined, "When two different matchings would be equally popular, the rank lists of either " + ($$String.uncapitalize(state[/* selectingName */0]) + (" or " + ($$String.uncapitalize(state[/* selectedName */1]) + " can be used to break ties.")))), React.createElement("p", undefined, "For an in-depth explanation, please see ", React.createElement("a", {
+                                              href: "https://arxiv.org/abs/1609.07531"
+                                            }, "the original article describing the algorithm.")), React.createElement("p", undefined, "This strategy does not apply when only one side is ranking the other.")), React.createElement("footer", {
+                                      className: "mdc-dialog__footer"
+                                    }, React.createElement("button", {
+                                          className: "mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept",
+                                          type: "button",
+                                          onClick: (function () {
+                                              return Curry._1(self[/* send */3], /* CloseInfoBox */4);
+                                            })
+                                        }, "Close"))), React.createElement("div", {
+                                  className: "mdc-dialog__backdrop"
+                                })));
             }),
           /* initialState */(function () {
               return /* record */[
                       /* selectingName */"candidates",
                       /* selectedName */"positions",
                       /* sampleMenuOpen */false,
+                      /* infoBoxOpen */false,
                       /* mutualMatch */false,
                       /* matchStrategy : MCMF */2,
                       /* selectingRowFormat : SelectedInMultipleRows */1,
@@ -263,73 +299,113 @@ function make() {
               if (typeof action === "number") {
                 switch (action) {
                   case 0 : 
-                      var match = DataParser.parseData(state[/* selectingRawData */7], state[/* selectingRowFormat */5], true);
+                      var match = DataParser.parseData(state[/* selectingRawData */8], state[/* selectingRowFormat */6], true);
                       var selectedNamesEntries = match[2];
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
                                   /* sampleMenuOpen */false,
-                                  /* mutualMatch */state[/* mutualMatch */3],
-                                  /* matchStrategy */state[/* matchStrategy */4],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */5],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */6],
-                                  /* selectingRawData */state[/* selectingRawData */7],
-                                  /* selectedRawData */SampleData.sampleDataToRaw(state[/* selectedRowFormat */6], selectedNamesEntries),
-                                  /* selectingParsedData */state[/* selectingParsedData */9],
+                                  /* infoBoxOpen */state[/* infoBoxOpen */3],
+                                  /* mutualMatch */state[/* mutualMatch */4],
+                                  /* matchStrategy */state[/* matchStrategy */5],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */6],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */7],
+                                  /* selectingRawData */state[/* selectingRawData */8],
+                                  /* selectedRawData */SampleData.sampleDataToRaw(state[/* selectedRowFormat */7], selectedNamesEntries),
+                                  /* selectingParsedData */state[/* selectingParsedData */10],
                                   /* selectedParsedData */selectedNamesEntries,
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */11],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */12],
-                                  /* matchResult */state[/* matchResult */13]
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */12],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */13],
+                                  /* matchResult */state[/* matchResult */14]
                                 ]]);
                   case 1 : 
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
                                   /* sampleMenuOpen */true,
-                                  /* mutualMatch */state[/* mutualMatch */3],
-                                  /* matchStrategy */state[/* matchStrategy */4],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */5],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */6],
-                                  /* selectingRawData */state[/* selectingRawData */7],
-                                  /* selectedRawData */state[/* selectedRawData */8],
-                                  /* selectingParsedData */state[/* selectingParsedData */9],
-                                  /* selectedParsedData */state[/* selectedParsedData */10],
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */11],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */12],
-                                  /* matchResult */state[/* matchResult */13]
+                                  /* infoBoxOpen */state[/* infoBoxOpen */3],
+                                  /* mutualMatch */state[/* mutualMatch */4],
+                                  /* matchStrategy */state[/* matchStrategy */5],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */6],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */7],
+                                  /* selectingRawData */state[/* selectingRawData */8],
+                                  /* selectedRawData */state[/* selectedRawData */9],
+                                  /* selectingParsedData */state[/* selectingParsedData */10],
+                                  /* selectedParsedData */state[/* selectedParsedData */11],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */12],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */13],
+                                  /* matchResult */state[/* matchResult */14]
                                 ]]);
                   case 2 : 
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
                                   /* sampleMenuOpen */false,
-                                  /* mutualMatch */state[/* mutualMatch */3],
-                                  /* matchStrategy */state[/* matchStrategy */4],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */5],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */6],
-                                  /* selectingRawData */state[/* selectingRawData */7],
-                                  /* selectedRawData */state[/* selectedRawData */8],
-                                  /* selectingParsedData */state[/* selectingParsedData */9],
-                                  /* selectedParsedData */state[/* selectedParsedData */10],
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */11],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */12],
-                                  /* matchResult */state[/* matchResult */13]
+                                  /* infoBoxOpen */state[/* infoBoxOpen */3],
+                                  /* mutualMatch */state[/* mutualMatch */4],
+                                  /* matchStrategy */state[/* matchStrategy */5],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */6],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */7],
+                                  /* selectingRawData */state[/* selectingRawData */8],
+                                  /* selectedRawData */state[/* selectedRawData */9],
+                                  /* selectingParsedData */state[/* selectingParsedData */10],
+                                  /* selectedParsedData */state[/* selectedParsedData */11],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */12],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */13],
+                                  /* matchResult */state[/* matchResult */14]
                                 ]]);
                   case 3 : 
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
                                   /* sampleMenuOpen */state[/* sampleMenuOpen */2],
-                                  /* mutualMatch */state[/* mutualMatch */3],
-                                  /* matchStrategy */state[/* matchStrategy */4],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */5],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */6],
-                                  /* selectingRawData */state[/* selectingRawData */7],
-                                  /* selectedRawData */state[/* selectedRawData */8],
-                                  /* selectingParsedData */state[/* selectingParsedData */9],
-                                  /* selectedParsedData */state[/* selectedParsedData */10],
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */11],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */12],
+                                  /* infoBoxOpen */true,
+                                  /* mutualMatch */state[/* mutualMatch */4],
+                                  /* matchStrategy */state[/* matchStrategy */5],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */6],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */7],
+                                  /* selectingRawData */state[/* selectingRawData */8],
+                                  /* selectedRawData */state[/* selectedRawData */9],
+                                  /* selectingParsedData */state[/* selectingParsedData */10],
+                                  /* selectedParsedData */state[/* selectedParsedData */11],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */12],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */13],
+                                  /* matchResult */state[/* matchResult */14]
+                                ]]);
+                  case 4 : 
+                      return /* Update */Block.__(0, [/* record */[
+                                  /* selectingName */state[/* selectingName */0],
+                                  /* selectedName */state[/* selectedName */1],
+                                  /* sampleMenuOpen */state[/* sampleMenuOpen */2],
+                                  /* infoBoxOpen */false,
+                                  /* mutualMatch */state[/* mutualMatch */4],
+                                  /* matchStrategy */state[/* matchStrategy */5],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */6],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */7],
+                                  /* selectingRawData */state[/* selectingRawData */8],
+                                  /* selectedRawData */state[/* selectedRawData */9],
+                                  /* selectingParsedData */state[/* selectingParsedData */10],
+                                  /* selectedParsedData */state[/* selectedParsedData */11],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */12],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */13],
+                                  /* matchResult */state[/* matchResult */14]
+                                ]]);
+                  case 5 : 
+                      return /* Update */Block.__(0, [/* record */[
+                                  /* selectingName */state[/* selectingName */0],
+                                  /* selectedName */state[/* selectedName */1],
+                                  /* sampleMenuOpen */state[/* sampleMenuOpen */2],
+                                  /* infoBoxOpen */state[/* infoBoxOpen */3],
+                                  /* mutualMatch */state[/* mutualMatch */4],
+                                  /* matchStrategy */state[/* matchStrategy */5],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */6],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */7],
+                                  /* selectingRawData */state[/* selectingRawData */8],
+                                  /* selectedRawData */state[/* selectedRawData */9],
+                                  /* selectingParsedData */state[/* selectingParsedData */10],
+                                  /* selectedParsedData */state[/* selectedParsedData */11],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */12],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */13],
                                   /* matchResult */RunMatch.runMatch(state)
                                 ]]);
                   
@@ -341,50 +417,54 @@ function make() {
                                   /* selectingName */action[0],
                                   /* selectedName */state[/* selectedName */1],
                                   /* sampleMenuOpen */state[/* sampleMenuOpen */2],
-                                  /* mutualMatch */state[/* mutualMatch */3],
-                                  /* matchStrategy */state[/* matchStrategy */4],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */5],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */6],
-                                  /* selectingRawData */state[/* selectingRawData */7],
-                                  /* selectedRawData */state[/* selectedRawData */8],
-                                  /* selectingParsedData */state[/* selectingParsedData */9],
-                                  /* selectedParsedData */state[/* selectedParsedData */10],
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */11],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */12],
-                                  /* matchResult */state[/* matchResult */13]
+                                  /* infoBoxOpen */state[/* infoBoxOpen */3],
+                                  /* mutualMatch */state[/* mutualMatch */4],
+                                  /* matchStrategy */state[/* matchStrategy */5],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */6],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */7],
+                                  /* selectingRawData */state[/* selectingRawData */8],
+                                  /* selectedRawData */state[/* selectedRawData */9],
+                                  /* selectingParsedData */state[/* selectingParsedData */10],
+                                  /* selectedParsedData */state[/* selectedParsedData */11],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */12],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */13],
+                                  /* matchResult */state[/* matchResult */14]
                                 ]]);
                   case 1 : 
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */action[0],
                                   /* sampleMenuOpen */state[/* sampleMenuOpen */2],
-                                  /* mutualMatch */state[/* mutualMatch */3],
-                                  /* matchStrategy */state[/* matchStrategy */4],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */5],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */6],
-                                  /* selectingRawData */state[/* selectingRawData */7],
-                                  /* selectedRawData */state[/* selectedRawData */8],
-                                  /* selectingParsedData */state[/* selectingParsedData */9],
-                                  /* selectedParsedData */state[/* selectedParsedData */10],
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */11],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */12],
-                                  /* matchResult */state[/* matchResult */13]
+                                  /* infoBoxOpen */state[/* infoBoxOpen */3],
+                                  /* mutualMatch */state[/* mutualMatch */4],
+                                  /* matchStrategy */state[/* matchStrategy */5],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */6],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */7],
+                                  /* selectingRawData */state[/* selectingRawData */8],
+                                  /* selectedRawData */state[/* selectedRawData */9],
+                                  /* selectingParsedData */state[/* selectingParsedData */10],
+                                  /* selectedParsedData */state[/* selectedParsedData */11],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */12],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */13],
+                                  /* matchResult */state[/* matchResult */14]
                                 ]]);
                   case 2 : 
+                      var mutualMatch = action[0];
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
                                   /* sampleMenuOpen */state[/* sampleMenuOpen */2],
-                                  /* mutualMatch */action[0],
-                                  /* matchStrategy */state[/* matchStrategy */4],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */5],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */6],
-                                  /* selectingRawData */state[/* selectingRawData */7],
+                                  /* infoBoxOpen */state[/* infoBoxOpen */3],
+                                  /* mutualMatch */mutualMatch,
+                                  /* matchStrategy */mutualMatch ? state[/* matchStrategy */5] : /* MCMF */2,
+                                  /* selectingRowFormat */state[/* selectingRowFormat */6],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */7],
+                                  /* selectingRawData */state[/* selectingRawData */8],
                                   /* selectedRawData : array */[],
-                                  /* selectingParsedData */state[/* selectingParsedData */9],
+                                  /* selectingParsedData */state[/* selectingParsedData */10],
                                   /* selectedParsedData : [] */0,
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */11],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */12],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */12],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */13],
                                   /* matchResult : [] */0
                                 ]]);
                   case 3 : 
@@ -392,16 +472,17 @@ function make() {
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
                                   /* sampleMenuOpen */state[/* sampleMenuOpen */2],
-                                  /* mutualMatch */state[/* mutualMatch */3],
-                                  /* matchStrategy */state[/* matchStrategy */4],
+                                  /* infoBoxOpen */state[/* infoBoxOpen */3],
+                                  /* mutualMatch */state[/* mutualMatch */4],
+                                  /* matchStrategy */state[/* matchStrategy */5],
                                   /* selectingRowFormat */action[0],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */6],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */7],
                                   /* selectingRawData : array */[],
-                                  /* selectedRawData */state[/* selectedRawData */8],
+                                  /* selectedRawData */state[/* selectedRawData */9],
                                   /* selectingParsedData : [] */0,
-                                  /* selectedParsedData */state[/* selectedParsedData */10],
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */11],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */12],
+                                  /* selectedParsedData */state[/* selectedParsedData */11],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */12],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */13],
                                   /* matchResult : [] */0
                                 ]]);
                   case 4 : 
@@ -409,78 +490,82 @@ function make() {
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
                                   /* sampleMenuOpen */state[/* sampleMenuOpen */2],
-                                  /* mutualMatch */state[/* mutualMatch */3],
-                                  /* matchStrategy */state[/* matchStrategy */4],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */5],
+                                  /* infoBoxOpen */state[/* infoBoxOpen */3],
+                                  /* mutualMatch */state[/* mutualMatch */4],
+                                  /* matchStrategy */state[/* matchStrategy */5],
+                                  /* selectingRowFormat */state[/* selectingRowFormat */6],
                                   /* selectedRowFormat */action[0],
-                                  /* selectingRawData */state[/* selectingRawData */7],
+                                  /* selectingRawData */state[/* selectingRawData */8],
                                   /* selectedRawData : array */[],
-                                  /* selectingParsedData */state[/* selectingParsedData */9],
+                                  /* selectingParsedData */state[/* selectingParsedData */10],
                                   /* selectedParsedData : [] */0,
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */11],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */12],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */12],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */13],
                                   /* matchResult : [] */0
                                 ]]);
                   case 5 : 
                       var rawData = action[0];
-                      var match$1 = DataParser.parseData(rawData, state[/* selectingRowFormat */5], true);
+                      var match$1 = DataParser.parseData(rawData, state[/* selectingRowFormat */6], true);
                       var selectedNamesEntries$1 = match$1[2];
                       var parsedData = match$1[0];
-                      var match$2 = !state[/* mutualMatch */3] && List.length(state[/* selectedParsedData */10]) === 0;
-                      var selectedParsedData = match$2 ? selectedNamesEntries$1 : state[/* selectedParsedData */10];
-                      var match$3 = !state[/* mutualMatch */3] && List.length(state[/* selectedParsedData */10]) === 0;
+                      var match$2 = !state[/* mutualMatch */4] && List.length(state[/* selectedParsedData */11]) === 0;
+                      var selectedParsedData = match$2 ? selectedNamesEntries$1 : state[/* selectedParsedData */11];
+                      var match$3 = !state[/* mutualMatch */4] && List.length(state[/* selectedParsedData */11]) === 0;
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
                                   /* sampleMenuOpen */false,
-                                  /* mutualMatch */state[/* mutualMatch */3],
-                                  /* matchStrategy */RunMatch.suggestStrategy(parsedData, selectedParsedData, state[/* mutualMatch */3]),
-                                  /* selectingRowFormat */state[/* selectingRowFormat */5],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */6],
+                                  /* infoBoxOpen */state[/* infoBoxOpen */3],
+                                  /* mutualMatch */state[/* mutualMatch */4],
+                                  /* matchStrategy */RunMatch.suggestStrategy(parsedData, selectedParsedData, state[/* mutualMatch */4]),
+                                  /* selectingRowFormat */state[/* selectingRowFormat */6],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */7],
                                   /* selectingRawData */rawData,
-                                  /* selectedRawData */match$3 ? SampleData.sampleDataToRaw(state[/* selectedRowFormat */6], selectedNamesEntries$1) : state[/* selectedRawData */8],
+                                  /* selectedRawData */match$3 ? SampleData.sampleDataToRaw(state[/* selectedRowFormat */7], selectedNamesEntries$1) : state[/* selectedRawData */9],
                                   /* selectingParsedData */parsedData,
                                   /* selectedParsedData */selectedParsedData,
                                   /* selectingIgnoredRowIndices */match$1[1],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */12],
-                                  /* matchResult */state[/* matchResult */13]
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */13],
+                                  /* matchResult */state[/* matchResult */14]
                                 ]]);
                   case 6 : 
                       var rawData$1 = action[0];
-                      var match$4 = DataParser.parseData(rawData$1, state[/* selectedRowFormat */6], state[/* mutualMatch */3]);
+                      var match$4 = DataParser.parseData(rawData$1, state[/* selectedRowFormat */7], state[/* mutualMatch */4]);
                       var parsedData$1 = match$4[0];
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
                                   /* sampleMenuOpen */false,
-                                  /* mutualMatch */state[/* mutualMatch */3],
-                                  /* matchStrategy */RunMatch.suggestStrategy(state[/* selectingParsedData */9], parsedData$1, state[/* mutualMatch */3]),
-                                  /* selectingRowFormat */state[/* selectingRowFormat */5],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */6],
-                                  /* selectingRawData */state[/* selectingRawData */7],
+                                  /* infoBoxOpen */state[/* infoBoxOpen */3],
+                                  /* mutualMatch */state[/* mutualMatch */4],
+                                  /* matchStrategy */RunMatch.suggestStrategy(state[/* selectingParsedData */10], parsedData$1, state[/* mutualMatch */4]),
+                                  /* selectingRowFormat */state[/* selectingRowFormat */6],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */7],
+                                  /* selectingRawData */state[/* selectingRawData */8],
                                   /* selectedRawData */rawData$1,
-                                  /* selectingParsedData */state[/* selectingParsedData */9],
+                                  /* selectingParsedData */state[/* selectingParsedData */10],
                                   /* selectedParsedData */parsedData$1,
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */11],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */12],
                                   /* selectedIgnoredRowIndices */match$4[1],
-                                  /* matchResult */state[/* matchResult */13]
+                                  /* matchResult */state[/* matchResult */14]
                                 ]]);
                   case 7 : 
                       return /* Update */Block.__(0, [/* record */[
                                   /* selectingName */state[/* selectingName */0],
                                   /* selectedName */state[/* selectedName */1],
                                   /* sampleMenuOpen */state[/* sampleMenuOpen */2],
-                                  /* mutualMatch */state[/* mutualMatch */3],
+                                  /* infoBoxOpen */state[/* infoBoxOpen */3],
+                                  /* mutualMatch */state[/* mutualMatch */4],
                                   /* matchStrategy */action[0],
-                                  /* selectingRowFormat */state[/* selectingRowFormat */5],
-                                  /* selectedRowFormat */state[/* selectedRowFormat */6],
-                                  /* selectingRawData */state[/* selectingRawData */7],
-                                  /* selectedRawData */state[/* selectedRawData */8],
-                                  /* selectingParsedData */state[/* selectingParsedData */9],
-                                  /* selectedParsedData */state[/* selectedParsedData */10],
-                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */11],
-                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */12],
-                                  /* matchResult */state[/* matchResult */13]
+                                  /* selectingRowFormat */state[/* selectingRowFormat */6],
+                                  /* selectedRowFormat */state[/* selectedRowFormat */7],
+                                  /* selectingRawData */state[/* selectingRawData */8],
+                                  /* selectedRawData */state[/* selectedRawData */9],
+                                  /* selectingParsedData */state[/* selectingParsedData */10],
+                                  /* selectedParsedData */state[/* selectedParsedData */11],
+                                  /* selectingIgnoredRowIndices */state[/* selectingIgnoredRowIndices */12],
+                                  /* selectedIgnoredRowIndices */state[/* selectedIgnoredRowIndices */13],
+                                  /* matchResult */state[/* matchResult */14]
                                 ]]);
                   
                 }

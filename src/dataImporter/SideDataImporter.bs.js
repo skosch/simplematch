@@ -165,7 +165,7 @@ function make(rawData, selectingName, selectedName, rowFormat, updateRowFormat, 
                               value: "multiple-rows"
                             }, "Repeated " + ($$String.uncapitalize(selectingName) + (", one " + ($$String.uncapitalize(Pluralize.singular(selectedName)) + " per row")))), React.createElement("option", {
                               value: "columns"
-                            }, "One " + ($$String.uncapitalize(Pluralize.singular(selectingName)) + (" per row, " + (selectedName + " in columns"))))));
+                            }, "One " + ($$String.uncapitalize(Pluralize.singular(selectingName)) + (" per row, " + ($$String.uncapitalize(selectedName) + " in columns"))))));
               } else {
                 tmp$1 = React.createElement("div", {
                       className: "material-select"
