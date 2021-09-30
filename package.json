@@ -51,7 +51,7 @@
     "bs-webapi": "0.8.3",
     "cytoscape": "^3.2.12",
     "easy-scroll": "^0.5.1",
-    "handsontable": "^2.0.0",
+    "handsontable": "^10.0.0",
     "moment": "2.22.0",
     "pluralize": "^7.0.0",
     "react": "16.3.1",
