@@ -52,7 +52,7 @@
     "cytoscape": "^3.2.12",
     "easy-scroll": "^0.5.1",
     "handsontable": "^2.0.0",
-    "moment": "2.22.0",
+    "moment": "2.29.2",
     "pluralize": "^7.0.0",
     "react": "16.3.1",
     "react-cytoscape": "^1.0.6",
